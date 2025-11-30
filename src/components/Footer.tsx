@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-charcoal text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -30,33 +30,29 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Contact Form */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Liên kết nhanh</h3>
+            <h3 className="font-bold text-lg mb-4">Thông tin liên hệ</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/gioi-thieu" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Giới thiệu
+                  Hitek Flycam
+                  <div>Hotline: (+84) 28 99 95 95 88</div>
+                  <div>Email: contact@hitek.com.vn</div>
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Dịch vụ
+                <Link to="/gioi-thieu" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Chief Executive Officer (Mr. Khôi)
+                  <div>Hotline: (+84) 777 50 50 30</div>
+                  <div>Email: khoitran@hitek.com.vn</div>
                 </Link>
               </li>
               <li>
-                <Link to="/tai-lieu" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Tài liệu
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/lien-he" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Liên hệ
+                <Link to="/gioi-thieu" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  General Manager (Ms. Trang)
+                  <div>Hotline: (+84) 346 124 230</div>
+                  <div>Email: trangvo@hitek.com.vn</div>
                 </Link>
               </li>
             </ul>
@@ -91,30 +87,69 @@ export default function Footer() {
                   Nhập khẩu Drone
                 </Link>
               </li>
+              <li>
+                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Quay flycam
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Policy */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Liên hệ</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm">
-                <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="text-white/70">028 99 95 95 88</div>
-                  <div className="text-white/70">034 612 4230</div>
-                </div>
+            <h3 className="font-bold text-lg mb-4">Điều khoản</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/dich-vu/sua-chua-drone" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Điều khoản chung
+                </Link>
               </li>
-              <li className="flex items-center gap-2 text-sm text-white/70">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                info@droneservices.vn
+              <li>
+                <Link to="/dich-vu/drone-trac-dia" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Chính sách bảo mật
+                </Link>
               </li>
-              <li className="flex items-start gap-2 text-sm text-white/70">
-                <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                Tp. Hồ Chí Minh, Việt Nam
+              <li>
+                <Link to="/dich-vu/drone-van-chuyen" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Chính sách an toàn bay
+                </Link>
+              </li>
+              <li>
+                <Link to="/dich-vu/phep-bay" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Điều khoản xin phép bay
+                </Link>
+              </li>
+              <li>
+                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Nhập khẩu Drone
+                </Link>
+              </li>
+              <li>
+                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
+                  Quay flycam
+                </Link>
               </li>
             </ul>
           </div>
+          
+          {/* Connect with us */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="font-bold text-lg">Kết nối với chúng tôi</span>
+            </div>
+            <div className="flex gap-3">
+              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <Youtube className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <Linkedin className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/50">

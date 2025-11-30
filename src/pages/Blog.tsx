@@ -1,5 +1,4 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -31,7 +30,7 @@ const blogPosts = [
   {
     title: "Quy định mới về bay Drone tại Việt Nam",
     excerpt: "Cập nhật những quy định pháp luật mới nhất về hoạt động bay không người lái.",
-    image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1489087433598-048557455f41?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     date: "1 Tháng 3, 2024",
     author: "Phạm Thị D",
     category: "Pháp lý",
@@ -39,7 +38,7 @@ const blogPosts = [
   {
     title: "Xu hướng quay phim Flycam năm 2024",
     excerpt: "Những xu hướng mới trong lĩnh vực quay phim và chụp ảnh bằng drone.",
-    image: "https://images.unsplash.com/photo-1509565840034-3c385bbe6b61?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1456615913800-c33540eac399?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     date: "25 Tháng 2, 2024",
     author: "Hoàng Văn E",
     category: "Nhiếp ảnh",
@@ -57,8 +56,7 @@ const blogPosts = [
 export default function Blog() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
+     
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -115,8 +113,6 @@ export default function Blog() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

@@ -3,6 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
+import FloatingVideo from "@/components/FloatingVideo";
+
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -11,6 +17,13 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
+import DroneRepair from "@/pages/services/DroneRepair";
+import SurveyingDrone from "@/pages/services/SurveyingDrone";
+import DeliveryDrone from "@/pages/services/DeliveryDrone";
+import DroneImport from "@/pages/services/DroneImport";
+import FlightPermitService from "@/pages/services/FlightPermitService";
+import DroneFilming from "@/pages/services/DroneFilming";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -18,8 +31,25 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+
       <BrowserRouter>
+        {/* Hiển thị trên mọi trang */}
+        <FloatingVideo />
+
+        {/* Navbar và HeroSection */}
+        <Navbar />
+        <HeroSection />
+
         <Routes>
+          {/* Các route dịch vụ */}
+          <Route path="/services/drone-repair" element={<DroneRepair />} />
+          <Route path="/services/surveying-drone" element={<SurveyingDrone />} />
+          <Route path="/services/delivery-drone" element={<DeliveryDrone />} />
+          <Route path="/services/drone-import" element={<DroneImport />} />
+          <Route path="/services/flight-permit-service" element={<FlightPermitService />} />
+          <Route path="/services/drone-filming" element={<DroneFilming />} />
+
+          {/* Routes chính */}
           <Route path="/" element={<Home />} />
           <Route path="/gioi-thieu" element={<About />} />
           <Route path="/dich-vu" element={<Services />} />
@@ -27,9 +57,13 @@ const App = () => (
           <Route path="/tai-lieu" element={<Documents />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/lien-he" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {/* Footer luôn ở cuối */}
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

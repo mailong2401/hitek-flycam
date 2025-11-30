@@ -1,5 +1,4 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 import { FileText, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -39,8 +38,7 @@ const documents = [
 export default function Documents() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
+     
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -81,8 +79,6 @@ export default function Documents() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

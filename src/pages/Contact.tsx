@@ -1,5 +1,4 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,8 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -36,6 +33,12 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
+                    Tên công ty
+                  </label>
+                  <Input placeholder="Hitek" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
                     Email
                   </label>
                   <Input type="email" placeholder="email@example.com" />
@@ -51,6 +54,12 @@ export default function Contact() {
                     Dịch vụ quan tâm
                   </label>
                   <Input placeholder="Ví dụ: Sửa chữa drone, Quay flycam..." />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Địa điểm
+                  </label>
+                  <Input placeholder="Hồ Chí Minh" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
@@ -146,8 +155,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

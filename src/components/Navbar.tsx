@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import droneIcon from "@/assets/logo/Drone.webm";
 const services = [
-  { name: "Sửa chữa Drone", path: "/dich-vu/sua-chua-drone" },
-  { name: "Drone Trắc địa", path: "/dich-vu/drone-trac-dia" },
-  { name: "Drone Vận chuyển", path: "/dich-vu/drone-van-chuyen" },
-  { name: "Dịch vụ Phép bay", path: "/dich-vu/phep-bay" },
-  { name: "Nhập khẩu Drone", path: "/dich-vu/nhap-khau" },
-  { name: "Quay Flycam", path: "/dich-vu/quay-flycam" },
+  { name: "Sửa chữa Drone", path: "/services/drone-repair" },
+  { name: "Drone Trắc địa", path: "/services/surveying-drone" },
+  { name: "Drone Vận chuyển", path: "/services/delivery-drone" },
+  { name: "Dịch vụ Phép bay", path: "/services/flight-permit-service" },
+  { name: "Nhập khẩu Drone", path: "/services/drone-import" },
+  { name: "Quay Flycam", path: "/services/drone-filming" },
 ];
 
 export default function Navbar() {
@@ -17,30 +17,41 @@ export default function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-pure-black backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center font-bold text-xl text-primary-foreground">
-              DS
-            </div>
-            <span className="font-bold text-xl text-foreground hidden md:block">
-              Drone Services
-            </span>
-          </Link>
+          <div className="flex gap-10">
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-40 h-40"
+              >
+                <source src={droneIcon} type="video/webm" />
+              </video>
+              {/* Hotline */}
+              <div className="hidden lg:flex items-center gap-2 text-foreground">
+                <Phone className="w-5 h-5 text-vibrant-red" />
+                <div className="text-vibrant-red font-medium">
+                  <div>028 99 95 95 88</div>
+                  <div>034 612 4230</div>
+                </div>
+              </div>
+          </div>
+          
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             <Link
               to="/"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-pure-white hover:text-vibrant-red transition-colors font-medium"
             >
               Trang chủ
             </Link>
             <Link
               to="/gioi-thieu"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-pure-white hover:text-vibrant-red transition-colors font-medium"
             >
               Giới thiệu
             </Link>
@@ -53,17 +64,17 @@ export default function Navbar() {
             >
               <Link
                 to="/dich-vu"
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-pure-white hover:text-vibrant-red transition-colors font-medium"
               >
                 Dịch vụ
               </Link>
               {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card rounded-lg shadow-lg border border-border overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 w-64 bg-card rounded-lg shadow-lg border border-border overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                   {services.map((service) => (
                     <Link
                       key={service.path}
                       to={service.path}
-                      className="block px-4 py-3 text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                      className="block px-4 py-3 text-pure-black hover:text-vibrant-red hover:text-vibrant-red-pure-white transition-colors"
                     >
                       {service.name}
                     </Link>
@@ -74,31 +85,22 @@ export default function Navbar() {
 
             <Link
               to="/tai-lieu"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-pure-white hover:text-vibrant-red transition-colors font-medium"
             >
               Tài liệu
             </Link>
             <Link
               to="/blog"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-pure-white hover:text-vibrant-red transition-colors font-medium"
             >
               Blog
             </Link>
             <Link
               to="/lien-he"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-pure-white hover:text-vibrant-red transition-colors font-medium"
             >
               Liên hệ
             </Link>
-          </div>
-
-          {/* Hotline */}
-          <div className="hidden lg:flex items-center gap-2 text-foreground">
-            <Phone className="w-5 h-5 text-primary" />
-            <div className="text-sm font-medium">
-              <div>028 99 95 95 88</div>
-              <div>034 612 4230</div>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}

@@ -60,6 +60,12 @@ export default {
           DEFAULT: "hsl(var(--orange-accent))",
           hover: "hsl(var(--orange-accent-hover))",
         },
+        // NEW COLORS - Thêm các màu mới vào đây
+        "pure-black": "hsl(var(--pure-black))",
+        "warm-gray": "hsl(var(--warm-gray))",
+        "vibrant-red": "hsl(var(--vibrant-red))",
+        "light-gray": "hsl(var(--light-gray))",
+        "pure-white": "hsl(var(--pure-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
