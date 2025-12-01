@@ -2,28 +2,32 @@
 import { Wrench, Clock, Shield, CheckCircle, ArrowRight, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
+import bg from "@/assets/services/video/fix.png"
+import camcorder from "@/assets/services/video/camcorder.png"
+import event from "@/assets/services/video/event.png"
+import film from "@/assets/services/video/film.png"
+import journey from "@/assets/services/video/journey.png"
 export default function DroneFilming() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const features = [
     {
-      icon: Wrench,
+      icon: camcorder,
       title: "Quay TVC & quảng cáo doanh nghiệp.",
       description: "Resort, khu công nghiệp, bất động sản, nhà máy"
     },
     {
-      icon: Clock,
+      icon: journey,
       title: "Chụp ảnh/clip du lịch, quảng bá địa phương.",
       description: "Toàn cảnh, panorama, fly-through."
     },
     {
-      icon: Shield,
+      icon: event,
       title: "Ghi hình sự kiện & lễ hội",
       description: "Quay đa góc, trực tiếp (livestream) bằng nhiều drone"
     },
     {
-      icon: Shield,
+      icon: film,
       title: "Xử lý hậu kì",
       description: "Chỉnh màu điện ảnh, dựng video, lồng tiếng, motion logo"
     }
@@ -120,10 +124,34 @@ export default function DroneFilming() {
 
   return (
     <div className="min-h-screen bg-background">
-     
+     <div className="pt-20">
+      <div className="relative h-[400px] overflow-hidden">
+
+        {/* Lớp bóng mờ màu đen */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black opacity-60" />
+
+        {/* Ảnh nền */}
+        <img
+          src={bg}
+          alt="Drone in sky"
+          className="w-full h-full object-cover object-[center_60%]"
+        />
+
+        {/* Nội dung ở giữa */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          
+
+          <div className="text-white text-center">
+            <h1 className="text-6xl font-bold mb-4">NHẬU KHẨU DRONE</h1>
+            <p className="text-2xl opacity-90">Giải pháp nhập khẩu, phân phối và tư vấn lựa chọn thiết bị drone công nghiệp, <br />giúp
+doanh nghiệp sở hữu thiết bị hợp pháp, chính hãng, tối ưu cho từng lĩnh vực sử dụng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-vibrant-red mb-4">
@@ -136,8 +164,12 @@ export default function DroneFilming() {
                 key={index}
                 className="bg-card rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border"
               >
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <img
+                    src={feature.icon}
+                    alt={feature.title}
+                    className="w-20 h-20 object-cover "
+                  />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">
                   {feature.title}
@@ -152,7 +184,7 @@ export default function DroneFilming() {
       </section>
 
       {/* Process Section - Timeline Vertical */}
-<section className="py-20 bg-secondary">
+<section className="py-20 bg-pure-white">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
       <h2 className="text-4xl font-bold text-vibrant-red mb-4">
@@ -197,7 +229,7 @@ export default function DroneFilming() {
 </section>
 
       {/* Benefits Section */}
-        <section className="py-20">
+        <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center text-vibrant-red mb-16">
             Lợi ích dành cho khách hàng
@@ -228,7 +260,7 @@ export default function DroneFilming() {
         </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-foreground mb-16">

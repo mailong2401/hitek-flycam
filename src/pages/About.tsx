@@ -1,11 +1,18 @@
 import { Target, Users, TrendingUp, Award, ArrowRight, Quote } from "lucide-react";
-
+import { Link } from "react-router-dom";
+import long from "@/assets/team/Long.png";
+import khoi from "@/assets/team/Khoi.png";
+import sean from "@/assets/team/Sean.png";
+import bg from "@/assets/about_us/hero.png";
+import hero2 from "@/assets/about_us/team.png";
+import logo_hitek from "@/assets/about_us/logo_hitek.png";
+import logobg from "@/assets/logo/camera-drone.png";
 export default function About() {
   const teamMembers = [
     {
       name: "Lâm Thứ Tiên",
       position: "Chủ tịch",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+      image: long,
       info: [
         "Hơn 10 năm kinh nghiệm lãnh đạo và điều hành doanh nghiệp.",
         "Nền tảng vững chắc trong lĩnh vực kinh doanh và phát triển công nghệ.",
@@ -14,7 +21,7 @@ export default function About() {
     {
       name: "Trần Anh Khôi",
       position: "Tổng giám đốc", 
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=400&q=80",
+      image: khoi,
       info: [
         "Hơn 10 năm kinh nghiệm trong lĩnh vực công nghệ.",
         "Nhà sáng lập của nhiều doanh nghiệp tiên phong, những giải pháp “lần đầu tiên có mặt tại Việt Nam.",
@@ -23,7 +30,7 @@ export default function About() {
     {
       name: "Oh Sean Beom",
       position: "Giám đốc Kinh doanh",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      image: sean,
       info: [
         "Hơn 10 năm kinh nghiệm phát triển công nghệ.",
         "Năng lực lãnh đạo mạnh mẽ.",
@@ -34,9 +41,32 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="pt-20">
+      <div className="relative h-[400px] overflow-hidden">
 
+        {/* Lớp bóng mờ màu đen */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black opacity-40" />
+
+        {/* Ảnh nền */}
+        <img
+          src={bg}
+          alt="Drone in sky"
+          className="w-full h-full object-cover object-[center_80%]"
+        />
+
+        {/* Nội dung ở giữa */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img src={logobg} alt="" className="h-50 w-50 mr-5" />
+
+          {/* <div className="text-white text-right">
+            <h1 className="text-6xl font-bold mb-4">HITEK FLYCAM</h1>
+            <p className="text-2xl opacity-90">THE DRONE EXPERTS</p>
+          </div> */}
+        </div>
+      </div>
+    </div>
       {/* Khối 1: Tiêu đề, text và hình ảnh */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -62,7 +92,7 @@ export default function About() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80"
+                src={hero2}
                 alt="Drone technology"
                 className="rounded-2xl shadow-2xl"
               />
@@ -72,7 +102,7 @@ export default function About() {
       </section>
 
       {/* Khối 2: Nhiều hình ảnh */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="grid grid-cols-2 gap-4">
@@ -107,7 +137,7 @@ export default function About() {
       </section>
 
       {/* Khối 3: Có đường link click được */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -136,19 +166,18 @@ export default function About() {
                   </p>
                 </div>
               </div>
-              <a 
-                href="/services" 
-                className="inline-flex items-center gap-2 text-vibrant-red font-semibold hover:text-vibrant-red/80 transition-colors group"
-              >
-                Khám phá dịch vụ của chúng tôi
-                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-              </a>
+              <Link to="/dich-vu">
+                <div className="flex items-center text-vibrant-red font-semibold cursor-pointer hover:underline group">
+                  Tìm hiểu thêm
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
             </div>
-            <div className="relative">
+            <div className="relative flex justify-end">
               <img
-                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80"
+                src={logo_hitek}
                 alt="Future vision"
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl w-[500px] h-[500px] border-4 border-vibrant-red"
               />
               
             </div>
@@ -157,7 +186,7 @@ export default function About() {
       </section>
 
       {/* Khối 4: Châm ngôn */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <Quote className="w-12 h-12 text-vibrant-red mx-auto mb-6" />
@@ -173,7 +202,7 @@ export default function About() {
       </section>
 
       {/* Khối 5: Đội ngũ lãnh đạo */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-foreground mb-16">
             Đội ngũ lãnh đạo
@@ -184,7 +213,7 @@ export default function About() {
                 key={index}
                 className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20">
+                <div className="w-60 h-60 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20">
                   <img
                     src={member.image}
                     alt={member.name}

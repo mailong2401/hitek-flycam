@@ -2,23 +2,26 @@
 import { Wrench, Clock, Shield, CheckCircle, ArrowRight, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
+import fix from "@/assets/services/repairing_drone/fix.png";
+import icon1 from "@/assets/services/repairing_drone/icon1.png";
+import icon2 from "@/assets/services/repairing_drone/icon2.png";
+import icon3 from "@/assets/services/repairing_drone/icon3.png";
 export default function DroneRepair() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const features = [
     {
-      icon: Wrench,
+      icon: icon2,
       title: "Kiểm tra & Thay thế linh kiện",
       description: "Kiểm tra tổng thể, chẩn đoán lỗi, thay thế linh kiện"
     },
     {
-      icon: Clock,
+      icon: icon3,
       title: "Cập nhật & Hiệu chuẩn hệ thống bay",
       description: "Cập nhật phần mềm, hiệu chuẩn cảm biến IMU, compass, hệ thống GPS"
     },
     {
-      icon: Shield,
+      icon: icon1,
       title: "Kiểm tra an toàn & Bảo hành sau sữa chữa",
       description: "Kiểm tra an toàn trước và sau bay, bảo hành dịch vụ sửa chữa"
     }
@@ -85,19 +88,19 @@ export default function DroneRepair() {
   const faqs = [
     {
       question: "Bao lâu nên thực hiện bảo trì drone một lần?",
-      answer: "Thời gian sửa chữa phụ thuộc vào mức độ hỏng hóc. Với lỗi nhẹ: 2-4 giờ, lỗi vừa: 6-12 giờ, lỗi nặng: 24-48 giờ. Chúng tôi luôn cố gắng hoàn thành sớm nhất có thể."
+      answer: "chưa có"
     },
     {
       question: "Drone bị lệch hướng hoặc GPS kém có sửa được không?",
-      answer: "Có. Tất cả dịch vụ sửa chữa đều được bảo hành từ 6-24 tháng tùy loại hình sửa chữa. Linh kiện thay thế được bảo hành theo chính sách của hãng."
+      answer: "chưa có"
     },
     {
       question: "Có nhận kiểm tra online hoặc gửi thiết bị từ xa được không?",
-      answer: "100% linh kiện thay thế là chính hãng, được nhập khẩu trực tiếp từ các đối tác uy tín. Chúng tôi cam kết không sử dụng linh kiện giả, nhái kém chất lượng."
+      answer: "chưa có"
     },
     {
       question: "Có bảo hành sau khi sửa chữa không?",
-      answer: "Có dịch vụ sửa chữa tại nhà/khu vực TP.HCM và Hà Nội với phí dịch vụ. Tuy nhiên, để đảm bảo chất lượng, chúng tôi khuyến nghị mang đến trung tâm để có thiết bị chuyên dụng."
+      answer: "chưa có"
     },
   ];
 
@@ -107,10 +110,37 @@ export default function DroneRepair() {
 
   return (
     <div className="min-h-screen bg-background">
-      
+      <div className="pt-20">
+      <div className="relative h-[400px] overflow-hidden">
+
+        {/* Lớp bóng mờ màu đen */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black opacity-20" />
+
+        {/* Ảnh nền */}
+        <img
+          src={fix}
+          alt="Drone in sky"
+          className="w-full h-full object-cover"
+        />
+
+        {/* Nội dung ở giữa */}
+        <div className="absolute inset-0 flex items-center justify-center">
+        
+
+          <div className="text-white text-center">
+            <h1 className="text-6xl font-bold mb-4">SỬA CHỮA DRONE</h1>
+            <p className="text-2xl opacity-90">Dịch vụ sửa chữa và bảo trì Drone chuyên 
+              nghiệp, giúp thiết bị của bạn luôn trong<br /> tình trạng ổn định, an toàn và đạt 
+              hiệu suất cao nhất
+            </p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -124,8 +154,12 @@ export default function DroneRepair() {
                 key={index}
                 className="bg-card rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border"
               >
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <img 
+                    src={feature.icon} 
+                    alt={feature.title}
+                    className="w-20 h-20 object-contain"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">
                   {feature.title}
@@ -140,7 +174,7 @@ export default function DroneRepair() {
       </section>
 
       {/* Process Section - Timeline Vertical */}
-<section className="py-20 bg-secondary">
+<section className="py-20 bg-pure-white">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
       <h2 className="text-4xl font-bold text-vibrant-red mb-4">
@@ -185,10 +219,11 @@ export default function DroneRepair() {
 </section>
 
       {/* Benefits Section */}
-        <section className="py-20">
+        <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center text-vibrant-red mb-16">
-            Lợi ích cho khách hàng
+            Lợi ích
+            <span className="text-pure-black"> cho khách hàng</span>
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -196,7 +231,7 @@ export default function DroneRepair() {
                 key={index}
                 className="relative text-center"
                 >
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-vibrant-red rounded-full flex items-center justify-center mx-auto mb-6">
                     <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-pure-black">
@@ -216,7 +251,7 @@ export default function DroneRepair() {
         </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-foreground mb-16">

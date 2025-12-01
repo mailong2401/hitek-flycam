@@ -2,8 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -26,6 +26,44 @@ import DroneFilming from "@/pages/services/DroneFilming";
 
 const queryClient = new QueryClient();
 
+// Component con để dùng useLocation
+const AppContent = () => {
+  const location = useLocation();
+
+  // Chỉ hiện HeroSection trên những route này
+  const showHeroOn = ["/", "/dich-vu"];
+  const showHero = showHeroOn.includes(location.pathname);
+
+  return (
+    <>
+      <Navbar />
+      {showHero && <HeroSection />}
+      <Routes>
+        {/* Các route dịch vụ */}
+        <Route path="/services/drone-repair" element={<DroneRepair />} />
+        <Route path="/services/surveying-drone" element={<SurveyingDrone />} />
+        <Route path="/services/delivery-drone" element={<DeliveryDrone />} />
+        <Route path="/services/drone-import" element={<DroneImport />} />
+        <Route path="/services/flight-permit-service" element={<FlightPermitService />} />
+        <Route path="/services/drone-filming" element={<DroneFilming />} />
+
+        {/* Routes chính */}
+        <Route path="/" element={<Home />} />
+        <Route path="/gioi-thieu" element={<About />} />
+        <Route path="/dich-vu" element={<Services />} />
+        <Route path="/dich-vu/:slug" element={<Services />} />
+        <Route path="/tai-lieu" element={<Documents />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/lien-he" element={<Contact />} />
+
+        {/* 404 */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -33,37 +71,9 @@ const App = () => (
       <Sonner />
 
       <BrowserRouter>
-        {/* Hiển thị trên mọi trang */}
         <FloatingVideo />
-
-        {/* Navbar và HeroSection */}
-        <Navbar />
-        <HeroSection />
-
-        <Routes>
-          {/* Các route dịch vụ */}
-          <Route path="/services/drone-repair" element={<DroneRepair />} />
-          <Route path="/services/surveying-drone" element={<SurveyingDrone />} />
-          <Route path="/services/delivery-drone" element={<DeliveryDrone />} />
-          <Route path="/services/drone-import" element={<DroneImport />} />
-          <Route path="/services/flight-permit-service" element={<FlightPermitService />} />
-          <Route path="/services/drone-filming" element={<DroneFilming />} />
-
-          {/* Routes chính */}
-          <Route path="/" element={<Home />} />
-          <Route path="/gioi-thieu" element={<About />} />
-          <Route path="/dich-vu" element={<Services />} />
-          <Route path="/dich-vu/:slug" element={<Services />} />
-          <Route path="/tai-lieu" element={<Documents />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/lien-he" element={<Contact />} />
-
-          {/* 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-
-        {/* Footer luôn ở cuối */}
-        <Footer />
+        <ScrollToTop />
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

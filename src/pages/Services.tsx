@@ -1,19 +1,41 @@
-import { Wrench, MapPin, Package, FileCheck, Import, Video, Calendar, User, ArrowRight } from "lucide-react";
+import { Wrench, MapPin, Package, FileCheck, Import, Video, Calendar, User, ArrowRight, Network, AppWindowMac, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import image1 from "@/assets/bg-cut/flycam1.jpg"
-import image2 from '@/assets/bg-cut/flycam2.jpg';
-import image3 from '@/assets/bg-cut/flycam3.jpg';
-import image4 from '@/assets/bg-cut/flycam4.jpg';
-import image5 from '@/assets/bg-cut/flycam5.jpg';
-import logobg from '@/assets/logo/camera-drone.png';
+import { Link } from "react-router-dom";
+import image1 from "@/assets/bg_cut/flycam1.jpg"
+import image2 from '@/assets/bg_cut/flycam2.jpg';
+import image3 from '@/assets/bg_cut/flycam3.jpg';
+import image4 from '@/assets/bg_cut/flycam4.jpg';
+import image5 from '@/assets/bg_cut/flycam5.jpg';
+import buy from '@/assets/services/icon1/buy.png'
+import map from '@/assets/services/icon1/map.png';
+import delivery from '@/assets/services/icon1/delivery.png';
+import camera from '@/assets/services/icon1/camera.png';
+import listence from '@/assets/services/icon1/listence.png';
+import repair from '@/assets/services/icon1/repair.png';
 
+import tech from '@/assets/services/icon2/tech.png'
+import group from '@/assets/services/icon2/group.png';
+import app from '@/assets/services/icon2/app.png';
+import security from '@/assets/services/icon2/security.png';
+import engineer from '@/assets/services/icon2/engineer.png';
+import fix from '@/assets/services/icon2/fix.png';
+
+// Tạo mapping giữa service và route
+const serviceRoutes = {
+  "Sửa chữa drone": "/services/drone-repair",
+  "Drone trắc địa": "/services/surveying-drone", 
+  "Drone vận chuyển": "/services/delivery-drone",
+  "Dịch vụ Phép bay.": "/services/flight-permit-service",
+  "Nhập khẩu Drone.": "/services/drone-import",
+  "Quay flycam": "/services/drone-filming"
+};
 const iconServices = [
-  { icon: Wrench, label: "Sửa chữa drone" },
-  { icon: MapPin, label: "Drone trắc địa" },
-  { icon: Package, label: "Drone vận chuyển" },
-  { icon: FileCheck, label: "Dịch vụ phép bay" },
-  { icon: Import, label: "Nhập khẩu drone" },
-  { icon: Video, label: "Quay flycam" },
+  { icon: repair, label: "Sửa chữa drone" },
+  { icon: map, label: "Drone trắc địa" },
+  { icon: delivery, label: "Drone vận chuyển" },
+  { icon: listence, label: "Dịch vụ phép bay" },
+  { icon: buy, label: "Nhập khẩu drone" },
+  { icon: camera, label: "Quay flycam" },
 ];
 
 const serviceCards = [
@@ -46,32 +68,32 @@ const serviceCards = [
 
 const detailedServices = [
   {
-    icon: Wrench,
+    icon: tech,
     title: "Công nghệ tiên phong",
     description: "Tích hợp AI, RTK, Lidar, GPS thời gian thực trong mọi giải pháp bay. Đem lại dữ liệu chính xác, vận hành an toàn và hiệu suất vượt trội.",
   },
   {
-    icon: MapPin,
+    icon: engineer,
     title: "Đội ngũ chuyên gia",
     description: "Kỹ sư, phi công và kỹ thuật viên được đào tạo bài bản, đảm bảo chuyên môn cao và quy trình kỹ thuật chuẩn quốc tế.",
   },
   {
-    icon: Package,
+    icon: fix,
     title: "Dịch vụ trọn gói",
     description: "Từ xin phép – bay – bảo trì – nhập khẩu – bàn giao dữ liệu, Hitek Flycam đồng hành cùng khách hàng ở mọi giai đoạn của dự án.",
   },
   {
-    icon: FileCheck,
+    icon: security,
     title: "An toàn pháp lý",
     description: "Tất cả chuyến bay đều được cấp phép hợp pháp và bảo hiểm đầy đủ, đảm bảo tuân thủ quy định của Bộ Quốc phòng và cơ quan quản lý.",
   },
   {
-    icon: Import,
+    icon: group,
     title: "Hệ sinh thái Hitek Group",
     description: "Là thành viên của tập đoàn công nghệ Hitek Group, Hitek Flycam thừa hưởng hạ tầng mạnh, năng lực AI & chất lượng quốc tế.",
   },
   {
-    icon: Video,
+    icon: app,
     title: "Ứng dụng đa nghành",
     description: "Từ truyền thông – xây dựng – nông nghiệp – logistics, Hitek Flycam thiết kế giải pháp Drone tùy chỉnh cho từng mục tiêu kinh doanh.",
   },
@@ -175,18 +197,23 @@ export default function Services() {
     <div className="min-h-screen bg-background">
 
       {/* 5 Icons Section */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {iconServices.map((service, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center p-6 bg-card rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="flex flex-col items-center justify-center p-6 bg-pure-white rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <service.icon className="w-8 h-8 text-primary-foreground" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  {/* Sửa thành: */}
+                <img 
+                  src={service.icon} 
+                  alt={service.label}
+                  className="w-20 h-20 object-contain"
+                />
                 </div>
-                <p className="text-center font-semibold text-foreground">{service.label}</p>
+                <p className="text-center font-semibold text-pure-black">{service.label}</p>
               </div>
             ))}
           </div>
@@ -194,26 +221,28 @@ export default function Services() {
       </section>
 
       {/* Text Block with Title Left, Content Right */}
-      <section className="py-16">
+      <section className="py-16 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="flex">
-              <div className="w-1 h-24 bg-vibrant-red mr-6 rounded-full" />
+              <div className="w-1 h-30 bg-vibrant-red mr-6 rounded-full" />
               <div>
-                <h2 className="text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-4xl font-bold text-pure-black mb-4">
                   Hitek Flycam
                 </h2>
-                <p className="text-lg text-muted-foreground mb-4">
+                <p className="text-lg text-pure-black mb-4">
                   Cung cấp dịch vụ chuyên nghiệp <br />
                   & Giải pháp toàn diện về Drone
                 </p>
-                <div className="flex items-center text-vibrant-red font-semibold cursor-pointer hover:underline">
-                  Tìm hiểu thêm
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </div>
+                <Link to="/gioi-thieu">
+                  <div className="flex items-center text-vibrant-red font-semibold cursor-pointer hover:underline group">
+                    Tìm hiểu thêm
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
               </div>
             </div>
-            <div className="space-y-4 text-foreground">
+            <div className="space-y-4 text-pure-black">
               <p>
                 <span className="font-bold">Hitek Flycam </span>
                 là thương hiệu trực thuộc 
@@ -236,9 +265,9 @@ export default function Services() {
       </section>
 
       {/* 5 Interactive Cards Section */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+          <h2 className="text-4xl font-bold text-center mb-12 text-pure-black">
             Chúng tôi cung cấp các giải pháp
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-1">
@@ -277,10 +306,12 @@ export default function Services() {
                       <p className="text-pure-white text-2xl font-bold mb-2">{card.description}</p>
                       <p className="text-pure-white text-sm mb-6 leading-relaxed">{card.detail}</p>
                     </div>
-                    <button className="bg-white text-vibrant-red font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 w-full text-base text-left flex items-center justify-between group/btn">
-                      <span>Tìm hiểu thêm</span>
-                      <span className="transform group-hover/btn:translate-x-1 transition-transform">→</span>
-                    </button>
+                    <Link to={serviceRoutes[card.description]}>
+                      <button className="bg-white text-vibrant-red font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 w-full text-base text-left flex items-center justify-between group/btn">
+                        <span>Tìm hiểu thêm</span>
+                        <span className="transform group-hover/btn:translate-x-1 transition-transform">→</span>
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -290,9 +321,9 @@ export default function Services() {
       </section>
 
       {/* 6 Service Boxes with Icons */}
-      <section className="py-16">
+      <section className="py-16 bg-pure-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+          <h2 className="text-4xl font-bold text-center mb-12 text-pure-black">
             Tại sao nên chọn
             <span className="text-vibrant-red"> Hitek Flycam</span>
             ?
@@ -303,11 +334,15 @@ export default function Services() {
                 key={index}
                 className="bg-card rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border"
               >
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <img 
+                    src={service.icon} 
+                    alt={service.title}
+                    className="w-20 h-20 object-contain"
+                  />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-foreground">{service.title}</h3>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold mb-3 text-pure-black">{service.title}</h3>
+                <p className="text-\-pure-black mb-6">{service.description}</p>
                 <Button className="w-full">Tìm hiểu thêm</Button>
               </div>
             ))}
@@ -316,11 +351,11 @@ export default function Services() {
       </section>
 
       {/* Dự án tiêu biểu */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-4">Dự án tiêu biểu
+              <h2 className="text-4xl font-bold text-pure-black mb-4">Dự án tiêu biểu
                 <span className="text-vibrant-red"> Hitek FLycam</span>
                 ?
               </h2>
@@ -344,13 +379,13 @@ export default function Services() {
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-vibrant-red text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-vibrant-red text-pure-white px-3 py-1 rounded-full text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+                  <h3 className="text-xl font-bold text-pure-black mb-3 line-clamp-2">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground mb-4 line-clamp-2">
@@ -367,10 +402,10 @@ export default function Services() {
       </section>
 
       {/* Khách hàng tin tưởng */}
-      <section className="py-16">
+      <section className="py-16 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Khách hàng của
+            <h2 className="text-4xl font-bold text-pure-black mb-4">Khách hàng của
             <span className="text-vibrant-red"> Hitek Flycam</span>
             ?
             </h2>
@@ -391,7 +426,7 @@ export default function Services() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{client.name}</h3>
+                <h3 className="text-lg font-bold text-pure-black mb-2">{client.name}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{client.project}</p>
                 <p className="text-xs text-muted-foreground italic line-clamp-3">
                   "{client.feedback}"
@@ -403,7 +438,7 @@ export default function Services() {
       </section>
 
       {/* Tin tức & Sự kiện */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
             <div>

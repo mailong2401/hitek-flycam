@@ -2,23 +2,26 @@
 import { Wrench, Clock, Shield, CheckCircle, ArrowRight, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
+import fix from "@/assets/services/surveying_drone/Drone_TĐ.png";
+import map from "@/assets/services/surveying_drone/map.png";
+import survey from "@/assets/services/surveying_drone/survey.png";
+import trend from "@/assets/services/surveying_drone/trend.png";
 export default function SurveyingDrone() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const features = [
     {
-      icon: Wrench,
+      icon: survey,
       title: "Khảo sát địa hình phục vụ xây dựng, quy hoạch đô thị, mỏ khai thác.",
       description: "Kiểm tra tổng thể, chẩn đoán lỗi, thay thế linh kiện"
     },
     {
-      icon: Clock,
+      icon: map,
       title: "Lập bản đồ 2D/3D, mô hình mặt đất (DEM/DTM), orthophoto và mesh 3D.",
       description: "Cập nhật phần mềm, hiệu chuẩn cảm biến IMU, compass, hệ thống GPS"
     },
     {
-      icon: Shield,
+      icon: trend,
       title: "Đo diện tích, thể tích khối vật liệu, giám sát tiến độ thi công.",
       description: "Kiểm tra an toàn trước và sau bay, bảo hành dịch vụ sửa chữa"
     }
@@ -76,23 +79,23 @@ export default function SurveyingDrone() {
   const faqs = [
     {
       question: "Ưu điểm của Drone Trắc địa so với phương pháp truyền thống?",
-      answer: "Thời gian sửa chữa phụ thuộc vào mức độ hỏng hóc. Với lỗi nhẹ: 2-4 giờ, lỗi vừa: 6-12 giờ, lỗi nặng: 24-48 giờ. Chúng tôi luôn cố gắng hoàn thành sớm nhất có thể."
+      answer: "chưa có"
     },
     {
       question: "Quy trình khảo sát mất thời gian bao lâu?",
-      answer: "Có. Tất cả dịch vụ sửa chữa đều được bảo hành từ 6-24 tháng tùy loại hình sửa chữa. Linh kiện thay thế được bảo hành theo chính sách của hãng."
+      answer: "chưa có"
     },
     {
       question: "Drone của Hitek Flycam đạt độ chính xác như thế nào?",
-      answer: "100% linh kiện thay thế là chính hãng, được nhập khẩu trực tiếp từ các đối tác uy tín. Chúng tôi cam kết không sử dụng linh kiện giả, nhái kém chất lượng."
+      answer: "chưa có"
     },
     {
       question: "Dữ liệu đầu ra gồm những loại nào?",
-      answer: "Có dịch vụ sửa chữa tại nhà/khu vực TP.HCM và Hà Nội với phí dịch vụ. Tuy nhiên, để đảm bảo chất lượng, chúng tôi khuyến nghị mang đến trung tâm để có thiết bị chuyên dụng."
+      answer: "chưa có"
     },,
     {
       question: "Dữ liệu đầu ra có thể tích hợp vào phần mềm thiết kế không?",
-      answer: "Có dịch vụ sửa chữa tại nhà/khu vực TP.HCM và Hà Nội với phí dịch vụ. Tuy nhiên, để đảm bảo chất lượng, chúng tôi khuyến nghị mang đến trung tâm để có thiết bị chuyên dụng."
+      answer: "chưa có"
     },
   ];
 
@@ -102,10 +105,34 @@ export default function SurveyingDrone() {
 
   return (
     <div className="min-h-screen bg-background">
-      
+      <div className="pt-20">
+      <div className="relative h-[400px] overflow-hidden">
 
+        {/* Lớp bóng mờ màu đen */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black opacity-20" />
+
+        {/* Ảnh nền */}
+        <img
+          src={fix}
+          alt="Drone in sky"
+          className="w-full h-full object-cover object-[center_80%]"
+        />
+
+        {/* Nội dung ở giữa */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          
+
+          <div className="text-white text-center">
+            <h1 className="text-6xl font-bold mb-4">DRONE TRẮC ĐỊA</h1>
+            <p className="text-2xl opacity-90">Giải pháp khảo sát và lập bản đồ kỹ thuật bằng drone, sử dụng công nghệ Lidar,
+RTK-GPS và <br />chụp ảnh đa phổ giúp thu thập dữ liệu không gian với độ chính xác cao</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -119,8 +146,12 @@ export default function SurveyingDrone() {
                 key={index}
                 className="bg-card rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border"
               >
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <img
+                    src={feature.icon}
+                    alt={feature.title}
+                    className="w-20 h-20 object-contain"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">
                   {feature.title}
@@ -135,7 +166,7 @@ export default function SurveyingDrone() {
       </section>
 
       {/* Process Section - Timeline Vertical */}
-<section className="py-20 bg-secondary">
+<section className="py-20 bg-pure-white">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
       <h2 className="text-4xl font-bold text-vibrant-red mb-4">
@@ -180,7 +211,7 @@ export default function SurveyingDrone() {
 </section>
 
       {/* Benefits Section */}
-        <section className="py-20">
+        <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center text-vibrant-red mb-16">
             Lợi ích & cam kết
@@ -191,7 +222,7 @@ export default function SurveyingDrone() {
                 key={index}
                 className="relative text-center"
                 >
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-vibrant-red rounded-full flex items-center justify-center mx-auto mb-6">
                     <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <p className="text-pure-black">
@@ -211,7 +242,7 @@ export default function SurveyingDrone() {
         </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-foreground mb-16">

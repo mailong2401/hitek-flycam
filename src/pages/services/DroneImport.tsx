@@ -2,7 +2,7 @@
 import { Wrench, Clock, Shield, CheckCircle, ArrowRight, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-
+import bg from "@/assets/services/importing_drone/bg.jpg";
 export default function DroneImport() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -72,19 +72,19 @@ export default function DroneImport() {
   const faqs = [
     {
       question: "Hitek Flycam nhập khẩu những thương hiệu nào?",
-      answer: "Thời gian sửa chữa phụ thuộc vào mức độ hỏng hóc. Với lỗi nhẹ: 2-4 giờ, lỗi vừa: 6-12 giờ, lỗi nặng: 24-48 giờ. Chúng tôi luôn cố gắng hoàn thành sớm nhất có thể."
+      answer: "chưa có"
     },
     {
       question: "Thủ tục nhập khẩu gồm những gì?",
-      answer: "Có. Tất cả dịch vụ sửa chữa đều được bảo hành từ 6-24 tháng tùy loại hình sửa chữa. Linh kiện thay thế được bảo hành theo chính sách của hãng."
+      answer: "chưa có"
     },
     {
       question: "Drone có được bảo hành chính hãng không?",
-      answer: "100% linh kiện thay thế là chính hãng, được nhập khẩu trực tiếp từ các đối tác uy tín. Chúng tôi cam kết không sử dụng linh kiện giả, nhái kém chất lượng."
+      answer: "chưa có"
     },
     {
       question: "Có hỗ trợ nào sau khi bàn giao thiết bị không?",
-      answer: "Có dịch vụ sửa chữa tại nhà/khu vực TP.HCM và Hà Nội với phí dịch vụ. Tuy nhiên, để đảm bảo chất lượng, chúng tôi khuyến nghị mang đến trung tâm để có thiết bị chuyên dụng."
+      answer: "chưa có"
     },
   ];
 
@@ -94,10 +94,34 @@ export default function DroneImport() {
 
   return (
     <div className="min-h-screen bg-background">
-     
+     <div className="pt-20">
+      <div className="relative h-[400px] overflow-hidden">
+
+        {/* Lớp bóng mờ màu đen */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black opacity-80" />
+
+        {/* Ảnh nền */}
+        <img
+          src={bg}
+          alt="Drone in sky"
+          className="w-full h-full object-cover object-[center_80%]"
+        />
+
+        {/* Nội dung ở giữa */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          
+
+          <div className="text-white text-center">
+            <h1 className="text-6xl font-bold mb-4">NHẬU KHẨU DRONE</h1>
+            <p className="text-2xl opacity-90">Giải pháp nhập khẩu, phân phối và tư vấn lựa chọn thiết bị drone công nghiệp, <br />giúp
+doanh nghiệp sở hữu thiết bị hợp pháp, chính hãng, tối ưu cho từng lĩnh vực sử dụng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-vibrant-red mb-4">
@@ -126,7 +150,7 @@ export default function DroneImport() {
       </section>
 
       {/* Process Section - Timeline Vertical */}
-<section className="py-20 bg-secondary">
+<section className="py-20 bg-pure-white">
   <div className="container mx-auto px-4">
     <div className="text-center mb-16">
       <h2 className="text-4xl font-bold text-vibrant-red mb-4">
@@ -171,7 +195,7 @@ export default function DroneImport() {
 </section>
 
       {/* Benefits Section */}
-        <section className="py-20">
+        <section className="py-20 bg-light-gray">
         <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center text-vibrant-red mb-16">
             Lợi ích dành cho khách hàng
@@ -202,7 +226,7 @@ export default function DroneImport() {
         </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-pure-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-foreground mb-16">
