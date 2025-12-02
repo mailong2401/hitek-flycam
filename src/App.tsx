@@ -9,6 +9,10 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import FloatingVideo from "@/components/FloatingVideo";
 
+import { AuthProvider } from './contexts/AuthContext'
+import ProtectedRoute from "./components/admin/ProtectedRoute";
+
+// Import public pages
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -17,12 +21,19 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
+// Import service pages
 import DroneRepair from "@/pages/services/DroneRepair";
 import SurveyingDrone from "@/pages/services/SurveyingDrone";
 import DeliveryDrone from "@/pages/services/DeliveryDrone";
 import DroneImport from "@/pages/services/DroneImport";
 import FlightPermitService from "@/pages/services/FlightPermitService";
 import DroneFilming from "@/pages/services/DroneFilming";
+
+// Import admin pages
+import AdminLogin from "./pages/admin/AdminLogin";
+import Dashboard from "./pages/admin/Dashboard";
+import BlogManagement from "./pages/admin/BlogManagement";
+import DocumentManagement from "./pages/admin/DocumentManagement";
 
 const queryClient = new QueryClient();
 
@@ -34,12 +45,40 @@ const AppContent = () => {
   const showHeroOn = ["/", "/dich-vu"];
   const showHero = showHeroOn.includes(location.pathname);
 
+  // Kiểm tra xem có phải là route admin không
+  const isAdminRoute = location.pathname.startsWith('/admin');
+  
+  // Kiểm tra có phải là trang đăng nhập admin không
+  const isAdminLogin = location.pathname === '/admin/login';
+
   return (
     <>
-      <Navbar />
-      {showHero && <HeroSection />}
+      {!isAdminRoute && <Navbar />}
+      {!isAdminRoute && showHero && <HeroSection />}
+      {/* Chỉ hiện FloatingVideo trên public routes, không hiện trên admin */}
+      {!isAdminRoute && <FloatingVideo />}
       <Routes>
-        {/* Các route dịch vụ */}
+        {/* ========== ADMIN ROUTES ========== */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/blog" element={
+          <ProtectedRoute>
+            <BlogManagement />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/documents" element={
+          <ProtectedRoute>
+            <DocumentManagement />
+          </ProtectedRoute>
+        } />
+
+        {/* ========== PUBLIC ROUTES ========== */}
+        
+        {/* Các route dịch vụ cụ thể */}
         <Route path="/services/drone-repair" element={<DroneRepair />} />
         <Route path="/services/surveying-drone" element={<SurveyingDrone />} />
         <Route path="/services/delivery-drone" element={<DeliveryDrone />} />
@@ -54,12 +93,13 @@ const AppContent = () => {
         <Route path="/dich-vu/:slug" element={<Services />} />
         <Route path="/tai-lieu" element={<Documents />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<Blog />} /> {/* Thêm route chi tiết bài viết */}
         <Route path="/lien-he" element={<Contact />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </>
   );
 };
@@ -69,12 +109,12 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-
-      <BrowserRouter>
-        <FloatingVideo />
-        <ScrollToTop />
-        <AppContent />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <AppContent />
+        </BrowserRouter>
+      </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

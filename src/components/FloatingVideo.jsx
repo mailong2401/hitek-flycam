@@ -43,7 +43,7 @@ export default function FloatingVideo() {
         loop 
         muted 
         playsInline
-        className="w-50 h-50 object-contain mr-6" // Thêm margin-right
+        className=" object-contain mr-6" // Thêm margin-right
     >
         <source src={droneIcon} type="video/webm" />
     </video>
