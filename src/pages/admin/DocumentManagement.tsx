@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Plus, Edit, Trash2, Eye, EyeOff, Search, Filter, Calendar, User, MoreVertical, ArrowUpDown, Download, FileText, File, FileImage, FileArchive } from 'lucide-react'
+import { Plus, Edit, Trash2, Eye, EyeOff, Search, Filter, Calendar, User, MoreVertical, ArrowUpDown, Download, FileText, File, FileImage, FileArchive, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { DocumentForm } from '@/components/admin/DocumentForm'
@@ -235,18 +235,28 @@ export default function DocumentManagement() {
             Quản lý và xuất bản tài liệu, văn bản của công ty
           </p>
         </div>
-        <Button 
-          onClick={() => {
-            setSelectedDocument(null)
-            setShowForm(true)
-          }} 
-          className="gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-md"
-        >
-          <Plus className="w-4 h-4" />
-          Thêm tài liệu mới
-        </Button>
+        {/* THÊM NÚT TRỞ VỀ DASHBOARD Ở ĐÂY */}
+        <div className="flex gap-2">
+          <Button 
+            onClick={() => window.location.href = '/admin'} // hoặc '/dashboard' tùy route của bạn
+            variant="outline"
+            className="gap-2 border-gray-300 dark:border-gray-700 dark:hover:bg-gray-800"
+          >
+            <Home className="w-4 h-4" />
+            Trở về Dashboard
+          </Button>
+          <Button 
+            onClick={() => {
+              setSelectedDocument(null)
+              setShowForm(true)
+            }} 
+            className="mr-2 gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-md"
+            >
+            <Plus className="w-4 h-4" />
+            Thêm tài liệu mới
+          </Button>
+        </div>
       </div>
-
       {/* Filters and Search */}
       <Card>
         <CardContent className="pt-6">
