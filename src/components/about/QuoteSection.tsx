@@ -3,8 +3,12 @@ import { Quote, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import Logo_flycam from "@/assets/logo/logo-flycam-hitek.png"
 import { useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const QuoteSection = () => {
+  const { t } = useLanguage();
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -162,7 +166,7 @@ const QuoteSection = () => {
                     initial={{ opacity: 0.9 }}
                     whileHover={{ opacity: 1 }}
                   >
-                    "Từ nền tảng của{" "}
+                    "{t(`about.quote.content.${0}`)}{" "}
                     <motion.span 
                       className="font-semibold text-red-600 dark:text-red-400"
                       whileHover={{ 
@@ -170,8 +174,8 @@ const QuoteSection = () => {
                         textShadow: "0 0 20px rgba(239, 68, 68, 0.3)"
                       }}
                     >
-                      Hitek Drone
-                    </motion.span> – nơi công nghệ bay được tôn vinh bằng nghệ thuật,
+                      {t(`about.quote.content.${1}`)}
+                    </motion.span> {t(`about.quote.content.${2}`)}
                     {" "}
                     <motion.span 
                       className="font-semibold text-red-600 dark:text-red-400"
@@ -180,9 +184,9 @@ const QuoteSection = () => {
                         textShadow: "0 0 20px rgba(239, 68, 68, 0.3)"
                       }}
                     >
-                      Hitek Flycam
+                      {t(`about.quote.content.${3}`)}
                     </motion.span>{" "}
-                    tiếp tục hành trình đó bằng công nghệ, dữ liệu và hiệu quả thực tế."
+                    {t(`about.quote.content.${4}`)}"
                   </motion.p>
                 </div>
                 
@@ -216,10 +220,10 @@ const QuoteSection = () => {
                   transition={{ delay: 2, duration: 0.8 }}
                 >
                   <div className="text-lg font-semibold text-muted-foreground dark:text-gray-300">
-                    — Đội ngũ Hitek Flycam —
+                    {t("about.quote.author.name")}
                   </div>
                   <div className="text-sm text-muted-foreground/70 dark:text-gray-400/70 mt-2">
-                    Sứ mệnh & Tầm nhìn
+                    {t("about.quote.author.subtitle")}
                   </div>
                 </motion.div>
                 

@@ -5,8 +5,10 @@ import { ArrowRight, Target, Rocket, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BgAbout from "@/assets/about_us/hero.png";
 import LgFlycam from "@/assets/logo/logo-flycam-hitek.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -120,7 +122,7 @@ export default function HeroSection() {
               </div>
               <div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-pure-white mb-6 leading-tight">
-                  VỀ{" "}
+                  {t("about.hero.title")}{" "}
                   <motion.span 
                     className="text-primary"
                     animate={{
@@ -136,7 +138,7 @@ export default function HeroSection() {
                       ease: "easeInOut"
                     }}
                   >
-                    HITEK FLYCAM
+                    {t("about.hero.highlightedTitle")}
                   </motion.span>
                 </h1>
                 <div className="w-24 h-1 bg-gradient-to-r from-primary to-red-400 mx-auto rounded-full mb-6"></div>
@@ -146,7 +148,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  Giải pháp Drone ứng dụng đa ngành - Tiên phong công nghệ - Chuyên nghiệp
+                  {t("about.hero.tagline")}
                 </motion.p>
               </div>
             </div>
@@ -160,7 +162,7 @@ export default function HeroSection() {
             <Button asChild size="lg" className="text-xl px-10 py-7 rounded-2xl bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary">
               <Link to="/dich-vu">
                 <Rocket className="mr-3 w-6 h-6" />
-                Khám phá dịch vụ
+                {t("about.hero.cta.exploreServices")}
                 <ArrowRight className="ml-3 w-6 h-6" />
               </Link>
             </Button>
@@ -168,7 +170,7 @@ export default function HeroSection() {
             <Button asChild variant="outline" size="lg" className="text-xl px-10 py-7 rounded-2xl border-2 border-primary text-primary hover:bg-primary/10">
               <Link to="/lien-he">
                 <Users className="mr-3 w-6 h-6" />
-                Liên hệ hợp tác
+                {t("about.hero.cta.contactCooperation")}
               </Link>
             </Button>
           </motion.div>

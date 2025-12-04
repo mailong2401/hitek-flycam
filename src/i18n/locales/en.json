@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": {
+      "title": "Services",
+      "droneRepair": "Drone Repair",
+      "surveyingDrone": "Surveying Drone",
+      "deliveryDrone": "Delivery Drone",
+      "flightPermit": "Flight Permit Service",
+      "droneImport": "Drone Import",
+      "droneFilming": "Drone Filming"
+    },
+    "document": "Documents",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "linkText": "Learn more",
+  "home": {
+    "hero": {
+      "title": {
+        "main": "HITEK FLYCAM",
+        "sub": "Drone Experts"
+      },
+      "description": "We provide full drone solutions: from repair and maintenance to professional aerial filming and high-precision surveying.",
+      "cta": {
+        "exploreServices": "Explore services",
+        "freeConsulting": "Free consultation"
+      }
+    },
+    "topSolution": {
+      "title": {
+        "part1": "Professional Drone",
+        "highlight": "solutions",
+        "part2": "for every need"
+      },
+      "description": "From repair, surveying to aerial filming — we deliver complete solutions powered by the latest unmanned flight technology."
+    },
+    "featuresSection": {
+      "title": "Why choose",
+      "highlight": "Hitek Flycam?",
+      "subtitle": "We don’t just provide services — we deliver",
+      "subtitleHighlight": "a different experience",
+      "features": {
+        "quality": {
+          "title": "Guaranteed quality",
+          "description": "Genuine components with 12-month warranty"
+        },
+        "performance": {
+          "title": "High performance",
+          "description": "Drones optimized for speed and stability"
+        },
+        "safety": {
+          "title": "Absolute safety",
+          "description": "Strict compliance with flight safety regulations"
+        },
+        "experts": {
+          "title": "Expert team",
+          "description": "Professionally trained technicians"
+        }
+      }
+    },
+    "servicesSection": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive solutions for all drone needs",
+      "viewAll": "View all services"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "ABOUT",
+      "highlightedTitle": "HITEK FLYCAM",
+      "tagline": "Multi-industry Drone Solutions – Technology Pioneer – Professional",
+      "cta": {
+        "exploreServices": "Explore services",
+        "contactCooperation": "Contact for cooperation"
+      }
+    },
+    "AboutSection": {
+      "title": {
+        "prefix": "About",
+        "highlight": "Hitek Flycam"
+      },
+      "paragraphs": [
+        "Hitek Flycam is a brand specializing in multi-industry drone solutions, developed from the technology, human resources, and experience foundation of Hitek Drone – the pioneer in Drone Light Show and aerial performance technology in Vietnam.",
+        "Part of Hitek Group JSC, Hitek Flycam expands the mission of Hitek Drone into technical, surveying, logistics, and industrial service fields, aiming to bring drone technology into real-world applications such as daily life, production, and smart management."
+      ]
+    },
+    "whyTrust": {
+      "title1": "Why is",
+      "title2": "a trusted unit?",
+      "highlightedTitle": "Hitek Flycam",
+      "subtitle": "Discover why we are the leading partner in the drone solutions industry in Vietnam",
+      "points": [
+        {
+          "title": "Capability",
+          "description": "Inherited from Hitek Drone’s foundation with a professional team, modern equipment, and international-standard processes"
+        },
+        {
+          "title": "Safety",
+          "description": "All flights are licensed, insured, and strictly monitored under national regulations"
+        },
+        {
+          "title": "Quality",
+          "description": "Committed to efficiency, stability, and accuracy in every project – from concept to real implementation"
+        }
+      ]
+    },
+    "connection": {
+      "title": "The connection between",
+      "highlightedTitle": "Hitek Flycam",
+      "hitekDroneText": "Hitek Drone",
+      "description": [
+        "If",
+        "Hitek Drone",
+        "is the symbol of art and performance, then",
+        "Hitek Flycam",
+        "represents the application of drone technology into production and real-world operations. Both brands share a unified vision:"
+      ],
+      "vision": "Building a comprehensive drone ecosystem — where flight technology serves people in every aspect of life.",
+      "cta": {
+        "services": {
+          "text": "Hitek Flycam Services"
+        }
+      },
+      "additionalInfo": "Explore the full drone technology ecosystem from Hitek Group"
+    },
+    "quote": {
+      "content": [
+        "From the foundation of",
+        "Hitek Drone",
+        "– where drone technology is elevated through art,",
+        "Hitek Flycam",
+        "continues that journey with technology, data, and real-world efficiency."
+      ],
+      "author": {
+        "name": "— Hitek Flycam Team —",
+        "subtitle": "Mission & Vision"
+      }
+    }
+  },
+  "services": [
+    {
+      "title": "Drone Repair",
+      "subDes": "Professional drone repair and maintenance service",
+      "description": "Professional drone repair and maintenance service"
+    },
+    {
+      "title": "Surveying Drone",
+      "subDes": "High-precision terrain surveying and measurement",
+      "description": "High-precision terrain surveying and measurement"
+    },
+    {
+      "title": "Delivery Drone",
+      "subDes": "Professional drone repair and maintenance service",
+      "description": "Professional aerial filming and photography"
+    },
+    {
+      "title": "Flight Permit Service",
+      "description": "Professional aerial filming and photography"
+    },
+    {
+      "title": "Drone Import",
+      "description": "Professional aerial filming and photography"
+    },
+    {
+      "title": "Aerial Filming",
+      "subDes": "Professional aerial filming and photography",
+      "description": "Professional aerial filming and photography"
+    }
+  ]
+}
+

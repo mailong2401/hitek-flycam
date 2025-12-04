@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "会社概要",
+    "services": {
+      "title": "サービス",
+      "droneRepair": "ドローンの修理",
+      "surveyingDrone": "測量ドローン",
+      "deliveryDrone": "配送ドローン",
+      "flightPermit": "飛行許可サービス",
+      "droneImport": "ドローンの輸入",
+      "droneFilming": "ドローンの輸入"
+    },
+    "document": "ドキュメント",
+    "contact": "お問い合わせ",
+    "blog": "ブログ"
+  },
+  "linkText": "もっと見る",
+  "home": {
+    "hero": {
+      "title": {
+        "main": "HITEK FLYCAM",
+        "sub": "ドローン専門家"
+      },
+      "description": "ドローンの総合的なソリューションを提供：修理、メンテナンスからプロフェッショナルな撮影サービス、高精度な測量調査まで。",
+      "cta": {
+        "exploreServices": "サービスを探索",
+        "freeConsulting": "無料相談"
+      }
+    },
+    "topSolution": {
+      "title": {
+        "part1": "すべてのニーズに応える",
+        "highlight": "プロフェッショナルなドローン",
+        "part2": "ソリューション"
+      },
+      "description": "修理、測量から撮影サービスまで、最新の無人航空機技術で包括的なソリューションを提供します。"
+    },
+    "featuresSection": {
+      "title": "なぜ",
+      "highlight": "Hitek Flycamを選ぶのか？",
+      "subtitle": "私たちは単なるサービスを提供するのではなく、",
+      "subtitleHighlight": "特別な体験をお届けします",
+      "features": {
+        "quality": {
+          "title": "品質保証",
+          "description": "純正部品を使用、12ヶ月保証"
+        },
+        "performance": {
+          "title": "高性能",
+          "description": "速度と安定性を最適化したドローン"
+        },
+        "safety": {
+          "title": "絶対的な安全性",
+          "description": "厳格な飛行安全規制を遵守"
+        },
+        "experts": {
+          "title": "専門家チーム",
+          "description": "専門的に訓練された技術者"
+        }
+      }
+    },
+    "servicesSection": {
+      "title": "私たちのサービス",
+      "subtitle": "ドローンのあらゆるニーズに対応する総合的なソリューション",
+      "viewAll": "すべてのサービスを見る"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "について",
+      "highlightedTitle": "HITEK FLYCAM",
+      "tagline": "多分野応用ドローンソリューション - 技術の先駆者 - プロフェッショナル",
+      "cta": {
+        "exploreServices": "サービスを探索",
+        "contactCooperation": "協力についてお問い合わせ"
+      }
+    },
+    "AboutSection": {
+      "title": {
+        "prefix": "会社概要",
+        "highlight": "Hitek Flycam"
+      },
+      "paragraphs": [
+        "Hitek Flycamは、多分野応用ドローンソリューションを専門とするブランドで、Hitek Droneの技術基盤、人材、経験から発展しました。Hitek Droneは、ベトナムでのドローンのライトショーや空中パフォーマンス技術の分野で先駆的な役割を果たしています。",
+        "Hitek Group JSCに所属するHitek Flycamは、Hitek Droneの使命を技術、測量、物流、産業サービス分野に拡大し、日常生活、生産、スマートマネジメントなどさまざまな分野で航空技術を活用することを目指しています。"
+      ]
+    },
+    "whyTrust": {
+      "title1": "なぜ",
+      "title2": "信頼できるパートナーなのか？",
+      "highlightedTitle": "Hitek Flycamは",
+      "subtitle": "私たちがベトナムのドローンソリューション分野で主要パートナーとなった理由をご紹介します",
+      "points": [
+        {
+          "title": "能力",
+          "description": "Hitek Droneの基盤を継承し、プロフェッショナルなチーム、最新の設備、国際基準のプロセスを備えています"
+        },
+        {
+          "title": "安全性",
+          "description": "すべての飛行は許可を受け、保険に加入し、国の基準に基づき厳重に監視されます"
+        },
+        {
+          "title": "品質",
+          "description": "アイデアの段階から実際の展開まで、あらゆるプロジェクトにおいて効果性、安定性、正確性を保証します"
+        }
+      ]
+    },
+    "connection": {
+      "title": "の関連性",
+      "highlightedTitle": "Hitek Flycam",
+      "hitekDroneText": "Hitek Drone",
+      "description": [
+        "もし",
+        "Hitek Drone",
+        "が芸術とパフォーマンスの象徴であるなら、",
+        "Hitek Flycam",
+        "は実際の生産と運用にドローン技術を応用する代表です。両ブランドは共通のビジョンを共有しています："
+      ],
+      "vision": "包括的なドローンのエコシステムを構築すること - 航空技術が生活のあらゆる分野で人々に役立つ場所を。",
+      "cta": {
+        "services": {
+          "text": "Hitek Flycamのサービス"
+        }
+      },
+      "additionalInfo": "Hitek Groupのドローン技術エコシステム全体を探索する"
+    },
+    "quote": {
+      "content": [
+        "航空技術が芸術によって称えられる場所である",
+        "Hitek Drone",
+        "の基盤から、",
+        "Hitek Flycam",
+        "は技術、データ、実際の効果性を通じてその旅を続けています。"
+      ],
+      "author": {
+        "name": "— Hitek Flycamチーム —",
+        "subtitle": "使命とビジョン"
+      }
+    }
+  },
+  "services": [
+    {
+      "title": "ドローンの修理",
+      "subDes": "プロフェッショナルなドローンの修理・メンテナンスサービス",
+      "description": "プロフェッショナルなドローンの修理・メンテナンスサービス"
+    },
+    {
+      "title": "測量ドローン",
+      "subDes": "高精度な地形調査と計測",
+      "description": "高精度な地形調査と計測"
+    },
+    {
+      "title": "配送ドローン",
+      "subDes": "プロフェッショナルなドローンの修理・メンテナンスサービス",
+      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    },
+    {
+      "title": "飛行許可サービス",
+      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    },
+    {
+      "title": "ドローンの輸入",
+      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    },
+    {
+      "title": "フライカム撮影",
+      "subDes": "上空からのプロフェッショナルな映像・写真撮影",
+      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    }
+  ]
+}

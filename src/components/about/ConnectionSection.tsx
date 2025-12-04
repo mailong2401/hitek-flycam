@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const ConnectionSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -91,7 +94,7 @@ const ConnectionSection = () => {
               <motion.h2 
                 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6"
               >
-                Mối liên hệ giữa{" "}
+                {t("about.connection.title")}{" "}
                 <motion.span 
                   className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300"
                   animate={{
@@ -107,13 +110,13 @@ const ConnectionSection = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  Hitek Flycam
+                  {t("about.connection.highlightedTitle")}
                 </motion.span>{" "}
                 &{" "}
                 <motion.span 
                   className="text-foreground dark:text-white"
                 >
-                  Hitek Drone
+                  {t("about.connection.hitekDroneText")}
                 </motion.span>
               </motion.h2>
             </div>
@@ -127,10 +130,7 @@ const ConnectionSection = () => {
                 className="text-lg text-muted-foreground dark:text-gray-300 leading-relaxed"
                 initial={{ opacity: 0.8 }}
               >
-                Nếu <span className="font-semibold text-foreground dark:text-white">Hitek Drone</span> là biểu tượng của nghệ thuật và trình diễn, 
-                thì <span className="font-semibold text-primary">Hitek Flycam</span> là đại diện cho ứng dụng công nghệ Drone vào sản 
-                xuất và vận hành thực tế. Cả hai thương hiệu cùng chia sẻ một tầm 
-                nhìn chung:
+                {t(`about.connection.description.${0}`)} <span className="font-semibold text-foreground dark:text-white">{t(`about.connection.description.${1}`)}</span> {t(`about.connection.description.${2}`)} <span className="font-semibold text-primary">{t(`about.connection.description.${3}`)}</span> {t(`about.connection.description.${4}`)}
               </motion.p>
             </motion.div>
 
@@ -149,8 +149,7 @@ const ConnectionSection = () => {
                   <motion.p 
                     className="text-xl font-bold text-foreground dark:text-white leading-relaxed"
                   >
-                    Xây dựng hệ sinh thái Drone toàn diện – nơi công nghệ bay phục vụ 
-                    con người trong mọi lĩnh vực của cuộc sống.
+                    {t("about.connection.vision")}
                   </motion.p>
                 </div>
               </div>
@@ -176,7 +175,7 @@ const ConnectionSection = () => {
                   <Button className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
                     <span className="flex items-center gap-2">
                       <Zap className="w-4 h-4" />
-                      Dịch vụ Hitek Flycam
+                      {t("about.connection.cta.services.text")}
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </Button>
@@ -212,7 +211,7 @@ const ConnectionSection = () => {
               variants={itemVariants}
               className="text-sm text-muted-foreground dark:text-gray-400 mt-6"
             >
-              Khám phá toàn bộ hệ sinh thái công nghệ drone từ Hitek Group
+              {t("about.connection.additionalInfo")}
             </motion.p>
           </motion.div>
 

@@ -1,51 +1,39 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-
-type Language = 'vi' | 'en';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { translations, Language, TranslationKey } from '@/i18n';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: TranslationKey) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations = {
-  vi: {
-    'nav.home': 'Trang chủ',
-    'nav.about': 'Giới thiệu',
-    'nav.services': 'Dịch vụ',
-    'nav.document': 'Tài liệu',
-    'nav.blog': 'Blog',
-    'nav.contact': 'Liên hệ',
-    'services.droneRepair': 'Sửa chữa Drone',
-    'services.surveyingDrone': 'Drone Trắc địa',
-    'services.deliveryDrone': 'Drone Vận chuyển',
-    'services.flightPermit': 'Dịch vụ Phép bay',
-    'services.droneImport': 'Nhập khẩu Drone',
-    'services.droneFilming': 'Quay Flycam',
-  },
-  en: {
-    'nav.home': 'Home',
-    'nav.about': 'About',
-    'nav.services': 'Services',
-    'nav.document': 'Documents',
-    'nav.blog': 'Blog',
-    'nav.contact': 'Contact',
-    'services.droneRepair': 'Drone Repair',
-    'services.surveyingDrone': 'Surveying Drone',
-    'services.deliveryDrone': 'Delivery Drone',
-    'services.flightPermit': 'Flight Permit Service',
-    'services.droneImport': 'Drone Import',
-    'services.droneFilming': 'Drone Filming',
-  },
-};
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem('language');
+    return (saved as Language) || 'vi';
+  });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('vi');
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
 
-  const t = (key: string): string => {
-    return translations[language][key] || key;
+  const t = (key: TranslationKey): string => {
+    const keys = key.split('.');
+    let value: any = translations[language];
+    
+    for (const k of keys) {
+      if (value && typeof value === 'object') {
+        value = value[k];
+      } else {
+        // Trả về key nếu không tìm thấy bản dịch
+        // Có thể thêm fallback logic ở đây
+        return key;
+      }
+    }
+    
+    return typeof value === 'string' ? value : key;
   };
 
   return (
@@ -53,12 +41,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       {children}
     </LanguageContext.Provider>
   );
-}
+};
 
-export function useLanguage() {
+export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
-}
+};
+

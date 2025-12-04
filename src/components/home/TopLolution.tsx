@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 export default function TopSolution() {
+  const { t } = useLanguage();
+
   // Container variants for staggered children
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -114,13 +118,13 @@ export default function TopSolution() {
               variants={itemVariants}
               className="text-5xl lg:text-6xl font-bold text-foreground leading-tight"
             >
-              Giải pháp Drone
+              {t("home.topSolution.title.part1")}
               <motion.span 
                 className="text-primary"
               >
-                {" "}chuyên nghiệp{" "}
+                {" "}{t("home.topSolution.title.highlight")}{" "}
               </motion.span>
-              cho mọi nhu cầu
+              {t("home.topSolution.title.part2")}
             </motion.h1>
 
             {/* Description */}
@@ -128,45 +132,8 @@ export default function TopSolution() {
               variants={itemVariants}
               className="text-xl text-muted-foreground"
             >
-              Từ sửa chữa, trắc địa đến dịch vụ quay phim - chúng tôi cung cấp giải pháp toàn diện với
-              công nghệ bay không người lái hiện đại nhất.
+              {t("home.topSolution.description")}
             </motion.p>
-
-            {/* Buttons */}
-            <motion.div 
-              variants={itemVariants}
-              className="flex flex-wrap gap-4"
-            >
-              <motion.div
-                variants={buttonVariants}
-                whileTap="tap"
-              >
-                <Button asChild size="lg" className="text-lg">
-                  <Link to="/dich-vu" className="flex items-center">
-                    Khám phá dịch vụ 
-                    <motion.span
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        repeatDelay: 1
-                      }}
-                    >
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </motion.span>
-                  </Link>
-                </Button>
-              </motion.div>
-              
-              <motion.div
-                variants={buttonVariants}
-                whileTap="tap"
-              >
-                <Button asChild variant="outline" size="lg" className="text-lg">
-                  <Link to="/lien-he">Liên hệ tư vấn</Link>
-                </Button>
-              </motion.div>
-            </motion.div>
           </motion.div>
 
           {/* Right Image Column */}

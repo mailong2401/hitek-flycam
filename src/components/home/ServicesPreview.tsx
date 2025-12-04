@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Service {
   title: string;
@@ -9,37 +10,39 @@ interface Service {
   link: string;
 }
 
-const services: Service[] = [
+
+
+export default function ServicesPreview() {
+  const { t } = useLanguage();
+  const services: Service[] = [
   {
-    title: "Sửa chữa Drone",
-    description: "Dịch vụ sửa chữa, bảo dưỡng drone chuyên nghiệp",
+    title: t(`services.${0}.title`),
+    description: t(`services.${0}.subDes`),
     image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80",
     link: "/dich-vu/sua-chua-drone",
   },
   {
-    title: "Drone Trắc địa",
-    description: "Khảo sát và đo đạc địa hình chính xác cao",
+    title: t(`services.${1}.title`),
+    description: t(`services.${1}.title`),
     image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80",
     link: "/dich-vu/drone-trac-dia",
   },
   {
-    title: "Quay Flycam",
-    description: "Quay phim, chụp ảnh chuyên nghiệp từ trên cao",
+    title: t(`services.${2}.title`),
+    description: t(`services.${2}.title`),
     image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80",
     link: "/dich-vu/quay-flycam",
   },
 ];
-
-export default function ServicesPreview() {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Dịch vụ của chúng tôi
+            {t("home.servicesSection.title")}
           </h2>
           <p className="text-xl text-muted-foreground">
-            Giải pháp toàn diện cho mọi nhu cầu drone
+            {t("home.servicesSection.subtitle")}
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -49,7 +52,7 @@ export default function ServicesPreview() {
         </div>
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="outline">
-            <Link to="/dich-vu">Xem tất cả dịch vụ</Link>
+            <Link to="/dich-vu">{t("home.servicesSection.viewAll")}</Link>
           </Button>
         </div>
       </div>
@@ -58,6 +61,8 @@ export default function ServicesPreview() {
 }
 
 function ServiceCard({ title, description, image, link }: Service) {
+  const { t } = useLanguage();
+
   return (
     <Link
       to={link}
@@ -73,7 +78,7 @@ function ServiceCard({ title, description, image, link }: Service) {
           <h3 className="text-white font-bold text-2xl mb-2">{title}</h3>
           <p className="text-white/80 mb-4">{description}</p>
           <span className="inline-flex items-center text-primary font-medium">
-            Tìm hiểu thêm <ArrowRight className="ml-2 w-4 h-4" />
+            {t("linkText")} <ArrowRight className="ml-2 w-4 h-4" />
           </span>
         </div>
       </div>

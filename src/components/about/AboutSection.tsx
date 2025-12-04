@@ -1,8 +1,11 @@
 // components/about/AboutSection.tsx
 import { motion } from "framer-motion";
 import hero2 from "@/assets/about_us/team.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const AboutSection = () => {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -168,13 +171,13 @@ const AboutSection = () => {
               variants={titleVariants}
               className="text-4xl font-bold text-foreground mb-6"
             >
-              Về{" "}
+              {t("about.AboutSection.title.prefix")}{" "}
               <motion.span 
                 className="text-vibrant-red relative"
                 variants={highlightVariants}
                 animate="visible"
               >
-                Hitek Flycam
+                {t("about.AboutSection.title.highlight")}
                 {/* Underline animation */}
                 <motion.span 
                   className="absolute -bottom-1 left-0 h-1 bg-vibrant-red rounded-full"
@@ -198,12 +201,9 @@ const AboutSection = () => {
                     transition: { type: "spring", stiffness: 400 }
                   }}
                 >
-                  Hitek Flycam{" "}
+                  {t("about.AboutSection.title.highlight")}{" "}
                 </motion.span>
-                là thương hiệu chuyên về giải pháp Drone ứng dụng đa ngành, 
-                được phát triển từ nền tảng công nghệ, nhân lực và kinh nghiệm của Hitek 
-                Drone – đơn vị tiên phong trong lĩnh vực Drone Light Show và công nghệ 
-                trình diễn trên không tại Việt Nam.
+                {t(`about.AboutSection.paragraphs.${0}`)}
               </motion.p>
               
               <motion.p 
@@ -211,10 +211,7 @@ const AboutSection = () => {
                 transition={{ delay: 0.1 }}
                 className="leading-relaxed text-foreground"
               >
-                Thuộc Hitek Group JSC, Hitek Flycam mở rộng sứ mệnh của Hitek Drone sang 
-                các lĩnh vực kỹ thuật, khảo sát, logistics và dịch vụ công nghiệp, với mục 
-                tiêu đưa công nghệ bay vào phục vụ các lĩnh vực khác như đời sống, sản
-                 xuất và quản lý thông minh.
+                {t(`about.AboutSection.paragraphs.${1}`)}
               </motion.p>
             </div>
 

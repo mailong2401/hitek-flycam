@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "home": "홈",
+    "about": "회사소개",
+    "services": {
+      "title": "서비스",
+      "droneRepair": "드론 수리",
+      "surveyingDrone": "측량 드론",
+      "deliveryDrone": "배송 드론",
+      "flightPermit": "비행 허가 서비스",
+      "droneImport": "드론 수입",
+      "droneFilming": "드론 수입"
+    },
+    "document": "문서",
+    "contact": "연락처",
+    "blog": "블로그"
+  },
+  "linkText": "더 알아보기",
+  "home": {
+    "hero": {
+      "title": {
+        "main": "HITEK FLYCAM",
+        "sub": "드론 전문가"
+      },
+      "description": "드론의 종합 솔루션 제공: 수리, 유지보수부터 전문 촬영 서비스 및 고정밀 측량 조사까지.",
+      "cta": {
+        "exploreServices": "서비스 탐색",
+        "freeConsulting": "무료 상담"
+      }
+    },
+    "topSolution": {
+      "title": {
+        "part1": "모든 요구에 맞는",
+        "highlight": "전문적인 드론",
+        "part2": "솔루션"
+      },
+      "description": "수리, 측량부터 촬영 서비스까지, 최신 무인 항공 기술로 포괄적인 솔루션을 제공합니다."
+    },
+    "featuresSection": {
+      "title": "왜",
+      "highlight": "Hitek Flycam을 선택해야 하나요?",
+      "subtitle": "우리는 단순히 서비스를 제공하는 것이 아니라",
+      "subtitleHighlight": "특별한 경험을 선사합니다",
+      "features": {
+        "quality": {
+          "title": "품질 보증",
+          "description": "정품 부품 사용, 12개월 보증"
+        },
+        "performance": {
+          "title": "고성능",
+          "description": "속도와 안정성을 최적화한 드론"
+        },
+        "safety": {
+          "title": "절대적인 안전성",
+          "description": "엄격한 비행 안전 규정 준수"
+        },
+        "experts": {
+          "title": "전문가 팀",
+          "description": "전문적으로 훈련된 기술자"
+        }
+      }
+    },
+    "servicesSection": {
+      "title": "우리의 서비스",
+      "subtitle": "드론의 모든 요구에 대한 종합적인 솔루션",
+      "viewAll": "모든 서비스 보기"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "소개",
+      "highlightedTitle": "HITEK FLYCAM",
+      "tagline": "다분야 응용 드론 솔루션 - 기술 선도자 - 전문성",
+      "cta": {
+        "exploreServices": "서비스 탐색",
+        "contactCooperation": "협력 문의"
+      }
+    },
+    "AboutSection": {
+      "title": {
+        "prefix": "회사소개",
+        "highlight": "Hitek Flycam"
+      },
+      "paragraphs": [
+        "Hitek Flycam은 다분야 응용 드론 솔루션을 전문으로 하는 브랜드로, Hitek Drone의 기술 기반, 인력, 경험을 바탕으로 발전했습니다. Hitek Drone은 베트남에서 드론 라이트 쇼 및 공연 기술 분야의 선구적인 역할을 하고 있습니다.",
+        "Hitek Group JSC 소속의 Hitek Flycam은 Hitek Drone의 사명을 기술, 측량, 물류, 산업 서비스 분야로 확대하여 일상생활, 생산, 스마트 관리 등 다양한 분야에서 항공 기술이 활용되도록 하는 것을 목표로 합니다."
+      ]
+    },
+    "whyTrust": {
+      "title1": "왜",
+      "title2": "신뢰할 수 있는 파트너인가요?",
+      "highlightedTitle": "Hitek Flycam은",
+      "subtitle": "우리가 베트남의 드론 솔루션 분야에서 주요 파트너가 된 이유를 알아보세요",
+      "points": [
+        {
+          "title": "역량",
+          "description": "Hitek Drone의 기반을 계승하고 전문적인 팀, 최신 장비, 국제 표준 프로세스를 보유하고 있습니다"
+        },
+        {
+          "title": "안전성",
+          "description": "모든 비행은 허가를 받고 보험이 적용되며 국가 기준에 따라 엄격히 감독됩니다"
+        },
+        {
+          "title": "품질",
+          "description": "아이디어 단계부터 실제 실행까지 모든 프로젝트에서 효과성, 안정성, 정확성을 약속합니다"
+        }
+      ]
+    },
+    "connection": {
+      "title": "의 연관성",
+      "highlightedTitle": "Hitek Flycam",
+      "hitekDroneText": "Hitek Drone",
+      "description": [
+        "만약",
+        "Hitek Drone",
+        "이 예술과 공연의 상징이라면,",
+        "Hitek Flycam",
+        "은 실제 생산과 운영에 드론 기술을 응용하는 대표입니다. 두 브랜드는 공통의 비전을 공유합니다:"
+      ],
+      "vision": "포괄적인 드론 생태계를 구축하는 것 - 항공 기술이 생활의 모든 분야에서 사람들에게 도움이 되는 곳.",
+      "cta": {
+        "services": {
+          "text": "Hitek Flycam 서비스"
+        }
+      },
+      "additionalInfo": "Hitek Group의 드론 기술 생태계 전체를 탐색하세요"
+    },
+    "quote": {
+      "content": [
+        "항공 기술이 예술로 빛나는 곳,",
+        "Hitek Drone",
+        "의 기반에서,",
+        "Hitek Flycam",
+        "은 기술, 데이터, 실제 효과성으로 그 여정을 이어갑니다."
+      ],
+      "author": {
+        "name": "— Hitek Flycam 팀 —",
+        "subtitle": "사명과 비전"
+      }
+    }
+  },
+  "services": [
+    {
+      "title": "드론 수리",
+      "subDes": "전문적인 드론 수리 및 유지보수 서비스",
+      "description": "전문적인 드론 수리 및 유지보수 서비스"
+    },
+    {
+      "title": "측량 드론",
+      "subDes": "고정밀 지형 조사 및 측량",
+      "description": "고정밀 지형 조사 및 측량"
+    },
+    {
+      "title": "배송 드론",
+      "subDes": "전문적인 드론 수리 및 유지보수 서비스",
+      "description": "상공에서의 전문 영상 및 사진 촬영"
+    },
+    {
+      "title": "비행 허가 서비스",
+      "description": "상공에서의 전문 영상 및 사진 촬영"
+    },
+    {
+      "title": "드론 수입",
+      "description": "상공에서의 전문 영상 및 사진 촬영"
+    },
+    {
+      "title": "플라이캠 촬영",
+      "subDes": "상공에서의 전문 영상 및 사진 촬영",
+      "description": "상공에서의 전문 영상 및 사진 촬영"
+    }
+  ]
+}

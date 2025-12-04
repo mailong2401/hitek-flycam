@@ -2,8 +2,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle, Shield, Award, Zap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const WhyTrustSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -49,22 +52,22 @@ const WhyTrustSection = () => {
   const trustPoints = [
     {
       number: "01",
-      title: "Năng lực",
-      description: "Kế thừa nền tảng Hitek Drone với đội ngũ chuyên nghiệp – thiết bị hiện đại và quy trình chuẩn quốc tế",
+      title: t(`about.whyTrust.points.${0}.title`),
+      description: t(`about.whyTrust.points.${0}.description`),
       icon: Award,
       image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=400&q=80"
     },
     {
       number: "02",
-      title: "An toàn",
-      description: "Tất cả chuyến bay đều được cấp phép, bảo hiểm và giám sát chặt chẽ theo quy chuẩn quốc gia",
+      title: t(`about.whyTrust.points.${1}.title`),
+      description: t(`about.whyTrust.points.${1}.description`),
       icon: Shield,
       image: "https://images.unsplash.com/photo-1532989029401-439615f3d4b4?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       number: "03",
-      title: "Chất lượng",
-      description: "Cam kết hiệu quả, ổn định và chính xác trong mọi dự án – từ giai đoạn ý tưởng đến triển khai thực tế",
+      title: t(`about.whyTrust.points.${2}.title`),
+      description: t(`about.whyTrust.points.${2}.description`),
       icon: Zap,
       image: "https://images.unsplash.com/photo-1495764506633-93d4dfed7c6b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
@@ -88,14 +91,14 @@ const WhyTrustSection = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6">
-              Tại sao{" "}
+              {t("about.whyTrust.title1")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300">
-                Hitek Flycam
+                {t("about.whyTrust.highlightedTitle")}
               </span>{" "}
-              là đơn vị đáng tin cậy?
+              {t("about.whyTrust.title2")}
             </h2>
             <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
-              Khám phá những lý do khiến chúng tôi trở thành đối tác hàng đầu trong lĩnh vực giải pháp Drone tại Việt Nam
+              {t("about.whyTrust.subtitle")}
             </p>
           </motion.div>
 

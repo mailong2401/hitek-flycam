@@ -9,12 +9,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const services = [
-  { name: "services.droneRepair", path: "/services/drone-repair" },
-  { name: "services.surveyingDrone", path: "/services/surveying-drone" },
-  { name: "services.deliveryDrone", path: "/services/delivery-drone" },
-  { name: "services.flightPermit", path: "/services/flight-permit-service" },
-  { name: "services.droneImport", path: "/services/drone-import" },
-  { name: "services.droneFilming", path: "/services/drone-filming" },
+  { name: "nav.services.droneRepair", path: "/services/drone-repair" },
+  { name: "nav.services.surveyingDrone", path: "/services/surveying-drone" },
+  { name: "nav.services.deliveryDrone", path: "/services/delivery-drone" },
+  { name: "nav.services.flightPermit", path: "/services/flight-permit-service" },
+  { name: "nav.services.droneImport", path: "/services/drone-import" },
+  { name: "nav.services.droneFilming", path: "/services/drone-filming" },
 ];
 
 export default function Navbar() {
@@ -73,7 +73,7 @@ export default function Navbar() {
   const navLinks = [
     { name: t('nav.home'), href: "/", onClick: scrollToTop },
     { name: t('nav.about'), href: "/gioi-thieu", onClick: scrollToTop },
-    { name: t('nav.services'), href: "/dich-vu", hasDropdown: true, onClick: scrollToTop },
+    { name: t('nav.services.title'), href: "/dich-vu", hasDropdown: true, onClick: scrollToTop },
     { name: t('nav.document'), href: "/tai-lieu", onClick: scrollToTop },
     { name: t('nav.blog'), href: "/blog", onClick: scrollToTop },
     { name: t('nav.contact'), href: "/lien-he", onClick: scrollToTop },

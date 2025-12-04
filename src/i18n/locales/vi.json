@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "services": {
+      "title": "Dịch vụ",
+      "droneRepair": "Sửa chửa drone",
+      "surveyingDrone": "Drone trắc địa",
+      "deliveryDrone": "Drone vận chuyển",
+      "flightPermit": "Dịch vụ phép bay",
+      "droneImport": "Nhập khẩu drone",
+      "droneFilming": "Nhập khẩu drone"
+    },
+    "document": "Tài liệu",
+    "contact": "Liên hệ",
+    "blog": "Blog"
+  },
+  "linkText": "Tìm hiểu thêm",
+  "home": {
+    "hero": {
+      "title": {
+        "main": "HITEK FLYCAM",
+        "sub": "Các Chuyên Gia Về Drone"
+      },
+      "description": "Cung cấp giải pháp toàn diện về Drone: từ sửa chữa, bảo dưỡng đến dịch vụ quay phim chuyên nghiệp và khảo sát trắc địa với độ chính xác cao.",
+      "cta": {
+        "exploreServices": "Khám phá dịch vụ",
+        "freeConsulting": "Tư vấn miễn phí"
+      }
+    },
+    "topSolution": {
+      "title": {
+        "part1": "Giải pháp Drone",
+        "highlight": "chuyên nghiệp",
+        "part2": "cho mọi nhu cầu"
+      },
+      "description": "Từ sửa chữa, trắc địa đến dịch vụ quay phim - chúng tôi cung cấp giải pháp toàn diện với công nghệ bay không người lái hiện đại nhất."
+    },
+    "featuresSection": {
+      "title": "Tại sao chọn",
+      "highlight": "Hitek Flycam?",
+      "subtitle": "Chúng tôi không chỉ cung cấp dịch vụ - Chúng tôi mang đến",
+      "subtitleHighlight": "trải nghiệm khác biệt",
+      "features": {
+        "quality": {
+          "title": "Chất lượng đảm bảo",
+          "description": "Sử dụng linh kiện chính hãng, bảo hành 12 tháng"
+        },
+        "performance": {
+          "title": "Hiệu suất cao",
+          "description": "Drone được tối ưu hóa cho tốc độ và ổn định"
+        },
+        "safety": {
+          "title": "An toàn tuyệt đối",
+          "description": "Tuân thủ nghiêm ngặt quy định an toàn bay"
+        },
+        "experts": {
+          "title": "Đội ngũ chuyên gia",
+          "description": "Kỹ thuật viên được đào tạo bài bản"
+        }
+      }
+    },
+    "servicesSection": {
+      "title": "Dịch vụ của chúng tôi",
+      "subtitle": "Giải pháp toàn diện cho mọi nhu cầu drone",
+      "viewAll": "Xem tất cả dịch vụ"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "VỀ",
+      "highlightedTitle": "HITEK FLYCAM",
+      "tagline": "Giải pháp Drone ứng dụng đa ngành - Tiên phong công nghệ - Chuyên nghiệp",
+      "cta": {
+        "exploreServices": "Khám phá dịch vụ",
+        "contactCooperation": "Liên hệ hợp tác"
+      }
+    },
+    "AboutSection": {
+      "title": {
+        "prefix": "Về",
+        "highlight": "Hitek Flycam"
+      },
+      "paragraphs": [
+        "Hitek Flycam là thương hiệu chuyên về giải pháp Drone ứng dụng đa ngành, được phát triển từ nền tảng công nghệ, nhân lực và kinh nghiệm của Hitek Drone – đơn vị tiên phong trong lĩnh vực Drone Light Show và công nghệ trình diễn trên không tại Việt Nam.",
+        "Thuộc Hitek Group JSC, Hitek Flycam mở rộng sứ mệnh của Hitek Drone sang các lĩnh vực kỹ thuật, khảo sát, logistics và dịch vụ công nghiệp, với mục tiêu đưa công nghệ bay vào phục vụ các lĩnh vực khác như đời sống, sản xuất và quản lý thông minh."
+      ]
+    },
+    "whyTrust": {
+      "title1": "Tại sao",
+      "title2": "là đơn vị đáng tin cậy?",
+      "highlightedTitle": "Hitek Flycam",
+      "subtitle": "Khám phá những lý do khiến chúng tôi trở thành đối tác hàng đầu trong lĩnh vực giải pháp Drone tại Việt Nam",
+      "points": [
+        {
+          "title": "Năng lực",
+          "description": "Kế thừa nền tảng Hitek Drone với đội ngũ chuyên nghiệp – thiết bị hiện đại và quy trình chuẩn quốc tế"
+        },
+        {
+          "title": "An toàn",
+          "description": "Tất cả chuyến bay đều được cấp phép, bảo hiểm và giám sát chặt chẽ theo quy chuẩn quốc gia"
+        },
+        {
+          "title": "Chất lượng",
+          "description": "Cam kết hiệu quả, ổn định và chính xác trong mọi dự án – từ giai đoạn ý tưởng đến triển khai thực tế"
+        }
+      ]
+    },
+    "connection": {
+      "title": "Mối liên hệ giữa",
+      "highlightedTitle": "Hitek Flycam",
+      "hitekDroneText": "Hitek Drone",
+      "description": [
+        "Nếu",
+        "Hitek Drone",
+        "là biểu tượng của nghệ thuật và trình diễn, thì",
+        "Hitek Flycam",
+        "là đại diện cho ứng dụng công nghệ Drone vào sản xuất và vận hành thực tế. Cả hai thương hiệu cùng chia sẻ một tầm nhìn chung:"
+      ],
+      "vision": "Xây dựng hệ sinh thái Drone toàn diện – nơi công nghệ bay phục vụ con người trong mọi lĩnh vực của cuộc sống.",
+      "cta": {
+        "services": {
+          "text": "Dịch vụ Hitek Flycam"
+        }
+      },
+      "additionalInfo": "Khám phá toàn bộ hệ sinh thái công nghệ drone từ Hitek Group"
+    },
+    "quote": {
+      "content": [
+        "Từ nền tảng của",
+        "Hitek Drone",
+        "– nơi công nghệ bay được tôn vinh bằng nghệ thuật,",
+        "Hitek Flycam",
+        "tiếp tục hành trình đó bằng công nghệ, dữ liệu và hiệu quả thực tế."
+      ],
+      "author": {
+        "name": "— Đội ngũ Hitek Flycam —",
+        "subtitle": "Sứ mệnh & Tầm nhìn"
+      }
+    }
+  },
+  "services": [
+    {
+      "title": "Sửa chữa Drone",
+      "subDes": "Dịch vụ sửa chữa, bảo dưỡng drone chuyên nghiệp",
+      "description": "Dịch vụ sửa chữa, bảo dưỡng drone chuyên nghiệp"
+    },
+    {
+      "title": "Drone Trắc địa",
+      "subDes": "Khảo sát và đo đạc địa hình chính xác cao",
+      "description": "Khảo sát và đo đạc địa hình chính xác cao"
+    },
+    {
+      "title": "Drone vận chuyển",
+      "subDes": "Dịch vụ sửa chữa, bảo dưỡng drone chuyên nghiệp",
+      "description": "Quay phim, chụp ảnh chuyên nghiệp từ trên cao"
+    },
+    {
+      "title": "Dịch vụ phép bay",
+      "description": "Quay phim, chụp ảnh chuyên nghiệp từ trên cao"
+    },
+    {
+      "title": "Nhập khẩu Drone",
+      "description": "Quay phim, chụp ảnh chuyên nghiệp từ trên cao"
+    },
+    {
+      "title": "Quay Flycam",
+      "subDes": "Quay phim, chụp ảnh chuyên nghiệp từ trên cao",
+      "description": "Quay phim, chụp ảnh chuyên nghiệp từ trên cao"
+    }
+  ]
+}

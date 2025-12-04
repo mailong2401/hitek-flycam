@@ -5,8 +5,12 @@ import { ArrowRight, ChevronDown, Camera, Shield, Zap, Navigation } from "lucide
 import { Button } from "@/components/ui/button";
 import Bg_flycam from "@/assets/home/bg.png"
 import Lg_flycam from "@/assets/logo/logo-flycam-hitek.png"
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -133,9 +137,9 @@ export default function Hero() {
             className="mb-6"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4">
-              <span className="block">HITEK FLYCAM</span>
+              <span className="block">{t("home.hero.title.main")}</span>
               <span className="block text-3xl md:text-5xl lg:text-6xl text-primary mt-2">
-                The Drone Experts
+                {t("home.hero.title.sub")}
               </span>
             </h1>
           </motion.div>
@@ -147,8 +151,7 @@ export default function Hero() {
             className="mb-10"
           >
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Cung cấp giải pháp toàn diện về Drone: từ sửa chữa, bảo dưỡng đến dịch vụ 
-              quay phim chuyên nghiệp và khảo sát trắc địa với độ chính xác cao.
+              {t("home.hero.description")}
             </p>
           </motion.div>
 
@@ -162,7 +165,7 @@ export default function Hero() {
             <Button asChild size="lg" className="text-lg px-8 py-6 rounded-xl">
               <Link to="/dich-vu">
                 <Camera className="mr-2 w-5 h-5" />
-                Khám phá dịch vụ
+                {t("home.hero.cta.exploreServices")}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
@@ -170,7 +173,7 @@ export default function Hero() {
             <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 rounded-xl">
               <Link to="/lien-he">
                 <Shield className="mr-2 w-5 h-5" />
-                Tư vấn miễn phí
+                {t("home.hero.cta.freeConsulting")}
               </Link>
             </Button>
           </motion.div>

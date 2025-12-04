@@ -13,6 +13,8 @@ import {
   BatteryFull,
   Camera
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 interface Feature {
   icon: React.ComponentType<{ className?: string }>;
@@ -22,66 +24,42 @@ interface Feature {
   delay: number;
 }
 
-const features: Feature[] = [
+
+
+export default function Features() {
+  const { t } = useLanguage();
+
+  const features: Feature[] = [
   {
     icon: CheckCircle,
-    title: "Chất lượng đảm bảo",
-    description: "Sử dụng linh kiện chính hãng, bảo hành 12 tháng",
+    title: t("home.featuresSection.features.quality.title"),
+    description: t("home.featuresSection.features.quality.description"),
     gradient: "from-green-500/20 to-emerald-500/20",
     delay: 0.1
   },
   {
     icon: Gauge,
-    title: "Hiệu suất cao",
-    description: "Drone được tối ưu hóa cho tốc độ và ổn định",
+    title: t("home.featuresSection.features.performance.title"),
+    description: t("home.featuresSection.features.performance.description"),
     gradient: "from-blue-500/20 to-cyan-500/20",
     delay: 0.2
   },
   {
     icon: Shield,
-    title: "An toàn tuyệt đối",
-    description: "Tuân thủ nghiêm ngặt quy định an toàn bay",
+    title: t("home.featuresSection.features.safety.title"),
+    description: t("home.featuresSection.features.safety.description"),
     gradient: "from-red-500/20 to-orange-500/20",
     delay: 0.3
   },
   {
-    icon: Clock,
-    title: "Nhanh chóng",
-    description: "Sửa chữa trong 24h, giao hàng siêu tốc",
-    gradient: "from-purple-500/20 to-pink-500/20",
-    delay: 0.4
-  },
-  {
     icon: Users,
-    title: "Đội ngũ chuyên gia",
-    description: "Kỹ thuật viên được đào tạo bài bản",
+    title: t("home.featuresSection.features.experts.title"),
+    description: t("home.featuresSection.features.experts.description"),
     gradient: "from-indigo-500/20 to-violet-500/20",
     delay: 0.5
-  },
-  {
-    icon: Truck,
-    title: "Vận chuyển toàn quốc",
-    description: "Miễn phí vận chuyển nội thành Hà Nội, TP.HCM",
-    gradient: "from-amber-500/20 to-yellow-500/20",
-    delay: 0.6
-  },
-  {
-    icon: BarChart3,
-    title: "Kinh nghiệm 10+ năm",
-    description: "Đã thực hiện 5000+ dự án thành công",
-    gradient: "from-teal-500/20 to-emerald-500/20",
-    delay: 0.7
-  },
-  {
-    icon: Camera,
-    title: "Quay phim 8K",
-    description: "Camera chất lượng cao, ổn định hình ảnh",
-    gradient: "from-rose-500/20 to-red-500/20",
-    delay: 0.8
   }
 ];
 
-export default function Features() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -179,11 +157,11 @@ export default function Features() {
             variants={titleVariants}
             className="text-4xl md:text-5xl font-bold text-foreground mb-4"
           >
-            Tại sao chọn{" "}
+            {t("home.featuresSection.title")}{" "}
             <motion.span 
               className="text-primary"
             >
-              Hitek Flycam?
+              {t("home.featuresSection.highlight")}
             </motion.span>
           </motion.h2>
           
@@ -191,8 +169,8 @@ export default function Features() {
             variants={subtitleVariants}
             className="text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Chúng tôi không chỉ cung cấp dịch vụ - Chúng tôi mang đến{" "}
-            <span className="text-primary font-semibold">trải nghiệm khác biệt</span>
+            {t("home.featuresSection.subtitle")}{" "}
+            <span className="text-primary font-semibold">{t("home.featuresSection.subtitleHighlight")}</span>
           </motion.p>
         </motion.div>
 
