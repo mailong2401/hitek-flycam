@@ -18,7 +18,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Documents from "./pages/Documents";
 import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
+import Contact from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 // Import service pages

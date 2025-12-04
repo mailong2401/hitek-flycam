@@ -61,7 +61,7 @@ export default function FAQSection({
                 >
                   <div className="flex items-center w-full">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center mr-4">
-                      <span className="text-sm font-medium text-secondary">
+                      <span className="text-sm font-medium text-foreground">
                         {index + 1}
                       </span>
                     </div>

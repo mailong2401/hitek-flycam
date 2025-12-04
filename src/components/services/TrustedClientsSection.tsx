@@ -192,7 +192,7 @@ export default function TrustedClientsSection() {
         >
           <div 
             ref={containerRef}
-            className="absolute top-0 left-0 right-0 h-full overflow-visible"
+            className="absolute bottom-20 left-0 right-0 h-full overflow-visible"
           >
             <motion.div
               className="flex absolute top-1/2 -translate-y-1/2"
