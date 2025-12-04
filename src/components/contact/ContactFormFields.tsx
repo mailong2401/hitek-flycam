@@ -124,7 +124,7 @@ const ContactFormFields = ({
   }, []);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-2">
       {/* Name */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
@@ -265,7 +265,7 @@ const ContactFormFields = ({
         <Textarea
           name="message"
           placeholder="Mô tả chi tiết yêu cầu của bạn..."
-          rows={5}
+          rows={3}
           value={formData.message}
           onChange={handleChangeWithValidation}
           required
