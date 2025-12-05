@@ -1,23 +1,26 @@
-import Navbar from "@/components/Navbar";
-import TopLolution from "@/components/home/TopLolution";
-import Features from "@/components/home/Features";
-import ServicesPreview from "@/components/home/ServicesPreview";
-import CTA from "@/components/home/CTA";
-import Hero from "@/components/home/Hero";
-import ClientSection from "@/components/home/ClientsSection"
-import AboutSection from "@/components/home/AboutSection"
+import IconServicesSection from "@/components/services/IconServicesSection";
+import IntroSection from "@/components/services/IntroSection";
+import InteractiveCardsSection from "@/components/services/InteractiveCardsSection";
+import DetailedServicesSection from "@/components/services/DetailedServicesSection";
+import FeaturedProjectsSection from "@/components/services/FeaturedProjectsSection";
+import TrustedClientsSection from "@/components/services/TrustedClientsSection";
+import NewsSection from "@/components/services/NewsSection";
+import HeroSection from "@/components/services/HeroSection"
+
+
 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
-      <TopLolution />
-      <Features />
-      <ServicesPreview />
-      <ClientSection />
-      <AboutSection />
-      <CTA />
+      <HeroSection />
+      <IconServicesSection />
+      <IntroSection />
+      <InteractiveCardsSection />
+      <DetailedServicesSection />
+      <FeaturedProjectsSection />
+      <TrustedClientsSection />
+      <NewsSection />
     </div>
   );
 }

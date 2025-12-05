@@ -73,7 +73,7 @@ export default function Navbar() {
   const navLinks = [
     { name: t('nav.home' as any), href: "/", onClick: scrollToTop },
     { name: t('nav.about' as any), href: "/gioi-thieu", onClick: scrollToTop },
-    { name: t('nav.services.title' as any), href: "/dich-vu", hasDropdown: true, onClick: scrollToTop },
+    { name: t('nav.services.title' as any), hasDropdown: true, onClick: scrollToTop },
     { name: t('nav.document' as any), href: "/tai-lieu", onClick: scrollToTop },
     { name: t('nav.blog' as any), href: "/blog", onClick: scrollToTop },
     { name: t('nav.contact' as any), href: "/lien-he", onClick: scrollToTop },
