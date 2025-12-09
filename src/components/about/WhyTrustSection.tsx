@@ -1,9 +1,75 @@
 // components/about/WhyTrustSection.tsx
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CheckCircle, Shield, Award, Zap } from "lucide-react";
+import { Shield, Award, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// Component con cho 3D Image Carousel
+const Image3DCarousel = ({ images }: { images: Array<{ src: string; alt: string; title: string }> }) => {
+  const quantity = images.length; // 10 ảnh
+
+  return (
+    <div className="banner">
+      {/* 3D Carousel Container */}
+      <div 
+        className="slider"
+        style={{
+          position: 'absolute',
+          width: '150px',
+          height: '250px',
+          top: '10%',
+          left: 'calc(50% - 100px)',
+          transformStyle: 'preserve-3d',
+          transform: 'perspective(1000px)',
+          animation: 'autoRun 20s linear infinite'
+        }}
+      >
+        {images.map((image, index) => {
+          const position = index + 1;
+          const angle = (position - 1) * (360 / quantity);
+          
+          return (
+            <div
+              key={index}
+              className="item"
+              style={{
+                position: 'absolute',
+                inset: '0 0 0 0',
+                transform: `rotateY(${angle}deg) translateZ(300px)`
+              }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* CSS Animation */}
+      <style jsx>{`
+        .banner {
+          width: 100%;
+          height: 500px;
+          text-align: center;
+          overflow: hidden;
+          position: relative;
+        }
+        
+        @keyframes autoRun {
+          from {
+            transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+          }
+          to {
+            transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
 
 const WhyTrustSection = () => {
   const { t } = useLanguage();
@@ -35,20 +101,6 @@ const WhyTrustSection = () => {
     }
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring" as const,
-        damping: 20,
-        stiffness: 80,
-        duration: 1
-      }
-    }
-  };
-
   const trustPoints = [
     {
       number: "01",
@@ -62,15 +114,79 @@ const WhyTrustSection = () => {
       title: t(`about.whyTrust.points.${1}.title`),
       description: t(`about.whyTrust.points.${1}.description`),
       icon: Shield,
-      image: "https://images.unsplash.com/photo-1532989029401-439615f3d4b4?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      image: "https://images.unsplash.com/photo-1508444845599-5c89863b1c44?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       number: "03",
       title: t(`about.whyTrust.points.${2}.title`),
       description: t(`about.whyTrust.points.${2}.description`),
       icon: Zap,
-      image: "https://images.unsplash.com/photo-1495764506633-93d4dfed7c6b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      image: "https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
+  ];
+
+  // Tạo mảng hình ảnh với 10 ảnh
+  const carouselImages = [
+    {
+      src: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=400&q=80",
+      alt: "Award Winning Excellence",
+      title: "Award Winning"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1532989029401-439615f3d4b4?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Maximum Security Protection",
+      title: "Security Shield"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1495764506633-93d4dfed7c6b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Fast Delivery Service",
+      title: "Fast Delivery"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1514043454212-14c181f46583?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Professional Expert Team",
+      title: "Expert Team"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1514043454212-14c181f46583?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Professional Expert Team",
+      title: "Expert Team"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1495764506633-93d4dfed7c6b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Fast Delivery Service",
+      title: "Fast Delivery"
+    },
+    // {
+    //   src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
+    //   alt: "Modern Advanced Technology",
+    //   title: "Advanced Tech"
+    // },
+    // {
+    //   src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=400&q=80",
+    //   alt: "Customer Satisfaction Guarantee",
+    //   title: "Happy Clients"
+    // },
+    // {
+    //   src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=400&q=80",
+    //   alt: "24/7 Customer Support",
+    //   title: "24/7 Support"
+    // },
+    // {
+    //   src: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=400&q=80",
+    //   alt: "Quality Assurance",
+    //   title: "Quality Control"
+    // },
+    // {
+    //   src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80",
+    //   alt: "Innovative Solutions",
+    //   title: "Innovation"
+    // },
+    // {
+    //   src: "https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?auto=format&fit=crop&w=400&q=80",
+    //   alt: "Global Experience",
+    //   title: "Global Reach"
+    // }
   ];
 
   return (
@@ -103,55 +219,12 @@ const WhyTrustSection = () => {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Images Grid */}
+            {/* Left Column - 3D Carousel */}
             <motion.div
-              variants={containerVariants}
-              className="grid grid-cols-2 gap-4 md:gap-6 relative"
+              variants={itemVariants}
+              className="relative flex justify-center"
             >
-              {trustPoints.map((point, index) => (
-                <motion.div
-                  key={point.number}
-                  variants={imageVariants}
-                  custom={index}
-                  className={`relative group ${
-                    index === 0 ? "col-span-2 h-64 md:h-72" :
-                    index === 1 ? "h-80 md:h-96" :
-                    "h-64 md:h-72 row-start-2 col-start-2"
-                  }`}
-                >
-                  {/* Image */}
-                  <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl">
-                    <img
-                      src={point.image}
-                      alt={point.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
-                    
-
-                    
-                    {/* Title Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <motion.div
-                        className="text-white"
-                        initial={{ opacity: 0.8, y: 10 }}
-                      >
-                        <h3 className="text-xl md:text-2xl font-bold mb-2">{point.title}</h3>
-                        <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
-                          {point.description}
-                        </p>
-                      </motion.div>
-                    </div>
-                    
-
-                  </div>
-                  
-                  {/* Hover Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
-              ))}
+              <Image3DCarousel images={carouselImages} />
               
               {/* Decorative Element */}
               <motion.div 
@@ -177,7 +250,7 @@ const WhyTrustSection = () => {
                 <motion.div
                   key={point.number}
                   variants={itemVariants}
-                  className="bg-card dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border dark:border-gray-700"
+                  className="bg-card dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border dark:border-gray-700 group"
                 >
                   <div className="flex items-start gap-4 md:gap-6">
                     {/* Number */}
@@ -192,9 +265,6 @@ const WhyTrustSection = () => {
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-4">
-                        <motion.div
-                        >
-                        </motion.div>
                         <h3 className="text-2xl font-bold text-foreground dark:text-white">{point.title}</h3>
                       </div>
                       <motion.p 
@@ -203,7 +273,6 @@ const WhyTrustSection = () => {
                       >
                         {point.description}
                       </motion.p>
-
                     </div>
                   </div>
                   {/* Accent Line */}
