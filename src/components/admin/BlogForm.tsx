@@ -537,7 +537,11 @@
             Điểm SEO cao giúp bài viết dễ được tìm thấy trên Google.
           </p>
         </div>
-
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
         {/* Action Buttons */}
         <div className="flex justify-between items-center pt-4 border-t">
           <div className="text-sm text-gray-500">
@@ -572,11 +576,7 @@
             </Button>
           </div>
         </div>
-        {error && (
-          <Alert variant="destructive">
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
+        
       </form>
     )
   }

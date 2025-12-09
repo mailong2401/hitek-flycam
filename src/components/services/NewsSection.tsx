@@ -2,13 +2,15 @@ import { ArrowRight, Calendar, User, Clock, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
+import photo1 from "@/assets/home/news/photo-1.avif"
+import photo2 from "@/assets/home/news/photo-2.avif"
+import photo3 from "@/assets/home/news/photo-3.avif"
 const news = [
   {
     id: 1,
     title: "Xu hướng ứng dụng Drone trong nông nghiệp thông minh 2024",
     excerpt: "Khám phá cách drone đang cách mạng hóa ngành nông nghiệp với công nghệ phun thuốc tự động và giám sát cây trồng.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80",
+    image: photo1,
     date: "15/12/2024",
     author: "Admin",
     category: "Công nghệ",
@@ -18,7 +20,7 @@ const news = [
     id: 2,
     title: "Hitek Flycam ra mắt dịch vụ Drone Show chuyên nghiệp",
     excerpt: "Trình diễn light show bằng drone với quy mô 500 drone, mang đến trải nghiệm visual ấn tượng cho sự kiện.",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80",
+    image: photo2,
     date: "10/12/2024",
     author: "Tech Team",
     category: "Sự kiện",
@@ -28,7 +30,7 @@ const news = [
     id: 3,
     title: "Hướng dẫn xin giấy phép bay drone tại Việt Nam 2024",
     excerpt: "Cập nhật quy trình và thủ tục xin giấy phép bay drone mới nhất theo quy định của Bộ Quốc phòng.",
-    image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80",
+    image: photo3,
     date: "05/12/2024",
     author: "Legal Team",
     category: "Pháp lý",

@@ -34,7 +34,6 @@ import DroneFilming from "@/pages/services/DroneFilming";
 import AdminLogin from "./pages/admin/AdminLogin";
 import Dashboard from "./pages/admin/Dashboard";
 import BlogManagement from "./pages/admin/BlogManagement";
-import DocumentManagement from "./pages/admin/DocumentManagement";
 
 const queryClient = new QueryClient();
 
@@ -69,11 +68,7 @@ const AppContent = () => {
             <BlogManagement />
           </ProtectedRoute>
         } />
-        <Route path="/admin/documents" element={
-          <ProtectedRoute>
-            <DocumentManagement />
-          </ProtectedRoute>
-        } />
+        
 
         {/* ========== PUBLIC ROUTES ========== */}
         
