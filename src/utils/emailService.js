@@ -21,6 +21,7 @@ export async function sendContactEmail(formData) {
     
     const response = await fetch(functionUrl, {
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${supabaseAnonKey}`

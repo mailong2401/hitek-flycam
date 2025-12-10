@@ -54,7 +54,7 @@ export default function HeroSection() {
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/5 via-primary/5 to-background/5" />
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-background/5 via-primary/5 to-background/5" /> */}
         {/* <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/90" /> */}
       </div>
 

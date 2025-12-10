@@ -2,34 +2,38 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import photo1 from "@/assets/home/project/photo-1.avif"
+import photo2 from "@/assets/home/project/photo-2.avif"
+import photo3 from "@/assets/home/project/photo-3.avif"
+import photo4 from "@/assets/home/project/photo-4.avif"
 
 const projects = [
   {
     id: 1,
     title: "Khảo sát địa hình dự án cao tốc Bắc - Nam",
     category: "Trắc địa & Khảo sát",
-    image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=600&q=80",
+    image: photo1,
     description: "Sử dụng drone DJI Matrice 350 RTK thu thập dữ liệu địa hình với độ chính xác cm"
   },
   {
     id: 2,
     title: "Quay phim quảng cáo resort 5 sao",
     category: "Quay Phim & Media",
-    image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80",
+    image: photo2,
     description: "Sản xuất video marketing chất lượng 8K với drone DJI Inspire 3"
   },
   {
     id: 3,
     title: "Giám sát thi công dự án điện gió",
     category: "Giám sát & Bảo trì",
-    image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=600&q=80",
+    image: photo3,
     description: "Giám sát tiến độ và an toàn thi công bằng drone tự động hóa"
   },
   {
     id: 4,
     title: "Vận chuyển y tế khẩn cấp",
     category: "Vận chuyển & Logistics",
-    image: "https://images.unsplash.com/photo-1488462104523-514bea5f99b3?q=80&w=1178&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: photo4,
     description: "Vận chuyển thuốc và thiết bị y tế đến vùng sâu vùng xa"
   }
 ];
