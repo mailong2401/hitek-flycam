@@ -4,15 +4,14 @@ import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
-import { Table, TableRow, TableCell, TableHeader } from "@tiptap/extension-table";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { common, createLowlight } from 'lowlight';
 import { Button } from "@/components/ui/button";
 import { 
-  Upload, Bold, Italic, Heading2, List, Code, Table as TableIcon, 
+  Upload, Bold, Italic, Heading2, List, Code, 
   Link as LinkIcon, Quote, ListOrdered, Heading1, Heading3, 
-  Undo, Redo, Plus, Minus, Columns, Rows
-} from "lucide-react";
+  Undo, Redo
+} from "lucide-react"; // Đã xóa TableIcon, Plus, Minus, Columns, Rows
 import { supabase } from "@/services/supabase";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
@@ -38,12 +37,21 @@ export default function RichTextEditor({ value, onChange }) {
   const [uploading, setUploading] = useState(false);
   const [showLinkInput, setShowLinkInput] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
-  const [showTableOptions, setShowTableOptions] = useState(false);
 
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
         codeBlock: false,
+        bulletList: {
+          HTMLAttributes: {
+            class: 'list-disc pl-5'
+          }
+        },
+        orderedList: {
+          HTMLAttributes: {
+            class: 'list-decimal pl-5'
+          }
+        }
       }),
       Image.configure({
         inline: true,
@@ -61,14 +69,6 @@ export default function RichTextEditor({ value, onChange }) {
       Placeholder.configure({
         placeholder: "Nhập nội dung của bạn...",
       }),
-      Table.configure({
-        resizable: true,
-        lastColumnResizable: true,
-        allowTableNodeSelection: true,
-      }),
-      TableRow,
-      TableCell,
-      TableHeader,
       CodeBlockLowlight.configure({
         lowlight,
         defaultLanguage: 'javascript',
@@ -141,36 +141,18 @@ export default function RichTextEditor({ value, onChange }) {
     editor.chain().focus().toggleHeading({ level: 3 }).run();
   };
 
-  // Hàm chèn bullet list
+  // Hàm chèn bullet list - ĐÃ SỬA
   const insertBulletList = () => {
     if (!editor) return;
     
     editor.chain().focus().toggleBulletList().run();
-    
-    // Nếu chưa có nội dung, thêm mẫu
-    if (!editor.getText().trim()) {
-      setTimeout(() => {
-        editor.chain().focus()
-          .insertContent('• Mục đầu tiên trong danh sách')
-          .run();
-      }, 10);
-    }
   };
 
-  // Hàm chèn ordered list
+  // Hàm chèn ordered list - ĐÃ SỬA
   const insertOrderedList = () => {
     if (!editor) return;
     
     editor.chain().focus().toggleOrderedList().run();
-    
-    // Nếu chưa có nội dung, thêm mẫu
-    if (!editor.getText().trim()) {
-      setTimeout(() => {
-        editor.chain().focus()
-          .insertContent('1. Mục thứ nhất')
-          .run();
-      }, 10);
-    }
   };
 
   // Hàm chèn trích dẫn
@@ -178,15 +160,6 @@ export default function RichTextEditor({ value, onChange }) {
     if (!editor) return;
     
     editor.chain().focus().toggleBlockquote().run();
-    
-    // Thêm dấu ngoặc kép nếu chưa có nội dung
-    if (!editor.getText().trim()) {
-      setTimeout(() => {
-        editor.chain().focus()
-          .insertContent('"Nhập nội dung trích dẫn của bạn ở đây..."')
-          .run();
-      }, 10);
-    }
   };
 
   // Hàm chèn code block
@@ -194,74 +167,6 @@ export default function RichTextEditor({ value, onChange }) {
     if (!editor) return;
     
     editor.chain().focus().toggleCodeBlock().run();
-    
-    // Thêm mẫu code nếu chưa có nội dung
-    if (!editor.getText().includes('//')) {
-      setTimeout(() => {
-        editor.chain().focus()
-          .insertContent('// Nhập code của bạn ở đây\nconsole.log("Xin chào!");')
-          .run();
-      }, 10);
-    }
-  };
-
-  // Hàm chèn bảng - FIX LỖI
-  // Hàm chèn bảng - chỉ tạo bảng trống
-const insertTable = (rows = 3, cols = 3) => {
-  if (!editor) return;
-  
-  try {
-    // Chỉ chèn bảng trống
-    editor.chain()
-      .focus()
-      .insertTable({ 
-        rows, 
-        cols, 
-        withHeaderRow: true 
-      })
-      .run();
-  } catch (error) {
-    console.error("Lỗi khi chèn bảng:", error);
-  }
-  
-  setShowTableOptions(false);
-};
-
-  // Hàm thêm/xóa hàng/cột trong bảng
-  const addTableRow = () => {
-    if (!editor) return;
-    try {
-      editor.chain().focus().addRowAfter().run();
-    } catch (error) {
-      console.error("Không thể thêm hàng:", error);
-    }
-  };
-
-  const addTableColumn = () => {
-    if (!editor) return;
-    try {
-      editor.chain().focus().addColumnAfter().run();
-    } catch (error) {
-      console.error("Không thể thêm cột:", error);
-    }
-  };
-
-  const deleteTableRow = () => {
-    if (!editor) return;
-    try {
-      editor.chain().focus().deleteRow().run();
-    } catch (error) {
-      console.error("Không thể xóa hàng:", error);
-    }
-  };
-
-  const deleteTableColumn = () => {
-    if (!editor) return;
-    try {
-      editor.chain().focus().deleteColumn().run();
-    } catch (error) {
-      console.error("Không thể xóa cột:", error);
-    }
   };
 
   // Upload ảnh
@@ -348,7 +253,6 @@ const addLink = () => {
   const isBlockquote = editor.isActive('blockquote');
   const isCodeBlock = editor.isActive('codeBlock');
   const isLink = editor.isActive('link');
-  const isTable = editor.isActive('table');
 
   return (
     <TooltipProvider>
@@ -500,7 +404,7 @@ const addLink = () => {
           
           <Separator orientation="vertical" className="h-6 mx-1 bg-gray-600" />
           
-          {/* Lists */}
+          {/* Lists - ĐÃ SỬA */}
           <Tooltip>
             <TooltipTrigger asChild>
               <Button
@@ -513,13 +417,15 @@ const addLink = () => {
                     : 'text-white'
                 }`}
               >
-                <span className="text-lg">•</span>
+                <span className="text-lg leading-none">•</span>
               </Button>
             </TooltipTrigger>
+
             <TooltipContent>
               <p>Danh sách dấu chấm</p>
             </TooltipContent>
           </Tooltip>
+
           
           <Tooltip>
             <TooltipTrigger asChild>
@@ -533,13 +439,15 @@ const addLink = () => {
                     : 'text-white'
                 }`}
               >
-                <span className="text-sm font-mono">1.</span>
+                <span className="text-lg leading-none">1.</span>
               </Button>
             </TooltipTrigger>
+
             <TooltipContent>
               <p>Danh sách số thứ tự</p>
             </TooltipContent>
           </Tooltip>
+
           
           <Separator orientation="vertical" className="h-6 mx-1 bg-gray-600" />
           
@@ -630,7 +538,7 @@ const addLink = () => {
                     : 'text-white'
                 }`}
               >
-                <span className="text-xl">"</span>
+                <Quote className="w-4 h-4" />
               </Button>
             </TooltipTrigger>
             <TooltipContent>
@@ -658,88 +566,6 @@ const addLink = () => {
               <p>Chèn khối code</p>
             </TooltipContent>
           </Tooltip>
-          
-          {/* Table với dropdown */}
-          <DropdownMenu open={showTableOptions} onOpenChange={setShowTableOptions}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    size="sm"
-                    variant={isTable ? "secondary" : "ghost"}
-                    onClick={handleToolbarClick(() => setShowTableOptions(!showTableOptions))}
-                    className={`hover:bg-gray-800 ${
-                      isTable 
-                        ? 'bg-red-600 text-white' 
-                        : 'text-white'
-                    }`}
-                  >
-                    <TableIcon className="w-4 h-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Chèn bảng</p>
-              </TooltipContent>
-            </Tooltip>
-            
-            <DropdownMenuContent align="start" className="w-56">
-              <DropdownMenuItem onClick={() => insertTable(2, 2)}>
-                <div className="flex items-center gap-2">
-                  <div className="grid grid-cols-2 gap-1 w-6 h-6">
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} className="bg-gray-300 rounded-sm"></div>
-                    ))}
-                  </div>
-                  <span>Bảng 2x2</span>
-                </div>
-              </DropdownMenuItem>
-              
-              <DropdownMenuItem onClick={() => insertTable(3, 3)}>
-                <div className="flex items-center gap-2">
-                  <div className="grid grid-cols-3 gap-1 w-6 h-6">
-                    {[...Array(9)].map((_, i) => (
-                      <div key={i} className="bg-gray-300 rounded-sm"></div>
-                    ))}
-                  </div>
-                  <span>Bảng 3x3</span>
-                </div>
-              </DropdownMenuItem>
-              
-              <DropdownMenuItem onClick={() => insertTable(4, 4)}>
-                <div className="flex items-center gap-2">
-                  <div className="grid grid-cols-4 gap-1 w-6 h-6">
-                    {[...Array(16)].map((_, i) => (
-                      <div key={i} className="bg-gray-300 rounded-sm"></div>
-                    ))}
-                  </div>
-                  <span>Bảng 4x4</span>
-                </div>
-              </DropdownMenuItem>
-              
-              {isTable && (
-                <>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleToolbarClick(addTableRow)}>
-                    <Rows className="w-4 h-4 mr-2" />
-                    Thêm hàng
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleToolbarClick(addTableColumn)}>
-                    <Columns className="w-4 h-4 mr-2" />
-                    Thêm cột
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleToolbarClick(deleteTableRow)}>
-                    <Minus className="w-4 h-4 mr-2" />
-                    Xóa hàng
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleToolbarClick(deleteTableColumn)}>
-                    <Minus className="w-4 h-4 mr-2" />
-                    Xóa cột
-                  </DropdownMenuItem>
-                </>
-              )}
-            </DropdownMenuContent>
-          </DropdownMenu>
           
           <Separator orientation="vertical" className="h-6 mx-1 bg-gray-600" />
           
@@ -784,7 +610,6 @@ const addLink = () => {
           <style>{`
             .ProseMirror h1 {
               font-size: 2.5em !important;
-              
               color: #111827 !important;
               margin: 1em 0 0.5em 0 !important;
               line-height: 1.2 !important;
@@ -792,7 +617,6 @@ const addLink = () => {
             
             .ProseMirror h2 {
               font-size: 2em !important;
-              
               color: #111827 !important;
               margin: 1em 0 0.5em 0 !important;
               line-height: 1.3 !important;
@@ -800,7 +624,6 @@ const addLink = () => {
             
             .ProseMirror h3 {
               font-size: 1.5em !important;
-              
               color: #111827 !important;
               margin: 1em 0 0.5em 0 !important;
               line-height: 1.4 !important;
@@ -814,6 +637,11 @@ const addLink = () => {
             
             .ProseMirror ul li {
               margin: 0.25em 0 !important;
+              position: relative !important;
+            }
+            
+            .ProseMirror ul li::marker {
+              color: #ef4444 !important;
             }
             
             .ProseMirror ol {
@@ -824,6 +652,11 @@ const addLink = () => {
             
             .ProseMirror ol li {
               margin: 0.25em 0 !important;
+            }
+            
+            .ProseMirror ol li::marker {
+              color: #ef4444 !important;
+              font-weight: bold !important;
             }
             
             .ProseMirror blockquote {
@@ -851,43 +684,26 @@ const addLink = () => {
               margin: 1.5em 0 !important;
             }
             
-            .ProseMirror table {
-              border-collapse: collapse !important;
-              width: 100% !important;
-              margin: 1.5em 0 !important;
+            /* Placeholder chỉ hiện khi editor thực sự trống */
+            .ProseMirror.is-editor-empty::before {
+              content: attr(data-placeholder);
+              position: absolute;
+              color: #9ca3af;
+              pointer-events: none;
+              padding: 4px;
             }
             
-            .ProseMirror table td,
-            .ProseMirror table th {
-              border: 1px solid #d1d5db !important;
-              padding: 0.5em 1em !important;
-              text-align: left !important;
+            .ProseMirror:not(.is-editor-empty)::before {
+              display: none;
             }
             
-            .ProseMirror table th {
-              background: #f9fafb !important;
-              font-weight: bold !important;
+            .ProseMirror p.is-empty:first-child::before {
+              content: attr(data-placeholder);
+              float: left;
+              color: #9ca3af;
+              pointer-events: none;
+              height: 0;
             }
-              /* Placeholder chỉ hiện khi editor thực sự trống */
-              .ProseMirror.is-editor-empty::before {
-                content: attr(data-placeholder);
-                position: absolute;
-                color: #9ca3af;
-                pointer-events: none;
-                padding: 4px;
-              }
-              
-              .ProseMirror:not(.is-editor-empty)::before {
-                display: none;
-              }
-              
-              .ProseMirror p.is-empty:first-child::before {
-                content: attr(data-placeholder);
-                float: left;
-                color: #9ca3af;
-                pointer-events: none;
-                height: 0;
-              }
           `}</style>
           
           <EditorContent 
@@ -909,7 +725,6 @@ const addLink = () => {
               {isBlockquote && <span className="px-2 py-1 bg-red-100 text-red-800 rounded">Trích dẫn</span>}
               {isCodeBlock && <span className="px-2 py-1 bg-red-100 text-red-800 rounded">Code block</span>}
               {isLink && <span className="px-2 py-1 bg-red-100 text-red-800 rounded">Link</span>}
-              {isTable && <span className="px-2 py-1 bg-red-100 text-red-800 rounded">Bảng</span>}
             </div>
           </div>
         </div>

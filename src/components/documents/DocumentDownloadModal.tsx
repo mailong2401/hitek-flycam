@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Download, Loader2, FileText, CheckCircle } from "lucide-react";
-import { Document } from "@/types/document";
+import { DocumentItem } from "@/types/document";
 
 interface DocumentDownloadModalProps {
   isOpen: boolean;
@@ -22,7 +22,7 @@ interface DocumentDownloadModalProps {
     email: string;
     company: string;
   }) => Promise<void>;
-  document: Document;
+  document: DocumentItem;
   onDownloadComplete?: () => void;
 }
 
@@ -30,7 +30,7 @@ const DocumentDownloadModal = ({
   isOpen,
   onClose,
   onSubmit,
-  document,
+  document: doc,
   onDownloadComplete
 }: DocumentDownloadModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -43,10 +43,8 @@ const DocumentDownloadModal = ({
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   
-  // Refs để lưu timeout cho từng trường (GIỐNG ContactFormFields)
   const timeoutsRef = useRef<Record<string, NodeJS.Timeout>>({});
 
-  // Hàm validation GIỐNG HỆT ContactFormFields
   const validateField = (fieldName: string, value: string): string => {
     switch (fieldName) {
       case 'name':
@@ -56,14 +54,12 @@ const DocumentDownloadModal = ({
         if (value.trim().length < 3) {
           return "Họ tên phải có ít nhất 3 ký tự";
         }
-        // KHÔNG giới hạn chỉ nhập chữ cái (giống ContactFormFields)
         return "";
       
       case 'phone':
         if (!value.trim()) {
           return "Vui lòng nhập số điện thoại";
         }
-        // Kiểm tra định dạng số điện thoại Việt Nam (giống ContactFormFields)
         const phoneRegex = /^(0[0-9]{9,10}|84[0-9]{9,10})$/;
         const cleanPhone = value.replace(/\D/g, '');
         if (!phoneRegex.test(cleanPhone)) {
@@ -82,7 +78,6 @@ const DocumentDownloadModal = ({
         return "";
       
       case 'company':
-        // Company là tùy chọn, không bắt buộc validate (giống ContactFormFields)
         if (value.length > 100) {
           return "Tên công ty không được quá 100 ký tự";
         }
@@ -93,62 +88,46 @@ const DocumentDownloadModal = ({
     }
   };
 
-  // Hàm debounced validation GIỐNG HỆT ContactFormFields
   const debouncedValidate = (fieldName: string, value: string) => {
-    // Clear timeout cũ nếu có
     if (timeoutsRef.current[fieldName]) {
       clearTimeout(timeoutsRef.current[fieldName]);
     }
 
-    // Nếu trường rỗng, validate ngay lập tức (giống ContactFormFields)
     if (!value.trim()) {
       const error = validateField(fieldName, value);
       setErrors(prev => ({ ...prev, [fieldName]: error }));
       return;
     }
 
-    // Set timeout mới cho validation sau 200ms (giống ContactFormFields)
     timeoutsRef.current[fieldName] = setTimeout(() => {
       const error = validateField(fieldName, value);
       setErrors(prev => ({ ...prev, [fieldName]: error }));
     }, 200);
   };
 
-  // Hàm xử lý thay đổi với validation debounced GIỐNG HỆT ContactFormFields
   const handleChangeWithValidation = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     
     let newValue = value;
     
-    // Xử lý tự động format số điện thoại GIỐNG HỆT ContactFormFields
     if (name === 'phone') {
-      // Loại bỏ tất cả ký tự không phải số
       const numbers = value.replace(/\D/g, '');
       
-      // Nếu bắt đầu bằng 84, giữ nguyên 84
       if (numbers.startsWith('84')) {
         newValue = numbers;
-      } 
-      // Nếu bắt đầu bằng 0, giữ nguyên 0
-      else if (numbers.startsWith('0')) {
+      } else if (numbers.startsWith('0')) {
         newValue = numbers;
-      }
-      // Nếu không bắt đầu bằng gì cả nhưng có số
-      else if (numbers) {
+      } else if (numbers) {
         newValue = '0' + numbers;
       } else {
         newValue = '';
       }
     }
     
-    // Cập nhật form data
     setFormData(prev => ({ ...prev, [name]: newValue }));
-    
-    // Debounced validation GIỐNG HỆT ContactFormFields
     debouncedValidate(name, newValue);
   };
 
-  // Cleanup timeouts khi component unmount (giống ContactFormFields)
   useEffect(() => {
     return () => {
       Object.values(timeoutsRef.current).forEach(timeout => {
@@ -157,10 +136,47 @@ const DocumentDownloadModal = ({
     };
   }, []);
 
+  useEffect(() => {
+    if (isSuccess && doc.file_url) {
+      const timer = setTimeout(() => {
+        console.log('🔔 Auto-downloading file:', doc.file_url);
+        
+        const link = window.document.createElement('a');
+        link.href = doc.file_url;
+        
+        const getExtension = (fileType: string) => {
+          const map: Record<string, string> = {
+            'PDF': '.pdf',
+            'RAR': '.rar', 
+            'ZIP': '.zip',
+            'DOCX': '.docx',
+            'XLSX': '.xlsx'
+          };
+          return map[fileType?.toUpperCase()] || '.pdf';
+        };
+        
+        const fileType = doc.file_type || 'PDF';
+        const extension = getExtension(fileType);
+        const fileName = `${doc.title.replace(/[<>:"/\\|?*]+/g, '_')}${extension}`;
+        
+        link.download = fileName;
+        link.target = '_blank';
+        link.click();
+        
+        console.log('✅ Auto-download completed:', fileName);
+        
+        if (onDownloadComplete) {
+          onDownloadComplete();
+        }
+      }, 500);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess, doc, onDownloadComplete]);
+
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     
-    // Validate từng trường (bắt buộc ngoại trừ company)
     const requiredFields = ['name', 'phone', 'email'];
     requiredFields.forEach(field => {
       const error = validateField(field, formData[field as keyof typeof formData]);
@@ -169,7 +185,6 @@ const DocumentDownloadModal = ({
       }
     });
 
-    // Validate company nếu có nhập
     if (formData.company.trim()) {
       const companyError = validateField('company', formData.company);
       if (companyError) {
@@ -190,24 +205,20 @@ const DocumentDownloadModal = ({
 
     setIsLoading(true);
     try {
+      console.log('📝 Submitting form data:', formData);
       await onSubmit(formData);
       setIsSuccess(true);
       
-      // Gọi callback nếu có
-      if (onDownloadComplete) {
-        onDownloadComplete();
-      }
-      
-      // Tự động đóng modal sau 3 giây
       setTimeout(() => {
         setIsSuccess(false);
         setFormData({ name: "", phone: "", email: "", company: "" });
         setErrors({});
         onClose();
-      }, 3000);
+      }, 5000);
       
     } catch (error) {
       console.error("Error submitting form:", error);
+      alert("❌ Có lỗi xảy ra khi gửi thông tin. Vui lòng thử lại.");
       setIsSuccess(false);
     } finally {
       setIsLoading(false);
@@ -215,21 +226,35 @@ const DocumentDownloadModal = ({
   };
 
   const handleDownloadNow = () => {
-    // Kiểm tra xem có đang chạy trong trình duyệt không
-    if (typeof window === 'undefined' || typeof document === 'undefined') {
+    if (typeof window === 'undefined') {
       console.error('Cannot download file in non-browser environment');
       return;
     }
 
-    // Tải file ngay lập tức
-    if (document.fileUrl || document.file_url) {
-      const fileUrl = document.fileUrl || document.file_url;
-      const link = document.createElement('a');
-      link.href = fileUrl!;
-      link.download = document.title.replace(/\s+/g, '_') + '.' + (document.fileType || document.file_type || 'pdf');
-      document.body.appendChild(link);
+    if (doc.file_url) {
+      const link = window.document.createElement('a');
+      link.href = doc.file_url;
+      
+      const getExtension = (fileType: string) => {
+        const map: Record<string, string> = {
+          'PDF': '.pdf',
+          'RAR': '.rar', 
+          'ZIP': '.zip',
+          'DOCX': '.docx',
+          'XLSX': '.xlsx'
+        };
+        return map[fileType?.toUpperCase()] || '.pdf';
+      };
+      
+      const fileType = doc.file_type || 'PDF';
+      const extension = getExtension(fileType);
+      const fileName = `${doc.title.replace(/[<>:"/\\|?*]+/g, '_')}${extension}`;
+      
+      link.download = fileName;
+      link.target = '_blank';
       link.click();
-      document.body.removeChild(link);
+      
+      console.log('📥 Manual download:', fileName);
     }
   };
 
@@ -251,12 +276,12 @@ const DocumentDownloadModal = ({
             </div>
             
             <div className="p-8 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{document.title}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{doc.title}</h3>
               <p className="text-gray-600 mb-6">Đã được tải về thành công</p>
               
               <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
                 <p className="text-green-700 font-medium">
-                  ✅ Chúng tôi đã gửi xác nhận đến email của bạn
+                  ✅ Chúng tôi đã ghi nhận thông tin của bạn
                 </p>
                 <p className="text-green-600 text-sm mt-2">
                   Đội ngũ chuyên gia sẽ liên hệ hỗ trợ bạn sớm nhất
@@ -272,7 +297,7 @@ const DocumentDownloadModal = ({
               </Button>
               
               <p className="text-sm text-gray-500 mt-4">
-                Modal sẽ tự đóng sau 3 giây...
+                Modal sẽ tự đóng sau 5 giây...
               </p>
             </div>
           </div>
@@ -285,7 +310,6 @@ const DocumentDownloadModal = ({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto p-0">
         <div className="relative">
-          {/* Header */}
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-6 text-white">
             <DialogHeader>
               <div className="flex items-center gap-3">
@@ -302,9 +326,7 @@ const DocumentDownloadModal = ({
             </DialogHeader>
           </div>
 
-          {/* Content */}
           <div className="p-6">
-            {/* Document Info */}
             <div className="bg-gradient-to-r from-gray-50 to-blue-50 p-5 rounded-xl mb-6 border border-blue-100">
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-3 rounded-lg">
@@ -312,20 +334,20 @@ const DocumentDownloadModal = ({
                 </div>
                 <div className="flex-1">
                   <h3 className="font-bold text-lg text-gray-900 mb-1">
-                    {document.title}
+                    {doc.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-3">
-                    {document.description}
+                    {doc.description}
                   </p>
                   <div className="flex gap-2 flex-wrap">
-                    {(document.fileType || document.file_type) && (
+                    {doc.file_type && (
                       <span className="text-xs bg-purple-100 text-purple-700 px-3 py-1.5 rounded-full font-medium">
-                        {document.fileType || document.file_type}
+                        {doc.file_type}
                       </span>
                     )}
-                    {(document.fileSize || document.file_size) && (
+                    {doc.file_size && (
                       <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full font-medium">
-                        {document.fileSize || document.file_size}
+                        {doc.file_size}
                       </span>
                     )}
                   </div>
@@ -334,9 +356,7 @@ const DocumentDownloadModal = ({
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Form Fields */}
               <div className="space-y-4">
-                {/* Họ tên - GIỐNG HỆT ContactFormFields */}
                 <div>
                   <Label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Họ và tên <span className="text-red-500">*</span>
@@ -361,7 +381,6 @@ const DocumentDownloadModal = ({
                   </div>
                 </div>
 
-                {/* Số điện thoại - GIỐNG HỆT ContactFormFields */}
                 <div>
                   <Label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                     Số điện thoại <span className="text-red-500">*</span>
@@ -381,7 +400,6 @@ const DocumentDownloadModal = ({
                   )}
                 </div>
 
-                {/* Email - GIỐNG HỆT ContactFormFields */}
                 <div>
                   <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email <span className="text-red-500">*</span>
@@ -401,7 +419,6 @@ const DocumentDownloadModal = ({
                   )}
                 </div>
 
-                {/* Tên công ty - GIỐNG HỆT ContactFormFields */}
                 <div>
                   <Label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                     Tên công ty (tùy chọn)
@@ -427,7 +444,6 @@ const DocumentDownloadModal = ({
                 </div>
               </div>
 
-              {/* Privacy Policy */}
               <div className="text-xs text-gray-500 text-center">
                 <p>
                   Bằng việc tải tài liệu, bạn đồng ý với{" "}
@@ -438,7 +454,6 @@ const DocumentDownloadModal = ({
                 </p>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex gap-3 pt-4">
                 <Button
                   type="button"

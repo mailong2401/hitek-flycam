@@ -497,23 +497,6 @@
                 </AlertDescription>
               </Alert>
             )}
-            {/* HTML Preview (Collapsible) */}
-            {/* {formData.content && (
-              <details className="mt-4 border rounded-lg">
-                <summary className="px-4 py-3 text-sm font-medium cursor-pointer hover:bg-gray-50">
-                  🔍 Xem HTML/SEO code (dành cho developer)
-                </summary>
-                <div className="px-4 py-3 border-t bg-gray-900 text-gray-100">
-                  <div className="text-xs font-mono whitespace-pre-wrap overflow-auto max-h-60">
-                    {formData.content.substring(0, 1000)}
-                    {formData.content.length > 1000 && '...'}
-                  </div>
-                  <p className="text-xs text-gray-400 mt-2">
-                    HTML này sẽ được lưu vào database và hiển thị trên trang web.
-                  </p>
-                </div>
-              </details>
-            )} */}
           </div>
 
         </div>

@@ -113,7 +113,7 @@ export default function HeroSection() {
           >
             <div className="flex flex-col items-center gap-8 mb-12">
               <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
+                <div className="absolute inset-0 bg-primary/10 blur-xl rounded-full" />
                 <img
                   src={LgFlycam}
                   alt="Hitek Flycam Logo"
@@ -178,7 +178,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

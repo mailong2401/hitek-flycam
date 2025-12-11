@@ -4,7 +4,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ContactFormFields from './ContactFormFields';
 import ContactInfo from './ContactInfo';
-import FormStatus from './FormStatus';
 import SubmitButton from './SubmitButton';
 import { ContactFormData } from '@/types/contact';
 import { sendContactEmail } from '@/utils/emailService';
@@ -357,7 +356,7 @@ const validateName = (name: string) => {
             </div>
           )}
 
-          <FormStatus status={submitStatus} />
+          
           <SubmitButton 
             isLoading={isLoading} 
             isValid={isFormValid()}

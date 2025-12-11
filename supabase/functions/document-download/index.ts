@@ -1,6 +1,5 @@
 // supabase/functions/document-download/index.ts
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-import sgMail from 'npm:@sendgrid/mail@^7.7.0'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7'
 
 // CORS headers đầy đủ
@@ -11,10 +10,70 @@ const corsHeaders = {
   'Access-Control-Max-Age': '86400',
 }
 
+// -------------------- SMTP SEND FUNCTION --------------------
+async function sendSMTP(to: string, html: string, subject: string) {
+  const encoder = new TextEncoder()
+  const decoder = new TextDecoder()
+
+  // -------------------- ENV VARIABLES --------------------
+  const smtpHost = Deno.env.get('SMTP_HOST')!
+  const smtpPort = Number(Deno.env.get('SMTP_PORT')!)
+  const smtpUser = Deno.env.get('SMTP_USER')!
+  const smtpPass = Deno.env.get('SMTP_PASS')!
+  const secure = Deno.env.get('SMTP_SECURE') === 'true'
+
+  console.log(`📧 SMTP Config: ${smtpHost}:${smtpPort}, user: ${smtpUser}`)
+
+  const conn = secure
+    ? await Deno.connectTls({ hostname: smtpHost, port: smtpPort })
+    : await Deno.connect({ hostname: smtpHost, port: smtpPort })
+
+  async function smtp(cmd: string) {
+    await conn.write(encoder.encode(cmd + "\r\n"))
+    const buf = new Uint8Array(4096)
+    const n = await conn.read(buf)
+    return decoder.decode(buf.subarray(0, n))
+  }
+
+  try {
+    // SMTP Handshake
+    await smtp("EHLO localhost")
+    await smtp("AUTH LOGIN")
+    await smtp(btoa(smtpUser))
+    await smtp(btoa(smtpPass))
+
+    // Send email
+    await smtp(`MAIL FROM:<${smtpUser}>`)
+    await smtp(`RCPT TO:<${to}>`)
+    await smtp("DATA")
+
+    const body = 
+`From: ${smtpUser}
+To: ${to}
+Subject: ${subject}
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+
+${html}
+`
+
+    await smtp(body + "\r\n.")
+    await smtp("QUIT")
+    
+    console.log(`✅ Email sent successfully to: ${to}`)
+    return true
+  } catch (error) {
+    console.error(`❌ SMTP error sending to ${to}:`, error)
+    throw error
+  } finally {
+    conn.close()
+  }
+}
+
 serve(async (req) => {
   console.log('📄 Document Download Edge Function called')
   
-  // Handle CORS preflight - QUAN TRỌNG: Trả về 200 OK
+  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     console.log('🔄 Handling CORS preflight request')
     return new Response('ok', { 
@@ -71,29 +130,27 @@ serve(async (req) => {
       })
     }
 
-    // 1. SETUP SENDGRID
-    const SENDGRID_API_KEY = Deno.env.get('SENDGRID_API_KEY')
-    const FROM_EMAIL = 'no-reply@em1368.vibecoding.hitek.com.vn'
-    const ADMIN_EMAIL = Deno.env.get('ADMIN_EMAIL') || 'phamnguyenminhtri249@gmail.com'
-    
-    console.log('🔑 SendGrid API Key exists:', !!SENDGRID_API_KEY)
-    
-    if (!SENDGRID_API_KEY) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: 'SendGrid API Key chưa được cấu hình trong Environment Variables' 
-      }), { 
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      })
-    }
-    
-    // 2. SETUP SUPABASE CLIENT
-    const supabaseUrl = Deno.env.get('SUPABASE_URL') || ''
-    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || ''
+    // 1. SETUP SUPABASE CLIENT
+    const supabaseUrl = Deno.env.get('SUPABASE_URL') || Deno.env.get('PROJECT_URL') || ''
+    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') || Deno.env.get('SERVICE_ROLE_KEY') || ''
+    const adminEmail = Deno.env.get('ADMIN_EMAIL') || 'phamnguyenminhtri249@gmail.com'
     
     console.log('🔗 Supabase URL exists:', !!supabaseUrl)
     console.log('🔑 Supabase Service Key exists:', !!supabaseServiceKey)
+    console.log('📧 Admin Email:', adminEmail)
+    
+    // Kiểm tra biến môi trường SMTP
+    const smtpHost = Deno.env.get('SMTP_HOST')
+    const smtpPort = Deno.env.get('SMTP_PORT')
+    const smtpUser = Deno.env.get('SMTP_USER')
+    const smtpPass = Deno.env.get('SMTP_PASS')
+    
+    console.log('📧 SMTP Config check:', {
+      host: !!smtpHost,
+      port: !!smtpPort,
+      user: !!smtpUser,
+      pass: !!smtpPass
+    })
     
     if (!supabaseUrl || !supabaseServiceKey) {
       return new Response(JSON.stringify({ 
@@ -105,9 +162,19 @@ serve(async (req) => {
       })
     }
     
+    if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
+      return new Response(JSON.stringify({ 
+        success: false, 
+        error: 'SMTP configuration missing' 
+      }), { 
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      })
+    }
+    
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
     
-    // 3. LƯU VÀO BẢNG document_downloads
+    // 2. LƯU VÀO BẢNG document_downloads
     let dbRecordId = null
     try {
       const { data, error } = await supabase
@@ -141,17 +208,8 @@ serve(async (req) => {
       throw dbError
     }
 
-    sgMail.setApiKey(SENDGRID_API_KEY)
-
-    // 4. EMAIL CHO ADMIN - Tải tài liệu
-    const adminEmail = {
-      to: ADMIN_EMAIL,
-      from: {
-        email: FROM_EMAIL,
-        name: 'Hitek Flycam Tài Liệu'
-      },
-      subject: `📄 Hitek Flycam - Tải tài liệu từ ${name}`,
-      html: `
+    // 3. EMAIL CHO ADMIN - Tải tài liệu (CHỈ GỬI CHO ADMIN, KHÔNG GỬI CHO NGƯỜI DÙNG)
+    const adminHtml = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -248,6 +306,10 @@ serve(async (req) => {
                         <td>Thời gian xử lý:</td>
                         <td>${new Date().toISOString()}</td>
                     </tr>
+                    <tr>
+                        <td>Email gửi đến:</td>
+                        <td>Chỉ admin (không gửi xác nhận cho người dùng)</td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -255,120 +317,32 @@ serve(async (req) => {
 </body>
 </html>
 `
-    }
 
-    // 5. EMAIL XÁC NHẬN CHO NGƯỜI TẢI
-    const userEmail = {
-      to: email,
-      from: {
-        email: FROM_EMAIL,
-        name: 'Hitek Flycam Tài Liệu'
-      },
-      subject: 'Hitek Flycam - Xác nhận tải tài liệu thành công',
-      html: `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác nhận tải tài liệu thành công</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background: #10b981; color: white; padding: 25px; border-radius: 8px 8px 0 0; text-align: center; }
-        .content { background: #ffffff; padding: 30px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb; }
-        .info-box { background: #f0f9ff; padding: 25px; border-radius: 10px; margin: 25px 0; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1 style="margin: 0;">📥 Tải tài liệu thành công!</h1>
-            <p style="margin: 10px 0 0 0;">Hitek Flycam đã nhận được yêu cầu của bạn</p>
-        </div>
-        
-        <div class="content">
-            <p>Xin chào <strong>${name}</strong>,</p>
-            
-            <p>Cảm ơn bạn đã tải tài liệu từ <strong>Hitek Flycam</strong>. Chúng tôi đã ghi nhận thông tin của bạn và đội ngũ chuyên gia sẽ liên hệ hỗ trợ bạn trong thời gian sớm nhất.</p>
-            
-            <div class="info-box">
-                <h3 style="margin-top: 0; color: #059669;">📄 Chi tiết tài liệu đã tải</h3>
-                <table style="width: 100%;">
-                    <tr>
-                        <td style="padding: 12px 0; width: 35%;"><strong>Mã giao dịch:</strong></td>
-                        <td style="padding: 12px 0;"><strong style="color: #3b82f6;">DL${dbRecordId ? dbRecordId.toString().substring(0, 8).toUpperCase() : 'N/A'}</strong></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 12px 0;"><strong>Tài liệu:</strong></td>
-                        <td style="padding: 12px 0;">${document.title}</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 12px 0;"><strong>Thời gian:</strong></td>
-                        <td style="padding: 12px 0;">${new Date().toLocaleString('vi-VN')}</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <div style="text-align: center; margin: 25px 0;">
-                <p><strong>📞 Hotline hỗ trợ: 0346 124 230</strong></p>
-                <p><strong>📧 Email: support@hitekflycam.vn</strong></p>
-            </div>
-            
-            <div style="text-align: center; margin: 25px 0; color: #6b7280; font-size: 14px;">
-                <p>Trân trọng,</p>
-                <p style="font-size: 16px; color: #2563eb; font-weight: bold;">Đội ngũ Hitek Flycam</p>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-`
-    }
-
-    // 6. GỬI EMAILS
-    console.log('📤 Starting to send document download emails')
-    
+    // 4. GỬI EMAIL CHO ADMIN BẰNG SMTP
+    console.log('📤 Sending admin notification via SMTP to:', adminEmail)
     let adminSent = false
-    let userSent = false
     let adminError = null
-    let userError = null
     
-    // Gửi email cho admin
     try {
-      console.log('📧 Sending admin notification to:', ADMIN_EMAIL)
-      const adminResult = await sgMail.send(adminEmail)
-      adminSent = adminResult[0].statusCode === 202
-      console.log('✅ Admin notification sent:', adminSent)
+      await sendSMTP(adminEmail, adminHtml, `📄 Hitek Flycam - Tải tài liệu từ ${name}`)
+      adminSent = true
+      console.log('✅ Admin notification sent successfully via SMTP')
     } catch (error) {
       console.error('❌ Admin notification failed:', error)
       adminError = error.message
     }
-    
-    // Gửi xác nhận cho người tải
-    try {
-      console.log('📧 Sending user confirmation to:', email)
-      const userResult = await sgMail.send(userEmail)
-      userSent = userResult[0].statusCode === 202
-      console.log('✅ User confirmation sent:', userSent)
-    } catch (error) {
-      console.error('❌ User confirmation failed:', error)
-      userError = error.message
-    }
 
-    // 7. CẬP NHẬT DATABASE VỚI TRẠNG THÁI EMAIL
+    // 5. CẬP NHẬT DATABASE VỚI TRẠNG THÁI EMAIL (chỉ admin)
     if (dbRecordId) {
       try {
         const updateData: any = {
           admin_email_sent: adminSent,
-          user_email_sent: userSent,
           updated_at: new Date().toISOString()
         }
         
-        if (!adminSent || !userSent) {
+        if (!adminSent) {
           updateData.email_error_details = {
-            admin_error: adminError,
-            user_error: userError
+            admin_error: adminError
           }
         }
         
@@ -387,7 +361,7 @@ serve(async (req) => {
       }
     }
 
-    // 8. TRẢ VỀ RESPONSE
+    // 6. TRẢ VỀ RESPONSE
     const responseData = {
       success: true,
       message: 'Document download recorded successfully!',
@@ -395,9 +369,8 @@ serve(async (req) => {
         record_id: dbRecordId,
         document_title: document.title,
         document_url: document.file_url,
-        emails_sent: {
-          admin: adminSent,
-          user: userSent
+        email_sent: {
+          admin: adminSent
         },
         download_time: new Date().toISOString()
       }

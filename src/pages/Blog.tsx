@@ -176,17 +176,11 @@ export default function Blog() {
 
   // Xử lý click thumbnail
   const handleThumbnailClick = (clickedIndex: number) => {
-    if (isAnimating || clickedIndex === currentIndex) return;
-    
-    const distance = (clickedIndex - currentIndex + blogPosts.length) % blogPosts.length;
-    const clickNext = (count: number) => {
-      if (count > 0) {
-        showSlider('next');
-        setTimeout(() => clickNext(count - 1), 600);
-      }
-    };
-    clickNext(distance);
-  };
+  // Chỉ cập nhật currentIndex nếu cần (cho carousel chính)
+  if (!isAnimating && clickedIndex !== currentIndex) {
+    setCurrentIndex(clickedIndex);
+  }
+};
 
   // Xử lý click xem chi tiết
   const handleViewDetails = (postId: string, e?: React.MouseEvent) => {
