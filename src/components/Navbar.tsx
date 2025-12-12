@@ -4,9 +4,10 @@ import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSelector from "@/components/LanguageSelector";
-import droneIcon from "@/assets/logo/logo-flycam-hitek.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo_dark from "@/assets/logo/logo_dark.png";
+import logo_light from "@/assets/logo/logo_light.png";
 
 const services = [
   { name: "nav.services.droneRepair", path: "/services/drone-repair" },
@@ -106,24 +107,21 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-pure-white/95 dark:bg-pure-black/95 backdrop-blur-md ${isScrolled ? "shadow-lg" : ""}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo, Text và Hotline */}
-          <div className="flex items-center gap-6">
-            {/* Logo Container */}
-            <Link to="/" onClick={scrollToTop} className="flex items-center gap-4">
-              {/* Logo Image */}
-              
-              
-              {/* Text Column */}
-              <div className="hidden lg:flex flex-col">
-                <img 
-                className="w-12 h-12 object-contain"
-                src={droneIcon}
+          {/* Logo - Mobile & Desktop */}
+          <div className="flex items-center gap-3">
+            <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
+              {/* Logo hiển thị trên cả mobile và desktop */}
+              <img 
+                className="w-16 h-16 lg:w-18 lg:h-18 object-contain dark:hidden"
+                src={logo_light}
                 alt="Hitek Flycam Logo"
               />
-                <span className="font-bold text-sm text-pure-black dark:text-pure-white leading-tight">
-                  HITEK FLYCAM
-                </span>
-              </div>
+              <img 
+                className="w-16 h-16 lg:w-18 lg:h-18 object-contain hidden dark:block"
+                src={logo_dark}
+                alt="Hitek Flycam Logo"
+              />
+              
             </Link>
           </div>
 
@@ -164,27 +162,28 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Controls và Mobile Menu Button */}
+          {/* Controls */}
           <div className="flex items-center gap-4">
+            {/* Desktop Controls */}
             <div className="hidden lg:flex items-center gap-4">
               <LanguageSelector />
               <ThemeToggle />
             </div>
 
-            {/* Mobile Controls và Menu Button */}
-            <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Controls */}
+            <div className="flex lg:hidden items-center gap-3">
               <LanguageSelector />
               <ThemeToggle />
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-pure-black dark:text-pure-white"
+                className="text-pure-black dark:text-pure-white h-9 w-9"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-5 h-5" />
                 )}
               </Button>
             </div>
@@ -192,68 +191,82 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-2 animate-in slide-in-from-top duration-200">
-            {/* Mobile Logo Text */}
-            <div className="px-4 pb-2">
-              <div className="flex flex-col">
-                <span className="font-bold text-lg text-pure-black dark:text-pure-white">
-                  HITEK FLYCAM
-                </span>
-                <span className="text-sm text-vibrant-red font-medium">
-                  THE DRONE EXPERTS
-                </span>
-              </div>
-            </div>
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              className="lg:hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="py-4 space-y-1 border-t border-border">
 
-            {navLinks.map((link) => (
-              <div key={link.name}>
-                {link.hasDropdown ? (
-                  <div className="space-y-2">
-                    <button
-                      onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                      className="flex items-center justify-between w-full px-4 py-2 text-left text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray rounded-md transition-colors"
-                    >
-                      <span>{link.name}</span>
-                      <ChevronDown className={`h-4 w-4 transition-transform ${isMobileServicesOpen ? "rotate-180" : ""}`} />
-                    </button>
-                    {isMobileServicesOpen && (
-                      <div className="pl-6 space-y-2">
-                        {services.map((service) => (
-                          <Link
-                            key={service.path}
-                            to={service.path}
-                            className="block px-4 py-2 text-sm text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray rounded-md transition-colors"
-                            onClick={scrollToTop}
+                {navLinks.map((link) => (
+                  <div key={link.name}>
+                    {link.hasDropdown ? (
+                      <div className="space-y-1">
+                        <button
+                          onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                          className="flex items-center justify-between w-full px-4 py-3 text-left text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors"
+                        >
+                          <span className="font-medium">{link.name}</span>
+                          <ChevronDown className={`h-4 w-4 transition-transform ${isMobileServicesOpen ? "rotate-180" : ""}`} />
+                        </button>
+                        {isMobileServicesOpen && (
+                          <motion.div 
+                            className="space-y-1"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                           >
-                            {t(service.name as any)}
-                          </Link>
-                        ))}
+                            {services.map((service) => (
+                              <Link
+                                key={service.path}
+                                to={service.path}
+                                className="block px-8 py-2 text-sm text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors"
+                                onClick={() => {
+                                  scrollToTop();
+                                  setIsMobileServicesOpen(false);
+                                }}
+                              >
+                                {t(service.name as any)}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
                       </div>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="block px-4 py-3 text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors font-medium"
+                        onClick={scrollToTop}
+                      >
+                        {link.name}
+                      </Link>
                     )}
                   </div>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className="block px-4 py-2 text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray rounded-md transition-colors"
-                    onClick={scrollToTop}
-                  >
-                    {link.name}
-                  </Link>
-                )}
+                ))}
+                
+                {/* Hotline Mobile */}
+                <div className="px-4 py-3 mt-4 border-t border-border">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-vibrant-red/10 rounded-lg">
+                      <Phone className="w-4 h-4 text-vibrant-red" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Hotline hỗ trợ 24/7</p>
+                      <div className="font-bold text-sm text-vibrant-red">
+                        <div>028 99 95 95 88</div>
+                        <div>034 612 4230</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-            
-            {/* Hotline Mobile */}
-            <div className="px-4 py-2 flex items-center gap-2 border-t border-border mt-2 pt-4">
-              <Phone className="w-5 h-5 text-vibrant-red" />
-              <div className="text-sm font-medium text-vibrant-red">
-                <div>028 99 95 95 88</div>
-                <div>034 612 4230</div>
-              </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

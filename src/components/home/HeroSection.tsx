@@ -45,8 +45,6 @@ export default function ServicesHero() {
         />
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-primary/20 to-background/95" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/90" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -71,17 +69,10 @@ export default function ServicesHero() {
                 />
               </div>
               <div>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-4 leading-tight">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-light-gray mb-4 leading-tight">
                   {t("servicesPage.servicesHero.title.main")}{" "}
                   <motion.span 
                     className="text-primary"
-                    animate={{
-                      textShadow: [
-                        "0 0 0px rgba(59, 130, 246, 0)",
-                        "0 0 30px rgba(59, 130, 246, 0.5)", 
-                        "0 0 10px rgba(59, 130, 246, 0.3)"
-                      ]
-                    }}
                     transition={{
                       duration: 3,
                       repeat: Infinity,
@@ -92,7 +83,7 @@ export default function ServicesHero() {
                   </motion.span>
                 </h1>
                 <motion.p 
-                  className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground font-medium"
+                  className="text-2xl md:text-3xl lg:text-4xl text-light-gray font-medium"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 1 }}
@@ -130,7 +121,6 @@ export default function ServicesHero() {
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }

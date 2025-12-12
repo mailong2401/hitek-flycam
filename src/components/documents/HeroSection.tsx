@@ -36,7 +36,6 @@ const HeroSection = () => {
           alt="Drone Background"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -58,7 +57,7 @@ const HeroSection = () => {
 
           <motion.div variants={itemVariants} className="mb-3 md:mb-4">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
-              <span className="text-foreground">TÀI LIỆU </span>
+              <span className="text-light-gray">TÀI LIỆU </span>
               <span className="text-primary">
                 HITEK FLYCAM
               </span>
@@ -66,7 +65,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm md:text-lg text-light-gray max-w-2xl mx-auto">
               Brochure, portfolio và tài liệu kỹ thuật chính thức của Hitek Flycam – đơn vị<br/>
               cung cấp giải pháp drone chuyên nghiệp hàng đầu Việt Nam.
             </p>

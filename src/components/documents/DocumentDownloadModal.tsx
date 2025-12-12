@@ -308,9 +308,9 @@ const DocumentDownloadModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="sm:max-w-[500px] max-h-[100vh] overflow-y-auto p-0">
         <div className="relative">
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-6 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-red-600 p-6 text-white">
             <DialogHeader>
               <div className="flex items-center gap-3">
                 <FileText className="w-8 h-8" />
@@ -327,9 +327,9 @@ const DocumentDownloadModal = ({
           </div>
 
           <div className="p-6">
-            <div className="bg-gradient-to-r from-gray-50 to-blue-50 p-5 rounded-xl mb-6 border border-blue-100">
+            <div className="bg-gradient-to-r from-gray-50 to-red-50 p-5 rounded-xl mb-6 border border-red-100">
               <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-3 rounded-lg">
+                <div className="bg-gradient-to-r from-red-500 to-red-500 p-3 rounded-lg">
                   <FileText className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
@@ -341,12 +341,12 @@ const DocumentDownloadModal = ({
                   </p>
                   <div className="flex gap-2 flex-wrap">
                     {doc.file_type && (
-                      <span className="text-xs bg-purple-100 text-purple-700 px-3 py-1.5 rounded-full font-medium">
+                      <span className="text-xs bg-red-100 text-red-700 px-3 py-1.5 rounded-full font-medium">
                         {doc.file_type}
                       </span>
                     )}
                     {doc.file_size && (
-                      <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full font-medium">
+                      <span className="text-xs bg-red-100 text-red-700 px-3 py-1.5 rounded-full font-medium">
                         {doc.file_size}
                       </span>
                     )}
@@ -447,7 +447,7 @@ const DocumentDownloadModal = ({
               <div className="text-xs text-gray-500 text-center">
                 <p>
                   Bằng việc tải tài liệu, bạn đồng ý với{" "}
-                  <a href="/privacy" className="text-purple-600 hover:underline font-medium">
+                  <a href="/privacy" className="text-red-600 hover:underline font-medium">
                     Chính sách bảo mật
                   </a>{" "}
                   của Hitek Flycam.
@@ -466,7 +466,7 @@ const DocumentDownloadModal = ({
                 </Button>
                 <Button
                   type="submit"
-                  className="flex-1 h-12 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium shadow-lg"
+                  className="flex-1 h-12 bg-gradient-to-r from-red-600 to-red-600 hover:from-red-700 hover:to-red-700 text-white font-medium shadow-lg"
                   disabled={isLoading}
                 >
                   {isLoading ? (
