@@ -1,63 +1,49 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/services/supabase";
-import { BlogPost } from "@/types";
 import { Skeleton } from "@/components/ui/skeleton";
-import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 import {
-  BlogHeroSection,
-  BlogSearchFilters,
-  BlogPostsGrid,
-  BlogSchemaManager
+  BlogCarousel,
+  ThumbnailCarousel,
+  BlogControls,
+  BlogSEO,
+  EnhancedBlogPost,
+  getFallbackImage,
+  getDefaultPosts,
+  calculateReadTime,
+  generateSlug,
+  createThumbnailClone
 } from "@/components/blog";
-
-interface EnhancedBlogPost extends BlogPost {
-  readTime: string;
-  views: number;
-  likes: number;
-  slug: string;
-}
 
 export default function Blog() {
   const [blogPosts, setBlogPosts] = useState<EnhancedBlogPost[]>([]);
-  const [filteredPosts, setFilteredPosts] = useState<EnhancedBlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState<"newest" | "popular">("newest");
-  const [categoryFilter, setCategoryFilter] = useState<string>("all");
-  const [updatingIds, setUpdatingIds] = useState<Set<string>>(new Set());
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [postsPerRow, setPostsPerRow] = useState(3);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [nextPostId, setNextPostId] = useState<string | null>(null);
+  const [prevPostId, setPrevPostId] = useState<string | null>(null);
+  
   const navigate = useNavigate();
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const thumbnailContainerRef = useRef<HTMLDivElement>(null);
+  const backgroundImageRef = useRef<HTMLImageElement>(null);
 
-  const categories = ["all", ...Array.from(new Set(blogPosts.map(post => post.category)))];
-  const totalPosts = blogPosts.length;
-  const totalViews = blogPosts.reduce((sum, post) => sum + post.views, 0);
-  const totalCategories = categories.length - 1;
-
-  const fallbackImages = [
-    "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  ];
-
+  // Fetch dữ liệu từ Supabase
   useEffect(() => {
     fetchBlogPosts();
-    updatePostsPerRow();
-    window.addEventListener('resize', updatePostsPerRow);
-    return () => window.removeEventListener('resize', updatePostsPerRow);
   }, []);
 
+  // Cập nhật next/prev post ID
   useEffect(() => {
-    filterAndSortPosts();
-  }, [blogPosts, searchTerm, sortBy, categoryFilter]);
-
-  const updatePostsPerRow = () => {
-    const width = window.innerWidth;
-    if (width < 768) setPostsPerRow(1);
-    else if (width < 1024) setPostsPerRow(2);
-    else setPostsPerRow(3);
-  };
+    if (blogPosts.length > 0) {
+      const nextIndex = (currentIndex + 1) % blogPosts.length;
+      const prevIndex = currentIndex === 0 ? blogPosts.length - 1 : currentIndex - 1;
+      setNextPostId(blogPosts[nextIndex]?.id || null);
+      setPrevPostId(blogPosts[prevIndex]?.id || null);
+    }
+  }, [currentIndex, blogPosts]);
 
   const fetchBlogPosts = async () => {
     try {
@@ -65,213 +51,282 @@ export default function Blog() {
         .from('blog_posts')
         .select('*')
         .eq('status', 'published')
-        .order('created_at', { ascending: false });
+        .order('created_at', { ascending: false })
+        .limit(6);
 
       if (error) throw error;
       
-      const postsWithDefaults: EnhancedBlogPost[] = (data || []).map((post: any) => ({
-        ...post,
-        readTime: calculateReadTime(post.content || ''),
-        views: post.views || 0,
-        likes: post.likes || 0,
-        slug: post.slug || generateSlug(post.title),
-        tags: post.tags || [],
-        excerpt: post.excerpt || (post.content?.substring(0, 150) || '') + "...",
-        updated_at: post.updated_at || post.created_at,
-        comments: post.comments || 0
-      }));
-      
-      setBlogPosts(postsWithDefaults);
+      if (data) {
+        const postsWithDefaults: EnhancedBlogPost[] = data.map((post: any) => ({
+          ...post,
+          readTime: calculateReadTime(post.content || ''),
+          slug: post.slug || generateSlug(post.title),
+        }));
+        setBlogPosts(postsWithDefaults);
+      } else {
+        setBlogPosts(getDefaultPosts());
+      }
     } catch (error) {
       console.error('Error fetching blog posts:', error);
-      toast.error('Lỗi tải bài viết');
+      setBlogPosts(getDefaultPosts());
     } finally {
       setLoading(false);
     }
   };
 
-  const calculateReadTime = (content: string) => {
-    const wordsPerMinute = 200;
-    const words = content.split(/\s+/).length;
-    const minutes = Math.ceil(words / wordsPerMinute);
-    return `${minutes} phút`;
-  };
+  // Hàm chuyển slide với hiệu ứng
+  const showSlider = (type: 'next' | 'prev') => {
+    if (isAnimating || blogPosts.length <= 1) return;
+    
+    setIsAnimating(true);
 
-  const generateSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^\w\s]/g, '')
-      .replace(/\s+/g, '-');
-  };
+    const targetPostId = type === 'next' ? nextPostId : prevPostId;
+    if (!targetPostId) return;
 
-  const filterAndSortPosts = () => {
-    let filtered = [...blogPosts];
+    // Vô hiệu hóa nút khi đang animate
+    if (nextBtnRef.current) nextBtnRef.current.disabled = true;
+    if (prevBtnRef.current) prevBtnRef.current.disabled = true;
 
-    if (searchTerm) {
-      filtered = filtered.filter(post =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (post.excerpt || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (post.tags && post.tags.some(tag => 
-          tag.toLowerCase().includes(searchTerm.toLowerCase())
-        ))
-      );
-    }
-
-    if (categoryFilter !== "all") {
-      filtered = filtered.filter(post => post.category === categoryFilter);
-    }
-
-    filtered.sort((a, b) => {
-      switch (sortBy) {
-        case "newest":
-          return new Date(b.created_at || b.date || '').getTime() - 
-                 new Date(a.created_at || a.date || '').getTime();
-        case "popular":
-          return (b.views || 0) - (a.views || 0);
-        default:
-          return 0;
-      }
-    });
-
-    setFilteredPosts(filtered);
-    setCurrentSlide(0);
-  };
-
-  const incrementViewCount = async (postId: string) => {
-    if (updatingIds.has(postId)) return;
-
-    try {
-      setUpdatingIds(prev => new Set(prev).add(postId));
-
-      const currentPost = blogPosts.find(post => post.id === postId);
-      if (!currentPost) return;
-
-      const newViews = (currentPost.views || 0) + 1;
+    if (type === 'next') {
+      const thumbnailClone = createThumbnailClone(thumbnailContainerRef, targetPostId, false);
       
-      await supabase
-        .from('blog_posts')
-        .update({ 
-          views: newViews,
-          updated_at: new Date().toISOString()
-        })
-        .eq('id', postId);
+      if (thumbnailClone && backgroundImageRef.current) {
+        const bgRect = backgroundImageRef.current.getBoundingClientRect();
+        
+        requestAnimationFrame(() => {
+          thumbnailClone.style.left = `${bgRect.left}px`;
+          thumbnailClone.style.top = `${bgRect.top}px`;
+          thumbnailClone.style.width = `${bgRect.width}px`;
+          thumbnailClone.style.height = `${bgRect.height}px`;
+          thumbnailClone.style.borderRadius = '0';
+        });
+        
+        setTimeout(() => {
+          setCurrentIndex(prev => (prev + 1) % blogPosts.length);
+        }, 300);
+        
+        setTimeout(() => {
+          thumbnailClone.remove();
+          setIsAnimating(false);
+          if (nextBtnRef.current) nextBtnRef.current.disabled = false;
+          if (prevBtnRef.current) prevBtnRef.current.disabled = false;
+        }, 600);
+      } else {
+        setCurrentIndex(prev => (prev + 1) % blogPosts.length);
+        setTimeout(() => setIsAnimating(false), 300);
+      }
+    } else {
+      if (!backgroundImageRef.current) return;
+      
+      const bgRect = backgroundImageRef.current.getBoundingClientRect();
+      const currentPost = blogPosts[currentIndex];
+      
+      const bgClone = document.createElement('div');
+      bgClone.style.position = 'fixed';
+      bgClone.style.left = `${bgRect.left}px`;
+      bgClone.style.top = `${bgRect.top}px`;
+      bgClone.style.width = `${bgRect.width}px`;
+      bgClone.style.height = `${bgRect.height}px`;
+      bgClone.style.backgroundImage = `url(${currentPost.image || getFallbackImage(currentIndex)})`;
+      bgClone.style.backgroundSize = 'cover';
+      bgClone.style.backgroundPosition = 'center';
+      bgClone.style.zIndex = '1000';
+      bgClone.style.pointerEvents = 'none';
+      bgClone.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      bgClone.style.borderRadius = '0';
+      document.body.appendChild(bgClone);
+      
+      const thumbnailClone = createThumbnailClone(thumbnailContainerRef, '', true);
+      
+      if (thumbnailClone) {
+        const thumbnailRect = thumbnailClone.getBoundingClientRect();
+        const newIndex = currentIndex === 0 ? blogPosts.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+        
+        requestAnimationFrame(() => {
+          bgClone.style.left = `${thumbnailRect.left}px`;
+          bgClone.style.top = `${thumbnailRect.top}px`;
+          bgClone.style.width = `${thumbnailRect.width}px`;
+          bgClone.style.height = `${thumbnailRect.height}px`;
+          bgClone.style.borderRadius = '12px';
+          
+          if (backgroundImageRef.current) {
+            backgroundImageRef.current.style.opacity = '0';
+          }
+        });
+        
+        setTimeout(() => {
+          bgClone.remove();
+          thumbnailClone.remove();
+          
+          if (backgroundImageRef.current) {
+            backgroundImageRef.current.style.opacity = '1';
+          }
+          
+          setIsAnimating(false);
+          if (nextBtnRef.current) nextBtnRef.current.disabled = false;
+          if (prevBtnRef.current) prevBtnRef.current.disabled = false;
+        }, 600);
+      } else {
+        setCurrentIndex(prev => prev === 0 ? blogPosts.length - 1 : prev - 1);
+        setTimeout(() => setIsAnimating(false), 300);
+      }
+    }
+  };
 
-      setBlogPosts(prev => prev.map(post => 
-        post.id === postId ? { ...post, views: newViews } : post
-      ));
+  // Xử lý click thumbnail
+  const handleThumbnailClick = (clickedIndex: number) => {
+  // Chỉ cập nhật currentIndex nếu cần (cho carousel chính)
+  if (!isAnimating && clickedIndex !== currentIndex) {
+    setCurrentIndex(clickedIndex);
+  }
+};
 
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setUpdatingIds(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(postId);
-        return newSet;
+  // Xử lý click xem chi tiết
+  const handleViewDetails = (postId: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    navigate(`/blog/${postId}`);
+  };
+
+
+  // Lấy các bài viết cho thumbnail
+  const getThumbnailPosts = () => {
+    if (blogPosts.length <= 1) return [];
+    const thumbnailPosts = [];
+    
+    for (let i = 1; i < blogPosts.length; i++) {
+      const index = (currentIndex + i) % blogPosts.length;
+      thumbnailPosts.push({
+        ...blogPosts[index],
+        originalIndex: index
       });
     }
+    
+    return thumbnailPosts;
   };
 
-  const handleReadMoreClick = async (e: React.MouseEvent, postId: string) => {
-    e.preventDefault();
-    await incrementViewCount(postId);
-    setTimeout(() => navigate(`/blog/${postId}`), 100);
-  };
-
-  const handlePostClick = async (e: React.MouseEvent, postId: string) => {
-    e.preventDefault();
-    await incrementViewCount(postId);
-    setTimeout(() => navigate(`/blog/${postId}`), 100);
-  };
-
-  const clearFilters = () => {
-    setSearchTerm("");
-    setCategoryFilter("all");
-    setSortBy("newest");
-  };
-
+  // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
-        <section className="pt-32 pb-20">
-          <div className="container mx-auto px-4">
-            {/* Loading skeleton giữ nguyên */}
-          </div>
-        </section>
+      <div className="w-full h-screen bg-black flex items-center justify-center">
+        <Skeleton className="w-32 h-8 bg-gray-800" />
+        <div className="text-white text-xl ml-4">Đang tải bài viết...</div>
       </div>
     );
   }
 
-  const lineClampStyles = `
-    .line-clamp-1 { /* styles */ }
-    .line-clamp-2 { /* styles */ }
-  `;
+  if (blogPosts.length === 0) {
+    return (
+      <div className="w-full h-screen bg-black flex items-center justify-center">
+        <div className="text-white text-2xl">Không có bài viết nào</div>
+      </div>
+    );
+  }
+
+  const currentPost = blogPosts[currentIndex];
+  const thumbnailPosts = getThumbnailPosts();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-gray-50/50 to-background dark:from-gray-900 dark:via-gray-900/50 dark:to-gray-900">
-      <style>{lineClampStyles}</style>
-      
-      {/* SEO Schema Manager */}
-      <BlogSchemaManager filteredPosts={filteredPosts} />
+  <div 
+    ref={carouselRef}
+    className="w-full h-screen overflow-hidden relative bg-black"
+  >
+    <BlogSEO 
+      blogPosts={blogPosts}
+      currentPost={currentPost}
+      currentIndex={currentIndex}
+    />
 
-      {/* Hero Section */}
-      <BlogHeroSection
-        totalPosts={totalPosts}
-        totalViews={totalViews}
-        totalCategories={totalCategories}
+    {/* THÊM blogPostsLength vào BlogCarousel */}
+    <BlogCarousel
+      currentPost={currentPost}
+      currentIndex={currentIndex}
+      blogPostsLength={blogPosts.length} // THÊM DÒNG NÀY
+      backgroundImageRef={backgroundImageRef}
+      getFallbackImage={getFallbackImage}
+    >
+      {/* XÓA currentIndex và blogPostsLength khỏi BlogControls */}
+      <BlogControls
+        isAnimating={isAnimating}
+        onPrev={() => showSlider('prev')}
+        onNext={() => showSlider('next')}
+        onViewDetails={handleViewDetails}
+        currentPostId={currentPost.id}
+        prevBtnRef={prevBtnRef}
+        nextBtnRef={nextBtnRef}
       />
+    </BlogCarousel>
 
-      {/* Main Blog Content */}
-      <section className="min-h-screen py-20" itemScope itemType="https://schema.org/Blog">
-        <meta itemProp="name" content="Hitek Flycam Blog" />
-        <meta itemProp="description" content="Chuyên trang tin tức và kiến thức về drone, flycam tại Việt Nam" />
-        <meta itemProp="url" content={window.location.href} />
+    <ThumbnailCarousel
+      thumbnailPosts={thumbnailPosts}
+      isAnimating={isAnimating}
+      onThumbnailClick={handleThumbnailClick}
+      getFallbackImage={getFallbackImage}
+      thumbnailContainerRef={thumbnailContainerRef}
+    />
+
+    {/* CSS Animation */}
+    <style jsx>{`
+      @keyframes showContent {
+        0% { opacity: 0; transform: translateY(30px); filter: blur(5px); }
+        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+      }
+      .animate-showContent { animation: showContent 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+      .animation-delay-200 { animation-delay: 0.2s; }
+      .animation-delay-400 { animation-delay: 0.4s; }
+      .animation-delay-600 { animation-delay: 0.6s; }
+      .animation-delay-800 { animation-delay: 0.8s; }
+      
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      
+      img { transition: opacity 0.5s ease-in-out; }
+      
+      @media (max-width: 768px) {
+        .thumbnail { 
+          max-width: 70vw !important; 
+          right: 4px !important; 
+          bottom: 4px !important; 
+        }
         
-        <div className="container mx-auto px-4">
-          {/* Search và Filters */}
-          <BlogSearchFilters
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            categoryFilter={categoryFilter}
-            setCategoryFilter={setCategoryFilter}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            categories={categories}
-            clearFilters={clearFilters}
-          />
-
-          {/* Blog Posts Grid */}
-          <div className="pb-20">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground">
-                  {searchTerm ? `Kết quả tìm kiếm cho "${searchTerm}"` : "Bài viết mới nhất về Drone"}
-                </h2>
-                <p className="text-gray-500 dark:text-gray-400 mt-1">
-                  {filteredPosts.length} bài viết
-                  {categoryFilter !== "all" && ` trong danh mục "${categoryFilter}"`}
-                  {sortBy !== "newest" && ` - Sắp xếp theo phổ biến nhất`}
-                </p>
-              </div>
-            </div>
-
-            <BlogPostsGrid
-              filteredPosts={filteredPosts}
-              postsPerRow={postsPerRow}
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              updatingIds={updatingIds}
-              handlePostClick={handlePostClick}
-              handleReadMoreClick={handleReadMoreClick}
-              searchTerm={searchTerm}
-              categoryFilter={categoryFilter}
-              clearFilters={clearFilters}
-              fallbackImages={fallbackImages}
-            />
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+        .thumbnail .item { 
+          width: 100px !important; 
+          height: 140px !important; 
+        }
+        
+        .title { 
+          font-size: 2.2rem !important; 
+          margin-bottom: 0.75rem !important;
+        }
+        
+        .topic { 
+          font-size: 1.75rem !important; 
+          margin-bottom: 2rem !important;
+        }
+        
+        .max-w-xs {
+          max-width: 180px !important;
+        }
+        
+        .px-12 {
+          padding-left: 2rem !important;
+          padding-right: 2rem !important;
+        }
+        
+        .tracking-\[0\.5em\] {
+          letter-spacing: 0.3em !important;
+        }
+      }
+      
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      
+      button:active {
+        transform: translateY(0);
+      }
+    `}</style>
+  </div>
+);
 }

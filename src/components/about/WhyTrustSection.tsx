@@ -35,7 +35,7 @@ const Image3DCarousel = ({ images }: { images: Array<{ src: string; alt: string;
               style={{
                 position: 'absolute',
                 inset: '0 0 0 0',
-                transform: `rotateY(${angle}deg) translateZ(300px)`
+                transform: `rotateY(${angle}deg) translateZ(255px)`
               }}
             >
               <img
@@ -157,11 +157,11 @@ const WhyTrustSection = () => {
       alt: "Fast Delivery Service",
       title: "Fast Delivery"
     },
-    // {
-    //   src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
-    //   alt: "Modern Advanced Technology",
-    //   title: "Advanced Tech"
-    // },
+    {
+      src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
+      alt: "Modern Advanced Technology",
+      title: "Advanced Tech"
+    },
     // {
     //   src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=400&q=80",
     //   alt: "Customer Satisfaction Guarantee",

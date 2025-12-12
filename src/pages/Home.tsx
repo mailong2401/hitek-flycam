@@ -1,11 +1,11 @@
-import IconServicesSection from "@/components/services/IconServicesSection";
-import IntroSection from "@/components/services/IntroSection";
-import InteractiveCardsSection from "@/components/services/InteractiveCardsSection";
-import DetailedServicesSection from "@/components/services/DetailedServicesSection";
-import FeaturedProjectsSection from "@/components/services/FeaturedProjectsSection";
-import TrustedClientsSection from "@/components/services/TrustedClientsSection";
-import NewsSection from "@/components/services/NewsSection";
-import HeroSection from "@/components/services/HeroSection"
+import IconServicesSection from "@/components/home/IconServicesSection";
+import IntroSection from "@/components/home/IntroSection";
+import InteractiveCardsSection from "@/components/home/InteractiveCardsSection";
+import DetailedServicesSection from "@/components/home/DetailedServicesSection";
+import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
+import TrustedClientsSection from "@/components/home/TrustedClientsSection";
+import NewsSection from "@/components/home/NewsSection";
+import HeroSection from "@/components/home/HeroSection"
 
 
 
