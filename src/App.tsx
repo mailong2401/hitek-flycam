@@ -108,7 +108,7 @@ const App = () => (
       <AuthProvider>
         {/* Bọc ứng dụng bằng LanguageProvider */}
         <LanguageProvider>
-          <BrowserRouter basename="drone-solutions-hub">
+          <BrowserRouter>
             <ScrollToTop />
             <AppContent />
           </BrowserRouter>
