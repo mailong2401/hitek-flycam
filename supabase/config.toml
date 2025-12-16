@@ -53,3 +53,36 @@ entrypoint = "./functions/webhook-to-n8n/index.ts"
 # Specifies static files to be bundled with the function. Supports glob patterns.
 # For example, if you want to serve static HTML pages in your function:
 # static_files = [ "./functions/webhook-to-n8n/*.html" ]
+
+[functions.upload-to-youtube]
+enabled = true
+verify_jwt = true
+import_map = "./functions/upload-to-youtube/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/upload-to-youtube/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/upload-to-youtube/*.html" ]
+
+[functions.youtube-auth]
+enabled = true
+verify_jwt = true
+import_map = "./functions/youtube-auth/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/youtube-auth/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/youtube-auth/*.html" ]
+
+[functions.youtube-upload]
+enabled = true
+verify_jwt = true
+import_map = "./functions/youtube-upload/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/youtube-upload/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/youtube-upload/*.html" ]
