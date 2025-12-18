@@ -86,3 +86,47 @@ entrypoint = "./functions/youtube-upload/index.ts"
 # Specifies static files to be bundled with the function. Supports glob patterns.
 # For example, if you want to serve static HTML pages in your function:
 # static_files = [ "./functions/youtube-upload/*.html" ]
+
+[functions.youtube-auth-callback]
+enabled = true
+verify_jwt = true
+import_map = "./functions/youtube-auth-callback/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/youtube-auth-callback/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/youtube-auth-callback/*.html" ]
+
+[functions.refresh-token]
+enabled = true
+verify_jwt = true
+import_map = "./functions/refresh-token/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/refresh-token/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/refresh-token/*.html" ]
+
+[functions.upload-youtube]
+enabled = true
+verify_jwt = true
+import_map = "./functions/upload-youtube/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/upload-youtube/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/upload-youtube/*.html" ]
+
+[functions.youtube-metadata]
+enabled = true
+verify_jwt = true
+import_map = "./functions/youtube-metadata/deno.json"
+# Uncomment to specify a custom file path to the entrypoint.
+# Supported file extensions are: .ts, .js, .mjs, .jsx, .tsx
+entrypoint = "./functions/youtube-metadata/index.ts"
+# Specifies static files to be bundled with the function. Supports glob patterns.
+# For example, if you want to serve static HTML pages in your function:
+# static_files = [ "./functions/youtube-metadata/*.html" ]

@@ -355,14 +355,14 @@ export default function BlogManagement() {
                         <div className="flex items-center gap-3">
                           <div 
                             className="h-12 w-12 flex-shrink-0 rounded-md overflow-hidden cursor-pointer relative group"
-                            onClick={() => handleImagePreview(post.image || 'https://via.placeholder.com/150', post.title)}
+                            onClick={() => handleImagePreview(post.image || 'https://unsplash.com/photos/a-collection-of-objects-bsSxXkBQTB4', post.title)}
                           >
                             <img
-                              src={post.image || 'https://via.placeholder.com/150'}
+                              src={post.image || 'https://unsplash.com/photos/a-collection-of-objects-bsSxXkBQTB4'}
                               alt={post.title}
                               className="h-full w-full object-cover"
                               onError={(e) => {
-                                (e.target as HTMLImageElement).src = 'https://via.placeholder.com/150';
+                                (e.target as HTMLImageElement).src = 'https://unsplash.com/photos/a-collection-of-objects-bsSxXkBQTB4';
                               }}
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all flex items-center justify-center">
@@ -374,7 +374,13 @@ export default function BlogManagement() {
                               {post.title}
                             </div>
                             <div className="text-sm text-gray-500 line-clamp-1">
-                              {post.excerpt}
+                              {post.excerpt ? (
+                                post.excerpt.length > 15 
+                                  ? post.excerpt.substring(0, 15) + "..." 
+                                  : post.excerpt
+                              ) : (
+                                <span className="text-gray-400 italic">Không có mô tả</span>
+                              )}
                             </div>
                             {post.image && (
                               <div className="text-xs text-gray-400 mt-1 flex items-center gap-1">
@@ -536,7 +542,7 @@ export default function BlogManagement() {
           </DialogHeader>
           <div className="flex flex-col items-center justify-center">
             <img
-              src={imagePreview?.url || 'https://via.placeholder.com/150'}
+              src={imagePreview?.url || 'https://unsplash.com/photos/a-collection-of-objects-bsSxXkBQTB4'}
               alt="Preview"
               className="max-w-full max-h-[60vh] object-contain rounded-md"
             />
