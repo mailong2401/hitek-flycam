@@ -9,7 +9,7 @@
       "deliveryDrone": "배송 드론",
       "flightPermit": "비행 허가 서비스",
       "droneImport": "드론 수입",
-      "droneFilming": "드론 수입"
+      "droneFilming": "드론 촬영"
     },
     "document": "문서",
     "contact": "연락처",
@@ -22,7 +22,7 @@
         "main": "HITEK FLYCAM",
         "sub": "드론 전문가"
       },
-      "description": "드론의 종합 솔루션 제공: 수리, 유지보수부터 전문 촬영 서비스 및 고정밀 측량 조사까지.",
+      "description": "종합적인 드론 솔루션 제공: 수리 및 유지보수부터 전문 촬영 서비스, 고정밀 측량까지.",
       "cta": {
         "exploreServices": "서비스 탐색",
         "freeConsulting": "무료 상담"
@@ -30,17 +30,17 @@
     },
     "topSolution": {
       "title": {
-        "part1": "모든 요구에 맞는",
-        "highlight": "전문적인 드론",
-        "part2": "솔루션"
+        "part1": "전문적인",
+        "highlight": "드론 솔루션",
+        "part2": "모든 요구에 대응"
       },
-      "description": "수리, 측량부터 촬영 서비스까지, 최신 무인 항공 기술로 포괄적인 솔루션을 제공합니다."
+      "description": "수리 및 측량부터 촬영 서비스까지 - 가장 현대적인 무인 항공 기술로 종합 솔루션을 제공합니다."
     },
     "featuresSection": {
-      "title": "왜",
-      "highlight": "Hitek Flycam을 선택해야 하나요?",
-      "subtitle": "우리는 단순히 서비스를 제공하는 것이 아니라",
-      "subtitleHighlight": "특별한 경험을 선사합니다",
+      "title": "왜 선택하는가",
+      "highlight": "Hitek Flycam?",
+      "subtitle": "단순한 서비스 제공이 아니라 - 우리는",
+      "subtitleHighlight": "특별한 경험을 제공합니다",
       "features": {
         "quality": {
           "title": "품질 보증",
@@ -48,11 +48,11 @@
         },
         "performance": {
           "title": "고성능",
-          "description": "속도와 안정성을 최적화한 드론"
+          "description": "속도와 안정성에 최적화된 드론"
         },
         "safety": {
-          "title": "절대적인 안전성",
-          "description": "엄격한 비행 안전 규정 준수"
+          "title": "절대적 안전성",
+          "description": "비행 안전 규정의 엄격한 준수"
         },
         "experts": {
           "title": "전문가 팀",
@@ -62,15 +62,200 @@
     },
     "servicesSection": {
       "title": "우리의 서비스",
-      "subtitle": "드론의 모든 요구에 대한 종합적인 솔루션",
+      "subtitle": "모든 드론 요구에 대한 종합 솔루션",
       "viewAll": "모든 서비스 보기"
-    }
+    },
+    "featuredProjects": {
+      "title": "주요",
+      "highlight": "프로젝트",
+      "subtitle": "우리가 완료한 인상적인 드론 프로젝트 발견",
+      "viewAllProjects": "모든 프로젝트 보기",
+      "cta": {
+        "projectInquiry": "프로젝트 상담이 필요하신가요? 지금 연락하세요",
+        "submitProject": "프로젝트 정보 제출"
+      },
+      "projects": [
+        {
+          "title": "남북 고속도로 프로젝트 지형 측량",
+          "category": "측량 및 매핑",
+          "description": "DJI Matrice 350 RTK 드론 사용, 센티미터 정확도로 지형 데이터 수집"
+        },
+        {
+          "title": "5성급 리조트 광고 촬영",
+          "category": "촬영 및 미디어",
+          "description": "DJI Inspire 3 드론으로 8K 품질 마케팅 비디오 제작"
+        },
+        {
+          "title": "풍력 발전 프로젝트 건설 감리",
+          "category": "감리 및 유지보수",
+          "description": "자동화 드론을 사용한 건설 진도 및 안전 모니터링"
+        },
+        {
+          "title": "긴급 의료 물품 배송",
+          "category": "운송 및 물류",
+          "description": "원격 지역으로의 의약품 및 의료 장비 배송"
+        }
+      ]
+    },
+    "newsSection": {
+      "title": "뉴스 &",
+      "highlight": "업데이트",
+      "subtitle": "Hitek Flycam의 최신 드론 기술 트렌드 및 업데이트 발견",
+      "viewAllNews": "모든 뉴스 보기",
+      "news": [
+        {
+          "title": "스마트 농업을 위한 드론 적용 트렌드 2024",
+          "excerpt": "자동 살포 기술과 작물 모니터링으로 농업 혁신을 이끄는 드론 활용 탐구.",
+          "category": "기술",
+          "readMore": "기사 읽기"
+        },
+        {
+          "title": "Hitek Flycam, 전문 드론 쇼 서비스 출시",
+          "excerpt": "500대 드론으로 라이트 쇼 공연, 이벤트를 위한 인상적인 시각 경험 제공.",
+          "category": "이벤트"
+        },
+        {
+          "title": "베트남 드론 비행 허가 가이드 2024",
+          "excerpt": "국방부 규정에 따른 드론 비행 허가 업데이트 절차 및 서류.",
+          "category": "법무"
+        }
+      ]
+    },
+    "trustedClients": {
+      "title": "신뢰받는",
+      "highlight": "파트너",
+      "subtitle": "베트남의 주요 기업 및 법인과 함께",
+      "partnershipCta": "다음 파트너가 되기",
+      "partnershipDescription": "고객의 비즈니스에 적합한 드론 솔루션 상담을 위해 연락하세요",
+      "contactCooperation": "협력 문의"
+    },
+    "servicesPage": {
+      "servicesHero": {
+        "title": {
+          "main": "드론",
+          "highlight": "서비스"
+        },
+        "subtitle": "종합 솔루션 - 우수한 품질 - 전문 서비스",
+        "cta": {
+          "contact": "상담 문의",
+          "pricing": "서비스 가격"
+        }
+      },
+      "servicesIntro": {
+        "left": {
+          "title": "Hitek Flycam - 다산업 드론 솔루션",
+          "line1": "기술 분야 선도 브랜드",
+          "line2": "전문 드론 서비스",
+          "learnMore": "더 알아보기"
+        },
+        "right": {
+          "part1": {
+            "brand": "Hitek Flycam",
+            "text1": "은 다산업 드론 솔루션에 특화된 브랜드로,",
+            "group": "Hitek Group JSC",
+            "text2": "의 기술 플랫폼, 인적 자원, 경험에서 발전했습니다 - 베트남 드론 공연 기술의 선구자.",
+            "highlight": "Hitek Flycam",
+            "text3": "은 기술 분야, 측량, 물류, 산업 서비스로의 미션을 확대합니다."
+          },
+          "part2": "일상 생활, 생산, 스마트 관리 등 다른 분야에 비행 기술을 제공하는 것을 목표로 합니다."
+        }
+      },
+      "detailedServices": {
+        "title": "왜 선택하는가",
+        "highlight": "Hitek Flycam",
+        "question": "?",
+        "subtitle": "드론 분야에서 신뢰받는 파트너가 되는 이유 발견",
+        "services": [
+          {
+            "title": "선도 기술",
+            "description": "모든 비행 솔루션에 AI, RTK, Lidar, 실시간 GPS 통합. 정확한 데이터, 안전한 운영, 우수한 성능 제공."
+          },
+          {
+            "title": "전문가 팀",
+            "description": "전문적으로 훈련된 엔지니어, 파일럿, 기술자. 높은 전문성과 국제 기술 기준 보장."
+          },
+          {
+            "title": "종합 서비스",
+            "description": "허가 신청 - 비행 - 유지보수 - 수입 - 데이터 인수인계까지, Hitek Flycam은 모든 프로젝트 단계에서 고객과 동행합니다."
+          },
+          {
+            "title": "법적 안전성",
+            "description": "모든 비행은 법적으로 허가되고 완전히 보험 적용. 국방부 및 관리 기관 규정 준수 보장."
+          },
+          {
+            "title": "Hitek Group 생태계",
+            "description": "Hitek Group 기술 법인의 일원으로서, 강력한 인프라, AI 역량, 국제 품질을 계승합니다."
+          },
+          {
+            "title": "다산업 응용",
+            "description": "미디어 - 건설 - 농업 - 물류까지, 각 비즈니스 목표에 맞춘 맞춤형 드론 솔루션 설계."
+          }
+        ],
+        "cta": {
+          "learnMore": "더 알아보기"
+        }
+      }
+    },
+    "servicesCards": {
+      "sectionTitle": "주요 서비스",
+      "cta": {
+        "learnMore": "더 알아보기"
+      },
+      "cards": {
+        "repair": {
+          "name": "드론 수리",
+          "detail": "정품 부품과 장기 보증으로 전문적인 드론 수리, 유지보수, 업그레이드."
+        },
+        "surveying": {
+          "name": "측량 드론",
+          "detail": "RTK, Lidar 통합 드론으로 센티미터 정확도의 지형 측량 및 매핑."
+        },
+        "delivery": {
+          "name": "배송 드론",
+          "detail": "접근 어려운 지역을 위한 화물 및 긴급 의료 배송 솔루션."
+        },
+        "flightPermit": {
+          "name": "비행 허가 서비스",
+          "detail": "베트남 규정에 따른 비행 허가 신청, 장비 등록, 완전한 법률 상담 지원."
+        },
+        "droneImport": {
+          "name": "드론 수입",
+          "detail": "정품 드론 수입 서비스, 통관 절차, 검사, 완전한 장비 등록."
+        }
+      }
+    },
+    "services": [
+      {
+        "title": "드론 수리",
+        "description": "전문 수리 서비스"
+      },
+      {
+        "title": "측량 드론",
+        "description": "정확한 측량 및 계측"
+      },
+      {
+        "title": "배송 드론",
+        "description": "효율적인 화물 배송"
+      },
+      {
+        "title": "비행 허가 서비스",
+        "description": "비행 허가 상담 및 신청"
+      },
+      {
+        "title": "드론 수입",
+        "description": "정품 드론 수입"
+      },
+      {
+        "title": "드론 촬영",
+        "description": "전문 촬영"
+      }
+    ]
   },
   "about": {
     "hero": {
       "title": "소개",
       "highlightedTitle": "HITEK FLYCAM",
-      "tagline": "다분야 응용 드론 솔루션 - 기술 선도자 - 전문성",
+      "tagline": "다산업 드론 솔루션 - 기술 선도자 - 전문적",
       "cta": {
         "exploreServices": "서비스 탐색",
         "contactCooperation": "협력 문의"
@@ -78,36 +263,36 @@
     },
     "AboutSection": {
       "title": {
-        "prefix": "회사소개",
+        "prefix": "소개",
         "highlight": "Hitek Flycam"
       },
       "paragraphs": [
-        "Hitek Flycam은 다분야 응용 드론 솔루션을 전문으로 하는 브랜드로, Hitek Drone의 기술 기반, 인력, 경험을 바탕으로 발전했습니다. Hitek Drone은 베트남에서 드론 라이트 쇼 및 공연 기술 분야의 선구적인 역할을 하고 있습니다.",
-        "Hitek Group JSC 소속의 Hitek Flycam은 Hitek Drone의 사명을 기술, 측량, 물류, 산업 서비스 분야로 확대하여 일상생활, 생산, 스마트 관리 등 다양한 분야에서 항공 기술이 활용되도록 하는 것을 목표로 합니다."
+        "Hitek Flycam은 다산업 드론 솔루션에 특화된 브랜드로, 베트남 드론 공연 기술의 선구자인 Hitek Drone의 기술 플랫폼, 인적 자원, 경험에서 발전했습니다.",
+        "Hitek Group JSC의 일원으로서, Hitek Flycam은 Hitek Drone의 미션을 기술 분야, 측량, 물류, 산업 서비스로 확대하며, 일상 생활, 생산, 스마트 관리 등 다른 분야에 비행 기술을 제공하는 것을 목표로 합니다."
       ]
     },
     "whyTrust": {
       "title1": "왜",
-      "title2": "신뢰할 수 있는 파트너인가요?",
-      "highlightedTitle": "Hitek Flycam은",
-      "subtitle": "우리가 베트남의 드론 솔루션 분야에서 주요 파트너가 된 이유를 알아보세요",
+      "title2": "가 신뢰받는가?",
+      "highlightedTitle": "Hitek Flycam",
+      "subtitle": "베트남 드론 솔루션의 주요 파트너가 되는 이유 발견",
       "points": [
         {
           "title": "역량",
-          "description": "Hitek Drone의 기반을 계승하고 전문적인 팀, 최신 장비, 국제 표준 프로세스를 보유하고 있습니다"
+          "description": "전문 팀 - 최신 장비 - 국제 표준 절차를 갖춘 Hitek Drone 플랫폼 계승"
         },
         {
           "title": "안전성",
-          "description": "모든 비행은 허가를 받고 보험이 적용되며 국가 기준에 따라 엄격히 감독됩니다"
+          "description": "모든 비행은 허가되고 보험 적용되며 국가 기준에 따라 엄격히 모니터링"
         },
         {
           "title": "품질",
-          "description": "아이디어 단계부터 실제 실행까지 모든 프로젝트에서 효과성, 안정성, 정확성을 약속합니다"
+          "description": "아이디어 단계부터 실천적 실행까지, 모든 프로젝트에서 효율성, 안정성, 정확성에 대한 약속"
         }
       ]
     },
     "connection": {
-      "title": "의 연관성",
+      "title": "사이의 연결",
       "highlightedTitle": "Hitek Flycam",
       "hitekDroneText": "Hitek Drone",
       "description": [
@@ -115,58 +300,735 @@
         "Hitek Drone",
         "이 예술과 공연의 상징이라면,",
         "Hitek Flycam",
-        "은 실제 생산과 운영에 드론 기술을 응용하는 대표입니다. 두 브랜드는 공통의 비전을 공유합니다:"
+        "은 실천적 생산 및 운영에 대한 드론 기술 응용을 대표합니다. 두 브랜드는 공통된 비전을 공유합니다:"
       ],
-      "vision": "포괄적인 드론 생태계를 구축하는 것 - 항공 기술이 생활의 모든 분야에서 사람들에게 도움이 되는 곳.",
+      "vision": "종합 드론 생태계 구築 - 모든 생활 분야에서 인간을 위한 비행 기술.",
       "cta": {
         "services": {
           "text": "Hitek Flycam 서비스"
         }
       },
-      "additionalInfo": "Hitek Group의 드론 기술 생태계 전체를 탐색하세요"
+      "additionalInfo": "Hitek Group의 드론 기술 생태계 전체 탐구"
     },
     "quote": {
       "content": [
-        "항공 기술이 예술로 빛나는 곳,",
+        "의 기초에서",
         "Hitek Drone",
-        "의 기반에서,",
+        " - 예술을 통해 비행 기술이 존중되는 곳,",
         "Hitek Flycam",
-        "은 기술, 데이터, 실제 효과성으로 그 여정을 이어갑니다."
+        "은 기술, 데이터, 실천적 효율성으로 그 여정을 계속합니다."
       ],
       "author": {
         "name": "— Hitek Flycam 팀 —",
-        "subtitle": "사명과 비전"
+        "subtitle": "미션 & 비전"
+      }
+    },
+    "teamSection": {
+      "title": "리더십 팀",
+      "members": {
+        "tien": {
+          "name": "람 투 티엔",
+          "position": "회장",
+          "info": [
+            "10년 이상의 리더십 및 비즈니스 관리 경험.",
+            "비즈니스 및 기술 개발의 강력한 기초."
+          ]
+        },
+        "khoi": {
+          "name": "트란 안 코이",
+          "position": "총괄 이사",
+          "info": [
+            "기술 분야 10년 이상의 경험.",
+            "많은 선도적 기업, '베트남 최초 도입' 솔루션의 창립자."
+          ]
+        },
+        "sean": {
+          "name": "오 션범",
+          "position": "비즈니스 디렉터",
+          "info": [
+            "10년 이상의 기술 개발 경험.",
+            "강력한 리더십 역량.",
+            "일본, 한국, 베트남, 유럽의 교차 경계 프로젝트 관리."
+          ]
+        }
       }
     }
   },
-  "services": [
-    {
-      "title": "드론 수리",
-      "subDes": "전문적인 드론 수리 및 유지보수 서비스",
-      "description": "전문적인 드론 수리 및 유지보수 서비스"
+  "services": {
+    "deliveryDrone": {
+      "hero": {
+        "title": "배송 드론",
+        "subtitle": "산업단지, 농업, 접근이 어려운 지역을 위해 설계된 드론 배송 솔루션 — 비용, 시간, 인력을 최적화합니다."
+      },
+      "features": {
+        "title": "배송 드론의",
+        "highlightedText": "응용 분야",
+        "items": [
+          {
+            "title": "내부 배송: 창고, 공장, 생산 구역"
+          },
+          {
+            "title": "농업 또는 산업 분야의 샘플, 문서, 부품 운송"
+          },
+          {
+            "title": "시험 배송 서비스 및 드론 물류 모델"
+          }
+        ]
+      },
+      "process": {
+        "title": "구축 프로세스",
+        "items": [
+          {
+            "step": "01",
+            "title": "요구사항 및 화물 무게 분석"
+          },
+          {
+            "step": "02",
+            "title": "비행 경로, 이착륙 지점, 자동화 경로 매핑"
+          },
+          {
+            "step": "03",
+            "title": "장비 설정, 안전 점검 및 비행 허가 신청"
+          },
+          {
+            "step": "04",
+            "title": "시험 비행 진행, 데이터 기록, 운영 절차 인도"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "고객을 위한",
+        "highlightedText": "혜택",
+        "items": [
+          {
+            "parts": [
+              { "text": "배송 시간 단축", "bold": true },
+              ", 운영 인력 감소"
+            ]
+          },
+          {
+            "parts": [
+              "접근이 어려운 지역 지원, ",
+              { "text": "기존 물류 위험 감소", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              "비용 최적화, 실시간 ",
+              { "text": "경로 제어", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "생산성", "bold": true },
+              " 및 내부 운영 효율성 증대"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "자주 묻는 질문",
+        "items": [
+          {
+            "question": "배송 드론의 일반적인 응용 분야는 무엇인가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "배송 드론의 적재 가능 중량은 얼마인가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "내비게이션 시스템은 안전한가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "악천후에서의 운영 조건은 어떻게 되나요?",
+            "answer": "준비 중"
+          }
+        ]
+      }
     },
-    {
-      "title": "측량 드론",
-      "subDes": "고정밀 지형 조사 및 측량",
-      "description": "고정밀 지형 조사 및 측량"
+    "droneFilming": {
+      "hero": {
+        "title": "드론 촬영",
+        "subtitle": "Hitek Flycam은 광고, 미디어, 이벤트, 관광을 위한 전문 드론 항공 촬영 및 사진 서비스를 제공합니다."
+      },
+      "features": {
+        "title": "차세대",
+        "highlightedText": "물류 솔루션",
+        "items": [
+          {
+            "title": "TVC 및 기업 광고 촬영",
+            "description": "리조트, 산업단지, 부동산, 공장"
+          },
+          {
+            "title": "지역 홍보를 위한 관광 사진/동영상 촬영",
+            "description": "파노라마, 플라이스루 샷"
+          },
+          {
+            "title": "이벤트 및 페스티벌 기록",
+            "description": "멀티앵글 촬영, 다중 드론 라이브 스트리밍"
+          },
+          {
+            "title": "포스트프로덕션",
+            "description": "시네마틱 컬러 그레이딩, 영상 편집, 내레이션, 모션 로고"
+          }
+        ]
+      },
+      "process": {
+        "title": "구축 프로세스",
+        "items": [
+          {
+            "step": "01",
+            "title": "브리프 수령, 촬영 각도, 스토리보드 컨설팅"
+          },
+          {
+            "step": "02",
+            "title": "비행 허가 신청, 장소에 적합한 장비 준비"
+          },
+          {
+            "step": "03",
+            "title": "비행팀 및 감독 협업으로 촬영 진행"
+          },
+          {
+            "step": "04",
+            "title": "포스트프로덕션, 컬러 그레이딩, 원하는 형식으로 출력"
+          },
+          {
+            "step": "05",
+            "title": "동영상, 사진, 소스 파일 인도 (요청 시)"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "고객을 위한",
+        "highlightedText": "혜택",
+        "items": [
+          {
+            "parts": [
+              "강력하고 전문적인 ",
+              { "text": "브랜드 이미지", "bold": true },
+              " 창조"
+            ]
+          },
+          {
+            "parts": [
+              "기존 촬영 방식 대비 시간 및 ",
+              { "text": "제작 비용", "bold": true },
+              " 절감"
+            ]
+          },
+          {
+            "parts": [
+              "모든 비행에 대한 ",
+              { "text": "완전한 허가증", "bold": true },
+              " 확보로 안전성 최적화"
+            ]
+          },
+          {
+            "parts": [
+              "영화 규격 컬러 그레이딩을 통한 ",
+              { "text": "고품질 포스트프로덕션", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "자주 묻는 질문",
+        "items": [
+          {
+            "question": "촬영 전 비행 허가가 필요한가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "전문 포스트프로덕션 또는 퍼스펙티브가 포함되나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "지원 가능한 동영상/이미지 크기는 어떻게 되나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "강풍/야간 조건에서 촬영이 가능한가요?",
+            "answer": "준비 중"
+          }
+        ]
+      }
     },
-    {
-      "title": "배송 드론",
-      "subDes": "전문적인 드론 수리 및 유지보수 서비스",
-      "description": "상공에서의 전문 영상 및 사진 촬영"
+    "droneImport": {
+      "hero": {
+        "title": "드론 수입",
+        "subtitle": "드론 수입, 유통, 장비 선택 컨설팅 솔루션으로 기업이 합법적이고 정품 장비를 소유하며 특정 사용 분야에 최적화할 수 있도록 합니다."
+      },
+      "features": {
+        "title": "차세대",
+        "highlightedText": "물류 솔루션",
+        "items": [
+          {
+            "title": "드론 선택 컨설팅: 측량, 촬영, 물류, 농업 용도에 적합한 선택"
+          },
+          {
+            "title": "설치 지원 및 초기 보정, 장비 검사"
+          },
+          {
+            "title": "수입 절차: CO, CQ, 세관, 등록, 정품 보증서"
+          }
+        ]
+      },
+      "process": {
+        "title": "구축 프로세스",
+        "items": [
+          {
+            "step": "01",
+            "title": "고객 요구사항 및 예산 확인"
+          },
+          {
+            "step": "02",
+            "title": "장비, 모델 제안, 투명한 견적"
+          },
+          {
+            "step": "03",
+            "title": "수입, 세관 절차, 검사 진행"
+          },
+          {
+            "step": "04",
+            "title": "설치 및 초기 보정 지원, 장비 검사"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "고객을 위한",
+        "highlightedText": "혜택",
+        "items": [
+          {
+            "parts": [
+              { "text": "정식 수입 경로", "bold": true },
+              "를 통한 법적 서류 및 보증 확보"
+            ]
+          },
+          {
+            "parts": [
+              "소매 및 대리점 구매 대비 ",
+              { "text": "10–20% 비용 절감", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "수입부터 유지보수까지", "bold": true },
+              " 종합적 지원"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "자주 묻는 질문",
+        "items": [
+          {
+            "question": "Hitek Flycam은 어떤 브랜드를 수입하나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "수입 절차는 어떻게 되나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "드론에 정품 보증이 제공되나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "장비 인도 후 지원이 있나요?",
+            "answer": "준비 중"
+          }
+        ]
+      }
     },
-    {
-      "title": "비행 허가 서비스",
-      "description": "상공에서의 전문 영상 및 사진 촬영"
+    "droneRepair": {
+      "hero": {
+        "title": "드론 수리",
+        "subtitle": "전문 드론 수리 및 유지보수 서비스로 장비를 안정적이고 안전하며 최고 성능 상태로 유지합니다."
+      },
+      "features": {
+        "title": "Hitek Flycam의",
+        "highlightedText": "기술 솔루션",
+        "items": [
+          {
+            "title": "점검 및 부품 교체",
+            "description": "종합 점검, 고장 진단, 부품 교체"
+          },
+          {
+            "title": "시스템 업데이트 및 보정",
+            "description": "소프트웨어 업데이트, IMU 센서 보정, 나침반, GPS 시스템 보정"
+          },
+          {
+            "title": "안전 점검 및 수리 후 보증",
+            "description": "비행 전후 안전 점검, 수리 서비스 보증"
+          }
+        ]
+      },
+      "process": {
+        "title": "구축 프로세스",
+        "items": [
+          {
+            "step": "01",
+            "title": "요청 접수, 고객 제공 이미지/동영상 또는 오류 데이터를 통한 예비 진단"
+          },
+          {
+            "step": "02",
+            "title": "워크숍 또는 현장 실사: 고장 분석, 수리 계획 수립"
+          },
+          {
+            "step": "03",
+            "title": "부품 교체, 소프트웨어 업그레이드, 기술 기준에 따른 센서 보정 실행"
+          },
+          {
+            "step": "04",
+            "title": "테스트 비행 검증 (필요시), 시스템 연결 및 이미지 전송 테스트, 보고서 작성"
+          },
+          {
+            "step": "05",
+            "title": "장비 인도, 수리 보고서 및 보증서 제공, 향후 운영 절차에 대한 고객 안내"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "고객을 위한",
+        "highlightedText": "혜택",
+        "items": [
+          {
+            "parts": [
+              "장비를 항상 ",
+              { "text": "안정적이고 최적화된 상태", "bold": true },
+              "로 운영 가능, 가동 중단 시간 및 예정 외 유지보수 최소화"
+            ]
+          },
+          {
+            "parts": [
+              "드론 시스템의 ",
+              { "text": "수명 및 내구성 향상", "bold": true },
+              " — 장기적인 대규모 교체 비용 절감"
+            ]
+          },
+          {
+            "parts": [
+              { "text": "비행 안전성 강화,", "bold": true },
+              " 운영 위험 감소 — 기술적 또는 상업적 비행에 특히 중요"
+            ]
+          },
+          {
+            "parts": [
+              "Hitek Flycam의 ",
+              { "text": "전문 기술 팀", "bold": true },
+              " 지원, 표준화된 프로세스, 명확한 보고"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "자주 묻는 질문",
+        "items": [
+          {
+            "question": "드론 유지보수 주기는 어떻게 되나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "방향성 이탈 또는 GPS 불량 드론도 수리가 가능한가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "온라인 점검 또는 원격 장비 발송이 가능한가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "수리 후 보증이 제공되나요?",
+            "answer": "준비 중"
+          }
+        ]
+      }
     },
-    {
-      "title": "드론 수입",
-      "description": "상공에서의 전문 영상 및 사진 촬영"
+    "flightPermitService": {
+      "hero": {
+        "title": "비행 허가 서비스",
+        "subtitle": "베트남에서 합법적인 드론/플라이캠 비행 허가 취득 솔루션으로 국방부 및 공안부 규정을 준수합니다."
+      },
+      "features": {
+        "title": "서비스",
+        "highlightedText": "범위",
+        "items": [
+          {
+            "title": "촬영, 측량, 기술 점검, 공연, 시험을 위한 비행 허가"
+          },
+          {
+            "title": "법률 컨설팅: 비행 금지 구역 규정, 고도 제한, 장비 요구사항"
+          },
+          {
+            "title": "베트남 기준에 따른 장비 등록 및 상업 비행 보험"
+          }
+        ]
+      },
+      "process": {
+        "title": "구축 프로세스",
+        "items": [
+          {
+            "step": "01",
+            "title": "지역 정보, 비행 목적, 일정 수집"
+          },
+          {
+            "step": "02",
+            "title": "법적 조건 확인, 허가 신청 서류 준비"
+          },
+          {
+            "step": "03",
+            "title": "관리 당국에 신청서 제출 및 진행 추적"
+          },
+          {
+            "step": "04",
+            "title": "유효한 허가증 수령, 규정 준수 운영 지침"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "고객을 위한",
+        "highlightedText": "혜택",
+        "items": [
+          {
+            "parts": [
+              "합법적이고 안전한 비행, ",
+              { "text": "벌금 또는 장비 압수 우려 없음", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "시간 절약,", "bold": true },
+              " 시작 시점부터 표준화된 서류"
+            ]
+          },
+          {
+            "parts": [
+              "항공 규정에 정통한 팀의 ",
+              { "text": "현장 지원", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "자주 묻는 질문",
+        "items": [
+          {
+            "question": "드론 비행 허가는 언제 필요한가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "Hitek Flycam은 어떤 지역의 허가 신청을 지원하나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "허가 신청 처리에는 얼마나 걸리나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "직접 비행 허가를 신청할 수 있나요?",
+            "answer": "준비 중"
+          }
+        ]
+      }
     },
-    {
-      "title": "플라이캠 촬영",
-      "subDes": "상공에서의 전문 영상 및 사진 촬영",
-      "description": "상공에서의 전문 영상 및 사진 촬영"
+    "surveyingDrone": {
+      "hero": {
+        "title": "측량 드론",
+        "subtitle": "드론을 활용한 측량 및 기술 매핑 솔루션으로 Lidar, RTK-GPS, 멀티스펙트럼 촬영 기술을 사용하여 고정밀 공간 데이터를 수집합니다."
+      },
+      "features": {
+        "title": "측량 드론의",
+        "highlightedText": "응용 분야",
+        "items": [
+          {
+            "title": "건설, 도시 계획, 채광을 위한 지형 측량"
+          },
+          {
+            "title": "2D/3D 매핑, 지반 모델(DEM/DTM), 정사영상, 3D 메쉬"
+          },
+          {
+            "title": "면적 측정, 자재 체적 계산, 공사 진행 상황 모니터링"
+          }
+        ]
+      },
+      "process": {
+        "title": "구축 프로세스",
+        "items": [
+          {
+            "step": "01",
+            "title": "현장 측량 및 측정 목표 결정"
+          },
+          {
+            "step": "02",
+            "title": "비행 계획 수립, 좌표 구역화, 안전 제한 설정"
+          },
+          {
+            "step": "03",
+            "title": "Lidar 또는 RTK-GPS 드론을 이용한 데이터 수집 비행"
+          },
+          {
+            "step": "04",
+            "title": "이미지 처리, 매핑, 체적 측정, 3D 모델 생성"
+          },
+          {
+            "step": "05",
+            "title": "상세 기술 보고서와 함께 데이터 인도"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "혜택",
+        "highlightedText": "및 약속",
+        "items": [
+          {
+            "parts": [
+              "기존 방식 대비 측량 시간 ",
+              { "text": "최대 70% 단축", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "오차율 낮음, 데이터 안정성, 빠른 처리", "bold": true },
+              " — 대규모 프로젝트용"
+            ]
+          },
+          {
+            "parts": [
+              "모든 비행과 데이터가 Hitek Flycam의 ",
+              { "text": "법적·기술적 기준 준수", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "자주 묻는 질문",
+        "items": [
+          {
+            "question": "측량 드론의 기존 방식 대비 장점은 무엇인가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "측량 프로세스에는 얼마나 걸리나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "Hitek Flycam 드론의 정확도는 어느 정도인가요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "어떤 유형의 출력 데이터가 제공되나요?",
+            "answer": "준비 중"
+          },
+          {
+            "question": "출력 데이터를 설계 소프트웨어와 통합할 수 있나요?",
+            "answer": "준비 중"
+          }
+        ]
+      }
     }
-  ]
+  },
+  "contact": {
+    "hero": {
+      "title": "문의하기",
+      "highlight": "Hitek Flycam",
+      "description": "당신의 프로젝트에 대해 언제든지 상담할 준비가 되어 있습니다. 상세한 컨설팅을 위해 Hitek Flycam에 지금 연락하세요."
+    },
+    "form": {
+      "title": "메시지 보내기",
+      "fields": {
+        "name": {
+          "label": "성함 *",
+          "placeholder": "성함을 입력하세요 (문자만)",
+          "counter": "/50"
+        },
+        "company": {
+          "label": "회사명",
+          "placeholder": "Hitek",
+          "counter": "/100"
+        },
+        "email": {
+          "label": "이메일 *",
+          "placeholder": "email@example.com"
+        },
+        "phone": {
+          "label": "전화번호 *",
+          "placeholder": "0346124230"
+        },
+        "service": {
+          "label": "관심 서비스"
+        },
+        "location": {
+          "label": "위치",
+          "placeholder": "호치민시",
+          "counter": "/100"
+        },
+        "message": {
+          "label": "내용 *",
+          "placeholder": "요구사항을 상세히 설명해주세요...",
+          "counter": "/1000"
+        }
+      },
+      "submit": {
+        "text": "메시지 보내기",
+        "loading": "전송 중...",
+        "success": {
+          "title": "✅ 전송 성공!",
+          "message": "곧 연락드리겠으며, 확인 이메일을 보내드렸습니다.",
+          "confirmation": "확인 이메일이 발송되었습니다"
+        },
+        "error": {
+          "title": "❌ 오류 발생",
+          "message": "폼 전송 중 오류가 발생했습니다. 나중에 다시 시도해주세요."
+        }
+      },
+      "serviceOptions": {
+        "default": "서비스 선택...",
+        "droneRepair": "드론 수리",
+        "droneFilming": "드론 촬영",
+        "surveyingDrone": "측량 드론",
+        "deliveryDrone": "배송 드론",
+        "flightPermit": "비행 허가 서비스",
+        "droneImport": "드론 수입",
+        "other": "기타 서비스"
+      },
+      "validation": {
+        "required": "필수 항목입니다",
+        "minLength": "최소 3자 이상 입력해주세요",
+        "invalidEmail": "유효하지 않은 이메일입니다",
+        "invalidPhone": "유효하지 않은 전화번호입니다"
+      }
+    },
+    "info": {
+      "title": "빠른 연락처",
+      "contactItems": {
+        "phone": {
+          "title": "연락처",
+          "hotline": "핫라인",
+          "hotlineValue": "028 99 95 95 88",
+          "mobile": "휴대전화",
+          "mobileValue": "034 612 4230"
+        },
+        "email": {
+          "title": "이메일",
+          "info": "정보",
+          "infoValue": "info@droneservices.vn",
+          "support": "지원",
+          "supportValue": "support@droneservices.vn"
+        }
+      },
+      "social": {
+        "title": "소셜 미디어",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "telegram": "Telegram",
+        "instagram": "Instagram"
+      },
+      "map": {
+        "location": "호치민시",
+        "directions": "길찾기"
+      }
+    }
+  }
 }

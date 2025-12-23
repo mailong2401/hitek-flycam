@@ -15,47 +15,47 @@
     "contact": "Contact",
     "blog": "Blog"
   },
-  "linkText": "Learn more",
+  "linkText": "Learn More",
   "home": {
     "hero": {
       "title": {
         "main": "HITEK FLYCAM",
         "sub": "Drone Experts"
       },
-      "description": "We provide full drone solutions: from repair and maintenance to professional aerial filming and high-precision surveying.",
+      "description": "Providing comprehensive Drone solutions: from repair and maintenance to professional filming services and high-precision surveying.",
       "cta": {
-        "exploreServices": "Explore services",
-        "freeConsulting": "Free consultation"
+        "exploreServices": "Explore Services",
+        "freeConsulting": "Free Consultation"
       }
     },
     "topSolution": {
       "title": {
-        "part1": "Professional Drone",
-        "highlight": "solutions",
-        "part2": "for every need"
+        "part1": "Professional",
+        "highlight": "Drone Solutions",
+        "part2": "for All Needs"
       },
-      "description": "From repair, surveying to aerial filming — we deliver complete solutions powered by the latest unmanned flight technology."
+      "description": "From repair and surveying to filming services - we provide comprehensive solutions with the most modern unmanned aerial technology."
     },
     "featuresSection": {
-      "title": "Why choose",
+      "title": "Why Choose",
       "highlight": "Hitek Flycam?",
-      "subtitle": "We don’t just provide services — we deliver",
+      "subtitle": "We don't just provide services - We deliver",
       "subtitleHighlight": "a different experience",
       "features": {
         "quality": {
-          "title": "Guaranteed quality",
-          "description": "Genuine components with 12-month warranty"
+          "title": "Guaranteed Quality",
+          "description": "Using genuine parts, 12-month warranty"
         },
         "performance": {
-          "title": "High performance",
+          "title": "High Performance",
           "description": "Drones optimized for speed and stability"
         },
         "safety": {
-          "title": "Absolute safety",
+          "title": "Absolute Safety",
           "description": "Strict compliance with flight safety regulations"
         },
         "experts": {
-          "title": "Expert team",
+          "title": "Expert Team",
           "description": "Professionally trained technicians"
         }
       }
@@ -63,17 +63,202 @@
     "servicesSection": {
       "title": "Our Services",
       "subtitle": "Comprehensive solutions for all drone needs",
-      "viewAll": "View all services"
-    }
+      "viewAll": "View All Services"
+    },
+    "featuredProjects": {
+      "title": "Featured",
+      "highlight": "Projects",
+      "subtitle": "Discover impressive drone projects we have completed",
+      "viewAllProjects": "View All Projects",
+      "cta": {
+        "projectInquiry": "Have a project to consult? Contact us now",
+        "submitProject": "Submit Project Information"
+      },
+      "projects": [
+        {
+          "title": "Topographic Survey of North-South Expressway Project",
+          "category": "Surveying & Mapping",
+          "description": "Using DJI Matrice 350 RTK drone to collect topographic data with centimeter accuracy"
+        },
+        {
+          "title": "5-Star Resort Advertising Filming",
+          "category": "Filming & Media",
+          "description": "Producing 8K quality marketing videos with DJI Inspire 3 drone"
+        },
+        {
+          "title": "Wind Power Project Construction Supervision",
+          "category": "Supervision & Maintenance",
+          "description": "Monitoring construction progress and safety using automated drones"
+        },
+        {
+          "title": "Emergency Medical Delivery",
+          "category": "Transport & Logistics",
+          "description": "Delivering medicine and medical equipment to remote areas"
+        }
+      ]
+    },
+    "newsSection": {
+      "title": "News &",
+      "highlight": "Updates",
+      "subtitle": "Discover the latest drone technology trends and updates from Hitek Flycam",
+      "viewAllNews": "View All News",
+      "news": [
+        {
+          "title": "Trends in Drone Applications for Smart Agriculture 2024",
+          "excerpt": "Explore how drones are revolutionizing agriculture with automatic spraying technology and crop monitoring.",
+          "category": "Technology",
+          "readMore": "Read Article"
+        },
+        {
+          "title": "Hitek Flycam Launches Professional Drone Show Service",
+          "excerpt": "Light show performance with 500 drones, delivering impressive visual experiences for events.",
+          "category": "Events"
+        },
+        {
+          "title": "Guide to Drone Flight Permits in Vietnam 2024",
+          "excerpt": "Updated procedures and documentation for drone flight permits according to Ministry of Defense regulations.",
+          "category": "Legal"
+        }
+      ]
+    },
+    "trustedClients": {
+      "title": "Trusted",
+      "highlight": "Partners",
+      "subtitle": "With leading corporations and enterprises in Vietnam",
+      "partnershipCta": "Become the Next Partner",
+      "partnershipDescription": "Contact us for drone solution consultation suitable for your business",
+      "contactCooperation": "Contact for Cooperation"
+    },
+    "servicesPage": {
+      "servicesHero": {
+        "title": {
+          "main": "DRONE",
+          "highlight": "SERVICES"
+        },
+        "subtitle": "Comprehensive Solutions - Superior Quality - Professional Service",
+        "cta": {
+          "contact": "Contact Consultation",
+          "pricing": "Service Pricing"
+        }
+      },
+      "servicesIntro": {
+        "left": {
+          "title": "Hitek Flycam - Multi-industry Drone Solutions",
+          "line1": "Pioneering brand in technology",
+          "line2": "and professional drone services",
+          "learnMore": "Learn More"
+        },
+        "right": {
+          "part1": {
+            "brand": "Hitek Flycam",
+            "text1": "is a brand specializing in multi-industry Drone solutions, developed from the technology platform, human resources, and experience of",
+            "group": "Hitek Group JSC",
+            "text2": "- the pioneer in Drone Light Show and aerial performance technology in Vietnam.",
+            "highlight": "Hitek Flycam",
+            "text3": "expands its mission to technical fields, surveying, logistics, and industrial services."
+          },
+          "part2": "With the goal of bringing flying technology to serve other areas such as daily life, production, and smart management."
+        }
+      },
+      "detailedServices": {
+        "title": "Why Choose",
+        "highlight": "Hitek Flycam",
+        "question": "?",
+        "subtitle": "Discover the reasons why we become a reliable partner in the drone field",
+        "services": [
+          {
+            "title": "Pioneering Technology",
+            "description": "Integrating AI, RTK, Lidar, real-time GPS in every flight solution. Delivering accurate data, safe operation and outstanding performance."
+          },
+          {
+            "title": "Expert Team",
+            "description": "Engineers, pilots and technicians professionally trained, ensuring high expertise and international technical standards."
+          },
+          {
+            "title": "Comprehensive Service",
+            "description": "From permit application – flight – maintenance – import – data handover, Hitek Flycam accompanies customers at every project stage."
+          },
+          {
+            "title": "Legal Safety",
+            "description": "All flights are legally licensed and fully insured, ensuring compliance with Ministry of Defense and management agency regulations."
+          },
+          {
+            "title": "Hitek Group Ecosystem",
+            "description": "As a member of Hitek Group technology corporation, Hitek Flycam inherits strong infrastructure, AI capabilities & international quality."
+          },
+          {
+            "title": "Multi-industry Applications",
+            "description": "From media – construction – agriculture – logistics, Hitek Flycam designs customized Drone solutions for each business objective."
+          }
+        ],
+        "cta": {
+          "learnMore": "Learn More"
+        }
+      }
+    },
+    "servicesCards": {
+      "sectionTitle": "MAIN SERVICES",
+      "cta": {
+        "learnMore": "Learn More"
+      },
+      "cards": {
+        "repair": {
+          "name": "Drone Repair",
+          "detail": "Professional drone repair, maintenance and upgrade with genuine parts and long-term warranty."
+        },
+        "surveying": {
+          "name": "Surveying Drone",
+          "detail": "Topographic surveying, mapping with RTK, Lidar integrated drones for centimeter accuracy."
+        },
+        "delivery": {
+          "name": "Delivery Drone",
+          "detail": "Cargo and emergency medical delivery solutions using drones for hard-to-reach areas."
+        },
+        "flightPermit": {
+          "name": "Flight Permit Service",
+          "detail": "Assistance with flight permit applications, device registration and full legal consultation according to Vietnam regulations."
+        },
+        "droneImport": {
+          "name": "Drone Import",
+          "detail": "Genuine drone import service, customs procedures, inspection and complete device registration."
+        }
+      }
+    },
+    "services": [
+      {
+        "title": "Drone Repair",
+        "description": "Professional repair service"
+      },
+      {
+        "title": "Surveying Drone",
+        "description": "Accurate surveying and measurement"
+      },
+      {
+        "title": "Delivery Drone",
+        "description": "Efficient cargo delivery"
+      },
+      {
+        "title": "Flight Permit Service",
+        "description": "Flight permit consultation and application"
+      },
+      {
+        "title": "Drone Import",
+        "description": "Genuine drone import"
+      },
+      {
+        "title": "Drone Filming",
+        "description": "Professional filming"
+      }
+    ]
   },
   "about": {
     "hero": {
       "title": "ABOUT",
       "highlightedTitle": "HITEK FLYCAM",
-      "tagline": "Multi-industry Drone Solutions – Technology Pioneer – Professional",
+      "tagline": "Multi-industry Drone Solutions - Technology Pioneer - Professional",
       "cta": {
-        "exploreServices": "Explore services",
-        "contactCooperation": "Contact for cooperation"
+        "exploreServices": "Explore Services",
+        "contactCooperation": "Contact for Cooperation"
       }
     },
     "AboutSection": {
@@ -82,32 +267,32 @@
         "highlight": "Hitek Flycam"
       },
       "paragraphs": [
-        "Hitek Flycam is a brand specializing in multi-industry drone solutions, developed from the technology, human resources, and experience foundation of Hitek Drone – the pioneer in Drone Light Show and aerial performance technology in Vietnam.",
-        "Part of Hitek Group JSC, Hitek Flycam expands the mission of Hitek Drone into technical, surveying, logistics, and industrial service fields, aiming to bring drone technology into real-world applications such as daily life, production, and smart management."
+        "Hitek Flycam is a brand specializing in multi-industry Drone solutions, developed from the technology platform, human resources, and experience of Hitek Drone - the pioneer in Drone Light Show and aerial performance technology in Vietnam.",
+        "As part of Hitek Group JSC, Hitek Flycam expands Hitek Drone's mission to technical fields, surveying, logistics and industrial services, with the goal of bringing flying technology to serve other areas such as daily life, production, and smart management."
       ]
     },
     "whyTrust": {
-      "title1": "Why is",
-      "title2": "a trusted unit?",
+      "title1": "Why",
+      "title2": "is a reliable unit?",
       "highlightedTitle": "Hitek Flycam",
-      "subtitle": "Discover why we are the leading partner in the drone solutions industry in Vietnam",
+      "subtitle": "Discover the reasons why we become the leading partner in Drone solutions in Vietnam",
       "points": [
         {
           "title": "Capability",
-          "description": "Inherited from Hitek Drone’s foundation with a professional team, modern equipment, and international-standard processes"
+          "description": "Inheriting Hitek Drone platform with professional team - modern equipment and international standard procedures"
         },
         {
           "title": "Safety",
-          "description": "All flights are licensed, insured, and strictly monitored under national regulations"
+          "description": "All flights are licensed, insured and strictly monitored according to national standards"
         },
         {
           "title": "Quality",
-          "description": "Committed to efficiency, stability, and accuracy in every project – from concept to real implementation"
+          "description": "Commitment to efficiency, stability and accuracy in every project - from idea stage to practical implementation"
         }
       ]
     },
     "connection": {
-      "title": "The connection between",
+      "title": "The Connection Between",
       "highlightedTitle": "Hitek Flycam",
       "hitekDroneText": "Hitek Drone",
       "description": [
@@ -115,59 +300,744 @@
         "Hitek Drone",
         "is the symbol of art and performance, then",
         "Hitek Flycam",
-        "represents the application of drone technology into production and real-world operations. Both brands share a unified vision:"
+        "represents the application of Drone technology into practical production and operation. Both brands share a common vision:"
       ],
-      "vision": "Building a comprehensive drone ecosystem — where flight technology serves people in every aspect of life.",
+      "vision": "Building a comprehensive Drone ecosystem - where flying technology serves humans in all areas of life.",
       "cta": {
         "services": {
           "text": "Hitek Flycam Services"
         }
       },
-      "additionalInfo": "Explore the full drone technology ecosystem from Hitek Group"
+      "additionalInfo": "Explore the entire drone technology ecosystem from Hitek Group"
     },
     "quote": {
       "content": [
         "From the foundation of",
         "Hitek Drone",
-        "– where drone technology is elevated through art,",
+        "- where flying technology is honored through art,",
         "Hitek Flycam",
-        "continues that journey with technology, data, and real-world efficiency."
+        "continues that journey with technology, data and practical efficiency."
       ],
       "author": {
         "name": "— Hitek Flycam Team —",
         "subtitle": "Mission & Vision"
       }
+    },
+    "teamSection": {
+      "title": "Leadership Team",
+      "members": {
+        "tien": {
+          "name": "Lam Thu Tien",
+          "position": "Chairman",
+          "info": [
+            "Over 10 years of leadership and business management experience.",
+            "Strong foundation in business and technology development."
+          ]
+        },
+        "khoi": {
+          "name": "Tran Anh Khoi",
+          "position": "General Director",
+          "info": [
+            "Over 10 years of experience in technology field.",
+            "Founder of many pioneering enterprises, solutions 'first introduced in Vietnam'."
+          ]
+        },
+        "sean": {
+          "name": "Oh Sean Beom",
+          "position": "Business Director",
+          "info": [
+            "Over 10 years of technology development experience.",
+            "Strong leadership capabilities.",
+            "Managing cross-border projects: Japan, Korea, Vietnam and Europe."
+          ]
+        }
+      }
     }
   },
-  "services": [
-    {
-      "title": "Drone Repair",
-      "subDes": "Professional drone repair and maintenance service",
-      "description": "Professional drone repair and maintenance service"
+  "services": {
+    "deliveryDrone": {
+      "hero": {
+        "title": "DELIVERY DRONE",
+        "subtitle": "Drone delivery solutions designed for industrial zones, agriculture, and hard-to-reach areas — optimizing costs, time, and manpower."
+      },
+      "features": {
+        "title": "Applications of",
+        "highlightedText": " Delivery Drones",
+        "items": [
+          {
+            "title": "Internal delivery: warehouses, factories, production zones."
+          },
+          {
+            "title": "Transporting samples, documents, components in agriculture or industry."
+          },
+          {
+            "title": "Trial delivery services and drone logistics models."
+          }
+        ]
+      },
+      "process": {
+        "title": "Implementation Process",
+        "items": [
+          {
+            "step": "01",
+            "title": "Analyze needs & cargo weight."
+          },
+          {
+            "step": "02",
+            "title": "Map flight routes, takeoff/landing points, automated journeys."
+          },
+          {
+            "step": "03",
+            "title": "Configure equipment, safety checks & flight permit applications."
+          },
+          {
+            "step": "04",
+            "title": "Conduct test flights, log data, and hand over operational procedures."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits for",
+        "highlightedText": "customers",
+        "items": [
+          {
+            "parts": [
+              { "text": "Reduce delivery time", "bold": true },
+              ", decrease operational manpower."
+            ]
+          },
+          {
+            "parts": [
+              "Support hard-to-reach areas,",
+              { "text": " reduce risks", "bold": true },
+              " of traditional logistics."
+            ]
+          },
+          {
+            "parts": [
+              "Optimize costs,",
+              { "text": " control", "bold": true },
+              " journeys in real-time."
+            ]
+          },
+          {
+            "parts": [
+              "Increase",
+              { "text": " production", "bold": true },
+              " and internal operational efficiency."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "What are common applications of delivery drones?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "How much payload can delivery drones carry?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Is the navigation system safe?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "What are operating conditions in bad weather?",
+            "answer": "Not yet available"
+          }
+        ]
+      }
     },
-    {
-      "title": "Surveying Drone",
-      "subDes": "High-precision terrain surveying and measurement",
-      "description": "High-precision terrain surveying and measurement"
+    "droneFilming": {
+      "hero": {
+        "title": "DRONE FILMING",
+        "subtitle": "Hitek Flycam offers professional aerial filming and photography services using drones for advertising, media, events, and tourism."
+      },
+      "features": {
+        "title": "Next-generation",
+        "highlightedText": " logistics solutions",
+        "items": [
+          {
+            "title": "TVC & corporate advertising filming",
+            "description": "Resorts, industrial zones, real estate, factories."
+          },
+          {
+            "title": "Tourism photography/videography for local promotion",
+            "description": "Panoramic views, fly-through shots."
+          },
+          {
+            "title": "Event & festival recording",
+            "description": "Multi-angle filming, live streaming with multiple drones."
+          },
+          {
+            "title": "Post-production",
+            "description": "Cinematic color grading, video editing, voiceover, motion logo."
+          }
+        ]
+      },
+      "process": {
+        "title": "Implementation Process",
+        "items": [
+          {
+            "step": "01",
+            "title": "Receive brief and consult on shooting angles, storyboard."
+          },
+          {
+            "step": "02",
+            "title": "Apply for flight permits & prepare suitable equipment for the location."
+          },
+          {
+            "step": "03",
+            "title": "Conduct filming with flight team & director coordination."
+          },
+          {
+            "step": "04",
+            "title": "Post-production, color grading, export in desired format."
+          },
+          {
+            "step": "05",
+            "title": "Deliver videos, photos, and source files (upon request)."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits for",
+        "highlightedText": "customers",
+        "items": [
+          {
+            "parts": [
+              "Create powerful, professional",
+              { "text": " brand images", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              "Save time and ",
+              { "text": " production costs", "bold": true },
+              " compared to traditional filming."
+            ]
+          },
+          {
+            "parts": [
+              "Optimize safety with",
+              { "text": " full permits", "bold": true },
+              " for all flights."
+            ]
+          },
+          {
+            "parts": [
+              "High-quality post-production with",
+              { "text": " cinema-standard", "bold": true },
+              " color grading."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Is a flight permit required before filming?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Does it include professional post-production or perspectives?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "What video and image sizes are supported?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Can filming be done in strong wind/night conditions?",
+            "answer": "Not yet available"
+          }
+        ]
+      }
     },
-    {
-      "title": "Delivery Drone",
-      "subDes": "Professional drone repair and maintenance service",
-      "description": "Professional aerial filming and photography"
+    "droneImport": {
+      "hero": {
+        "title": "DRONE IMPORT",
+        "subtitle": "Drone import, distribution, and equipment selection consulting solutions, helping businesses own legal, genuine equipment optimized for specific usage fields."
+      },
+      "features": {
+        "title": "Next-generation",
+        "highlightedText": " logistics solutions",
+        "items": [
+          {
+            "title": "Drone selection consulting: suitable for surveying, filming, logistics, or agriculture purposes."
+          },
+          {
+            "title": "Installation support & initial calibration, equipment inspection"
+          },
+          {
+            "title": "Import procedures: CO, CQ, customs, registration and genuine warranty."
+          }
+        ]
+      },
+      "process": {
+        "title": "Implementation Process",
+        "items": [
+          {
+            "step": "01",
+            "title": "Identify customer needs and budget."
+          },
+          {
+            "step": "02",
+            "title": "Propose equipment, models, and transparent pricing."
+          },
+          {
+            "step": "03",
+            "title": "Proceed with import, customs procedures, inspection."
+          },
+          {
+            "step": "04",
+            "title": "Support installation & initial calibration, equipment inspection."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits for",
+        "highlightedText": "customers",
+        "items": [
+          {
+            "parts": [
+              { "text": "Official import channels", "bold": true },
+              " ensure legal documents & warranty."
+            ]
+          },
+          {
+            "parts": [
+              "Save",
+              { "text": " 10–20% costs", "bold": true },
+              " compared to retail or agent purchases."
+            ]
+          },
+          {
+            "parts": [
+              "Comprehensive support from",
+              { "text": " import to maintenance", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Which brands does Hitek Flycam import?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "What are the import procedures?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Do drones come with genuine warranty?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Is there support after equipment handover?",
+            "answer": "Not yet available"
+          }
+        ]
+      }
     },
-    {
-      "title": "Flight Permit Service",
-      "description": "Professional aerial filming and photography"
+    "droneRepair": {
+      "hero": {
+        "title": "DRONE REPAIR",
+        "subtitle": "Professional drone repair and maintenance services, keeping your equipment stable, safe, and at peak performance."
+      },
+      "features": {
+        "title": "Technical solutions from",
+        "highlightedText": "Hitek Flycam",
+        "items": [
+          {
+            "title": "Inspection & Component Replacement",
+            "description": "Comprehensive inspection, fault diagnosis, component replacement"
+          },
+          {
+            "title": "System Updates & Calibration",
+            "description": "Software updates, IMU sensor calibration, compass, GPS system calibration"
+          },
+          {
+            "title": "Safety Checks & Post-Repair Warranty",
+            "description": "Pre- and post-flight safety checks, repair service warranty"
+          }
+        ]
+      },
+      "process": {
+        "title": "Implementation Process",
+        "items": [
+          {
+            "step": "01",
+            "title": "Receive request and preliminary diagnosis via customer-provided images/videos or error data"
+          },
+          {
+            "step": "02",
+            "title": "On-site inspection at workshop or field: fault analysis, repair plan establishment"
+          },
+          {
+            "step": "03",
+            "title": "Execute component replacement, software upgrades, sensor calibration to technical standards"
+          },
+          {
+            "step": "04",
+            "title": "Test flight verification (if needed) or system connection & image transmission testing, report recording"
+          },
+          {
+            "step": "05",
+            "title": "Equipment handover, provide repair report and warranty, guide customers on subsequent operational procedures."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits",
+        "highlightedText": "for customers",
+        "items": [
+          {
+            "parts": [
+              "Equipment always in",
+              { "text": " stable and optimal operation", "bold": true },
+              ", minimizing downtime and unscheduled maintenance."
+            ]
+          },
+          {
+            "parts": [
+              "Increase ",
+              { "text": "lifespan and durability", "bold": true },
+              " of drone systems – saving major replacement costs long-term."
+            ]
+          },
+          {
+            "parts": [
+              "Enhance ",
+              { "text": "flight safety,", "bold": true },
+              " reduce operational risks – especially important for technical or commercial flights."
+            ]
+          },
+          {
+            "parts": [
+              "Support from Hitek Flycam's",
+              { "text": " professional technical team", "bold": true },
+              ", standardized processes and clear reporting."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "How often should drone maintenance be performed?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Can drones with directional drift or poor GPS be repaired?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Do you offer online inspection or remote device sending?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Is there warranty after repair?",
+            "answer": "Not yet available"
+          }
+        ]
+      }
     },
-    {
-      "title": "Drone Import",
-      "description": "Professional aerial filming and photography"
+    "flightPermitService": {
+      "hero": {
+        "title": "FLIGHT PERMIT SERVICE",
+        "subtitle": "Solutions for obtaining legal drone/flycam flight permits in Vietnam, ensuring compliance with Ministry of Defense and Ministry of Public Security regulations."
+      },
+      "features": {
+        "title": "Service",
+        "highlightedText": " scope",
+        "items": [
+          {
+            "title": "Flight permits for filming, surveying, technical inspection, performances, and testing."
+          },
+          {
+            "title": "Legal consulting: no-fly zone regulations, altitude limits, equipment requirements."
+          },
+          {
+            "title": "Equipment registration & commercial flight insurance according to Vietnamese standards."
+          }
+        ]
+      },
+      "process": {
+        "title": "Implementation Process",
+        "items": [
+          {
+            "step": "01",
+            "title": "Collect area information, flight purpose, and schedule."
+          },
+          {
+            "step": "02",
+            "title": "Check legal conditions & prepare permit application documents."
+          },
+          {
+            "step": "03",
+            "title": "Submit and track applications with management authorities."
+          },
+          {
+            "step": "04",
+            "title": "Receive valid permits & guidance for compliant operations."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits for",
+        "highlightedText": "customers",
+        "items": [
+          {
+            "parts": [
+              "Legal, safe flights,",
+              { "text": " no worries", "bold": true },
+              " about fines or equipment confiscation."
+            ]
+          },
+          {
+            "parts": [
+              { "text": "Save time,", "bold": true },
+              " standardized documentation from the start."
+            ]
+          },
+          {
+            "parts": [
+              "On-site support from team well-versed in",
+              { "text": " aviation", "bold": true },
+              " regulations."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "When is a drone flight permit required?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Which areas does Hitek Flycam support for permit applications?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "How long does permit application processing take?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Can I apply for flight permits myself?",
+            "answer": "Not yet available"
+          }
+        ]
+      }
     },
-    {
-      "title": "Aerial Filming",
-      "subDes": "Professional aerial filming and photography",
-      "description": "Professional aerial filming and photography"
+    "surveyingDrone": {
+      "hero": {
+        "title": "SURVEYING DRONE",
+        "subtitle": "Surveying and technical mapping solutions using drones, employing Lidar, RTK-GPS, and multispectral imaging to collect spatial data with high accuracy."
+      },
+      "features": {
+        "title": "Applications of",
+        "highlightedText": " Surveying Drones",
+        "items": [
+          {
+            "title": "Terrain surveying for construction, urban planning, mining."
+          },
+          {
+            "title": "2D/3D mapping, ground models (DEM/DTM), orthophotos, and 3D mesh."
+          },
+          {
+            "title": "Area measurement, material volume calculation, construction progress monitoring."
+          }
+        ]
+      },
+      "process": {
+        "title": "Implementation Process",
+        "items": [
+          {
+            "step": "01",
+            "title": "Site survey and measurement objectives determination."
+          },
+          {
+            "step": "02",
+            "title": "Flight planning, coordinate zoning, and safety limits."
+          },
+          {
+            "step": "03",
+            "title": "Data collection flights using Lidar or RTK-GPS drones."
+          },
+          {
+            "step": "04",
+            "title": "Image processing, mapping, volume measurement, and 3D model creation."
+          },
+          {
+            "step": "05",
+            "title": "Data delivery with detailed technical reports."
+          }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits",
+        "highlightedText": "& commitments",
+        "items": [
+          {
+            "parts": [
+              "Reduce surveying time",
+              { "text": " up to 70%", "bold": true },
+              " compared to traditional methods."
+            ]
+          },
+          {
+            "parts": [
+              { "text": "Low error, stable data, fast processing", "bold": true },
+              " for large-scale projects."
+            ]
+          },
+          {
+            "parts": [
+              "All flights and data",
+              { "text": " comply with standards", "bold": true },
+              " of Hitek Flycam's legal and technical requirements."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "question": "Advantages of Surveying Drones vs traditional methods?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "How long does the surveying process take?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "What accuracy level do Hitek Flycam drones achieve?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "What types of output data are provided?",
+            "answer": "Not yet available"
+          },
+          {
+            "question": "Can output data integrate with design software?",
+            "answer": "Not yet available"
+          }
+        ]
+      }
     }
-  ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "highlight": "Hitek Flycam",
+      "description": "We are always ready to discuss your projects. Contact Hitek Flycam now for detailed consultation."
+    },
+    "form": {
+      "title": "Send Message",
+      "fields": {
+        "name": {
+          "label": "Full Name *",
+          "placeholder": "Enter your full name (letters only)",
+          "counter": "/50"
+        },
+        "company": {
+          "label": "Company Name",
+          "placeholder": "Hitek",
+          "counter": "/100"
+        },
+        "email": {
+          "label": "Email *",
+          "placeholder": "email@example.com"
+        },
+        "phone": {
+          "label": "Phone Number *",
+          "placeholder": "0346124230"
+        },
+        "service": {
+          "label": "Service of Interest"
+        },
+        "location": {
+          "label": "Location",
+          "placeholder": "Ho Chi Minh City",
+          "counter": "/100"
+        },
+        "message": {
+          "label": "Content *",
+          "placeholder": "Describe your requirements in detail...",
+          "counter": "/1000"
+        }
+      },
+      "submit": {
+        "text": "Send Message",
+        "loading": "Sending...",
+        "success": {
+          "title": "✅ Success!",
+          "message": "We will contact you soon and have sent a confirmation email to you.",
+          "confirmation": "Confirmation email sent to"
+        },
+        "error": {
+          "title": "❌ Error occurred",
+          "message": "An error occurred while sending the form. Please try again later."
+        }
+      },
+      "serviceOptions": {
+        "default": "Select service...",
+        "droneRepair": "Drone Repair",
+        "droneFilming": "Drone Filming",
+        "surveyingDrone": "Surveying Drone",
+        "deliveryDrone": "Delivery Drone",
+        "flightPermit": "Flight Permit Service",
+        "droneImport": "Drone Import",
+        "other": "Other Services"
+      },
+      "validation": {
+        "required": "is required",
+        "minLength": "must have at least 3 characters",
+        "invalidEmail": "Invalid email",
+        "invalidPhone": "Invalid phone number"
+      }
+    },
+    "info": {
+      "title": "Quick Contact",
+      "contactItems": {
+        "phone": {
+          "title": "Contact",
+          "hotline": "Hotline",
+          "hotlineValue": "028 99 95 95 88",
+          "mobile": "Mobile",
+          "mobileValue": "034 612 4230"
+        },
+        "email": {
+          "title": "Email",
+          "info": "Information",
+          "infoValue": "info@droneservices.vn",
+          "support": "Support",
+          "supportValue": "support@droneservices.vn"
+        }
+      },
+      "social": {
+        "title": "Connect with us",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "telegram": "Telegram",
+        "instagram": "Instagram"
+      },
+      "map": {
+        "location": "Ho Chi Minh City",
+        "directions": "Get Directions"
+      }
+    }
+  }
 }
-

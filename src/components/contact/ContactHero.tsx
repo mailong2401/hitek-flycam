@@ -1,7 +1,10 @@
 // components/contact/ContactHero.tsx
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactHero = () => {
+  const { t } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,9 +40,9 @@ const ContactHero = () => {
         variants={itemVariants}
         className="text-4xl md:text-5xl font-bold text-foreground mb-6"
       >
-        Liên hệ với{" "}
+        {t<string>("contact.hero.title")}{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">
-          Hitek Flycam
+          {t<string>("contact.hero.highlight")}
         </span>
       </motion.h1>
       
@@ -47,11 +50,7 @@ const ContactHero = () => {
         variants={itemVariants}
         className="text-lg md:text-xl text-muted-foreground"
       >
-        Chúng tôi luôn sẵn sàng trao đổi về mọi dự án của bạn.
-        <br />
-        Liên hệ ngay với{" "}
-        <span className="font-semibold text-primary">Hitek Flycam</span>{" "}
-        để được tư vấn chi tiết.
+        {t<string>("contact.hero.description")}
       </motion.p>
 
       {/* Decorative elements */}

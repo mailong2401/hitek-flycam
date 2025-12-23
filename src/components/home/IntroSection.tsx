@@ -146,7 +146,7 @@ export default function IntroSection() {
                 className="text-4xl font-bold text-foreground dark:text-foreground mb-4"
                 variants={textVariants}
               >
-                {t("servicesPage.servicesIntro.left.title")}
+                {t<string>("home.servicesPage.servicesIntro.left.title")}
               </motion.h2>
               
               <motion.p 
@@ -154,8 +154,8 @@ export default function IntroSection() {
                 variants={textVariants}
                 transition={{ delay: 0.1 }}
               >
-                {t("servicesPage.servicesIntro.left.line1")}<br />
-                {t("servicesPage.servicesIntro.left.line2")}
+                {t<string>("home.servicesPage.servicesIntro.left.line1")}<br />
+                {t<string>("home.servicesPage.servicesIntro.left.line2")}
               </motion.p>
               
               <Link to="/gioi-thieu">
@@ -164,8 +164,7 @@ export default function IntroSection() {
                   variants={linkVariants}
                   whileHover="hover"
                 >
-                  {t("servicesPage.servicesIntro.left.learnMore")}
-                  Tìm hiểu thêm
+                  {t<string>("home.servicesPage.servicesIntro.left.learnMore")}
                   <motion.span
                     animate={{ x: [0, 3, 0] }}
                     transition={{
@@ -195,27 +194,27 @@ export default function IntroSection() {
                 variants={highlightVariants}
                 animate="visible"
               >
-                {t("servicesPage.servicesIntro.right.part1.brand")}{" "}
+                {t<string>("home.servicesPage.servicesIntro.right.part1.brand")}{" "}
               </motion.span>
-              {t("servicesPage.servicesIntro.right.part1.text1")}{" "}
+              {t<string>("home.servicesPage.servicesIntro.right.part1.text1")}{" "}
               <motion.span 
                 className="font-bold text-primary dark:text-primary"
                 variants={highlightVariants}
                 animate="visible"
                 style={{ animationDelay: "0.2s" }}
               >
-                {t("servicesPage.servicesIntro.right.part1.group")}{" "}
+                {t<string>("home.servicesPage.servicesIntro.right.part1.group")}{" "}
               </motion.span>
-              {t("servicesPage.servicesIntro.right.part1.text2")}{" "}
+              {t<string>("home.servicesPage.servicesIntro.right.part1.text2")}{" "}
               <motion.span 
                 className="font-bold text-primary dark:text-primary"
                 variants={highlightVariants}
                 animate="visible"
                 style={{ animationDelay: "0.4s" }}
               >
-                {t("servicesPage.servicesIntro.right.part1.highlight")}{" "}
+                {t<string>("home.servicesPage.servicesIntro.right.part1.highlight")}{" "}
               </motion.span>
-              {t("servicesPage.servicesIntro.right.part1.text3")}
+              {t<string>("home.servicesPage.servicesIntro.right.part1.text3")}
             </motion.p>
             
             <motion.p 
@@ -223,7 +222,7 @@ export default function IntroSection() {
               transition={{ delay: 0.3 }}
               className="leading-relaxed"
             >
-              {t("servicesPage.servicesIntro.right.part2")}
+              {t<string>("home.servicesPage.servicesIntro.right.part2")}
             </motion.p>
 
             {/* Decorative floating elements */}
@@ -250,8 +249,6 @@ export default function IntroSection() {
             </div>
           </motion.div>
         </div>
-
-
       </div>
     </motion.section>
   );

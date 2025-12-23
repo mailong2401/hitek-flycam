@@ -2,46 +2,30 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import photo1 from "@/assets/home/project/photo-1.avif"
-import photo2 from "@/assets/home/project/photo-2.avif"
-import photo3 from "@/assets/home/project/photo-3.avif"
-import photo4 from "@/assets/home/project/photo-4.avif"
+import photo1 from "@/assets/home/project/photo-1.avif";
+import photo2 from "@/assets/home/project/photo-2.avif";
+import photo3 from "@/assets/home/project/photo-3.avif";
+import photo4 from "@/assets/home/project/photo-4.avif";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const projects = [
-  {
-    id: 1,
-    title: "Khảo sát địa hình dự án cao tốc Bắc - Nam",
-    category: "Trắc địa & Khảo sát",
-    image: photo1,
-    description: "Sử dụng drone DJI Matrice 350 RTK thu thập dữ liệu địa hình với độ chính xác cm"
-  },
-  {
-    id: 2,
-    title: "Quay phim quảng cáo resort 5 sao",
-    category: "Quay Phim & Media",
-    image: photo2,
-    description: "Sản xuất video marketing chất lượng 8K với drone DJI Inspire 3"
-  },
-  {
-    id: 3,
-    title: "Giám sát thi công dự án điện gió",
-    category: "Giám sát & Bảo trì",
-    image: photo3,
-    description: "Giám sát tiến độ và an toàn thi công bằng drone tự động hóa"
-  },
-  {
-    id: 4,
-    title: "Vận chuyển y tế khẩn cấp",
-    category: "Vận chuyển & Logistics",
-    image: photo4,
-    description: "Vận chuyển thuốc và thiết bị y tế đến vùng sâu vùng xa"
-  }
-];
+// Define interface for project
+interface Project {
+  title: string;
+  category: string;
+  description: string;
+}
+
+// Static images
+const projectImages = [photo1, photo2, photo3, photo4];
 
 export default function FeaturedProjectsSection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
+  // Get projects data from translation
+  const projectsData = t<Project[]>("home.featuredProjects.projects");
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -124,18 +108,18 @@ export default function FeaturedProjectsSection() {
               variants={titleVariants}
               className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-4"
             >
-              Dự án tiêu biểu
+              {t<string>("home.featuredProjects.title")}{" "}
               <motion.span 
                 className="text-primary dark:text-red-400 ml-2"
               >
-                Hitek Flycam
+                {t<string>("home.featuredProjects.highlight")}
               </motion.span>
             </motion.h2>
             <motion.p 
               variants={titleVariants}
               className="text-muted-foreground dark:text-gray-300 text-lg max-w-2xl"
             >
-              Khám phá những dự án drone ấn tượng chúng tôi đã thực hiện
+              {t<string>("home.featuredProjects.subtitle")}
             </motion.p>
           </div>
           
@@ -148,7 +132,7 @@ export default function FeaturedProjectsSection() {
               variant="outline" 
               className="flex items-center gap-2 border-2 border-primary dark:border-red-400 text-primary dark:text-red-400 hover:bg-primary/10 dark:hover:bg-blue-400/10 transition-all duration-300"
             >
-              Xem tất cả dự án
+              {t<string>("home.featuredProjects.viewAllProjects")}
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ 
@@ -170,9 +154,9 @@ export default function FeaturedProjectsSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
         >
-          {projects.map((project) => (
+          {projectsData.map((project: Project, index: number) => (
             <motion.div
-              key={project.id}
+              key={index}
               variants={itemVariants}
               whileHover={{ 
                 y: -10,
@@ -185,10 +169,9 @@ export default function FeaturedProjectsSection() {
                 {/* Image Container */}
                 <motion.div 
                   className="relative overflow-hidden h-56"
-                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   <img
-                    src={project.image}
+                    src={projectImages[index]}
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
@@ -222,14 +205,11 @@ export default function FeaturedProjectsSection() {
                 <div className="p-6">
                   <motion.h3 
                     className="text-xl font-bold text-foreground dark:text-white mb-3 line-clamp-2 group-hover:text-primary dark:group-hover:text-red-400 transition-colors duration-300"
-                    whileHover={{ scale: 1.02 }}
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p 
                     className="text-muted-foreground dark:text-gray-300 mb-4 line-clamp-2"
-                    initial={{ opacity: 0.8 }}
-                    whileHover={{ opacity: 1 }}
                   >
                     {project.description}
                   </motion.p>
@@ -285,7 +265,7 @@ export default function FeaturedProjectsSection() {
           className="mt-16 text-center"
         >
           <p className="text-muted-foreground dark:text-gray-300 mb-6 text-lg">
-            Bạn có dự án cần tư vấn? Liên hệ ngay với chúng tôi
+            {t<string>("home.featuredProjects.cta.projectInquiry")}
           </p>
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -297,7 +277,7 @@ export default function FeaturedProjectsSection() {
               className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <span className="flex items-center gap-3">
-                Để lại thông tin dự án
+                {t<string>("home.featuredProjects.cta.submitProject")}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ 

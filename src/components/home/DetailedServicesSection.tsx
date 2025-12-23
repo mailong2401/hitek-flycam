@@ -1,3 +1,4 @@
+// DetailedServicesSection.tsx
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -7,43 +8,22 @@ import app from '@/assets/services/icon2/app.png';
 import security from '@/assets/services/icon2/security.png';
 import engineer from '@/assets/services/icon2/engineer.png';
 import fix from '@/assets/services/icon2/fix.png';
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const detailedServices = [
-  {
-    icon: tech,
-    title: "Công nghệ tiên phong",
-    description: "Tích hợp AI, RTK, Lidar, GPS thời gian thực trong mọi giải pháp bay. Đem lại dữ liệu chính xác, vận hành an toàn và hiệu suất vượt trội.",
-  },
-  {
-    icon: engineer,
-    title: "Đội ngũ chuyên gia",
-    description: "Kỹ sư, phi công và kỹ thuật viên được đào tạo bài bản, đảm bảo chuyên môn cao và quy trình kỹ thuật chuẩn quốc tế.",
-  },
-  {
-    icon: fix,
-    title: "Dịch vụ trọn gói",
-    description: "Từ xin phép – bay – bảo trì – nhập khẩu – bàn giao dữ liệu, Hitek Flycam đồng hành cùng khách hàng ở mọi giai đoạn của dự án.",
-  },
-  {
-    icon: security,
-    title: "An toàn pháp lý",
-    description: "Tất cả chuyến bay đều được cấp phép hợp pháp và bảo hiểm đầy đủ, đảm bảo tuân thủ quy định của Bộ Quốc phòng và cơ quan quản lý.",
-  },
-  {
-    icon: group,
-    title: "Hệ sinh thái Hitek Group",
-    description: "Là thành viên của tập đoàn công nghệ Hitek Group, Hitek Flycam thừa hưởng hạ tầng mạnh, năng lực AI & chất lượng quốc tế.",
-  },
-  {
-    icon: app,
-    title: "Ứng dụng đa nghành",
-    description: "Từ truyền thông – xây dựng – nông nghiệp – logistics, Hitek Flycam thiết kế giải pháp Drone tùy chỉnh cho từng mục tiêu kinh doanh.",
-  },
-];
+interface ServiceItem {
+  title: string;
+  description: string;
+}
 
 export default function DetailedServicesSection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  // FIXED PATH: từ "servicesPage.detailedServices.services" → "home.servicesPage.detailedServices.services"
+  const serviceItems = t<ServiceItem[]>("home.servicesPage.detailedServices.services");
+  
+  const serviceIcons = [tech, engineer, fix, security, group, app];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,11 +55,8 @@ export default function DetailedServicesSection() {
     }
   };
 
-  return (
-    <section 
-      ref={ref}
-      className="py-16 bg-background dark:bg-background"
-    >
+   return (
+    <section ref={ref} className="py-16 bg-background dark:bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -88,12 +65,14 @@ export default function DetailedServicesSection() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground dark:text-white">
-            Tại sao nên chọn
-            <span className="text-primary dark:text-red-400 ml-2">Hitek Flycam</span>
-            ?
+            {t<string>("home.servicesPage.detailedServices.title")} {/* FIXED */}
+            <span className="text-primary dark:text-red-400 ml-2">
+              {t<string>("home.servicesPage.detailedServices.highlight")} {/* FIXED */}
+            </span>
+            {t<string>("home.servicesPage.detailedServices.question")} {/* FIXED */}
           </h2>
           <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto">
-            Khám phá những lý do khiến chúng tôi trở thành đối tác tin cậy trong lĩnh vực drone
+            {t<string>("home.servicesPage.detailedServices.subtitle")} {/* FIXED */}
           </p>
         </motion.div>
         
@@ -103,7 +82,7 @@ export default function DetailedServicesSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          {detailedServices.map((service, index) => (
+          {serviceItems.map((service: ServiceItem, index: number) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -115,7 +94,7 @@ export default function DetailedServicesSection() {
                   className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-blue-900/20 dark:to-blue-800/10"
                 >
                   <motion.img 
-                    src={service.icon} 
+                    src={serviceIcons[index]} 
                     alt={service.title}
                     className="w-16 h-16 object-contain"
                     transition={{ type: "spring", stiffness: 300 }}
@@ -132,16 +111,9 @@ export default function DetailedServicesSection() {
                 {/* Description */}
                 <motion.p 
                   className="text-muted-foreground dark:text-gray-300 mb-6 leading-relaxed"
-                  initial={{ opacity: 0.8 }}
                 >
                   {service.description}
                 </motion.p>
-                
-                {/* Button */}
-                <motion.div
-                  whileTap={{ scale: 0.95 }}
-                >
-                </motion.div>
                 
                 {/* Decorative elements */}
                 <motion.div 
@@ -176,7 +148,7 @@ export default function DetailedServicesSection() {
               size="lg" 
               className="bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Tìm hiểu thêm
+              {t<string>("home.servicesPage.detailedServices.cta.learnMore")} {/* FIXED */}
             </Button>
           </motion.div>
         </motion.div>

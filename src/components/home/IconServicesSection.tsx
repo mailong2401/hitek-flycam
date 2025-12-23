@@ -1,4 +1,4 @@
-// components/services/IconServicesSection.tsx
+// IconServicesSection.tsx
 import { motion } from "framer-motion";
 import repair from '@/assets/services/icon1/repair.png';
 import map from '@/assets/services/icon1/map.png';
@@ -8,17 +8,28 @@ import buy from '@/assets/services/icon1/buy.png';
 import camera from '@/assets/services/icon1/camera.png';
 import { useLanguage } from "@/contexts/LanguageContext";
 
-
 export default function IconServicesSection() {
   const { t } = useLanguage();
+  
+  // Define interface for service item
+  interface Service {
+    title: string;
+    description: string;
+  }
+  
+  // Get services array from translation - FIXED PATH
+  const services = t<Service[]>("home.services");
+  
   const iconServices = [
-  { icon: repair, label: t(`services.${0}.title`) },
-  { icon: map, label: t(`services.${1}.title`) },
-  { icon: delivery, label: t(`services.${2}.title`) },
-  { icon: listence, label: t(`services.${3}.title`) },
-  { icon: buy, label: t(`services.${4}.title`) },
-  { icon: camera, label: t(`services.${5}.title`) },
-];
+    { icon: repair, label: services[0]?.title || "" },
+    { icon: map, label: services[1]?.title || "" },
+    { icon: delivery, label: services[2]?.title || "" },
+    { icon: listence, label: services[3]?.title || "" },
+    { icon: buy, label: services[4]?.title || "" },
+    { icon: camera, label: services[5]?.title || "" },
+  ];
+
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -89,7 +100,6 @@ export default function IconServicesSection() {
                   {/* Main icon */}
                   <motion.div
                     className="relative w-12 h-12 rounded-full bg-gradient-to-br from-card to-card/50 flex items-center justify-center"
-                    transition={{ type: "spring", stiffness: 400 }}
                   >
                     <img 
                       src={service.icon} 
@@ -130,35 +140,8 @@ export default function IconServicesSection() {
                 >
                   {service.label}
                 </motion.p>
-
-                {/* Subtle indicator line - smaller */}
-
               </div>
             </motion.div>
-          ))}
-        </div>
-
-        {/* Background decorative elements - smaller and fewer */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(2)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-primary/5 rounded-full"
-              style={{
-                left: `${15 + i * 25}%`,
-                top: `${25 + i * 15}%`,
-              }}
-              animate={{
-                y: [0, -12, 0],
-                x: [0, 6, 0],
-                opacity: [0.05, 0.15, 0.05],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 1.5,
-                repeat: Infinity,
-                delay: i * 0.3,
-              }}
-            />
           ))}
         </div>
       </div>

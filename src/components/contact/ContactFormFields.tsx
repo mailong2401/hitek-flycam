@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ContactFormData } from "@/types/contact";
 import { useEffect, useRef } from 'react';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ContactFormFieldsProps {
   formData: ContactFormData;
@@ -27,67 +28,68 @@ const ContactFormFields = ({
   onSelectChange,
   onValidateField 
 }: ContactFormFieldsProps) => {
+  const { t } = useLanguage();
+  
   // Refs để lưu timeout cho từng trường
   const timeoutsRef = useRef<Record<string, NodeJS.Timeout>>({});
 
   // Dữ liệu cho combobox dịch vụ
   const serviceOptions = [
-    { value: '', label: 'Chọn dịch vụ...' },
-    { value: 'sua-chua-drone', label: 'Sửa chữa drone' },
-    { value: 'quay-flycam', label: 'Quay flycam' },
-    { value: 'drone-trac-dia', label: 'Drone trắc địa' },
-    { value: 'drone-van-chuyen', label: 'Drone vận chuyển' },
-    { value: 'dich-vu-phep-bay', label: 'Dịch vụ phép bay' },
-    { value: 'nhau-khau-drone', label: 'Nhập khẩu drone' },
-    { value: 'khac', label: 'Dịch vụ khác' }
+    { value: '', label: t<string>("contact.form.serviceOptions.default") },
+    { value: 'droneRepair', label: t<string>("contact.form.serviceOptions.droneRepair") },
+    { value: 'droneFilming', label: t<string>("contact.form.serviceOptions.droneFilming") },
+    { value: 'surveyingDrone', label: t<string>("contact.form.serviceOptions.surveyingDrone") },
+    { value: 'deliveryDrone', label: t<string>("contact.form.serviceOptions.deliveryDrone") },
+    { value: 'flightPermit', label: t<string>("contact.form.serviceOptions.flightPermit") },
+    { value: 'droneImport', label: t<string>("contact.form.serviceOptions.droneImport") },
+    { value: 'khac', label: t<string>("contact.form.serviceOptions.other") }
   ];
 
   // Hàm xử lý thay đổi với validation debounced
-const handleChangeWithValidation = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  const { name, value } = e.target;
-  
-  let newValue = value;
-  
-  // Xử lý chỉ cho phép nhập chữ cái cho trường name
-if (name === 'name') {
-  // KHÔNG filter gì cả - cho phép mọi ký tự
-  newValue = value;
-}
-  
-  // Xử lý tự động format số điện thoại
-  if (name === 'phone') {
-    // Loại bỏ tất cả ký tự không phải số
-    const numbers = value.replace(/\D/g, '');
+  const handleChangeWithValidation = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     
-    // Nếu bắt đầu bằng 84, giữ nguyên 84
-    if (numbers.startsWith('84')) {
-      newValue = numbers;
-    } 
-    // Nếu bắt đầu bằng 0, giữ nguyên 0
-    else if (numbers.startsWith('0')) {
-      newValue = numbers;
+    let newValue = value;
+    
+    // KHÔNG filter gì cả - cho phép mọi ký tự
+    if (name === 'name') {
+      newValue = value;
     }
-    // Nếu không bắt đầu bằng gì cả nhưng có số
-    else if (numbers) {
-      newValue = '0' + numbers;
-    } else {
-      newValue = '';
+    
+    // Xử lý tự động format số điện thoại
+    if (name === 'phone') {
+      // Loại bỏ tất cả ký tự không phải số
+      const numbers = value.replace(/\D/g, '');
+      
+      // Nếu bắt đầu bằng 84, giữ nguyên 84
+      if (numbers.startsWith('84')) {
+        newValue = numbers;
+      } 
+      // Nếu bắt đầu bằng 0, giữ nguyên 0
+      else if (numbers.startsWith('0')) {
+        newValue = numbers;
+      }
+      // Nếu không bắt đầu bằng gì cả nhưng có số
+      else if (numbers) {
+        newValue = '0' + numbers;
+      } else {
+        newValue = '';
+      }
     }
-  }
-  
-  // Gọi onChange callback
-  onChange({
-    ...e,
-    target: {
-      ...e.target,
-      name,
-      value: newValue
-    }
-  } as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
+    
+    // Gọi onChange callback
+    onChange({
+      ...e,
+      target: {
+        ...e.target,
+        name,
+        value: newValue
+      }
+    } as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>);
 
-  // Debounced validation
-  debouncedValidate(name, newValue);
-};
+    // Debounced validation
+    debouncedValidate(name, newValue);
+  };
 
   // Hàm xử lý thay đổi select
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -129,11 +131,11 @@ if (name === 'name') {
       {/* Name */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
-          Họ và tên *
+          {t<string>("contact.form.fields.name.label")}
         </label>
         <Input 
           name="name"
-          placeholder="Nhập họ và tên của bạn (chỉ chữ cái)" 
+          placeholder={t<string>("contact.form.fields.name.placeholder")} 
           value={formData.name}
           onChange={handleChangeWithValidation}
           required
@@ -145,7 +147,7 @@ if (name === 'name') {
             <p className="mt-1 text-sm text-red-600">{errors.name}</p>
           )}
           <span className="text-xs text-muted-foreground mt-1 ml-auto">
-            {formData.name.length}/50
+            {formData.name.length}{t<string>("contact.form.fields.name.counter")}
           </span>
         </div>
       </div>
@@ -153,11 +155,11 @@ if (name === 'name') {
       {/* Company */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
-          Tên công ty
+          {t<string>("contact.form.fields.company.label")}
         </label>
         <Input 
           name="company"
-          placeholder="Hitek" 
+          placeholder={t<string>("contact.form.fields.company.placeholder")} 
           value={formData.company}
           onChange={handleChangeWithValidation}
           className={errors.company ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
@@ -168,7 +170,7 @@ if (name === 'name') {
             <p className="mt-1 text-sm text-red-600">{errors.company}</p>
           )}
           <span className="text-xs text-muted-foreground mt-1 ml-auto">
-            {formData.company.length}/100
+            {formData.company.length}{t<string>("contact.form.fields.company.counter")}
           </span>
         </div>
       </div>
@@ -177,12 +179,12 @@ if (name === 'name') {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Email *
+            {t<string>("contact.form.fields.email.label")}
           </label>
           <Input 
             name="email"
             type="email" 
-            placeholder="email@example.com" 
+            placeholder={t<string>("contact.form.fields.email.placeholder")} 
             value={formData.email}
             onChange={handleChangeWithValidation}
             required
@@ -195,12 +197,12 @@ if (name === 'name') {
         
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Số điện thoại *
+            {t<string>("contact.form.fields.phone.label")}
           </label>
           <Input 
             name="phone"
             type="tel" 
-            placeholder="0346124230" 
+            placeholder={t<string>("contact.form.fields.phone.placeholder")} 
             value={formData.phone}
             onChange={handleChangeWithValidation}
             required
@@ -216,7 +218,7 @@ if (name === 'name') {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Dịch vụ quan tâm
+            {t<string>("contact.form.fields.service.label")}
           </label>
           <select
             name="service"
@@ -237,11 +239,11 @@ if (name === 'name') {
         
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Địa điểm
+            {t<string>("contact.form.fields.location.label")}
           </label>
           <Input 
             name="location"
-            placeholder="Hồ Chí Minh" 
+            placeholder={t<string>("contact.form.fields.location.placeholder")} 
             value={formData.location}
             onChange={handleChangeWithValidation}
             className={errors.location ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
@@ -252,7 +254,7 @@ if (name === 'name') {
               <p className="mt-1 text-sm text-red-600">{errors.location}</p>
             )}
             <span className="text-xs text-muted-foreground mt-1 ml-auto">
-              {formData.location.length}/100
+              {formData.location.length}{t<string>("contact.form.fields.location.counter")}
             </span>
           </div>
         </div>
@@ -261,11 +263,11 @@ if (name === 'name') {
       {/* Message */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
-          Nội dung *
+          {t<string>("contact.form.fields.message.label")}
         </label>
         <Textarea
           name="message"
-          placeholder="Mô tả chi tiết yêu cầu của bạn..."
+          placeholder={t<string>("contact.form.fields.message.placeholder")}
           rows={3}
           value={formData.message}
           onChange={handleChangeWithValidation}
@@ -278,7 +280,7 @@ if (name === 'name') {
             <p className="mt-1 text-sm text-red-600">{errors.message}</p>
           )}
           <span className="text-xs text-muted-foreground mt-1 ml-auto">
-            {formData.message.length}/1000
+            {formData.message.length}{t<string>("contact.form.fields.message.counter")}
           </span>
         </div>
       </div>

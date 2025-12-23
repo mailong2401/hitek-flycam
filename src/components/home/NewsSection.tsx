@@ -1,47 +1,37 @@
-import { ArrowRight, Calendar, User, Clock, Eye } from "lucide-react";
+import { ArrowRight, Calendar, User, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import photo1 from "@/assets/home/news/photo-1.avif"
-import photo2 from "@/assets/home/news/photo-2.avif"
-import photo3 from "@/assets/home/news/photo-3.avif"
-const news = [
-  {
-    id: 1,
-    title: "Xu hướng ứng dụng Drone trong nông nghiệp thông minh 2024",
-    excerpt: "Khám phá cách drone đang cách mạng hóa ngành nông nghiệp với công nghệ phun thuốc tự động và giám sát cây trồng.",
-    image: photo1,
-    date: "15/12/2024",
-    author: "Admin",
-    category: "Công nghệ",
-    readTime: "5 phút đọc",
-  },
-  {
-    id: 2,
-    title: "Hitek Flycam ra mắt dịch vụ Drone Show chuyên nghiệp",
-    excerpt: "Trình diễn light show bằng drone với quy mô 500 drone, mang đến trải nghiệm visual ấn tượng cho sự kiện.",
-    image: photo2,
-    date: "10/12/2024",
-    author: "Tech Team",
-    category: "Sự kiện",
-    readTime: "4 phút đọc",
-  },
-  {
-    id: 3,
-    title: "Hướng dẫn xin giấy phép bay drone tại Việt Nam 2024",
-    excerpt: "Cập nhật quy trình và thủ tục xin giấy phép bay drone mới nhất theo quy định của Bộ Quốc phòng.",
-    image: photo3,
-    date: "05/12/2024",
-    author: "Legal Team",
-    category: "Pháp lý",
-    readTime: "7 phút đọc",
-  }
+import photo1 from "@/assets/home/news/photo-1.avif";
+import photo2 from "@/assets/home/news/photo-2.avif";
+import photo3 from "@/assets/home/news/photo-3.avif";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+// Define interface for news item
+interface NewsItem {
+  title: string;
+  excerpt: string;
+  category: string;
+}
+
+// Static images
+const newsImages = [photo1, photo2, photo3];
+
+// Static metadata (not language dependent)
+const newsMetadata = [
+  { id: 1, date: "15/12/2024", author: "Admin", readTime: "5 phút đọc" },
+  { id: 2, date: "10/12/2024", author: "Tech Team", readTime: "4 phút đọc" },
+  { id: 3, date: "05/12/2024", author: "Legal Team", readTime: "7 phút đọc" }
 ];
 
 export default function NewsSection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
+  // Get news items from translation
+  const newsItems = t<NewsItem[]>("home.newsSection.news");
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -120,14 +110,13 @@ export default function NewsSection() {
           className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-6"
         >
           <div className="flex-1">
-            
             <motion.h2 
               variants={headerVariants}
               className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-4"
             >
-              Tin tức &{" "}
+              {t<string>("home.newsSection.title")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300">
-                Cập nhật
+                {t<string>("home.newsSection.highlight")}
               </span>
             </motion.h2>
             
@@ -135,7 +124,7 @@ export default function NewsSection() {
               variants={headerVariants}
               className="text-muted-foreground dark:text-gray-300 text-lg max-w-2xl"
             >
-              Khám phá những xu hướng công nghệ drone mới nhất và cập nhật từ Hitek Flycam
+              {t<string>("home.newsSection.subtitle")}
             </motion.p>
           </div>
           
@@ -148,7 +137,7 @@ export default function NewsSection() {
               variant="outline" 
               className="flex items-center gap-2 border-2 border-red-600 dark:border-red-400 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 group/btn"
             >
-              Xem tất cả tin tức
+              {t<string>("home.newsSection.viewAllNews")}
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ 
@@ -170,9 +159,9 @@ export default function NewsSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          {news.map((item) => (
+          {newsItems.map((item: NewsItem, index: number) => (
             <motion.article
-              key={item.id}
+              key={index}
               variants={itemVariants}
               whileHover={{ 
                 y: -8,
@@ -185,10 +174,9 @@ export default function NewsSection() {
                 {/* Image Container */}
                 <motion.div 
                   className="relative overflow-hidden h-56"
-                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   <img
-                    src={item.image}
+                    src={newsImages[index]}
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
@@ -211,7 +199,6 @@ export default function NewsSection() {
                   {/* Read More Overlay */}
                   <motion.div 
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    whileHover={{ scale: 1.1 }}
                   >
                     <Button className="bg-white text-red-600 hover:bg-white/90 font-semibold px-6 py-3 rounded-full shadow-lg">
                       Đọc bài viết
@@ -228,7 +215,7 @@ export default function NewsSection() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <Calendar className="w-4 h-4 text-red-500" />
-                      <span>{item.date}</span>
+                      <span>{newsMetadata[index]?.date}</span>
                     </motion.div>
                     
                     <motion.div 
@@ -236,7 +223,7 @@ export default function NewsSection() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <User className="w-4 h-4 text-red-500" />
-                      <span>{item.author}</span>
+                      <span>{newsMetadata[index]?.author}</span>
                     </motion.div>
                     
                     <motion.div 
@@ -244,15 +231,13 @@ export default function NewsSection() {
                       whileHover={{ scale: 1.05 }}
                     >
                       <Clock className="w-4 h-4 text-red-500" />
-                      <span>{item.readTime}</span>
+                      <span>{newsMetadata[index]?.readTime}</span>
                     </motion.div>
-
                   </div>
                   
                   {/* Title */}
                   <motion.h3 
                     className="text-xl font-bold text-foreground dark:text-white mb-3 line-clamp-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300"
-                    whileHover={{ scale: 1.02 }}
                   >
                     {item.title}
                   </motion.h3>
@@ -260,8 +245,6 @@ export default function NewsSection() {
                   {/* Excerpt */}
                   <motion.p 
                     className="text-muted-foreground dark:text-gray-300 mb-6 line-clamp-3 leading-relaxed"
-                    initial={{ opacity: 0.8 }}
-                    whileHover={{ opacity: 1 }}
                   >
                     {item.excerpt}
                   </motion.p>
@@ -292,7 +275,6 @@ export default function NewsSection() {
                     </Button>
                   </motion.div>
                 </div>
-
               </div>
               {/* Background Glow */}
               <motion.div 
@@ -301,7 +283,6 @@ export default function NewsSection() {
             </motion.article>
           ))}
         </motion.div>
-
       </div>
     </section>
   );

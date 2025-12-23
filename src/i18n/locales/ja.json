@@ -4,14 +4,14 @@
     "about": "会社概要",
     "services": {
       "title": "サービス",
-      "droneRepair": "ドローンの修理",
+      "droneRepair": "ドローン修理",
       "surveyingDrone": "測量ドローン",
       "deliveryDrone": "配送ドローン",
       "flightPermit": "飛行許可サービス",
-      "droneImport": "ドローンの輸入",
-      "droneFilming": "ドローンの輸入"
+      "droneImport": "ドローン輸入",
+      "droneFilming": "ドローン撮影"
     },
-    "document": "ドキュメント",
+    "document": "資料",
     "contact": "お問い合わせ",
     "blog": "ブログ"
   },
@@ -22,37 +22,37 @@
         "main": "HITEK FLYCAM",
         "sub": "ドローン専門家"
       },
-      "description": "ドローンの総合的なソリューションを提供：修理、メンテナンスからプロフェッショナルな撮影サービス、高精度な測量調査まで。",
+      "description": "ドローンの包括的なソリューションを提供：修理・メンテナンスからプロフェッショナルな撮影サービス、高精度測量まで。",
       "cta": {
-        "exploreServices": "サービスを探索",
+        "exploreServices": "サービスを見る",
         "freeConsulting": "無料相談"
       }
     },
     "topSolution": {
       "title": {
-        "part1": "すべてのニーズに応える",
-        "highlight": "プロフェッショナルなドローン",
-        "part2": "ソリューション"
+        "part1": "プロフェッショナルな",
+        "highlight": "ドローンソリューション",
+        "part2": "あらゆるニーズに対応"
       },
-      "description": "修理、測量から撮影サービスまで、最新の無人航空機技術で包括的なソリューションを提供します。"
+      "description": "修理・測量から撮影サービスまで - 最先端の無人航空技術による包括的ソリューションを提供します。"
     },
     "featuresSection": {
-      "title": "なぜ",
-      "highlight": "Hitek Flycamを選ぶのか？",
-      "subtitle": "私たちは単なるサービスを提供するのではなく、",
+      "title": "なぜ選ぶ",
+      "highlight": "Hitek Flycam？",
+      "subtitle": "単なるサービス提供ではなく - 私たちは",
       "subtitleHighlight": "特別な体験をお届けします",
       "features": {
         "quality": {
           "title": "品質保証",
-          "description": "純正部品を使用、12ヶ月保証"
+          "description": "純正部品使用、12ヶ月保証"
         },
         "performance": {
           "title": "高性能",
-          "description": "速度と安定性を最適化したドローン"
+          "description": "速度と安定性に最適化されたドローン"
         },
         "safety": {
           "title": "絶対的な安全性",
-          "description": "厳格な飛行安全規制を遵守"
+          "description": "飛行安全規制の厳格な遵守"
         },
         "experts": {
           "title": "専門家チーム",
@@ -62,111 +62,973 @@
     },
     "servicesSection": {
       "title": "私たちのサービス",
-      "subtitle": "ドローンのあらゆるニーズに対応する総合的なソリューション",
+      "subtitle": "すべてのドローン需要に対する包括的ソリューション",
       "viewAll": "すべてのサービスを見る"
-    }
+    },
+    "featuredProjects": {
+      "title": "注目の",
+      "highlight": "プロジェクト",
+      "subtitle": "私たちが完了した印象的なドローンプロジェクトを発見",
+      "viewAllProjects": "すべてのプロジェクトを見る",
+      "cta": {
+        "projectInquiry": "プロジェクトのご相談は？今すぐお問い合わせください",
+        "submitProject": "プロジェクト情報を提出"
+      },
+      "projects": [
+        {
+          "title": "南北高速道路プロジェクトの地形測量",
+          "category": "測量・マッピング",
+          "description": "DJI Matrice 350 RTKドローンを使用し、センチメートル精度で地形データ収集"
+        },
+        {
+          "title": "5つ星リゾート広告撮影",
+          "category": "撮影・メディア",
+          "description": "DJI Inspire 3ドローンによる8K品質マーケティングビデオ制作"
+        },
+        {
+          "title": "風力発電プロジェクト建設監理",
+          "category": "監理・保守",
+          "description": "自動化ドローンを使用した建設進捗と安全監視"
+        },
+        {
+          "title": "緊急医療物資配送",
+          "category": "輸送・物流",
+          "description": "遠隔地への医薬品・医療機器配送"
+        }
+      ]
+    },
+    "newsSection": {
+      "title": "ニュース＆",
+      "highlight": "アップデート",
+      "subtitle": "Hitek Flycamからの最新ドローン技術トレンドと更新情報を発見",
+      "viewAllNews": "すべてのニュースを見る",
+      "news": [
+        {
+          "title": "スマート農業向けドローン応用トレンド2024",
+          "excerpt": "自動散布技術と作物監視による農業革命としてのドローンの活用を探る。",
+          "category": "技術",
+          "readMore": "記事を読む"
+        },
+        {
+          "title": "Hitek Flycam、プロフェッショナルドローショーサービス開始",
+          "excerpt": "500機のドローンによるライトショー公演、イベント向け印象的な視覚体験を提供。",
+          "category": "イベント"
+        },
+        {
+          "title": "ベトナムにおけるドローン飛行許可ガイド2024",
+          "excerpt": "国防省規定に基づくドローン飛行許可の更新手順と書類。",
+          "category": "法務"
+        }
+      ]
+    },
+    "trustedClients": {
+      "title": "信頼できる",
+      "highlight": "パートナー",
+      "subtitle": "ベトナムの主要企業・法人とともに",
+      "partnershipCta": "次のパートナーになる",
+      "partnershipDescription": "お客様のビジネスに適したドローンソリューション相談のためにお問い合わせください",
+      "contactCooperation": "協力のお問い合わせ"
+    },
+    "servicesPage": {
+      "servicesHero": {
+        "title": {
+          "main": "ドローン",
+          "highlight": "サービス"
+        },
+        "subtitle": "包括的ソリューション - 優れた品質 - プロフェッショナルサービス",
+        "cta": {
+          "contact": "相談のお問い合わせ",
+          "pricing": "サービス料金"
+        }
+      },
+      "servicesIntro": {
+        "left": {
+          "title": "Hitek Flycam - 多産業向けドローンソリューション",
+          "line1": "技術における先駆的ブランド",
+          "line2": "プロフェッショナルドローンサービス",
+          "learnMore": "もっと見る"
+        },
+        "right": {
+          "part1": {
+            "brand": "Hitek Flycam",
+            "text1": "は、多産業向けドローンソリューションに特化したブランドで、",
+            "group": "Hitek Group JSC",
+            "text2": "の技術基盤、人的資源、経験から発展しました - ベトナムにおけるドローンパフォーマンス技術の先駆者。",
+            "highlight": "Hitek Flycam",
+            "text3": "は、技術分野、測量、物流、産業サービスへのミッションを拡大します。"
+          },
+          "part2": "日常生活、生産、スマート管理など、他の分野に飛行技術をもたらすことを目標としています。"
+        }
+      },
+      "detailedServices": {
+        "title": "なぜ選ぶ",
+        "highlight": "Hitek Flycam",
+        "question": "？",
+        "subtitle": "ドローン分野で信頼できるパートナーとなる理由を発見",
+        "services": [
+          {
+            "title": "先端技術",
+            "description": "すべての飛行ソリューションにAI、RTK、Lidar、リアルタイムGPSを統合。正確なデータ、安全な操作、優れたパフォーマンスを実現。"
+          },
+          {
+            "title": "専門家チーム",
+            "description": "専門的に訓練されたエンジニア、パイロット、技術者。高い専門性と国際技術基準を確保。"
+          },
+          {
+            "title": "包括的サービス",
+            "description": "許可申請 - 飛行 - メンテナンス - 輸入 - データ引渡しまで、Hitek Flycamはすべてのプロジェクト段階でお客様と同行します。"
+          },
+          {
+            "title": "法的安全性",
+            "description": "すべての飛行は法的に許可され、完全に保険適用。国防省・管理機関規定への準拠を確保。"
+          },
+          {
+            "title": "Hitek Groupエコシステム",
+            "description": "Hitek Group技術法人の一員として、強力なインフラ、AI能力、国際品質を受け継ぎます。"
+          },
+          {
+            "title": "多産業応用",
+            "description": "メディア - 建設 - 農業 - 物流まで、各ビジネス目標に合わせたカスタマイズドローンソリューションを設計。"
+          }
+        ],
+        "cta": {
+          "learnMore": "もっと見る"
+        }
+      }
+    },
+    "servicesCards": {
+      "sectionTitle": "主要サービス",
+      "cta": {
+        "learnMore": "もっと見る"
+      },
+      "cards": {
+        "repair": {
+          "name": "ドローン修理",
+          "detail": "純正部品と長期保証によるプロフェッショナルなドローン修理、メンテナンス、アップグレード。"
+        },
+        "surveying": {
+          "name": "測量ドローン",
+          "detail": "RTK、Lidar統合ドローンによるセンチメートル精度の地形測量・マッピング。"
+        },
+        "delivery": {
+          "name": "配送ドローン",
+          "detail": "アクセス困難地域向けの貨物・緊急医療配送ソリューション。"
+        },
+        "flightPermit": {
+          "name": "飛行許可サービス",
+          "detail": "ベトナム規定に基づく飛行許可申請、装置登録、完全な法務相談支援。"
+        },
+        "droneImport": {
+          "name": "ドローン輸入",
+          "detail": "純正ドローン輸入サービス、通関手続き、検査、完全な装置登録。"
+        }
+      }
+    },
+    "services": [
+      {
+        "title": "ドローン修理",
+        "description": "プロフェッショナル修理サービス"
+      },
+      {
+        "title": "測量ドローン",
+        "description": "正確な測量・計測"
+      },
+      {
+        "title": "配送ドローン",
+        "description": "効率的な貨物配送"
+      },
+      {
+        "title": "飛行許可サービス",
+        "description": "飛行許可相談・申請"
+      },
+      {
+        "title": "ドローン輸入",
+        "description": "純正ドローン輸入"
+      },
+      {
+        "title": "ドローン撮影",
+        "description": "プロフェッショナル撮影"
+      }
+    ]
   },
   "about": {
     "hero": {
       "title": "について",
       "highlightedTitle": "HITEK FLYCAM",
-      "tagline": "多分野応用ドローンソリューション - 技術の先駆者 - プロフェッショナル",
+      "tagline": "多産業ドローンソリューション - 技術先駆者 - プロフェッショナル",
       "cta": {
-        "exploreServices": "サービスを探索",
-        "contactCooperation": "協力についてお問い合わせ"
+        "exploreServices": "サービスを見る",
+        "contactCooperation": "協力のお問い合わせ"
       }
     },
     "AboutSection": {
       "title": {
-        "prefix": "会社概要",
+        "prefix": "について",
         "highlight": "Hitek Flycam"
       },
       "paragraphs": [
-        "Hitek Flycamは、多分野応用ドローンソリューションを専門とするブランドで、Hitek Droneの技術基盤、人材、経験から発展しました。Hitek Droneは、ベトナムでのドローンのライトショーや空中パフォーマンス技術の分野で先駆的な役割を果たしています。",
-        "Hitek Group JSCに所属するHitek Flycamは、Hitek Droneの使命を技術、測量、物流、産業サービス分野に拡大し、日常生活、生産、スマートマネジメントなどさまざまな分野で航空技術を活用することを目指しています。"
+        "Hitek Flycamは、多産業向けドローンソリューションに特化したブランドで、ベトナムにおけるドローンパフォーマンス技術の先駆者であるHitek Droneの技術基盤、人的資源、経験から発展しました。",
+        "Hitek Group JSCの一員として、Hitek FlycamはHitek Droneのミッションを技術分野、測量、物流、産業サービスに拡大し、日常生活、生産、スマート管理など、他の分野に飛行技術をもたらすことを目標としています。"
       ]
     },
     "whyTrust": {
       "title1": "なぜ",
-      "title2": "信頼できるパートナーなのか？",
-      "highlightedTitle": "Hitek Flycamは",
-      "subtitle": "私たちがベトナムのドローンソリューション分野で主要パートナーとなった理由をご紹介します",
+      "title2": "が信頼できるのか？",
+      "highlightedTitle": "Hitek Flycam",
+      "subtitle": "ベトナムにおけるドローンソリューションの主要パートナーとなる理由を発見",
       "points": [
         {
           "title": "能力",
-          "description": "Hitek Droneの基盤を継承し、プロフェッショナルなチーム、最新の設備、国際基準のプロセスを備えています"
+          "description": "専門チーム - 最新設備 - 国際標準手順を備えたHitek Drone基盤の継承"
         },
         {
           "title": "安全性",
-          "description": "すべての飛行は許可を受け、保険に加入し、国の基準に基づき厳重に監視されます"
+          "description": "すべての飛行は許可され、保険適用、国家基準に基づき厳重に監視"
         },
         {
           "title": "品質",
-          "description": "アイデアの段階から実際の展開まで、あらゆるプロジェクトにおいて効果性、安定性、正確性を保証します"
+          "description": "アイデア段階から実践的実施まで、すべてのプロジェクトにおける効率性、安定性、正確性へのコミットメント"
         }
       ]
     },
     "connection": {
-      "title": "の関連性",
+      "title": "とのつながり",
       "highlightedTitle": "Hitek Flycam",
       "hitekDroneText": "Hitek Drone",
       "description": [
         "もし",
         "Hitek Drone",
-        "が芸術とパフォーマンスの象徴であるなら、",
+        "が芸術とパフォーマンスの象徴なら、",
         "Hitek Flycam",
-        "は実際の生産と運用にドローン技術を応用する代表です。両ブランドは共通のビジョンを共有しています："
+        "は実践的生産・運営へのドローン技術応用を代表します。両ブランドは共通のビジョンを共有しています："
       ],
-      "vision": "包括的なドローンのエコシステムを構築すること - 航空技術が生活のあらゆる分野で人々に役立つ場所を。",
+      "vision": "包括的ドローンエコシステムの構築 - あらゆる生活分野で人間に奉仕する飛行技術。",
       "cta": {
         "services": {
-          "text": "Hitek Flycamのサービス"
+          "text": "Hitek Flycamサービス"
         }
       },
-      "additionalInfo": "Hitek Groupのドローン技術エコシステム全体を探索する"
+      "additionalInfo": "Hitek Groupからのドローン技術エコシステム全体を探索"
     },
     "quote": {
       "content": [
-        "航空技術が芸術によって称えられる場所である",
+        "の基盤から",
         "Hitek Drone",
-        "の基盤から、",
+        " - 芸術を通じて飛行技術が称えられる場所、",
         "Hitek Flycam",
-        "は技術、データ、実際の効果性を通じてその旅を続けています。"
+        "は技術、データ、実践的效率でその旅を続けます。"
       ],
       "author": {
         "name": "— Hitek Flycamチーム —",
-        "subtitle": "使命とビジョン"
+        "subtitle": "ミッション＆ビジョン"
+      }
+    },
+    "teamSection": {
+      "title": "リーダーシップチーム",
+      "members": {
+        "tien": {
+          "name": "ラム・トゥ・ティエン",
+          "position": "会長",
+          "info": [
+            "10年以上のリーダーシップ・ビジネス管理経験。",
+            "ビジネス・技術開発における強固な基盤。"
+          ]
+        },
+        "khoi": {
+          "name": "トラン・アン・コイ",
+          "position": "ゼネラルディレクター",
+          "info": [
+            "技術分野における10年以上の経験。",
+            "多くの先駆的企業、『ベトナム初導入』ソリューションの創設者。"
+          ]
+        },
+        "sean": {
+          "name": "オ・ソンボム",
+          "position": "ビジネスディレクター",
+          "info": [
+            "10年以上の技術開発経験。",
+            "強力なリーダーシップ能力。",
+            "日本、韓国、ベトナム、欧州の越境プロジェクト管理。"
+          ]
+        }
       }
     }
   },
-  "services": [
-    {
-      "title": "ドローンの修理",
-      "subDes": "プロフェッショナルなドローンの修理・メンテナンスサービス",
-      "description": "プロフェッショナルなドローンの修理・メンテナンスサービス"
+  "services": {
+    "deliveryDrone": {
+      "hero": {
+        "title": "配送ドローン",
+        "subtitle": "工業団地、農業、アクセス困難地域向けに設計されたドローン配送ソリューション — コスト、時間、人件費を最適化します。"
+      },
+      "features": {
+        "title": "配送ドローンの",
+        "highlightedText": "応用分野",
+        "items": [
+          {
+            "title": "構内配送：倉庫、工場、生産エリア。"
+          },
+          {
+            "title": "農業・産業分野でのサンプル、文書、部品の輸送。"
+          },
+          {
+            "title": "試験配送サービスとドローン物流モデル。"
+          }
+        ]
+      },
+      "process": {
+        "title": "導入プロセス",
+        "items": [
+          {
+            "step": "01",
+            "title": "ニーズと貨物重量の分析。"
+          },
+          {
+            "step": "02",
+            "title": "飛行ルート、離着陸地点、自動化ルートのマッピング。"
+          },
+          {
+            "step": "03",
+            "title": "機器設定、安全性チェック、飛行許可申請。"
+          },
+          {
+            "step": "04",
+            "title": "テスト飛行の実施、データ記録、運用手順の引き渡し。"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "お客様への",
+        "highlightedText": "メリット",
+        "items": [
+          {
+            "parts": [
+              { "text": "配送時間の短縮", "bold": true },
+              "、運用人件費の削減。"
+            ]
+          },
+          {
+            "parts": [
+              "アクセス困難地域のサポート、",
+              { "text": "従来型物流のリスク低減", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              "コスト最適化、リアルタイムでの",
+              { "text": "ルート管理", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "生産性", "bold": true },
+              "と内部運用効率の向上。"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "よくある質問",
+        "items": [
+          {
+            "question": "配送ドローンの一般的な応用分野は？",
+            "answer": "準備中"
+          },
+          {
+            "question": "配送ドローンの積載可能重量は？",
+            "answer": "準備中"
+          },
+          {
+            "question": "ナビゲーションシステムは安全ですか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "悪天候での運用条件は？",
+            "answer": "準備中"
+          }
+        ]
+      }
     },
-    {
-      "title": "測量ドローン",
-      "subDes": "高精度な地形調査と計測",
-      "description": "高精度な地形調査と計測"
+    "droneFilming": {
+      "hero": {
+        "title": "ドローン撮影",
+        "subtitle": "Hitek Flycamは、広告、メディア、イベント、観光向けのプロフェッショナルなドローン空撮・写真サービスを提供します。"
+      },
+      "features": {
+        "title": "次世代",
+        "highlightedText": "ロジスティクスソリューション",
+        "items": [
+          {
+            "title": "TVC・企業広告撮影",
+            "description": "リゾート、工業団地、不動産、工場。"
+          },
+          {
+            "title": "観光地プロモーションの写真・動画撮影",
+            "description": "パノラマ、フライスルーショット。"
+          },
+          {
+            "title": "イベント・フェスティバル記録",
+            "description": "マルチアングル撮影、複数ドローンでのライブ配信。"
+          },
+          {
+            "title": "ポストプロダクション",
+            "description": "映画級カラーグレーディング、映像編集、ナレーション、モーションロゴ。"
+          }
+        ]
+      },
+      "process": {
+        "title": "導入プロセス",
+        "items": [
+          {
+            "step": "01",
+            "title": "ブリーフ受領、撮影角度・ストーリーボードの相談。"
+          },
+          {
+            "step": "02",
+            "title": "飛行許可申請、場所に適した機材準備。"
+          },
+          {
+            "step": "03",
+            "title": "飛行チーム・ディレクター連携による撮影実施。"
+          },
+          {
+            "step": "04",
+            "title": "ポストプロダクション、カラーグレーディング、希望形式での出力。"
+          },
+          {
+            "step": "05",
+            "title": "動画、写真、ソースファイルの納品（要望に応じて）。"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "お客様への",
+        "highlightedText": "メリット",
+        "items": [
+          {
+            "parts": [
+              "強力でプロフェッショナルな",
+              { "text": "ブランドイメージ", "bold": true },
+              "の創造。"
+            ]
+          },
+          {
+            "parts": [
+              "従来型撮影に比べ、時間と",
+              { "text": "制作コスト", "bold": true },
+              "の削減。"
+            ]
+          },
+          {
+            "parts": [
+              "すべての飛行に",
+              { "text": "完全な許可証", "bold": true },
+              "を取得した安全性の確保。"
+            ]
+          },
+          {
+            "parts": [
+              "映画規格のカラーグレーディングによる",
+              { "text": "高品質ポストプロダクション", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "よくある質問",
+        "items": [
+          {
+            "question": "撮影前に飛行許可は必要ですか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "プロフェッショナルなポストプロダクションやパースペクティブは含まれますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "対応可能な動画・画像サイズは？",
+            "answer": "準備中"
+          },
+          {
+            "question": "強風・夜間条件下での撮影は可能ですか？",
+            "answer": "準備中"
+          }
+        ]
+      }
     },
-    {
-      "title": "配送ドローン",
-      "subDes": "プロフェッショナルなドローンの修理・メンテナンスサービス",
-      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    "droneImport": {
+      "hero": {
+        "title": "ドローン輸入",
+        "subtitle": "ドローン輸入、流通、機器選定コンサルティングソリューション。企業が合法的な純正機器を所有し、特定の使用分野に最適化できます。"
+      },
+      "features": {
+        "title": "次世代",
+        "highlightedText": "ロジスティクスソリューション",
+        "items": [
+          {
+            "title": "ドローン選定コンサルティング：測量、撮影、物流、農業用途に適した選択。"
+          },
+          {
+            "title": "設置サポート・初期校正、機器検査"
+          },
+          {
+            "title": "輸入手続き：CO、CQ、税関、登録、純正保証書。"
+          }
+        ]
+      },
+      "process": {
+        "title": "導入プロセス",
+        "items": [
+          {
+            "step": "01",
+            "title": "お客様のニーズと予算の確認。"
+          },
+          {
+            "step": "02",
+            "title": "機器、モデルの提案、透明な見積もり。"
+          },
+          {
+            "step": "03",
+            "title": "輸入、税関手続き、検査の実施。"
+          },
+          {
+            "step": "04",
+            "title": "設置・初期校正サポート、機器検査。"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "お客様への",
+        "highlightedText": "メリット",
+        "items": [
+          {
+            "parts": [
+              { "text": "正式輸入ルート", "bold": true },
+              "による法的書類・保証の確保。"
+            ]
+          },
+          {
+            "parts": [
+              "小売・代理店購入に比べ",
+              { "text": "10–20%のコスト削減", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "輸入からメンテナンスまで", "bold": true },
+              "の包括的サポート。"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "よくある質問",
+        "items": [
+          {
+            "question": "Hitek Flycamはどのブランドを輸入していますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "輸入手続きはどのようなものですか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "ドローンには純正保証が付きますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "機器納入後のサポートはありますか？",
+            "answer": "準備中"
+          }
+        ]
+      }
     },
-    {
-      "title": "飛行許可サービス",
-      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    "droneRepair": {
+      "hero": {
+        "title": "ドローン修理",
+        "subtitle": "プロフェッショナルなドローン修理・メンテナンスサービス。機器を安定、安全、最高性能の状態に保ちます。"
+      },
+      "features": {
+        "title": "Hitek Flycamの",
+        "highlightedText": "技術ソリューション",
+        "items": [
+          {
+            "title": "検査・部品交換",
+            "description": "総合検査、故障診断、部品交換"
+          },
+          {
+            "title": "システム更新・校正",
+            "description": "ソフトウェア更新、IMUセンサー校正、コンパス、GPSシステム校正"
+          },
+          {
+            "title": "安全性チェック・修理後保証",
+            "description": "飛行前後の安全性チェック、修理サービス保証"
+          }
+        ]
+      },
+      "process": {
+        "title": "導入プロセス",
+        "items": [
+          {
+            "step": "01",
+            "title": "要請受領、お客様提供の画像/動画またはエラーデータによる予備診断"
+          },
+          {
+            "step": "02",
+            "title": "ワークショップまたは現場での実地検査：故障分析、修理計画立案"
+          },
+          {
+            "step": "03",
+            "title": "部品交換、ソフトウェアアップグレード、技術基準に基づくセンサー校正の実行"
+          },
+          {
+            "step": "04",
+            "title": "テスト飛行検証（必要に応じて）、システム接続・画像伝送テスト、報告書作成"
+          },
+          {
+            "step": "05",
+            "title": "機器納入、修理報告書と保証書の提供、今後の運用手順についての顧客ガイダンス。"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "お客様への",
+        "highlightedText": "メリット",
+        "items": [
+          {
+            "parts": [
+              "機器を常に",
+              { "text": "安定かつ最適な状態", "bold": true },
+              "で運用可能、ダウンタイムと予定外メンテナンスの最小化。"
+            ]
+          },
+          {
+            "parts": [
+              "ドローンシステムの",
+              { "text": "寿命と耐久性向上", "bold": true },
+              "— 長期的な大幅交換コストの削減。"
+            ]
+          },
+          {
+            "parts": [
+              { "text": "飛行安全性の向上、", "bold": true },
+              "運用リスク低減 — 技術的・商業的飛行に特に重要。"
+            ]
+          },
+          {
+            "parts": [
+              "Hitek Flycamの",
+              { "text": "プロフェッショナル技術チーム", "bold": true },
+              "によるサポート、標準化されたプロセス、明確な報告。"
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "よくある質問",
+        "items": [
+          {
+            "question": "ドローンのメンテナンス頻度は？",
+            "answer": "準備中"
+          },
+          {
+            "question": "方向性のずれやGPS不良のドローンは修理可能ですか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "オンライン検査や遠隔機器送付は可能ですか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "修理後の保証はありますか？",
+            "answer": "準備中"
+          }
+        ]
+      }
     },
-    {
-      "title": "ドローンの輸入",
-      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    "flightPermitService": {
+      "hero": {
+        "title": "飛行許可サービス",
+        "subtitle": "ベトナムにおける合法的なドローン/フライカム飛行許可取得ソリューション。国防省・公安省の規制に準拠します。"
+      },
+      "features": {
+        "title": "サービスの",
+        "highlightedText": "範囲",
+        "items": [
+          {
+            "title": "撮影、測量、技術検査、パフォーマンス、試験向け飛行許可。"
+          },
+          {
+            "title": "法的コンサルティング：飛行禁止区域規制、高度制限、機器要件。"
+          },
+          {
+            "title": "ベトナム規格に基づく機器登録・商業飛行保険。"
+          }
+        ]
+      },
+      "process": {
+        "title": "導入プロセス",
+        "items": [
+          {
+            "step": "01",
+            "title": "地域情報、飛行目的、スケジュールの収集。"
+          },
+          {
+            "step": "02",
+            "title": "法的条件の確認、許可申請書類の準備。"
+          },
+          {
+            "step": "03",
+            "title": "管理当局への申請書提出・進捗追跡。"
+          },
+          {
+            "step": "04",
+            "title": "有効な許可証の受領、準拠運用のガイダンス。"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "お客様への",
+        "highlightedText": "メリット",
+        "items": [
+          {
+            "parts": [
+              "合法的で安全な飛行、",
+              { "text": "罰金や機器没収の心配なし", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "時間の節約、", "bold": true },
+              "開始時点での標準化された書類。"
+            ]
+          },
+          {
+            "parts": [
+              "航空規制に精通したチームによる",
+              { "text": "現地サポート", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "よくある質問",
+        "items": [
+          {
+            "question": "ドローン飛行許可はいつ必要ですか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "Hitek Flycamはどの地域の許可申請をサポートしますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "許可申請処理にはどのくらい時間がかかりますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "自分で飛行許可を申請できますか？",
+            "answer": "準備中"
+          }
+        ]
+      }
     },
-    {
-      "title": "フライカム撮影",
-      "subDes": "上空からのプロフェッショナルな映像・写真撮影",
-      "description": "上空からのプロフェッショナルな映像・写真撮影"
+    "surveyingDrone": {
+      "hero": {
+        "title": "測量ドローン",
+        "subtitle": "ドローンを使用した測量・技術マッピングソリューション。Lidar、RTK-GPS、マルチスペクトル撮影を活用し、高精度な空間データを収集します。"
+      },
+      "features": {
+        "title": "測量ドローンの",
+        "highlightedText": "応用分野",
+        "items": [
+          {
+            "title": "建設、都市計画、鉱業向け地形測量。"
+          },
+          {
+            "title": "2D/3Dマッピング、地盤モデル（DEM/DTM）、オルソフォト、3Dメッシュ。"
+          },
+          {
+            "title": "面積測定、材料体積計算、工事進捗監視。"
+          }
+        ]
+      },
+      "process": {
+        "title": "導入プロセス",
+        "items": [
+          {
+            "step": "01",
+            "title": "現場測量と測定目標の決定。"
+          },
+          {
+            "step": "02",
+            "title": "飛行計画、座標ゾーニング、安全制限の設定。"
+          },
+          {
+            "step": "03",
+            "title": "LidarまたはRTK-GPSドローンによるデータ収集飛行。"
+          },
+          {
+            "step": "04",
+            "title": "画像処理、マッピング、体積測定、3Dモデル作成。"
+          },
+          {
+            "step": "05",
+            "title": "詳細な技術報告書付きデータ納品。"
+          }
+        ]
+      },
+      "benefits": {
+        "title": "メリット",
+        "highlightedText": "と約束",
+        "items": [
+          {
+            "parts": [
+              "従来手法に比べ測量時間を",
+              { "text": "最大70%短縮", "bold": true }
+            ]
+          },
+          {
+            "parts": [
+              { "text": "誤差が少なく、データが安定、処理が迅速", "bold": true },
+              "— 大規模プロジェクト向け。"
+            ]
+          },
+          {
+            "parts": [
+              "すべての飛行とデータがHitek Flycamの",
+              { "text": "法的・技術的基準に準拠", "bold": true }
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "title": "よくある質問",
+        "items": [
+          {
+            "question": "測量ドローンの従来手法に対する利点は？",
+            "answer": "準備中"
+          },
+          {
+            "question": "測量プロセスにはどのくらい時間がかかりますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "Hitek Flycamのドローンはどの程度の精度を達成しますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "どのような種類の出力データが提供されますか？",
+            "answer": "準備中"
+          },
+          {
+            "question": "出力データは設計ソフトウェアに統合できますか？",
+            "answer": "準備中"
+          }
+        ]
+      }
     }
-  ]
+  },
+  "contact": {
+    "hero": {
+      "title": "お問い合わせ",
+      "highlight": "Hitek Flycam",
+      "description": "お客様のプロジェクトについて、いつでもご相談ください。詳細なコンサルティングについては、Hitek Flycamまでお問い合わせください。"
+    },
+    "form": {
+      "title": "メッセージを送信",
+      "fields": {
+        "name": {
+          "label": "お名前 *",
+          "placeholder": "お名前を入力してください（文字のみ）",
+          "counter": "/50"
+        },
+        "company": {
+          "label": "会社名",
+          "placeholder": "Hitek",
+          "counter": "/100"
+        },
+        "email": {
+          "label": "メールアドレス *",
+          "placeholder": "email@example.com"
+        },
+        "phone": {
+          "label": "電話番号 *",
+          "placeholder": "0346124230"
+        },
+        "service": {
+          "label": "関心のあるサービス"
+        },
+        "location": {
+          "label": "所在地",
+          "placeholder": "ホーチミン市",
+          "counter": "/100"
+        },
+        "message": {
+          "label": "内容 *",
+          "placeholder": "ご要件を詳細に説明してください...",
+          "counter": "/1000"
+        }
+      },
+      "submit": {
+        "text": "メッセージを送信",
+        "loading": "送信中...",
+        "success": {
+          "title": "✅ 送信成功！",
+          "message": "近日中にご連絡いたします。確認メールをお送りしました。",
+          "confirmation": "確認メールを送信しました"
+        },
+        "error": {
+          "title": "❌ エラー発生",
+          "message": "フォーム送信中にエラーが発生しました。後ほど再試行してください。"
+        }
+      },
+      "serviceOptions": {
+        "default": "サービスを選択...",
+        "droneRepair": "ドローン修理",
+        "droneFilming": "ドローン撮影",
+        "surveyingDrone": "測量ドローン",
+        "deliveryDrone": "配送ドローン",
+        "flightPermit": "飛行許可サービス",
+        "droneImport": "ドローン輸入",
+        "other": "その他のサービス"
+      },
+      "validation": {
+        "required": "必須項目です",
+        "minLength": "3文字以上入力してください",
+        "invalidEmail": "無効なメールアドレスです",
+        "invalidPhone": "無効な電話番号です"
+      }
+    },
+    "info": {
+      "title": "お問い合わせ",
+      "contactItems": {
+        "phone": {
+          "title": "連絡先",
+          "hotline": "ホットライン",
+          "hotlineValue": "028 99 95 95 88",
+          "mobile": "携帯電話",
+          "mobileValue": "034 612 4230"
+        },
+        "email": {
+          "title": "メール",
+          "info": "情報",
+          "infoValue": "info@droneservices.vn",
+          "support": "サポート",
+          "supportValue": "support@droneservices.vn"
+        }
+      },
+      "social": {
+        "title": "SNSでフォロー",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "telegram": "Telegram",
+        "instagram": "Instagram"
+      },
+      "map": {
+        "location": "ホーチミン市",
+        "directions": "経路を表示"
+      }
+    }
+  }
 }

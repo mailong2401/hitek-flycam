@@ -43,8 +43,6 @@ export default function ServicesHero() {
           alt="Drone Services Background"
           className="w-full h-full object-cover"
         />
-        
-        {/* Gradient Overlay */}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -70,16 +68,20 @@ export default function ServicesHero() {
               </div>
               <div>
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-light-gray mb-4 leading-tight">
-                  {t("servicesPage.servicesHero.title.main")}{" "}
+                  {t<string>("home.servicesPage.servicesHero.title.main")}{" "}
                   <motion.span 
                     className="text-primary"
+                    animate={{
+                      opacity: [0.7, 1, 0.7],
+                      scale: [1, 1.05, 1]
+                    }}
                     transition={{
                       duration: 3,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
                   >
-                    {t("servicesPage.servicesHero.title.highlight")}
+                    {t<string>("home.servicesPage.servicesHero.title.highlight")}
                   </motion.span>
                 </h1>
                 <motion.p 
@@ -88,14 +90,11 @@ export default function ServicesHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  {t("servicesPage.servicesHero.subtitle")}
+                  {t<string>("home.servicesPage.servicesHero.subtitle")}
                 </motion.p>
               </div>
             </div>
           </motion.div>
-
-
-
 
           {/* CTA Buttons */}
           <motion.div
@@ -105,7 +104,7 @@ export default function ServicesHero() {
             <Button asChild size="lg" className="text-xl px-10 py-7 rounded-2xl">
               <Link to="/lien-he">
                 <Camera className="mr-3 w-6 h-6" />
-                {t("servicesPage.servicesHero.cta.contact")}
+                {t<string>("home.servicesPage.servicesHero.cta.contact")}
                 <ArrowRight className="ml-3 w-6 h-6" />
               </Link>
             </Button>
@@ -113,14 +112,12 @@ export default function ServicesHero() {
             <Button asChild variant="outline" size="lg" className="text-xl px-10 py-7 rounded-2xl border-2">
               <Link to="/bang-gia">
                 <Shield className="mr-3 w-6 h-6" />
-                {t("servicesPage.servicesHero.cta.pricing")}
+                {t<string>("home.servicesPage.servicesHero.cta.pricing")}
               </Link>
             </Button>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Bottom Gradient */}
     </section>
   );
 }

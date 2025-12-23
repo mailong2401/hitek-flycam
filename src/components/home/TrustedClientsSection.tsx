@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const clients = [
   {
@@ -47,6 +48,7 @@ const clients = [
 ];
 
 export default function TrustedClientsSection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -92,8 +94,6 @@ export default function TrustedClientsSection() {
         let newPosition = prev + speed * deltaTime;
         
         // Khi đã cuộn hết 1 vòng lặp (tất cả clients gốc), reset về đầu
-        // Nhưng chúng ta reset khi chạm đến điểm bắt đầu của phần lặp thứ 3
-        // để tạo hiệu ứng mượt mà không bị giật
         if (newPosition >= singleLoopWidth * 2) {
           newPosition = singleLoopWidth;
         }
@@ -171,9 +171,9 @@ export default function TrustedClientsSection() {
             variants={titleVariants}
             className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-3"
           >
-            Đối tác{" "}
+            {t<string>("home.trustedClients.title")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 dark:from-red-400 dark:to-red-300">
-              tin tưởng
+              {t<string>("home.trustedClients.highlight")}
             </span>
           </motion.h2>
           
@@ -181,7 +181,7 @@ export default function TrustedClientsSection() {
             variants={titleVariants}
             className="text-muted-foreground dark:text-gray-300 text-base md:text-lg max-w-2xl mx-auto"
           >
-            Cùng với các tập đoàn và doanh nghiệp hàng đầu Việt Nam
+            {t<string>("home.trustedClients.subtitle")}
           </motion.p>
         </motion.div>
 
@@ -200,8 +200,6 @@ export default function TrustedClientsSection() {
                 x: -scrollPosition,
                 width: `${totalWidth}px`
               }}
-              animate={isInView ? {} : {}}
-              transition={{ duration: 0 }}
             >
               {infiniteClients.map((client, index) => (
                 <motion.div
@@ -239,12 +237,6 @@ export default function TrustedClientsSection() {
                       <h3 className="text-base md:text-lg font-bold text-center text-gray-800 dark:text-white mb-2 transition-colors duration-300 line-clamp-1">
                         {client.name}
                       </h3>
-                      
-                      {/* Project Info (tùy chọn, bạn có thể bỏ comment nếu muốn hiển thị) */}
-                      {/* <p className="text-center text-xs md:text-sm text-primary dark:text-red-400 mb-2 px-2 md:px-3 py-1 bg-primary/5 dark:bg-red-400/5 rounded-full inline-block mx-auto block w-fit line-clamp-1">
-                        {client.project}
-                      </p> */}
-                      {/* Hover Indicator */}
                     </div>
                     {/* Card Glow */}
                     <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 blur-xl transition-opacity duration-500" />
@@ -253,33 +245,7 @@ export default function TrustedClientsSection() {
               ))}
             </motion.div>
           </div>
-
         </div>
-
-        {/* CTA Section */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-12 text-center pt-16"
-        >
-          <div className="inline-block bg-gradient-to-r from-primary/10 to-red-600/10 dark:from-red-400/10 dark:to-red-600/10 rounded-2xl p-1">
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
-                Trở thành đối tác tiếp theo
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-lg mx-auto text-sm">
-                Liên hệ ngay để được tư vấn giải pháp drone phù hợp với doanh nghiệp của bạn
-              </p>
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-semibold py-2.5 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
-              >
-                Liên hệ hợp tác
-              </motion.button>
-            </div>
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );

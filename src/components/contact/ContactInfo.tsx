@@ -1,27 +1,29 @@
 // components/contact/ContactInfo.tsx
 import { Phone, Mail, MapPin, Facebook, Linkedin, Youtube, Send, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ContactInfoProps {
   className?: string;
 }
 
 const ContactInfo = ({ className = "" }: ContactInfoProps) => {
+  const { t } = useLanguage();
+
   const contactItems = [
     {
       icon: Phone,
-      title: "Liên hệ",
+      title: t<string>("contact.info.contactItems.phone.title"),
       details: [
-        { label: "Hotline", value: "028 99 95 95 88" },
-        { label: "Di động", value: "034 612 4230" }
+        { label: t<string>("contact.info.contactItems.phone.hotline"), value: t<string>("contact.info.contactItems.phone.hotlineValue") },
+        { label: t<string>("contact.info.contactItems.phone.mobile"), value: t<string>("contact.info.contactItems.phone.mobileValue") }
       ]
     },
     {
       icon: Mail,
-      title: "Email",
+      title: t<string>("contact.info.contactItems.email.title"),
       details: [
-        { label: "Thông tin", value: "info@droneservices.vn" },
-        { label: "Hỗ trợ", value: "support@droneservices.vn" }
+        { label: t<string>("contact.info.contactItems.email.info"), value: t<string>("contact.info.contactItems.email.infoValue") },
+        { label: t<string>("contact.info.contactItems.email.support"), value: t<string>("contact.info.contactItems.email.supportValue") }
       ]
     }
   ];
@@ -29,31 +31,31 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
   const socialLinks = [
     {
       icon: Facebook,
-      name: "Facebook",
+      name: t<string>("contact.info.social.facebook"),
       url: "https://facebook.com/hitekflycam",
       color: "bg-blue-500 hover:bg-blue-600"
     },
     {
       icon: Linkedin,
-      name: "LinkedIn",
+      name: t<string>("contact.info.social.linkedin"),
       url: "https://linkedin.com/company/hitekflycam",
       color: "bg-blue-700 hover:bg-blue-800"
     },
     {
       icon: Youtube,
-      name: "YouTube",
+      name: t<string>("contact.info.social.youtube"),
       url: "https://youtube.com/@hitekflycam",
       color: "bg-red-500 hover:bg-red-600"
     },
     {
       icon: Send,
-      name: "Telegram",
+      name: t<string>("contact.info.social.telegram"),
       url: "https://t.me/hitekflycam",
       color: "bg-blue-400 hover:bg-blue-500"
     },
     {
       icon: Instagram,
-      name: "Instagram",
+      name: t<string>("contact.info.social.instagram"),
       url: "https://instagram.com/hitekflycam",
       color: "bg-pink-500 hover:bg-pink-600"
     }
@@ -68,7 +70,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
       {/* Compact Contact Information */}
       <div>
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Liên hệ nhanh
+          {t<string>("contact.info.title")}
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -102,10 +104,10 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
       </div>
 
       {/* Social Media Section - More Compact */}
-      <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900  rounded-xl p-5 border border-gray-200 dark:border-gray-700">
+      <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
         <div className="mb-4">
           <h3 className="text-lg font-bold text-primary">
-            Kết nối với chúng tôi
+            {t<string>("contact.info.social.title")}
           </h3>
         </div>
         
@@ -126,8 +128,6 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
             </button>
           ))}
         </div>
-
-        {/* Followers Summary */}
       </div>
 
       {/* Map - More Compact */}
@@ -151,7 +151,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
             <div className="flex items-center justify-between bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl px-3 py-2 text-xs">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3 h-3 text-primary" />
-                <span className="text-gray-700 dark:text-gray-300">TP. Hồ Chí Minh</span>
+                <span className="text-gray-700 dark:text-gray-300">{t<string>("contact.info.map.location")}</span>
               </div>
               <a 
                 href="https://maps.google.com/?q=HAI+AU+BUILDING,+39B+Trường+Sơn,+Phường+2,+Tân+Bình,+Hồ+Chí+Minh"
@@ -159,7 +159,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
                 rel="noopener noreferrer"
                 className="text-primary hover:text-primary/80 text-xs font-medium"
               >
-                Chỉ đường
+                {t<string>("contact.info.map.directions")}
               </a>
             </div>
           </div>

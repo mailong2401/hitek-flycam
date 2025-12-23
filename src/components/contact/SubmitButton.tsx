@@ -1,5 +1,6 @@
 // components/contact/SubmitButton.tsx
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SubmitButtonProps {
   isLoading: boolean;
@@ -7,6 +8,8 @@ interface SubmitButtonProps {
 }
 
 const SubmitButton = ({ isLoading, isValid }: SubmitButtonProps) => {
+  const { t } = useLanguage();
+
   return (
     <Button 
       type="submit" 
@@ -17,10 +20,10 @@ const SubmitButton = ({ isLoading, isValid }: SubmitButtonProps) => {
       {isLoading ? (
         <>
           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-          Đang gửi...
+          {t<string>("contact.form.submit.loading")}
         </>
       ) : (
-        'Gửi tin nhắn'
+        t<string>("contact.form.submit.text")
       )}
     </Button>
   );

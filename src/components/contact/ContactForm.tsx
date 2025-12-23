@@ -7,8 +7,11 @@ import ContactInfo from './ContactInfo';
 import SubmitButton from './SubmitButton';
 import { ContactFormData } from '@/types/contact';
 import { sendContactEmail } from '@/utils/emailService';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactForm = () => {
+  const { t } = useLanguage();
+  
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     company: '',
@@ -47,31 +50,30 @@ const ContactForm = () => {
   }, [submitStatus]);
 
   // Validation functions
-const validateName = (name: string) => {
-  if (!name.trim()) return 'Họ tên là bắt buộc';
-  if (name.length < 3) return 'Họ tên phải có ít nhất 3 ký tự';
-  // KHÔNG kiểm tra regex - cho phép tất cả ký tự
-  return '';
-};
+  const validateName = (name: string) => {
+    if (!name.trim()) return `${t<string>("contact.form.fields.name.label")} ${t<string>("contact.form.validation.required")}`;
+    if (name.length < 3) return `${t<string>("contact.form.fields.name.label")} ${t<string>("contact.form.validation.minLength")}`;
+    return '';
+  };
 
   const validateCompany = (company: string) => {
-    if (company && company.length < 3) return 'Tên công ty phải có ít nhất 3 ký tự';
+    if (company && company.length < 3) return `${t<string>("contact.form.fields.company.label")} ${t<string>("contact.form.validation.minLength")}`;
     return '';
   };
 
   const validateEmail = (email: string) => {
-    if (!email.trim()) return 'Email là bắt buộc';
+    if (!email.trim()) return `${t<string>("contact.form.fields.email.label")} ${t<string>("contact.form.validation.required")}`;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return 'Email không hợp lệ';
+    if (!emailRegex.test(email)) return t<string>("contact.form.validation.invalidEmail");
     return '';
   };
 
   const validatePhone = (phone: string) => {
-    if (!phone.trim()) return 'Số điện thoại là bắt buộc';
+    if (!phone.trim()) return `${t<string>("contact.form.fields.phone.label")} ${t<string>("contact.form.validation.required")}`;
     // Chấp nhận số điện thoại Việt Nam (bắt đầu bằng 0, 84, +84)
     const phoneRegex = /^(0|\+84|84)(\d{9,10})$/;
     const cleanedPhone = phone.replace(/\s/g, '');
-    if (!phoneRegex.test(cleanedPhone)) return 'Số điện thoại không hợp lệ';
+    if (!phoneRegex.test(cleanedPhone)) return t<string>("contact.form.validation.invalidPhone");
     return '';
   };
 
@@ -81,13 +83,13 @@ const validateName = (name: string) => {
   };
 
   const validateLocation = (location: string) => {
-    if (location && location.length < 3) return 'Địa điểm phải có ít nhất 3 ký tự';
+    if (location && location.length < 3) return `${t<string>("contact.form.fields.location.label")} ${t<string>("contact.form.validation.minLength")}`;
     return '';
   };
 
   const validateMessage = (message: string) => {
-    if (!message.trim()) return 'Nội dung là bắt buộc';
-    if (message.length < 3) return 'Nội dung phải có ít nhất 3 ký tự';
+    if (!message.trim()) return `${t<string>("contact.form.fields.message.label")} ${t<string>("contact.form.validation.required")}`;
+    if (message.length < 3) return `${t<string>("contact.form.fields.message.label")} ${t<string>("contact.form.validation.minLength")}`;
     return '';
   };
 
@@ -144,40 +146,40 @@ const validateName = (name: string) => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  const { name, value } = e.target;
-  
-  let newValue = value;
-  
-  // Xử lý tự động format số điện thoại
-  if (name === 'phone') {
-    // Loại bỏ tất cả ký tự không phải số
-    const numbers = value.replace(/\D/g, '');
+    const { name, value } = e.target;
     
-    // Nếu bắt đầu bằng 84, giữ nguyên 84
-    if (numbers.startsWith('84')) {
-      newValue = numbers;
-    } 
-    // Nếu bắt đầu bằng 0, giữ nguyên 0
-    else if (numbers.startsWith('0')) {
-      newValue = numbers;
+    let newValue = value;
+    
+    // Xử lý tự động format số điện thoại
+    if (name === 'phone') {
+      // Loại bỏ tất cả ký tự không phải số
+      const numbers = value.replace(/\D/g, '');
+      
+      // Nếu bắt đầu bằng 84, giữ nguyên 84
+      if (numbers.startsWith('84')) {
+        newValue = numbers;
+      } 
+      // Nếu bắt đầu bằng 0, giữ nguyên 0
+      else if (numbers.startsWith('0')) {
+        newValue = numbers;
+      }
+      // Nếu không bắt đầu bằng gì cả nhưng có số
+      else if (numbers) {
+        newValue = '0' + numbers;
+      } else {
+        newValue = '';
+      }
     }
-    // Nếu không bắt đầu bằng gì cả nhưng có số
-    else if (numbers) {
-      newValue = '0' + numbers;
-    } else {
-      newValue = '';
-    }
-  }
-  
-  // Các trường khác giữ nguyên
-  setFormData(prev => ({
-    ...prev,
-    [name]: newValue
-  }));
+    
+    // Các trường khác giữ nguyên
+    setFormData(prev => ({
+      ...prev,
+      [name]: newValue
+    }));
 
-  // Debounced validation
-  debouncedValidate(name, newValue);
-};
+    // Debounced validation
+    debouncedValidate(name, newValue);
+  };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -236,7 +238,7 @@ const validateName = (name: string) => {
       
       if (result.success) {
         setSubmitStatus('success');
-        setSuccessMessage('✅ Gửi thành công! Chúng tôi sẽ liên hệ lại sớm và đã gửi email xác nhận cho bạn.');
+        setSuccessMessage(t<string>("contact.form.submit.success.message"));
         
         // Reset form
         setFormData({ 
@@ -260,12 +262,12 @@ const validateName = (name: string) => {
         });
       } else {
         setSubmitStatus('error');
-        setSuccessMessage('❌ Có lỗi xảy ra khi gửi form. Vui lòng thử lại sau.');
+        setSuccessMessage(t<string>("contact.form.submit.error.message"));
       }
     } catch (error) {
       console.error('❌ Form submit error:', error);
       setSubmitStatus('error');
-      setSuccessMessage('❌ Có lỗi xảy ra khi gửi form. Vui lòng thử lại sau.');
+      setSuccessMessage(t<string>("contact.form.submit.error.message"));
     } finally {
       setIsLoading(false);
     }
@@ -276,7 +278,7 @@ const validateName = (name: string) => {
       {/* Contact Form */}
       <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Gửi tin nhắn
+          {t<string>("contact.form.title")}
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <ContactFormFields 
@@ -297,9 +299,9 @@ const validateName = (name: string) => {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <p className="text-sm font-medium text-green-800">{successMessage}</p>
+                  <p className="text-sm font-medium text-green-800">{t<string>("contact.form.submit.success.title")} {successMessage}</p>
                   <p className="mt-1 text-sm text-green-600 opacity-75">
-                    Email xác nhận đã được gửi tới {formData.email || 'email của bạn'}
+                    {t<string>("contact.form.submit.success.confirmation")} {formData.email || 'email của bạn'}
                   </p>
                 </div>
                 <div className="ml-auto pl-3">
@@ -333,7 +335,7 @@ const validateName = (name: string) => {
                   </svg>
                 </div>
                 <div className="ml-3">
-                  <p className="text-sm text-red-700">{successMessage}</p>
+                  <p className="text-sm text-red-700">{t<string>("contact.form.submit.error.title")} {successMessage}</p>
                 </div>
                 <div className="ml-auto pl-3">
                   <div className="-mx-1.5 -my-1.5">
@@ -356,21 +358,10 @@ const validateName = (name: string) => {
             </div>
           )}
 
-          
           <SubmitButton 
             isLoading={isLoading} 
             isValid={isFormValid()}
           />
-          
-          {/* Hiển thị trạng thái validation */}
-          {/* <div className="text-sm text-muted-foreground pt-2 border-t border-border">
-            <p className="mb-1">Lưu ý:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Các trường có dấu * là bắt buộc</li>
-              <li>Họ tên có thể nhập tiếng Việt có dấu</li>
-              <li>Số điện thoại phải là số điện thoại Việt Nam hợp lệ</li>
-            </ul>
-          </div> */}
         </form>
       </div>
 
