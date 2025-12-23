@@ -3,18 +3,17 @@ import { Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark'); // Mặc định là dark
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    // Kiểm tra localStorage trước
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      // Nếu không có trong localStorage, mặc định là dark
-      setTheme('dark');
-      localStorage.setItem('theme', 'dark');
+      setTheme('light');
+      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
@@ -27,7 +26,6 @@ export default function ThemeToggle() {
       root.classList.remove('dark');
     }
     
-    // Lưu theme vào localStorage
     localStorage.setItem('theme', theme);
   }, [theme]);
 
