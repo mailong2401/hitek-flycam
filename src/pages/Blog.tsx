@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { supabase } from "@/services/supabase";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   BlogCarousel,
   ThumbnailCarousel,
@@ -17,13 +18,14 @@ import {
 } from "@/components/blog";
 
 export default function Blog() {
+  const { t, language } = useLanguage(); // Sử dụng useLanguage
   const [blogPosts, setBlogPosts] = useState<EnhancedBlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextPostId, setNextPostId] = useState<string | null>(null);
   const [prevPostId, setPrevPostId] = useState<string | null>(null);
-  const [showBackToTop, setShowBackToTop] = useState(false); // Thêm state cho nút back to top
+  const [showBackToTop, setShowBackToTop] = useState(false);
   
   const navigate = useNavigate();
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -31,7 +33,10 @@ export default function Blog() {
   const prevBtnRef = useRef<HTMLButtonElement>(null);
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   const backgroundImageRef = useRef<HTMLImageElement>(null);
-  const allBlogsRef = useRef<HTMLDivElement>(null); // Ref để scroll đến
+  const allBlogsRef = useRef<HTMLDivElement>(null);
+
+  // Xác định ngôn ngữ hiển thị (chỉ vi hoặc en)
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
 
   // Fetch dữ liệu blog chính (6 bài đầu)
   useEffect(() => {
@@ -43,7 +48,7 @@ export default function Blog() {
     const handleScroll = () => {
       if (allBlogsRef.current) {
         const rect = allBlogsRef.current.getBoundingClientRect();
-        setShowBackToTop(rect.top < 0); // Nếu AllBlogsPage đã scroll lên trên viewport
+        setShowBackToTop(rect.top < 0);
       }
     };
 
@@ -73,11 +78,54 @@ export default function Blog() {
       if (error) throw error;
       
       if (data) {
-        const postsWithDefaults: EnhancedBlogPost[] = data.map((post: any) => ({
-          ...post,
-          readTime: calculateReadTime(post.content || ''),
-          slug: post.slug || generateSlug(post.title),
-        }));
+        const postsWithDefaults: EnhancedBlogPost[] = data.map((post: any) => {
+          // Lấy dữ liệu theo ngôn ngữ hiển thị
+          const title = displayLanguage === 'vi' 
+            ? (post.title_vi || post.title_en || t('no_title'))
+            : (post.title_en || post.title_vi || t('no_title'));
+          
+          const excerpt = displayLanguage === 'vi'
+            ? (post.excerpt_vi || post.excerpt_en || '')
+            : (post.excerpt_en || post.excerpt_vi || '');
+          
+          const content = displayLanguage === 'vi'
+            ? (post.content_vi || post.content_en || '')
+            : (post.content_en || post.content_vi || '');
+          
+          const slug = displayLanguage === 'vi'
+            ? (post.slug_vi || post.slug_en || generateSlug(title))
+            : (post.slug_en || post.slug_vi || generateSlug(title));
+          
+          const metaTitle = displayLanguage === 'vi'
+            ? (post.meta_title_vi || post.meta_title_en || '')
+            : (post.meta_title_en || post.meta_title_vi || '');
+          
+          const metaDescription = displayLanguage === 'vi'
+            ? (post.meta_description_vi || post.meta_description_en || '')
+            : (post.meta_description_en || post.meta_description_vi || '');
+          
+          return {
+            ...post,
+            title,
+            excerpt,
+            content,
+            slug,
+            meta_title: metaTitle,
+            meta_description: metaDescription,
+            readTime: calculateReadTime(content),
+            hasEnglish: !!post.title_en || !!post.content_en,
+            hasVietnamese: !!post.title_vi || !!post.content_vi,
+            // Giữ nguyên các trường gốc để dễ xử lý
+            title_vi: post.title_vi,
+            title_en: post.title_en,
+            excerpt_vi: post.excerpt_vi,
+            excerpt_en: post.excerpt_en,
+            content_vi: post.content_vi,
+            content_en: post.content_en,
+            slug_vi: post.slug_vi,
+            slug_en: post.slug_en,
+          };
+        });
         setBlogPosts(postsWithDefaults);
       } else {
         setBlogPosts(getDefaultPosts());
@@ -218,6 +266,7 @@ export default function Blog() {
   // Xử lý click xem chi tiết
   const handleViewDetails = (postId: string, e?: React.MouseEvent) => {
     if (e) e.preventDefault();
+    const post = blogPosts.find(p => p.id === postId);
     navigate(`/blog/${postId}`);
   };
 
@@ -242,7 +291,9 @@ export default function Blog() {
     return (
       <div className="w-full h-screen bg-black flex items-center justify-center">
         <Skeleton className="w-32 h-8 bg-gray-800" />
-        <div className="text-white text-xl ml-4">Đang tải bài viết...</div>
+        <div className="text-white text-xl ml-4">
+          {t('loading_posts')}
+        </div>
       </div>
     );
   }
@@ -250,7 +301,9 @@ export default function Blog() {
   if (blogPosts.length === 0) {
     return (
       <div className="w-full h-screen bg-black flex items-center justify-center">
-        <div className="text-white text-2xl">Không có bài viết nào</div>
+        <div className="text-white text-2xl">
+          {t('no_posts')}
+        </div>
       </div>
     );
   }
@@ -260,6 +313,8 @@ export default function Blog() {
 
   return (
     <div className="relative">
+      {/* Language Toggle Button - chỉ hiển thị VI/EN */}
+
       {/* Phần Blog Carousel chính */}
       <div 
         ref={carouselRef}
@@ -269,6 +324,7 @@ export default function Blog() {
           blogPosts={blogPosts}
           currentPost={currentPost}
           currentIndex={currentIndex}
+          currentLanguage={displayLanguage}
         />
 
         <BlogCarousel
@@ -283,7 +339,7 @@ export default function Blog() {
             onPrev={() => showSlider('prev')}
             onNext={() => showSlider('next')}
             onViewDetails={handleViewDetails}
-            onViewAllPosts={scrollToAllBlogs} // Scroll xuống AllBlogs
+            onViewAllPosts={scrollToAllBlogs}
             currentPostId={currentPost.id}
             prevBtnRef={prevBtnRef}
             nextBtnRef={nextBtnRef}
@@ -303,7 +359,7 @@ export default function Blog() {
       <div ref={allBlogsRef} className="relative">
         <AllBlogsPage
           getFallbackImage={getFallbackImage}
-          onBack={scrollToTop} // Scroll lên đầu trang
+          onBack={scrollToTop}
         />
       </div>
 
@@ -312,7 +368,7 @@ export default function Blog() {
         <button
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-50 bg-[#d62323] text-white p-3 rounded-full shadow-lg hover:bg-red-600 transition-colors animate-bounce"
-          aria-label="Quay lại đầu trang"
+          aria-label={t('back_to_top')}
         >
           ↑
         </button>
