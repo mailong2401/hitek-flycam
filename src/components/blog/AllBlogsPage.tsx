@@ -151,13 +151,13 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-8 md:py-12">
+    <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-background py-8 md:py-12">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header với nút quay lại */}
         <div className="mb-8 md:mb-12">
           <button
             onClick={onBack}
-            className="mb-6 inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors group"
+            className="mb-6 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
           >
             <span className="group-hover:-translate-x-1 transition-transform">←</span>
             {t('back_to_top')}
@@ -165,22 +165,20 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {displayLanguage === 'vi' ? 'TẤT CẢ BÀI VIẾT' : 'ALL BLOG POSTS'}
           </h1>
-          <div className="w-20 h-1 bg-[#d62323] mb-2"></div>
-          <p className="text-gray-300">
+          <div className="w-20 h-1 bg-accent mb-2"></div>
+          <p className="text-muted-foreground">
             {displayLanguage === 'vi' 
               ? `Khám phá tất cả ${allBlogs.length} bài viết của chúng tôi`
               : `Explore all ${allBlogs.length} of our blog posts`
             }
           </p>
-          
-
         </div>
 
         {/* Loading state */}
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#d62323] mb-4"></div>
-            <p className="text-gray-300">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent mb-4"></div>
+            <p className="text-muted-foreground">
               {displayLanguage === 'vi' ? 'Đang tải tất cả bài viết...' : 'Loading all blog posts...'}
             </p>
           </div>
@@ -189,7 +187,7 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
             {/* Blog Grid */}
             {allBlogs.length === 0 ? (
               <div className="text-center py-20">
-                <p className="text-gray-400">
+                <p className="text-muted-foreground">
                   {displayLanguage === 'vi' ? 'Chưa có bài viết nào.' : 'No blog posts yet.'}
                 </p>
               </div>
@@ -198,7 +196,7 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
                 {allBlogs.map((blog, index) => (
                   <article
                     key={blog.id}
-                    className="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:bg-gray-800/70 border border-gray-700/50 flex flex-col h-full min-h-[500px] md:min-h-[550px]"
+                    className="bg-card/50 backdrop-blur-sm rounded-xl overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:bg-card/80 border border-border flex flex-col h-full min-h-[500px] md:min-h-[550px]"
                     onClick={() => handleViewDetails(blog)}
                   >
                     {/* Blog Image */}
@@ -209,7 +207,6 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                         loading="lazy"
                       />
-                      {/* Language badge overlay */}
                       {/* Overlay gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     </div>
@@ -218,10 +215,10 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
                     <div className="p-6 flex flex-col flex-grow">
                       {/* Category và Read Time */}
                       <div className="inline-flex items-center gap-2 mb-3">
-                        <div className="bg-[#d62323] text-black text-xs font-bold px-3 py-1 rounded-full">
+                        <div className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
                           {translateCategory(blog.category || '')}
                         </div>
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs text-muted-foreground">
                           {blog.readTime} {displayLanguage === 'vi' ? 'phút đọc' : 'min read'}
                         </span>
                       </div>
@@ -233,16 +230,16 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
 
                       {/* Excerpt */}
                       <div className="mb-4 flex-grow">
-                        <p className="text-gray-300 text-sm line-clamp-3">
+                        <p className="text-muted-foreground text-sm line-clamp-3">
                           {blog.excerpt || blog.content?.substring(0, 150) + '...'}
                         </p>
                       </div>
 
                       {/* Meta Info */}
-                      <div className="mt-auto pt-4 border-t border-gray-700/50">
-                        <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                      <div className="mt-auto pt-4 border-t border-border/50">
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
                               <span className="text-xs font-bold">👤</span>
                             </div>
                             <span className="font-medium">{blog.author || (displayLanguage === 'vi' ? 'Admin' : 'Admin')}</span>
@@ -254,7 +251,7 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
 
                         {/* Views count (if available) */}
                         {blog.views > 0 && (
-                          <div className="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                          <div className="text-xs text-muted-foreground mb-2 flex items-center gap-1">
                             <span>👁️</span>
                             <span>{blog.views} {displayLanguage === 'vi' ? 'lượt xem' : 'views'}</span>
                           </div>
@@ -266,7 +263,7 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
                             e.stopPropagation();
                             handleViewDetails(blog);
                           }}
-                          className="w-full bg-gray-700/50 hover:bg-gray-700 text-white py-3 rounded-lg transition-colors font-medium group"
+                          className="w-full bg-secondary hover:bg-secondary/80 text-secondary-foreground py-3 rounded-lg transition-colors font-medium group"
                         >
                           <span className="flex items-center justify-center gap-2">
                             {displayLanguage === 'vi' ? 'Đọc tiếp' : 'Read more'}
@@ -283,10 +280,10 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
         )}
 
         {/* Nút quay lại đầu trang */}
-        <div className="mt-12 pt-8 border-t border-gray-700/50 flex justify-center">
+        <div className="mt-12 pt-8 border-t border-border/50 flex justify-center">
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-2 bg-gray-800/50 hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors backdrop-blur-sm"
+            className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground px-6 py-3 rounded-lg transition-colors backdrop-blur-sm"
           >
             ↑ {t('back_to_top')}
           </button>

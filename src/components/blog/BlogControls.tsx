@@ -38,7 +38,7 @@ const BlogControls: React.FC<BlogControlsProps> = ({
           <div className="flex-1">
             <button
               onClick={(e) => onViewDetails(currentPostId, e)}
-              className="w-full lg:w-auto bg-[#d62323] text-black font-medium tracking-wider py-3 px-8 hover:bg-red-400 transition-all duration-300 text-lg min-w-[200px] text-left rounded-3xl hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl group"
+              className="w-full lg:w-auto bg-vibrant-red text-white dark:text-foreground font-medium tracking-wider py-3 px-8 hover:bg-red-600 dark:hover:bg-red-700 transition-all duration-300 text-lg min-w-[200px] text-left rounded-3xl hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl group"
               aria-label={texts.viewDetailsAria}
             >
               <span className="flex items-center justify-between gap-2">
@@ -47,12 +47,12 @@ const BlogControls: React.FC<BlogControlsProps> = ({
               </span>
             </button>
           </div>
-          
+
           {/* Button XEM TẤT CẢ BÀI VIẾT */}
           <div className="flex-1">
             <button
               onClick={onViewAllPosts}
-              className="w-full lg:w-auto bg-transparent border-2 border-white text-white font-medium tracking-wider py-3 px-8 hover:bg-white/10 transition-all duration-300 text-lg min-w-[200px] text-left rounded-3xl hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl group"
+              className="w-full lg:w-auto bg-transparent border-2 border-white dark:border-foreground text-white dark:text-foreground font-medium tracking-wider py-3 px-8 hover:bg-white/10 dark:hover:bg-foreground/10 transition-all duration-300 text-lg min-w-[200px] text-left rounded-3xl hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl group"
               aria-label={texts.viewAllPostsAria}
             >
               <span className="flex items-center justify-between gap-2">
@@ -62,28 +62,28 @@ const BlogControls: React.FC<BlogControlsProps> = ({
             </button>
           </div>
         </div>
-        
+
 
         {/* Navigation Arrows - NẰM NGANG DƯỚI NÚT XEM CHI TIẾT */}
         <div className="flex items-center gap-4">
           <button
             ref={prevBtnRef}
             onClick={onPrev}
-            className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold text-lg hover:scale-110 active:scale-95 group"
+            className="w-12 h-12 rounded-full bg-white/20 dark:bg-foreground/20 hover:bg-white/40 dark:hover:bg-foreground/40 text-white dark:text-foreground flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold text-lg hover:scale-110 active:scale-95 group"
             disabled={isAnimating}
             aria-label={texts.prevPost}
           >
             <span className="group-hover:-translate-x-0.5 transition-transform">&lt;</span>
           </button>
-          
-          <span className="text-white/70 text-sm">
+
+          <span className="text-white/70 dark:text-foreground/70 text-sm">
             {texts.switchPost}
           </span>
-          
+
           <button
             ref={nextBtnRef}
             onClick={onNext}
-            className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold text-lg hover:scale-110 active:scale-95 group"
+            className="w-12 h-12 rounded-full bg-white/20 dark:bg-foreground/20 hover:bg-white/40 dark:hover:bg-foreground/40 text-white dark:text-foreground flex items-center justify-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-bold text-lg hover:scale-110 active:scale-95 group"
             disabled={isAnimating}
             aria-label={texts.nextPost}
           >

@@ -70,11 +70,11 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
   return (
     <div className="thumbnail-section absolute bottom-8 right-8 z-20">
       {/* Tiêu đề với ngôn ngữ động */}
-      <div className="text-white mb-4">
+      <div className="text-white dark:text-foreground mb-4">
         <h3 className="text-xl font-bold">
           {displayLanguage === 'vi' ? 'CÁC BÀI VIẾT NỔI BẬT' : 'FEATURED POSTS'}
         </h3>
-        <div className="w-16 h-1 bg-[#d62323] mt-2"></div>
+        <div className="w-16 h-1 bg-vibrant-red mt-2"></div>
         {/* Language indicator */}
       </div>
       
@@ -124,26 +124,26 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
               </div>
               
               {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3">
-                <h2 className="title text-white font-bold text-sm line-clamp-2">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent dark:from-background/95 dark:via-background/80 dark:to-transparent p-3">
+                <h2 className="title text-white dark:text-foreground font-bold text-sm line-clamp-2">
                   {title.length > 30 ? title.substring(0, 30) + '...' : title}
                 </h2>
                 <div className="flex items-center justify-between mt-1">
-                  <div className="des text-white/80 text-xs">
+                  <div className="des text-white/80 dark:text-foreground/80 text-xs">
                     {category}
                   </div>
                   {/* Read time (if available) */}
                   {post.readTime && (
-                    <div className="text-white/60 text-[10px]">
+                    <div className="text-white/60 dark:text-foreground/60 text-[10px]">
                       {post.readTime}{displayLanguage === 'vi' ? 'p' : 'm'}
                     </div>
                   )}
                 </div>
               </div>
-              
+
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-sm font-medium">
+              <div className="absolute inset-0 bg-black/60 dark:bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="text-white dark:text-foreground text-sm font-medium">
                   {displayLanguage === 'vi' ? 'Đọc ngay' : 'Read now'} →
                 </span>
               </div>
@@ -161,6 +161,9 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
           background: rgba(255, 255, 255, 0.1);
           border-radius: 3px;
         }
+        .dark .thumbnail::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.2);
+        }
         .thumbnail::-webkit-scrollbar-thumb {
           background: #ef4444;
           border-radius: 3px;
@@ -168,7 +171,7 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
         .thumbnail::-webkit-scrollbar-thumb:hover {
           background: #dc2626;
         }
-        
+
         .thumbnail-section {
           background: rgba(0, 0, 0, 0.8);
           backdrop-filter: blur(10px);
@@ -177,18 +180,32 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
           border: 1px solid rgba(255, 255, 255, 0.1);
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
+        .dark .thumbnail-section {
+          background: rgba(30, 30, 30, 0.9);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
         .thumbnail-section h3 {
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
+        .dark .thumbnail-section h3 {
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
         .item {
           transition: all 0.3s ease;
         }
-        
+
         .item:hover {
           transform: translateY(-4px);
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark .item:hover {
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
         }
         
         @media (max-width: 768px) {

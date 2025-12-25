@@ -35,18 +35,6 @@ export default function LanguageSelector() {
             <span className="font-medium">English</span>
           </div>
         </SelectItem>
-        <SelectItem value="ja" className="flex items-center gap-2">
-          <span className="text-xl">🇯🇵</span>
-          <div className="flex flex-col">
-            <span className="font-medium">日本語</span>
-          </div>
-        </SelectItem>
-        <SelectItem value="kr" className="flex items-center gap-2">
-          <span className="text-xl">🇰🇷</span>
-          <div className="flex flex-col">
-            <span className="font-medium">한국어</span>
-          </div>
-        </SelectItem>
       </SelectContent>
     </Select>
   );

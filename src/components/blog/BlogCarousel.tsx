@@ -16,7 +16,7 @@ const BlogCarousel: React.FC<ExtendedBlogCarouselProps> = ({
   children
 }) => {
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full bg-background">
       <div key={currentPost.id} className="absolute inset-0">
         <img
           ref={backgroundImageRef}
@@ -25,15 +25,15 @@ const BlogCarousel: React.FC<ExtendedBlogCarouselProps> = ({
           className="w-full h-full object-cover transition-opacity duration-300"
           loading="eager"
         />
-        
-        {/* Gradient overlay - TĂNG ĐỘ ĐẬM */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
-        
+
+        {/* Gradient overlay - Responsive theo theme */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent dark:from-black/90 dark:via-black/80 dark:to-black/20" />
+
         {/* Content - CHUYỂN SANG BÊN TRÁI */}
         <div className="absolute top-1/2 left-8 md:left-16 lg:left-24 transform -translate-y-1/2 w-full max-w-2xl px-4">
           <div className="max-w-xl">
-            <BlogContent 
-              currentPost={currentPost} 
+            <BlogContent
+              currentPost={currentPost}
               currentIndex={currentIndex}
               blogPostsLength={blogPostsLength}
             />
