@@ -1,5 +1,6 @@
 // IconServicesSection.tsx
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import repair from '@/assets/services/icon1/repair.png';
 import map from '@/assets/services/icon1/map.png';
 import delivery from '@/assets/services/icon1/delivery.png';
@@ -10,23 +11,24 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function IconServicesSection() {
   const { t } = useLanguage();
-  
+  const navigate = useNavigate();
+
   // Define interface for service item
   interface Service {
     title: string;
     description: string;
   }
-  
+
   // Get services array from translation - FIXED PATH
   const services = t<Service[]>("home.services");
-  
+
   const iconServices = [
-    { icon: repair, label: services[0]?.title || "" },
-    { icon: map, label: services[1]?.title || "" },
-    { icon: delivery, label: services[2]?.title || "" },
-    { icon: listence, label: services[3]?.title || "" },
-    { icon: buy, label: services[4]?.title || "" },
-    { icon: camera, label: services[5]?.title || "" },
+    { icon: repair, label: services[0]?.title || "", path: "/services/drone-repair" },
+    { icon: map, label: services[1]?.title || "", path: "/services/surveying-drone" },
+    { icon: delivery, label: services[2]?.title || "", path: "/services/delivery-drone" },
+    { icon: listence, label: services[3]?.title || "", path: "/services/flight-permit-service" },
+    { icon: buy, label: services[4]?.title || "", path: "/services/drone-import" },
+    { icon: camera, label: services[5]?.title || "", path: "/services/drone-filming" },
   ];
 
 
@@ -62,8 +64,13 @@ export default function IconServicesSection() {
     }
   };
 
+  const handleServiceClick = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <motion.section 
+    <motion.section
       className="py-12 bg-secondary"
       initial="hidden"
       whileInView="visible"
@@ -77,9 +84,10 @@ export default function IconServicesSection() {
               key={index}
               variants={itemVariants}
               custom={index}
-              className="group"
+              className="group cursor-pointer"
+              onClick={() => handleServiceClick(service.path)}
             >
-              <div className="flex flex-col items-center justify-center p-4 bg-card rounded-lg border border-border shadow-xs hover:shadow-sm transition-shadow duration-200">
+              <div className="flex flex-col items-center justify-center p-4 bg-card rounded-lg border border-border shadow-xs hover:shadow-md hover:border-primary/50 transition-all duration-200">
                 {/* Icon container with glow effect */}
                 <div className="relative mb-3">
                   {/* Glow effect background */}

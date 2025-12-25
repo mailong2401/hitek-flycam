@@ -61,9 +61,8 @@ export default function InteractiveCardsSection() {
   return (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="pb-3 text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-12
-          bg-gradient-to-r from-red-600 via-blue-600 to-red-600
-          bg-clip-text text-transparent drop-shadow-lg leading-[1.2]"
+        <h2 className="pb-3 text-3xl md:text-3xl lg:text-7xl font-bold text-center mb-12
+          text-vibrant-red drop-shadow-lg leading-[1.2]"
         >
           {t<string>("home.servicesCards.sectionTitle")}
         </h2>

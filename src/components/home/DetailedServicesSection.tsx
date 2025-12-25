@@ -71,7 +71,7 @@ export default function DetailedServicesSection() {
             </span>
             {t<string>("home.servicesPage.detailedServices.question")} {/* FIXED */}
           </h2>
-          <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground dark:text-gray-300 mx-auto whitespace-nowrap">
             {t<string>("home.servicesPage.detailedServices.subtitle")} {/* FIXED */}
           </p>
         </motion.div>
@@ -144,9 +144,9 @@ export default function DetailedServicesSection() {
             whileHover={{ scale: 1.05 }}
             className="inline-block"
           >
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {t<string>("home.servicesPage.detailedServices.cta.learnMore")} {/* FIXED */}
             </Button>

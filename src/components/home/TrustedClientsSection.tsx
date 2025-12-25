@@ -187,7 +187,7 @@ export default function TrustedClientsSection() {
 
         {/* Infinite Loop Carousel */}
         <div 
-          className="relative h-[280px] md:h-[320px] "
+          className="relative h-[200px] md:h-[260px] "
           onMouseLeave={() => setIsHovered(false)}
         >
           <div 
@@ -204,7 +204,7 @@ export default function TrustedClientsSection() {
               {infiniteClients.map((client, index) => (
                 <motion.div
                   key={`${client.id}-${index}`}
-                  className="flex-shrink-0 px-3"
+                  className="flex-shrink-0 px-1"
                   style={{ width: `${itemWidth}px` }}
                   variants={itemVariants}
                   initial="hidden"

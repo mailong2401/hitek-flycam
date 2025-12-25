@@ -19,9 +19,9 @@ const newsImages = [photo1, photo2, photo3];
 
 // Static metadata (not language dependent)
 const newsMetadata = [
-  { id: 1, date: "15/12/2024", author: "Admin", readTime: "5 phút đọc" },
-  { id: 2, date: "10/12/2024", author: "Tech Team", readTime: "4 phút đọc" },
-  { id: 3, date: "05/12/2024", author: "Legal Team", readTime: "7 phút đọc" }
+  { id: 1, date: "15/12/2024", readTime: "5 phút đọc" },
+  { id: 2, date: "10/12/2024", readTime: "4 phút đọc" },
+  { id: 3, date: "05/12/2024", readTime: "7 phút đọc" }
 ];
 
 export default function NewsSection() {
@@ -217,14 +217,7 @@ export default function NewsSection() {
                       <Calendar className="w-4 h-4 text-red-500" />
                       <span>{newsMetadata[index]?.date}</span>
                     </motion.div>
-                    
-                    <motion.div 
-                      className="flex items-center gap-2"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <User className="w-4 h-4 text-red-500" />
-                      <span>{newsMetadata[index]?.author}</span>
-                    </motion.div>
+                
                     
                     <motion.div 
                       className="flex items-center gap-2"

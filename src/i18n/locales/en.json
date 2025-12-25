@@ -69,7 +69,7 @@
     "featuredProjects": {
       "title": "Featured",
       "highlight": "Projects",
-      "subtitle": "Discover impressive drone projects we have completed",
+      "subtitle": "Discover impressive flycam projects we have completed",
       "viewAllProjects": "View All Projects",
       "cta": {
         "projectInquiry": "Have a project to consult? Contact us now",
@@ -165,7 +165,7 @@
         "title": "Why Choose",
         "highlight": "Hitek Flycam",
         "question": "?",
-        "subtitle": "Discover the reasons why we become a reliable partner in the drone field",
+        "subtitle": "Discover the reasons why we become a reliable partner in the flycam field",
         "services": [
           {
             "title": "Pioneering Technology",
@@ -198,7 +198,7 @@
       }
     },
     "servicesCards": {
-      "sectionTitle": "MAIN SERVICES",
+      "sectionTitle": "We provide solutions",
       "cta": {
         "learnMore": "Learn More"
       },
