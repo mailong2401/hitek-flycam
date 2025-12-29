@@ -10,7 +10,7 @@ import { sendContactEmail } from '@/utils/emailService';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactForm = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -51,29 +51,43 @@ const ContactForm = () => {
 
   // Validation functions
   const validateName = (name: string) => {
-    if (!name.trim()) return `${t<string>("contact.form.fields.name.label")} ${t<string>("contact.form.validation.required")}`;
-    if (name.length < 3) return `${t<string>("contact.form.fields.name.label")} ${t<string>("contact.form.validation.minLength")}`;
+    if (!name.trim()) {
+      return language === 'vi' ? 'Họ và tên là bắt buộc' : 'Full Name is required';
+    }
+    if (name.length < 3) {
+      return language === 'vi' ? 'Họ và tên phải có ít nhất 3 ký tự' : 'Full Name must be at least 3 characters';
+    }
     return '';
   };
 
   const validateCompany = (company: string) => {
-    if (company && company.length < 3) return `${t<string>("contact.form.fields.company.label")} ${t<string>("contact.form.validation.minLength")}`;
+    if (company && company.length < 3) {
+      return language === 'vi' ? 'Tên công ty phải có ít nhất 3 ký tự' : 'Company Name must be at least 3 characters';
+    }
     return '';
   };
 
   const validateEmail = (email: string) => {
-    if (!email.trim()) return `${t<string>("contact.form.fields.email.label")} ${t<string>("contact.form.validation.required")}`;
+    if (!email.trim()) {
+      return language === 'vi' ? 'Email là bắt buộc' : 'Email is required';
+    }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return t<string>("contact.form.validation.invalidEmail");
+    if (!emailRegex.test(email)) {
+      return language === 'vi' ? 'Email không hợp lệ' : 'Invalid email address';
+    }
     return '';
   };
 
   const validatePhone = (phone: string) => {
-    if (!phone.trim()) return `${t<string>("contact.form.fields.phone.label")} ${t<string>("contact.form.validation.required")}`;
+    if (!phone.trim()) {
+      return language === 'vi' ? 'Số điện thoại là bắt buộc' : 'Phone number is required';
+    }
     // Chấp nhận số điện thoại Việt Nam (bắt đầu bằng 0, 84, +84)
     const phoneRegex = /^(0|\+84|84)(\d{9,10})$/;
     const cleanedPhone = phone.replace(/\s/g, '');
-    if (!phoneRegex.test(cleanedPhone)) return t<string>("contact.form.validation.invalidPhone");
+    if (!phoneRegex.test(cleanedPhone)) {
+      return language === 'vi' ? 'Số điện thoại không hợp lệ' : 'Invalid phone number';
+    }
     return '';
   };
 
@@ -83,13 +97,19 @@ const ContactForm = () => {
   };
 
   const validateLocation = (location: string) => {
-    if (location && location.length < 3) return `${t<string>("contact.form.fields.location.label")} ${t<string>("contact.form.validation.minLength")}`;
+    if (location && location.length < 3) {
+      return language === 'vi' ? 'Địa điểm phải có ít nhất 3 ký tự' : 'Location must be at least 3 characters';
+    }
     return '';
   };
 
   const validateMessage = (message: string) => {
-    if (!message.trim()) return `${t<string>("contact.form.fields.message.label")} ${t<string>("contact.form.validation.required")}`;
-    if (message.length < 3) return `${t<string>("contact.form.fields.message.label")} ${t<string>("contact.form.validation.minLength")}`;
+    if (!message.trim()) {
+      return language === 'vi' ? 'Nội dung tin nhắn là bắt buộc' : 'Message is required';
+    }
+    if (message.length < 3) {
+      return language === 'vi' ? 'Nội dung tin nhắn phải có ít nhất 3 ký tự' : 'Message must be at least 3 characters';
+    }
     return '';
   };
 

@@ -146,7 +146,7 @@ export default function DetailedServicesSection() {
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-primary hover:bg-primary/90 text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {t<string>("home.servicesPage.detailedServices.cta.learnMore")} {/* FIXED */}
             </Button>

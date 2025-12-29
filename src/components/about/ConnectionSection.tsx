@@ -94,7 +94,7 @@ const ConnectionSection = () => {
               <motion.h2 
                 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6"
               >
-                {t("about.connection.title")}{" "}
+                {t("about.connection.title")}{" "} <br />
                 <motion.span 
                   className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300"
                   animate={{
@@ -186,15 +186,15 @@ const ConnectionSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a 
-                  href="https://hitekdrone.com" 
-                  target="_blank" 
+                <a
+                  href="https://hitekdrone.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Button 
-                    variant="outline" 
-                    className="border-red-600 text-red-600 hover:bg-red-50 dark:border-red-400 dark:text-red-400 dark:hover:bg-red-900/20 font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                  <Button
+                    variant="outline"
+                    className="border-red-600 text-red-600 dark:border-red-400 dark:text-red-400 font-semibold px-6 py-3 rounded-full shadow-lg w-full sm:w-auto bg-white dark:bg-white hover:bg-white hover:text-red-600 dark:hover:bg-white dark:hover:text-red-400"
                   >
                     <span className="flex items-center gap-2">
                       <Target className="w-4 h-4" />
@@ -205,14 +205,6 @@ const ConnectionSection = () => {
                 </a>
               </motion.div>
             </motion.div>
-
-            {/* Additional Info */}
-            <motion.p 
-              variants={itemVariants}
-              className="text-sm text-muted-foreground dark:text-gray-400 mt-6"
-            >
-              {t("about.connection.additionalInfo")}
-            </motion.p>
           </motion.div>
 
           {/* Right Column - Video */}

@@ -1,7 +1,7 @@
 // components/documents/HeroSection.tsx
 import { motion } from "framer-motion";
-import Lg_flycam from "@/assets/logo/logo-flycam-hitek.png";
-import Bg_flycam from "@/assets/home/bg.png";
+import Lg_flycam from "@/assets/logo/camera-drone.png";
+import Bg_flycam from "@/assets/documents/bgdocument.png";
 
 const HeroSection = () => {
   const containerVariants = {
@@ -29,50 +29,66 @@ const HeroSection = () => {
   } as const;
 
   return (
-    <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={Bg_flycam}
-          alt="Drone Background"
-          className="w-full h-full object-cover object-center"
-        />
-      </div>
+    <>
+      {/* Hero Section */}
+      <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={Bg_flycam}
+            alt="Drone Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-6xl mx-auto text-center"
-        >
-          <motion.div variants={itemVariants} className="mb-4 md:mb-6 flex justify-center">
-            <div className="relative">
-              <img
-                src={Lg_flycam}
-                alt="Hitek Flycam Logo"
-                className="relative w-24 h-24 md:w-32 md:h-32 object-contain mx-auto"
-              />
-            </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-6xl mx-auto text-center"
+          >
+            <motion.div variants={itemVariants} className="flex justify-center">
+              <div className="relative">
+                <img
+                  src={Lg_flycam}
+                  alt="Hitek Flycam Logo"
+                  className="relative w-124 h-auto object-contain mx-auto"
+                />
+              </div>
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
 
-          <motion.div variants={itemVariants} className="mb-3 md:mb-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2">
-              <span className="text-light-gray">TÀI LIỆU </span>
-              <span className="text-primary">
-                HITEK FLYCAM
-              </span>
-            </h1>
-          </motion.div>
+      {/* Description Section */}
+      <section className="py-16 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={itemVariants} className="mb-3 md:mb-4">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+                  <span className="text-black">TÀI LIỆU </span>
+                  <span className="text-primary">
+                    HITEK FLYCAM
+                  </span>
+                </h1>
+              </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <p className="text-sm md:text-lg text-light-gray max-w-2xl mx-auto">
-              Brochure, portfolio và tài liệu kỹ thuật chính thức của Hitek Flycam – đơn vị<br/>
-              cung cấp giải pháp drone chuyên nghiệp hàng đầu Việt Nam.
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
+              <motion.div variants={itemVariants}>
+                <p className="text-sm md:text-lg text-black max-w-2xl mx-auto">
+                  Brochure, portfolio và tài liệu kỹ thuật chính thức của Hitek Flycam – đơn vị<br/>
+                  cung cấp giải pháp drone chuyên nghiệp hàng đầu Việt Nam.
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

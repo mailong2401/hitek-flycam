@@ -155,23 +155,10 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header với nút quay lại */}
         <div className="mb-8 md:mb-12">
-          <button
-            onClick={onBack}
-            className="mb-6 inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
-          >
-            <span className="group-hover:-translate-x-1 transition-transform">←</span>
-            {t('back_to_top')}
-          </button>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {displayLanguage === 'vi' ? 'TẤT CẢ BÀI VIẾT' : 'ALL BLOG POSTS'}
           </h1>
           <div className="w-20 h-1 bg-accent mb-2"></div>
-          <p className="text-muted-foreground">
-            {displayLanguage === 'vi' 
-              ? `Khám phá tất cả ${allBlogs.length} bài viết của chúng tôi`
-              : `Explore all ${allBlogs.length} of our blog posts`
-            }
-          </p>
         </div>
 
         {/* Loading state */}
@@ -219,7 +206,7 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
                           {translateCategory(blog.category || '')}
                         </div>
                         <span className="text-xs text-muted-foreground">
-                          {blog.readTime} {displayLanguage === 'vi' ? 'phút đọc' : 'min read'}
+                          {blog.readTime} {displayLanguage === 'vi' ? ' đọc' : 'min read'}
                         </span>
                       </div>
 
@@ -278,16 +265,6 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
             )}
           </>
         )}
-
-        {/* Nút quay lại đầu trang */}
-        <div className="mt-12 pt-8 border-t border-border/50 flex justify-center">
-          <button
-            onClick={onBack}
-            className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground px-6 py-3 rounded-lg transition-colors backdrop-blur-sm"
-          >
-            ↑ {t('back_to_top')}
-          </button>
-        </div>
       </div>
     </div>
   );

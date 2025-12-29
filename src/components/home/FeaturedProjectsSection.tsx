@@ -274,7 +274,7 @@ export default function FeaturedProjectsSection() {
           >
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <span className="flex items-center gap-3">
                 {t<string>("home.featuredProjects.cta.submitProject")}

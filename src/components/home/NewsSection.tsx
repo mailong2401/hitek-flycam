@@ -122,7 +122,7 @@ export default function NewsSection() {
             
             <motion.p 
               variants={headerVariants}
-              className="text-muted-foreground dark:text-gray-300 text-lg max-w-2xl"
+              className="text-muted-foreground dark:text-gray-300 text-lg max-w-2xl whitespace-nowrap"
             >
               {t<string>("home.newsSection.subtitle")}
             </motion.p>

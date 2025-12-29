@@ -6,10 +6,11 @@ import FAQSection from "@/components/subService/FAQSection";
 import { CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-import fix from "@/assets/services/surveying_drone/bg.png";
+import fix from "@/assets/services/listence/dronelistence.png";
 import icon1 from "@/assets/services/surveying_drone/icon1.png";
 import icon2 from "@/assets/services/surveying_drone/icon2.png";
 import icon3 from "@/assets/services/surveying_drone/icon3.png";
+import dronelistence from "@/assets/services/listence/bgdronelistence.png";
 
 export default function FlightPermitService() {
   const { t } = useLanguage();
@@ -21,6 +22,7 @@ export default function FlightPermitService() {
     height: "400px",
     titleSize: "text-6xl",
     subtitleSize: "text-2xl",
+    imageClassName: "w-full h-full object-cover object-[50%_60%]",
   };
 
   const featuresData = {
@@ -39,13 +41,15 @@ export default function FlightPermitService() {
   };
 
   const benefitsData = {
-    imageUrl: "https://victory.com.vn/wp-content/uploads/2022/12/mavic-3m-nong-nghiep-5.png",
+    imageUrl: dronelistence,
     title: t<string>("services.flightPermitService.benefits.title"),
     highlightedText: t<string>("services.flightPermitService.benefits.highlightedText"),
     benefits: t<any[]>("services.flightPermitService.benefits.items").map(item => ({
       icon: CheckCircle,
       parts: item.parts
-    }))
+    })),
+    imageHeight: "h-[400px] md:h-[500px]",
+    imageClassName: "mt-8"
   };
 
   const faqData = {

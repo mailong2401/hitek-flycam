@@ -10,7 +10,7 @@ import fix from "@/assets/services/delivery_drone/fix.png";
 import icon1 from "@/assets/services/delivery_drone/icon1.png";
 import icon2 from "@/assets/services/delivery_drone/icon2.png";
 import icon3 from "@/assets/services/delivery_drone/icon3.png";
-
+import dronedelivery from "@/assets/services/delivery_drone/dronedelivery.avif";
 export default function DeliveryDrone() {
   const { t } = useLanguage();
 
@@ -39,13 +39,15 @@ export default function DeliveryDrone() {
   };
 
   const benefitsData = {
-    imageUrl: "https://victory.com.vn/wp-content/uploads/2022/12/mavic-3m-nong-nghiep-5.png",
+    imageUrl: dronedelivery,
     title: t<string>("services.deliveryDrone.benefits.title"),
     highlightedText: t<string>("services.deliveryDrone.benefits.highlightedText"),
     benefits: t<any[]>("services.deliveryDrone.benefits.items").map(item => ({
       icon: CheckCircle,
       parts: item.parts
-    }))
+    })),
+    imageHeight: "h-[400px] md:h-[500px]",
+    imageClassName: "mt-8"
   };
 
   const faqData = {

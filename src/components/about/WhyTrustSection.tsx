@@ -128,7 +128,7 @@ const WhyTrustSection = () => {
   // Tạo mảng hình ảnh với 10 ảnh
   const carouselImages = [
     {
-      src: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=400&q=80",
+      src: "https://images.unsplash.com/photo-1527441385177-3dad16222699?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTl8fGRyb25lfGVufDB8fDB8fHww",
       alt: "Award Winning Excellence",
       title: "Award Winning"
     },
@@ -148,45 +148,20 @@ const WhyTrustSection = () => {
       title: "Expert Team"
     },
     {
-      src: "https://images.unsplash.com/photo-1514043454212-14c181f46583?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.unsplash.com/photo-1489558546780-a69e0b3293e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGRyb25lfGVufDB8fDB8fHww",
       alt: "Professional Expert Team",
       title: "Expert Team"
     },
     {
-      src: "https://images.unsplash.com/photo-1495764506633-93d4dfed7c6b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.unsplash.com/photo-1504881464977-380fd2f91c51?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGRyb25lfGVufDB8fDB8fHww",
       alt: "Fast Delivery Service",
       title: "Fast Delivery"
     },
     {
-      src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
+      src: "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Modern Advanced Technology",
       title: "Advanced Tech"
     },
-    // {
-    //   src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=400&q=80",
-    //   alt: "Customer Satisfaction Guarantee",
-    //   title: "Happy Clients"
-    // },
-    // {
-    //   src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=400&q=80",
-    //   alt: "24/7 Customer Support",
-    //   title: "24/7 Support"
-    // },
-    // {
-    //   src: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=400&q=80",
-    //   alt: "Quality Assurance",
-    //   title: "Quality Control"
-    // },
-    // {
-    //   src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80",
-    //   alt: "Innovative Solutions",
-    //   title: "Innovation"
-    // },
-    // {
-    //   src: "https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?auto=format&fit=crop&w=400&q=80",
-    //   alt: "Global Experience",
-    //   title: "Global Reach"
-    // }
   ];
 
   return (
@@ -213,7 +188,7 @@ const WhyTrustSection = () => {
               </span>{" "}
               {t("about.whyTrust.title2")}
             </h2>
-            <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-4xl mx-auto">
               {t("about.whyTrust.subtitle")}
             </p>
           </motion.div>
@@ -265,10 +240,10 @@ const WhyTrustSection = () => {
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-4">
-                        <h3 className="text-2xl font-bold text-foreground dark:text-white">{point.title}</h3>
+                        <h3 className="text-xl font-bold text-foreground dark:text-white">{point.title}</h3>
                       </div>
-                      <motion.p 
-                        className="text-muted-foreground dark:text-gray-300 leading-relaxed"
+                      <motion.p
+                        className="text-base text-muted-foreground dark:text-gray-300 leading-relaxed"
                         initial={{ opacity: 0.8 }}
                       >
                         {point.description}
