@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroSectionProps {
   image?: string;
@@ -10,6 +11,10 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ image, title }: HeroSectionProps) => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  // Xác định ngôn ngữ hiển thị
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
 
   if (!image) return null;
 
@@ -25,7 +30,7 @@ export const HeroSection = ({ image, title }: HeroSectionProps) => {
             className="text-white hover:bg-white/20 mb-6"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Quay lại
+            {displayLanguage === 'vi' ? 'Quay lại' : 'Back'}
           </Button>
         </div>
       </div>

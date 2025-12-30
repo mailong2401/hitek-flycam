@@ -24,13 +24,11 @@ export default function LanguageSelector() {
       </SelectTrigger>
       <SelectContent align="end" className="min-w-[140px]">
         <SelectItem value="vi" className="flex items-center gap-2">
-          <span className="text-xl">🇻🇳</span>
           <div className="flex flex-col">
             <span className="font-medium">Tiếng Việt</span>
           </div>
         </SelectItem>
         <SelectItem value="en" className="flex items-center gap-2">
-          <span className="text-xl">🇺🇸</span>
           <div className="flex flex-col">
             <span className="font-medium">English</span>
           </div>

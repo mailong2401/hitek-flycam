@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, ExternalLink } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TableOfContentsProps {
   headings: any[];
@@ -12,6 +13,10 @@ interface TableOfContentsProps {
 
 export const TableOfContents = ({ headings, links, activeId, onHeadingClick }: TableOfContentsProps) => {
   const [showLinks, setShowLinks] = useState(false);
+  const { t } = useLanguage();
+
+  // Xác định ngôn ngữ hiển thị
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
 
   if (headings.length === 0 && links.length === 0) return null;
 
@@ -21,7 +26,9 @@ export const TableOfContents = ({ headings, links, activeId, onHeadingClick }: T
       <div className="bg-card rounded-xl shadow-lg p-6 border border-border">
         <div className="flex items-center gap-2 mb-4">
           <Menu className="w-5 h-5 text-primary" />
-          <h3 className="font-bold text-lg text-foreground">Mục lục</h3>
+          <h3 className="font-bold text-lg text-foreground">
+            {displayLanguage === 'vi' ? 'Mục lục' : 'Table of Contents'}
+          </h3>
         </div>
 
         <ScrollArea className="h-[calc(100vh-300px)]">
@@ -50,7 +57,7 @@ export const TableOfContents = ({ headings, links, activeId, onHeadingClick }: T
                 >
                   <span className="flex items-center gap-2">
                     <ExternalLink className="w-4 h-4" />
-                    Liên kết trong bài
+                    {displayLanguage === 'vi' ? 'Liên kết trong bài' : 'Article Links'}
                   </span>
                   <span className="text-xs">({links.length})</span>
                 </button>
@@ -77,7 +84,7 @@ export const TableOfContents = ({ headings, links, activeId, onHeadingClick }: T
 
         <div className="mt-6 pt-4 border-t border-border">
           <p className="text-xs text-muted-foreground">
-            {headings.length} tiêu đề
+            {headings.length} {displayLanguage === 'vi' ? 'tiêu đề' : 'headings'}
           </p>
         </div>
       </div>
@@ -89,7 +96,7 @@ export const TableOfContents = ({ headings, links, activeId, onHeadingClick }: T
         className="mt-4 w-full"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
-        ↑ Đầu trang
+        ↑ {displayLanguage === 'vi' ? 'Đầu trang' : 'Back to top'}
       </Button>
     </div>
   );

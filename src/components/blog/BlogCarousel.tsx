@@ -32,12 +32,15 @@ const BlogCarousel: React.FC<ExtendedBlogCarouselProps> = ({
         {/* Content - CHUYỂN SANG BÊN TRÁI */}
         <div className="absolute top-1/2 left-8 md:left-16 lg:left-24 transform -translate-y-1/2 w-full max-w-2xl px-4">
           <div className="max-w-xl">
-            <BlogContent
-              currentPost={currentPost}
-              currentIndex={currentIndex}
-              blogPostsLength={blogPostsLength}
-            />
-            {/* Render children (BlogControls) here */}
+            {/* Wrapper cho BlogContent với class để target animation */}
+            <div className="blog-content-wrapper">
+              <BlogContent
+                currentPost={currentPost}
+                currentIndex={currentIndex}
+                blogPostsLength={blogPostsLength}
+              />
+            </div>
+            {/* Render children (BlogControls) here - KHÔNG CÓ WRAPPER */}
             {children}
           </div>
         </div>

@@ -1,31 +1,54 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Share2, Bookmark } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ArticleActionsProps {
   post: any;
 }
 
 export const ArticleActions = ({ post }: ArticleActionsProps) => {
+  const { t } = useLanguage();
+
+  // Xác định ngôn ngữ hiển thị
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
+
+  // Format ngày theo ngôn ngữ
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+
+    if (displayLanguage === 'vi') {
+      return date.toLocaleDateString('vi-VN', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    } else {
+      return date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    }
+  };
+
   return (
     <div className="flex items-center justify-between mb-8 py-4 border-y border-border">
       <div className="flex items-center gap-3">
         <Button variant="outline" size="sm">
           <Share2 className="w-4 h-4 mr-2" />
-          Chia sẻ
+          {displayLanguage === 'vi' ? 'Chia sẻ' : 'Share'}
         </Button>
         <Button variant="outline" size="sm">
           <Bookmark className="w-4 h-4 mr-2" />
-          Lưu lại
+          {displayLanguage === 'vi' ? 'Lưu lại' : 'Save'}
         </Button>
       </div>
 
       <div className="text-sm text-muted-foreground">
-        Đăng ngày: {new Date(post.date || post.created_at).toLocaleDateString("vi-VN", {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        })}
+        {displayLanguage === 'vi' ? 'Đăng ngày: ' : 'Published: '}
+        {formatDate(post.date || post.created_at)}
       </div>
     </div>
   );

@@ -17,17 +17,20 @@ interface NewsItem {
 // Static images
 const newsImages = [photo1, photo2, photo3];
 
-// Static metadata (not language dependent)
+// Static metadata (date is static, readTime will be translated in component)
 const newsMetadata = [
-  { id: 1, date: "15/12/2024", readTime: "5 phút đọc" },
-  { id: 2, date: "10/12/2024", readTime: "4 phút đọc" },
-  { id: 3, date: "05/12/2024", readTime: "7 phút đọc" }
+  { id: 1, date: "15/12/2024", readTime: "5" },
+  { id: 2, date: "10/12/2024", readTime: "4" },
+  { id: 3, date: "05/12/2024", readTime: "7" }
 ];
 
 export default function NewsSection() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  // Xác định ngôn ngữ hiển thị
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
 
   // Get news items from translation
   const newsItems = t<NewsItem[]>("home.newsSection.news");
@@ -197,11 +200,11 @@ export default function NewsSection() {
                   </motion.div>
                   
                   {/* Read More Overlay */}
-                  <motion.div 
+                  <motion.div
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <Button className="bg-white text-red-600 hover:bg-white/90 font-semibold px-6 py-3 rounded-full shadow-lg">
-                      Đọc bài viết
+                      {displayLanguage === 'vi' ? 'Đọc bài viết' : 'Read Article'}
                     </Button>
                   </motion.div>
                 </motion.div>
@@ -219,12 +222,12 @@ export default function NewsSection() {
                     </motion.div>
                 
                     
-                    <motion.div 
+                    <motion.div
                       className="flex items-center gap-2"
                       whileHover={{ scale: 1.05 }}
                     >
                       <Clock className="w-4 h-4 text-red-500" />
-                      <span>{newsMetadata[index]?.readTime}</span>
+                      <span>{newsMetadata[index]?.readTime} {displayLanguage === 'vi' ? 'phút đọc' : 'min read'}</span>
                     </motion.div>
                   </div>
                   
@@ -247,19 +250,19 @@ export default function NewsSection() {
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       className="p-0 h-auto text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-300 hover:bg-transparent group/btn"
                     >
                       <span className="flex items-center gap-2 font-semibold">
-                        Đọc tiếp
+                        {displayLanguage === 'vi' ? 'Đọc tiếp' : 'Read More'}
                         <motion.span
                           className="inline-block"
                           animate={{ x: [0, 5, 0] }}
-                          transition={{ 
-                            repeat: Infinity, 
+                          transition={{
+                            repeat: Infinity,
                             duration: 1.5,
-                            repeatDelay: 0.5 
+                            repeatDelay: 0.5
                           }}
                         >
                           →

@@ -109,19 +109,6 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
                 loading="lazy"
               />
               
-              {/* Language badges */}
-              <div className="absolute top-2 left-2 flex gap-1">
-                {hasVI && (
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${displayLanguage === 'vi' ? 'bg-blue-500 text-white' : 'bg-blue-500/50 text-white/90'}`}>
-                    VI
-                  </span>
-                )}
-                {hasEN && (
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${displayLanguage === 'en' ? 'bg-blue-500 text-white' : 'bg-blue-500/50 text-white/90'}`}>
-                    EN
-                  </span>
-                )}
-              </div>
               
               {/* Gradient overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent dark:from-background/95 dark:via-background/80 dark:to-transparent p-3">
