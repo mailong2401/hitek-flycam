@@ -21,7 +21,8 @@ export default function DroneFilming() {
     backgroundImage: fix,
     height: "400px",
     titleSize: "text-6xl",
-    subtitleSize: "text-2xl",
+    subtitleSize: "text-[25px]",
+    overlayOpacity: 0.7,
   };
 
   const featuresData = {
@@ -31,12 +32,14 @@ export default function DroneFilming() {
       icon: [icon1, icon2, icon3, icon4][index],
       title: item.title,
       description: item.description || ""
-    }))
+    })),
+    descriptionSize: "text-[15px]"
   };
 
   const processData = {
     title: t<string>("services.droneFilming.process.title"),
-    processes: t<any[]>("services.droneFilming.process.items")
+    processes: t<any[]>("services.droneFilming.process.items"),
+    titleSize: "text-[22px]"
   };
 
   const benefitsData = {
@@ -47,8 +50,7 @@ export default function DroneFilming() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]",
-    imageClassName: "mt-8"
+    imageHeight: "h-[400px] md:h-[500px]"
   };
 
   const faqData = {

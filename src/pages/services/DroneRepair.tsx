@@ -20,7 +20,8 @@ export default function DroneRepair() {
     backgroundImage: fix,
     height: "400px",
     titleSize: "text-6xl",
-    subtitleSize: "text-2xl",
+    subtitleSize: "text-[28px] leading-[32px]",
+    overlayOpacity: 0.5,
   };
 
   const featuresData = {
@@ -30,7 +31,8 @@ export default function DroneRepair() {
       icon: [icon1, icon2, icon3][index],
       title: item.title,
       description: item.description || ""
-    }))
+    })),
+    descriptionSize: "text-[15px]"
   };
 
   const processData = {
@@ -46,8 +48,7 @@ export default function DroneRepair() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]",
-    imageClassName: "mt-8"
+    imageHeight: "h-[500px] md:h-[600px]"
   };
 
   const faqData = {

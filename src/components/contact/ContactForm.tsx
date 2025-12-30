@@ -92,12 +92,17 @@ const ContactForm = () => {
   };
 
   const validateService = (service: string) => {
-    // Trường service là optional nên không validate bắt buộc
+    if (!service.trim()) {
+      return language === 'vi' ? 'Dịch vụ là bắt buộc' : 'Service is required';
+    }
     return '';
   };
 
   const validateLocation = (location: string) => {
-    if (location && location.length < 3) {
+    if (!location.trim()) {
+      return language === 'vi' ? 'Địa điểm là bắt buộc' : 'Location is required';
+    }
+    if (location.length < 3) {
       return language === 'vi' ? 'Địa điểm phải có ít nhất 3 ký tự' : 'Location must be at least 3 characters';
     }
     return '';
@@ -152,6 +157,8 @@ const ContactForm = () => {
       validateName(formData.name) === '' &&
       validateEmail(formData.email) === '' &&
       validatePhone(formData.phone) === '' &&
+      validateService(formData.service) === '' &&
+      validateLocation(formData.location) === '' &&
       validateMessage(formData.message) === ''
     );
   };

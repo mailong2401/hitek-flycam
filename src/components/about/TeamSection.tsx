@@ -105,34 +105,30 @@ const titleVariants: Variants = {
 
 const TeamSection = () => {
   const { t } = useLanguage();
+
+  // Get info arrays from translation
+  const tienInfo = t<string[]>("about.teamSection.members.tien.info");
+  const khoiInfo = t<string[]>("about.teamSection.members.khoi.info");
+  const seanInfo = t<string[]>("about.teamSection.members.sean.info");
+
   const teamMembers = [
   {
     name: t("about.teamSection.members.tien.name"),
     position: t("about.teamSection.members.tien.position"),
     image: long,
-    info: [
-        t(`about.teamSection.members.tien.info.${0}`),
-        t(`about.teamSection.members.tien.info.${1}`)
-    ]
+    info: tienInfo
   },
   {
     name: t("about.teamSection.members.khoi.name"),
-    position: t("about.teamSection.members.khoi.position"), 
+    position: t("about.teamSection.members.khoi.position"),
     image: khoi,
-    info: [
-      t(`about.teamSection.members.khoi.info.${0}`),
-      t(`about.teamSection.members.khoi.info.${1}`)
-    ]
+    info: khoiInfo
   },
   {
     name: t("about.teamSection.members.sean.name"),
     position: t("about.teamSection.members.sean.position"),
     image: sean,
-    info: [
-        t(`about.teamSection.members.khoi.info.${0}`),
-      t(`about.teamSection.members.khoi.info.${1}`),
-      t(`about.teamSection.members.khoi.info.${2}`)
-    ]
+    info: seanInfo
   }
 ];
 
@@ -140,14 +136,14 @@ const TeamSection = () => {
   return (
     <section className="py-20 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           className="text-4xl font-bold text-center text-foreground mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={titleVariants}
         >
-          Đội ngũ lãnh đạo
+          {t("about.teamSection.title")}
         </motion.h2>
         
         <motion.div 

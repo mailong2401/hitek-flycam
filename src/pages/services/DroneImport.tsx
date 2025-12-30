@@ -21,6 +21,7 @@ export default function DroneImport() {
     height: "400px",
     titleSize: "text-6xl",
     subtitleSize: "text-2xl",
+    overlayOpacity: 0.7,
   };
 
   const featuresData = {
@@ -35,7 +36,8 @@ export default function DroneImport() {
 
   const processData = {
     title: t<string>("services.droneImport.process.title"),
-    processes: t<any[]>("services.droneImport.process.items")
+    processes: t<any[]>("services.droneImport.process.items"),
+    titleSize: "text-[18px]"
   };
 
   const benefitsData = {
@@ -46,8 +48,7 @@ export default function DroneImport() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]",
-    imageClassName: "mt-8"
+    imageHeight: "h-[400px] md:h-[500px]"
   };
 
   const faqData = {

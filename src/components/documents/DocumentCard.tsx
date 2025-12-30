@@ -16,7 +16,45 @@ const DocumentCard = ({ document: doc, onDownload }: DocumentCardProps) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleViewDetails = () => {
-    setShowModal(true);
+    // Download directly without showing modal
+    handleDirectDownload();
+  };
+
+  const handleDirectDownload = () => {
+    if (doc.file_url) {
+      console.log('📥 Direct downloading file:', doc.file_url);
+
+      const link = window.document.createElement('a');
+      link.href = doc.file_url;
+
+      const getExtension = (fileType: string) => {
+        const map: Record<string, string> = {
+          'PDF': '.pdf',
+          'RAR': '.rar',
+          'ZIP': '.zip',
+          'DOCX': '.docx',
+          'XLSX': '.xlsx',
+          'TXT': '.txt'
+        };
+        return map[fileType?.toUpperCase()] || '.pdf';
+      };
+
+      const fileType = doc.file_type || 'PDF';
+      const extension = getExtension(fileType);
+      const fileName = `${doc.title.replace(/[<>:"/\\|?*]+/g, '_')}${extension}`;
+
+      link.download = fileName;
+      link.target = '_blank';
+      window.document.body.appendChild(link);
+      link.click();
+      window.document.body.removeChild(link);
+
+      console.log('✅ File download triggered:', fileName);
+
+      if (onDownload) {
+        onDownload(doc);
+      }
+    }
   };
 
   const handleSubmitInfo = async (userInfo: {

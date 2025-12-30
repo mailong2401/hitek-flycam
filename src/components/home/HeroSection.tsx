@@ -57,7 +57,7 @@ export default function ServicesHero() {
             variants={itemVariants}
             className="mb-10"
           >
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-8 pt-16">
               <div className="relative">
                 <div className="absolute inset-0 rounded-full" />
                 <img

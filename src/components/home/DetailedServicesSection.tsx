@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import tech from '@/assets/services/icon2/tech.png';
 import group from '@/assets/services/icon2/group.png';
 import app from '@/assets/services/icon2/app.png';
@@ -144,12 +145,14 @@ export default function DetailedServicesSection() {
             whileHover={{ scale: 1.05 }}
             className="inline-block"
           >
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              {t<string>("home.servicesPage.detailedServices.cta.learnMore")} {/* FIXED */}
-            </Button>
+            <Link to="/gioi-thieu">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {t<string>("home.servicesPage.detailedServices.cta.learnMore")} {/* FIXED */}
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

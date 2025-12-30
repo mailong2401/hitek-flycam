@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import photo1 from "@/assets/home/project/photo-1.avif";
 import photo2 from "@/assets/home/project/photo-2.avif";
 import photo3 from "@/assets/home/project/photo-3.avif";
@@ -15,8 +16,8 @@ interface Project {
   description: string;
 }
 
-// Static images
-const projectImages = [photo1, photo2, photo3, photo4];
+// Static images - reuse images for 6 projects
+const projectImages = [photo1, photo2, photo3, photo4, photo1, photo2];
 
 export default function FeaturedProjectsSection() {
   const { t } = useLanguage();
@@ -113,7 +114,7 @@ export default function FeaturedProjectsSection() {
             >
               {t<string>("home.featuredProjects.title")}{" "}
               <motion.span 
-                className="text-primary dark:text-red-400 ml-2"
+                className="text-primary dark:text-red-400"
               >
                 {t<string>("home.featuredProjects.highlight")}
               </motion.span>
@@ -151,11 +152,11 @@ export default function FeaturedProjectsSection() {
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {projectsData.map((project: Project, index: number) => (
             <motion.div
@@ -206,13 +207,13 @@ export default function FeaturedProjectsSection() {
                 
                 {/* Content */}
                 <div className="p-6">
-                  <motion.h3 
-                    className="text-xl font-bold text-foreground dark:text-white mb-3 line-clamp-2 group-hover:text-primary dark:group-hover:text-red-400 transition-colors duration-300"
+                  <motion.h3
+                    className="text-lg font-bold text-foreground dark:text-white mb-3 line-clamp-2 min-h-[3.5rem] group-hover:text-primary dark:group-hover:text-red-400 transition-colors duration-300"
                   >
                     {project.title}
                   </motion.h3>
-                  <motion.p 
-                    className="text-muted-foreground dark:text-gray-300 mb-4 line-clamp-2"
+                  <motion.p
+                    className="text-sm text-muted-foreground dark:text-gray-300 mb-4 line-clamp-2 min-h-[2.5rem]"
                   >
                     {project.description}
                   </motion.p>
@@ -275,26 +276,28 @@ export default function FeaturedProjectsSection() {
             whileTap={{ scale: 0.95 }}
             className="inline-block"
           >
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-            >
-              <span className="flex items-center gap-3">
-                {t<string>("home.featuredProjects.cta.submitProject")}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ 
-                    repeat: Infinity, 
-                    duration: 2, 
-                    ease: "linear",
-                    repeatDelay: 3 
-                  }}
-                  className="group-hover:rotate-90 transition-transform duration-300"
-                >
-                  <ArrowRight className="w-5 h-5" />
-                </motion.div>
-              </span>
-            </Button>
+            <Link to="/lien-he">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <span className="flex items-center gap-3">
+                  {t<string>("home.featuredProjects.cta.submitProject")}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2,
+                      ease: "linear",
+                      repeatDelay: 3
+                    }}
+                    className="group-hover:rotate-90 transition-transform duration-300"
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.div>
+                </span>
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

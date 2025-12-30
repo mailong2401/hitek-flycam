@@ -49,7 +49,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
     },
     {
       icon: PhoneCall,
-      name: t<string>("contact.info.social.viber"),
+      name: t<string>("contact.info.social.whatsapp"),
       url: "https://t.me/hitekflycam",
       color: "bg-blue-400 hover:bg-blue-500"
     },

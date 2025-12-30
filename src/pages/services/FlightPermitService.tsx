@@ -23,6 +23,7 @@ export default function FlightPermitService() {
     titleSize: "text-6xl",
     subtitleSize: "text-2xl",
     imageClassName: "w-full h-full object-cover object-[50%_60%]",
+    overlayOpacity: 0.7,
   };
 
   const featuresData = {
@@ -37,7 +38,8 @@ export default function FlightPermitService() {
 
   const processData = {
     title: t<string>("services.flightPermitService.process.title"),
-    processes: t<any[]>("services.flightPermitService.process.items")
+    processes: t<any[]>("services.flightPermitService.process.items"),
+    titleSize: "text-[19px]"
   };
 
   const benefitsData = {
@@ -48,8 +50,7 @@ export default function FlightPermitService() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]",
-    imageClassName: "mt-8"
+    imageHeight: "h-[400px] md:h-[500px]"
   };
 
   const faqData = {

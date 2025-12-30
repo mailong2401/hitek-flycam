@@ -13,7 +13,7 @@ export const ArticleTitleAndExcerpt = ({ title, excerpt }: ArticleTitleAndExcerp
       </h1>
 
       {excerpt && (
-        <div className="text-xl text-muted-foreground mb-8 italic border-l-4 border-primary pl-4 py-2 bg-primary/10">
+        <div className="text-xl text-muted-foreground mb-8 italic border-l-4 border-primary px-4 py-4 bg-primary/10">
           {excerpt}
         </div>
       )}

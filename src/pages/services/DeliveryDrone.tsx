@@ -20,7 +20,7 @@ export default function DeliveryDrone() {
     backgroundImage: fix,
     height: "400px",
     titleSize: "text-6xl",
-    subtitleSize: "text-2xl",
+    overlayOpacity: 0.7,
   };
 
   const featuresData = {
@@ -35,7 +35,8 @@ export default function DeliveryDrone() {
 
   const processData = {
     title: t<string>("services.deliveryDrone.process.title"),
-    processes: t<any[]>("services.deliveryDrone.process.items")
+    processes: t<any[]>("services.deliveryDrone.process.items"),
+    titleSize: "text-[24px]"
   };
 
   const benefitsData = {
@@ -46,8 +47,7 @@ export default function DeliveryDrone() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]",
-    imageClassName: "mt-8"
+    imageHeight: "h-[400px] md:h-[500px]"
   };
 
   const faqData = {

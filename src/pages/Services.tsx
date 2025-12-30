@@ -61,7 +61,7 @@ export default function Services() {
               variants={itemVariants}
               className="mb-10"
             >
-              <div className="flex flex-col items-center gap-8">
+              <div className="flex flex-col items-center gap-8 pt-16">
                 <div className="relative">
                   <div className="absolute inset-0 rounded-full" />
                   <img
@@ -86,7 +86,7 @@ export default function Services() {
                 <span className="text-black">{t("servicesPage.title.part1" as any)} </span>
                 <span className="text-vibrant-red">{t("servicesPage.title.highlight" as any)}</span>
               </h1>
-              <p className="text-lg text-gray-700">{t("servicesPage.description" as any)}</p>
+              <p className="text-[19px] leading-[28px] text-gray-700">{t("servicesPage.description" as any)}</p>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@
       "deliveryDrone": "Drone vận chuyển",
       "flightPermit": "Dịch vụ phép bay",
       "droneImport": "Nhập khẩu drone",
-      "droneFilming": "Quay phim bằng drone"
+      "droneFilming": "Quay flycam"
     },
     "document": "Tài liệu",
     "contact": "Liên hệ",
@@ -84,24 +84,34 @@
       },
       "projects": [
         {
+          "title": "Sửa chữa và bảo dưỡng drone DJI Phantom 4 Pro",
+          "category": "Sửa chữa Drone",
+          "description": "Thay thế gimbal, sửa chữa camera và nâng cấp firmware cho drone"
+        },
+        {
           "title": "Khảo sát địa hình dự án cao tốc Bắc - Nam",
-          "category": "Trắc địa & Khảo sát",
+          "category": "Drone Trắc địa",
           "description": "Sử dụng drone DJI Matrice 350 RTK thu thập dữ liệu địa hình với độ chính xác cm"
         },
         {
+          "title": "Vận chuyển y tế khẩn cấp vùng núi cao",
+          "category": "Drone Vận chuyển",
+          "description": "Vận chuyển thuốc và thiết bị y tế đến vùng sâu vùng xa bằng drone"
+        },
+        {
+          "title": "Cấp giấy phép bay cho dự án khảo sát địa chất",
+          "category": "Dịch vụ Phép bay",
+          "description": "Hỗ trợ thủ tục và cấp phép bay drone cho dự án khảo sát chuyên nghiệp"
+        },
+        {
+          "title": "Nhập khẩu drone DJI Mavic 3 Enterprise",
+          "category": "Nhập khẩu Drone",
+          "description": "Nhập khẩu chính hãng drone DJI với đầy đủ giấy tờ hải quan và bảo hành"
+        },
+        {
           "title": "Quay phim quảng cáo resort 5 sao",
-          "category": "Quay Phim & Media",
+          "category": "Quay Flycam",
           "description": "Sản xuất video marketing chất lượng 8K với drone DJI Inspire 3"
-        },
-        {
-          "title": "Giám sát thi công dự án điện gió",
-          "category": "Giám sát & Bảo trì",
-          "description": "Giám sát tiến độ và an toàn thi công bằng drone tự động hóa"
-        },
-        {
-          "title": "Vận chuyển y tế khẩn cấp",
-          "category": "Vận chuyển & Logistics",
-          "description": "Vận chuyển thuốc và thiết bị y tế đến vùng sâu vùng xa"
         }
       ]
     },
@@ -229,6 +239,10 @@
         "droneImport": {
           "name": "Nhập Khẩu Drone",
           "detail": "Dịch vụ nhập khẩu drone chính hãng, thủ tục hải quan, kiểm định và đăng ký thiết bị trọn gói."
+        },
+        "droneFilming": {
+          "name": "Quay Flycam",
+          "detail": "Dịch vụ quay phim, chụp ảnh trên không chuyên nghiệp bằng flycam, phục vụ quảng cáo, truyền thông và sự kiện."
         }
       }
     },
@@ -254,7 +268,7 @@
         "description": "Nhập khẩu drone chính hãng"
       },
       {
-        "title": "Quay Phim Drone",
+        "title": "Quay Flycam",
         "description": "Quay phim chuyên nghiệp"
       }
     ]
@@ -275,7 +289,7 @@
         "highlight": "Hitek Flycam"
       },
       "paragraphs": [
-        "Hitek Flycam là thương hiệu chuyên về giải pháp Drone ứng dụng đa ngành, được phát triển từ nền tảng công nghệ, nhân lực và kinh nghiệm của Hitek Drone – đơn vị tiên phong trong lĩnh vực Drone Light Show và công nghệ trình diễn trên không tại Việt Nam.",
+        "là thương hiệu chuyên về giải pháp Drone ứng dụng đa ngành, được phát triển từ nền tảng công nghệ, nhân lực và kinh nghiệm của Hitek Drone – đơn vị tiên phong trong lĩnh vực Drone Light Show và công nghệ trình diễn trên không tại Việt Nam.",
         "Thuộc Hitek Group JSC, Hitek Flycam mở rộng sứ mệnh của Hitek Drone sang các lĩnh vực kỹ thuật, khảo sát, logistics và dịch vụ công nghiệp, với mục tiêu đưa công nghệ bay vào phục vụ các lĩnh vực khác như đời sống, sản xuất và quản lý thông minh."
       ]
     },
@@ -334,8 +348,11 @@
           "name": "Lâm Thứ Tiên",
           "position": "Chủ tịch",
           "info": [
-            "Hơn 10 năm kinh nghiệm lãnh đạo và điều hành doanh nghiệp.",
-            "Nền tảng vững chắc trong lĩnh vực kinh doanh và phát triển công nghệ."
+            "Sáng lập và là Chủ tịch HĐQT Công ty cổ phần Đầu tư công nghệ số Rồng Việt (Rovi Group).",
+            "Cổ đông sáng lập và Thành viên HĐQT Công ty cổ phần Công nghệ Mọi Người Cùng Vui.",
+            "Từng đảm nhận vị trí Tổng giám đốc Công ty cổ phần đầu tư Thengroup.",
+            "Từng đảm nhận vị trí Giám đốc thương mại Công ty TNHH Dịch vụ Mọi Người Cùng Vui.",
+            "Từng là nhà sáng lập và điều hành chuỗi hệ thống Điện thoại bình dân (2012)."
           ]
         },
         "khoi": {
@@ -350,9 +367,11 @@
           "name": "Oh Sean Beom",
           "position": "Giám đốc Kinh doanh",
           "info": [
-            "Hơn 10 năm kinh nghiệm phát triển công nghệ.",
-            "Năng lực lãnh đạo mạnh mẽ.",
-            "Quản lý các dự án xuyên biên giới: Nhật Bản, Hàn Quốc, Việt Nam và châu Âu."
+            "Hơn 10 năm kinh nghiệm phát triển mobile app/web.",
+            "Hơn 5 năm kinh nghiệm quản lý team, leadership.",
+            "Đảm nhận trách nhiệm chính trong quản lý tiến độ, lên kế hoạch về timeline, budget, nhân sự.",
+            "Quản lý team nước ngoài từ xa, lên kế hoạch phát triển bản thân cho nhân viên, quản lý khối lượng công việc, tổ chức các tài liệu kĩ thuật, phát triển dự án.",
+            "Kinh nghiệm làm việc trong môi trường quốc tế: Nhật Bản, Việt Nam, Hàn Quốc, Châu Âu."
           ]
         }
       }
@@ -461,8 +480,8 @@
         "subtitle": "Hitek Flycam mang đến dịch vụ quay phim, chụp ảnh trên không bằng drone chuyên nghiệp, phục vụ quảng cáo, truyền thông, sự kiện và du lịch."
       },
       "features": {
-        "title": "Giải pháp logistics",
-        "highlightedText": " thế hệ mới",
+        "title": "Hạng mục",
+        "highlightedText": " dịch vụ",
         "items": [
           {
             "title": "Quay TVC & quảng cáo doanh nghiệp",
@@ -513,7 +532,7 @@
         "items": [
           {
             "parts": [
-              "Mang lại hình ảnh",
+              "Mang lại hình ảnh ",
               { "text": "thương hiệu ", "bold": true },
               "mạnh mẽ, chuyên nghiệp."
             ]
@@ -569,8 +588,8 @@
         "subtitle": "Giải pháp nhập khẩu, phân phối và tư vấn lựa chọn thiết bị drone công nghiệp, giúp doanh nghiệp sở hữu thiết bị hợp pháp, chính hãng, tối ưu cho từng lĩnh vực sử dụng."
       },
       "features": {
-        "title": "Giải pháp logistics",
-        "highlightedText": " thế hệ mới",
+        "title": "Phạm vi",
+        "highlightedText": " dịch vụ",
         "items": [
           {
             "title": "Tư vấn lựa chọn drone: phù hợp mục đích khảo sát, quay phim, logistics, hoặc nông nghiệp."
@@ -680,19 +699,19 @@
         "items": [
           {
             "step": "01",
-            "title": "Tiếp nhận yêu cầu và chẩn đoán sơ bộ thông qua hình ảnh/video hoặc dữ liệu lỗi do khách hàng cung cấp"
+            "title": "Tiếp nhận yêu cầu và chẩn đoán sơ bộ thông qua hình ảnh/video hoặc dữ liệu lỗi do khách hàng cung cấp."
           },
           {
             "step": "02",
-            "title": "Kiểm tra thực tế tại workshop hoặc hiện trường: phân tích lỗi, thiết lập kế hoạch sửa chữa"
+            "title": "Kiểm tra thực tế tại workshop hoặc hiện trường: phân tích lỗi, thiết lập kế hoạch sửa chữa."
           },
           {
             "step": "03",
-            "title": "Thực hiện thay linh kiện, nâng cấp phần mềm, hiệu chuẩn cảm biến theo tiêu chuẩn kỹ thuật"
+            "title": "Thực hiện thay linh kiện, nâng cấp phần mềm, hiệu chuẩn cảm biến theo tiêu chuẩn kỹ thuật."
           },
           {
             "step": "04",
-            "title": "Thử bay kiểm định (nếu cần) hoặc kiểm tra hệ thống kết nối dữ liệu & truyền hình ảnh, ghi lại báo cáo"
+            "title": "Thử bay kiểm định (nếu cần) hoặc kiểm tra hệ thống kết nối dữ liệu & truyền hình ảnh, ghi lại báo cáo."
           },
           {
             "step": "05",
@@ -1040,7 +1059,7 @@
         "facebook": "Facebook",
         "linkedin": "LinkedIn",
         "youtube": "YouTube",
-        "viber": "Viber",
+        "whatsapp": "Whatsapp",
         "instagram": "Instagram"
       },
       "map": {
@@ -1076,7 +1095,7 @@
         "deliveryDrone": "Drone Vận chuyển",
         "flightPermit": "Dịch vụ Phép bay",
         "droneImport": "Nhập khẩu Drone",
-        "droneFilming": "Quay flycam"
+        "droneFilming": "Quay Flycam"
       }
     },
     "policy": {

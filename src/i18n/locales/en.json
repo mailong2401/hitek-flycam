@@ -10,7 +10,7 @@
       "deliveryDrone": "Delivery Drone",
       "flightPermit": "Flight Permit Service",
       "droneImport": "Drone Import",
-      "droneFilming": "Drone Filming"
+      "droneFilming": "Flycam Filming"
     },
     "document": "Documents",
     "contact": "Contact",
@@ -84,24 +84,34 @@
       },
       "projects": [
         {
+          "title": "Repair and Maintenance of DJI Phantom 4 Pro Drone",
+          "category": "Drone Repair",
+          "description": "Gimbal replacement, camera repair and firmware upgrade for drone"
+        },
+        {
           "title": "Topographic Survey of North-South Expressway Project",
-          "category": "Surveying & Mapping",
+          "category": "Surveying Drone",
           "description": "Using DJI Matrice 350 RTK drone to collect topographic data with centimeter accuracy"
         },
         {
+          "title": "Emergency Medical Delivery to Mountain Areas",
+          "category": "Delivery Drone",
+          "description": "Delivering medicine and medical equipment to remote areas by drone"
+        },
+        {
+          "title": "Flight Permit Issuance for Geological Survey Project",
+          "category": "Flight Permit Service",
+          "description": "Support procedures and flight permits for professional survey projects"
+        },
+        {
+          "title": "Import of DJI Mavic 3 Enterprise Drone",
+          "category": "Drone Import",
+          "description": "Official import of DJI drone with full customs documentation and warranty"
+        },
+        {
           "title": "5-Star Resort Advertising Filming",
-          "category": "Filming & Media",
+          "category": "Flycam Filming",
           "description": "Producing 8K quality marketing videos with DJI Inspire 3 drone"
-        },
-        {
-          "title": "Wind Power Project Construction Supervision",
-          "category": "Supervision & Maintenance",
-          "description": "Monitoring construction progress and safety using automated drones"
-        },
-        {
-          "title": "Emergency Medical Delivery",
-          "category": "Transport & Logistics",
-          "description": "Delivering medicine and medical equipment to remote areas"
         }
       ]
     },
@@ -229,6 +239,10 @@
         "droneImport": {
           "name": "Drone Import",
           "detail": "Genuine drone import service, customs procedures, inspection and complete device registration."
+        },
+        "droneFilming": {
+          "name": "Flycam Filming",
+          "detail": "Professional aerial filming and photography services using flycam for advertising, media and events."
         }
       }
     },
@@ -254,7 +268,7 @@
         "description": "Genuine drone import"
       },
       {
-        "title": "Drone Filming",
+        "title": "Flycam Filming",
         "description": "Professional filming"
       }
     ]
@@ -275,7 +289,7 @@
         "highlight": "Hitek Flycam"
       },
       "paragraphs": [
-        "Hitek Flycam is a brand specializing in multi-industry Drone solutions, developed from the technology platform, human resources, and experience of Hitek Drone - the pioneer in Drone Light Show and aerial performance technology in Vietnam.",
+        "is a brand specializing in multi-industry Drone solutions, developed from the technology platform, human resources, and experience of Hitek Drone - the pioneer in Drone Light Show and aerial performance technology in Vietnam.",
         "As part of Hitek Group JSC, Hitek Flycam expands Hitek Drone's mission to technical fields, surveying, logistics and industrial services, with the goal of bringing flying technology to serve other areas such as daily life, production, and smart management."
       ]
     },
@@ -334,8 +348,11 @@
           "name": "Lam Thu Tien",
           "position": "Chairman",
           "info": [
-            "Over 10 years of leadership and business management experience.",
-            "Strong foundation in business and technology development."
+            "Founder and Chairman of the Board of Directors at Rong Viet Digital Technology Investment JSC (Rovi Group).",
+            "Founding shareholder and Member of the Board of Directors at Everyone Happy Technology JSC.",
+            "Former General Director at Thengroup Investment JSC.",
+            "Former Commercial Director at Everyone Happy Service LLC.",
+            "Former founder and operator of the Popular Phone chain system (2012)."
           ]
         },
         "khoi": {
@@ -350,9 +367,11 @@
           "name": "Oh Sean Beom",
           "position": "Business Director",
           "info": [
-            "Over 10 years of technology development experience.",
-            "Strong leadership capabilities.",
-            "Managing cross-border projects: Japan, Korea, Vietnam and Europe."
+            "Over 10 years of experience in mobile app/web development.",
+            "Over 5 years of team management and leadership experience.",
+            "Primary responsibility for managing progress, planning timelines, budgets, and personnel.",
+            "Remotely managing international teams, planning employee development, managing workload, organizing technical documentation, and developing projects.",
+            "International work experience: Japan, Vietnam, Korea, and Europe."
           ]
         }
       }
@@ -678,19 +697,19 @@
         "items": [
           {
             "step": "01",
-            "title": "Receive request and preliminary diagnosis via customer-provided images/videos or error data"
+            "title": "Receive request and preliminary diagnosis via customer-provided images/videos or error data."
           },
           {
             "step": "02",
-            "title": "On-site inspection at workshop or field: fault analysis, repair plan establishment"
+            "title": "On-site inspection at workshop or field: fault analysis, repair plan establishment."
           },
           {
             "step": "03",
-            "title": "Execute component replacement, software upgrades, sensor calibration to technical standards"
+            "title": "Execute component replacement, software upgrades, sensor calibration to technical standards."
           },
           {
             "step": "04",
-            "title": "Test flight verification (if needed) or system connection & image transmission testing, report recording"
+            "title": "Test flight verification (if needed) or system connection & image transmission testing, report recording."
           },
           {
             "step": "05",
@@ -1038,7 +1057,7 @@
         "facebook": "Facebook",
         "linkedin": "LinkedIn",
         "youtube": "YouTube",
-        "viber": "Viber",
+        "whatsapp": "Whatsapp",
         "instagram": "Instagram"
       },
       "map": {

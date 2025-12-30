@@ -13,6 +13,8 @@ interface FeaturesSectionProps {
   backgroundColor?: string;
   cardBackground?: string;
   highlightColor?: string;
+  titleSize?: string;
+  descriptionSize?: string;
 }
 
 export default function FeaturesSection({
@@ -22,6 +24,8 @@ export default function FeaturesSection({
   backgroundColor = "bg-secondary",
   cardBackground = "bg-card",
   highlightColor = "text-vibrant-red",
+  titleSize = "text-xl",
+  descriptionSize = "text-base",
 }: FeaturesSectionProps) {
   const featureCount = features.length;
   const gridColumns = featureCount <= 4 ? featureCount : 4;
@@ -35,26 +39,26 @@ export default function FeaturesSection({
             {highlightedText && <span className={highlightColor}> {highlightedText}</span>}
           </h2>
         </div>
-        <div 
+        <div
           className="grid gap-8"
           style={{ gridTemplateColumns: `repeat(${gridColumns}, 1fr)` }}
         >
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`${cardBackground} rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border`}
+              className={`${cardBackground} rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border flex flex-col`}
             >
               <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <img 
-                  src={feature.icon} 
+                <img
+                  src={feature.icon}
                   alt={feature.title}
                   className="w-20 h-20 object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-foreground">
+              <h3 className={`${titleSize} font-bold mb-4 text-foreground min-h-[6rem] flex items-center justify-center line-clamp-3`}>
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className={`${descriptionSize} text-muted-foreground leading-relaxed line-clamp-4 flex-1 flex items-center justify-center`}>
                 {feature.description}
               </p>
             </div>

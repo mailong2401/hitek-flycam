@@ -143,7 +143,7 @@ export default function IntroSection() {
             
             <div>
               <motion.h2 
-                className="text-4xl font-bold text-foreground dark:text-foreground mb-4"
+                className="text-[40px] leading-[40px] font-bold text-foreground dark:text-foreground mb-4"
                 variants={textVariants}
               >
                 {t<string>("home.servicesPage.servicesIntro.left.title")}

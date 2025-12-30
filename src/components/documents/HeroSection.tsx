@@ -48,7 +48,7 @@ const HeroSection = () => {
             className="max-w-6xl mx-auto text-center"
           >
             <motion.div variants={itemVariants} className="flex justify-center">
-              <div className="relative">
+              <div className="relative pt-7">
                 <img
                   src={Lg_flycam}
                   alt="Hitek Flycam Logo"
@@ -80,7 +80,7 @@ const HeroSection = () => {
 
               <motion.div variants={itemVariants}>
                 <p className="text-sm md:text-lg text-black max-w-2xl mx-auto">
-                  Brochure, portfolio và tài liệu kỹ thuật chính thức của Hitek Flycam – đơn vị<br/>
+                  Brochure, portfolio và tài liệu kỹ thuật chính thức của Hitek Flycam <br />– đơn vị 
                   cung cấp giải pháp drone chuyên nghiệp hàng đầu Việt Nam.
                 </p>
               </motion.div>

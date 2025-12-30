@@ -131,7 +131,7 @@ const ContactFormFields = ({
       {/* Name */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
-          {t<string>("contact.form.fields.name.label")}
+          {t<string>("contact.form.fields.name.label")} <span className="text-red-500">*</span>
         </label>
         <Input
           name="name"
@@ -179,7 +179,7 @@ const ContactFormFields = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            {t<string>("contact.form.fields.email.label")}
+            {t<string>("contact.form.fields.email.label")} <span className="text-red-500">*</span>
           </label>
           <Input
             name="email"
@@ -197,7 +197,7 @@ const ContactFormFields = ({
         
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            {t<string>("contact.form.fields.phone.label")}
+            {t<string>("contact.form.fields.phone.label")} <span className="text-red-500">*</span>
           </label>
           <Input
             name="phone"
@@ -218,13 +218,14 @@ const ContactFormFields = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            {t<string>("contact.form.fields.service.label")}
+            {t<string>("contact.form.fields.service.label")} <span className="text-red-500">*</span>
           </label>
           <select
             name="service"
             value={formData.service}
             onChange={handleSelectChange}
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            required
+            className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${errors.service ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
           >
             {serviceOptions.map(option => (
               <option key={option.value} value={option.value}>
@@ -239,13 +240,14 @@ const ContactFormFields = ({
         
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            {t<string>("contact.form.fields.location.label")}
+            {t<string>("contact.form.fields.location.label")} <span className="text-red-500">*</span>
           </label>
           <Input
             name="location"
             placeholder={t<string>("contact.form.fields.location.placeholder")}
             value={formData.location}
             onChange={handleChangeWithValidation}
+            required
             className={`placeholder:text-gray-400 ${errors.location ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
             maxLength={100}
           />
@@ -263,7 +265,7 @@ const ContactFormFields = ({
       {/* Message */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-2">
-          {t<string>("contact.form.fields.message.label")}
+          {t<string>("contact.form.fields.message.label")} <span className="text-red-500">*</span>
         </label>
         <Textarea
           name="message"

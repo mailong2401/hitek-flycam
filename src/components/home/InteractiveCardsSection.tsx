@@ -5,6 +5,7 @@ import image2 from "@/assets/bg_cut/flycam2.jpg";
 import image3 from "@/assets/bg_cut/flycam3.jpg";
 import image4 from "@/assets/bg_cut/flycam4.jpg";
 import image5 from "@/assets/bg_cut/flycam5.jpg";
+import image6 from "@/assets/bg_cut/flycam6.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const serviceRoutes = {
@@ -13,6 +14,7 @@ const serviceRoutes = {
   delivery: "/services/delivery-drone",
   flightPermit: "/services/flight-permit-service",
   droneImport: "/services/drone-import",
+  droneFilming: "/services/drone-filming",
 };
 
 // Cấu trúc cards để map với dữ liệu trong vi.json
@@ -46,12 +48,19 @@ const serviceCards = [
     namePath: "home.servicesCards.cards.flightPermit.name",
     detailPath: "home.servicesCards.cards.flightPermit.detail"
   },
-  { 
-    key: "droneImport", 
-    title: "05", 
+  {
+    key: "droneImport",
+    title: "05",
     image: image5,
     namePath: "home.servicesCards.cards.droneImport.name",
     detailPath: "home.servicesCards.cards.droneImport.detail"
+  },
+  {
+    key: "droneFilming",
+    title: "06",
+    image: image6,
+    namePath: "home.servicesCards.cards.droneFilming.name",
+    detailPath: "home.servicesCards.cards.droneFilming.detail"
   },
 ] as const;
 
@@ -73,7 +82,7 @@ export default function InteractiveCardsSection({ showTitle = true }: Interactiv
           </h2>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-1">
           {serviceCards.map((card) => (
             <div
               key={card.key}
@@ -100,10 +109,10 @@ export default function InteractiveCardsSection({ showTitle = true }: Interactiv
                   group-hover:opacity-0 group-hover:translate-y-4"
               >
                 <div>
-                  <h3 className="text-pure-white font-bold text-6xl mb-3">
+                  <h3 className="text-pure-white font-bold text-6xl mb-3 h-[4.5rem] flex items-center">
                     {card.title}
                   </h3>
-                  <p className="text-pure-white text-2xl font-bold mb-4">
+                  <p className="text-pure-white text-2xl font-bold mb-4 line-clamp-2 h-[4rem] flex items-center">
                     {t<string>(card.namePath)}
                   </p>
                   <div className="w-10 h-10 border border-gray-300 rounded-sm flex items-center justify-center">
@@ -133,10 +142,10 @@ export default function InteractiveCardsSection({ showTitle = true }: Interactiv
               >
                 <div className="relative z-10 space-y-4">
                   <div>
-                    <h3 className="text-pure-white font-bold text-6xl mb-3">
+                    <h3 className="text-pure-white font-bold text-6xl mb-3 h-[4.5rem] flex items-center">
                       {card.title}
                     </h3>
-                    <p className="text-pure-white text-2xl font-bold mb-2">
+                    <p className="text-pure-white text-2xl font-bold mb-2 line-clamp-2 h-[4rem] flex items-center">
                       {t<string>(card.namePath)}
                     </p>
                     <p className="text-pure-white text-sm mb-6 leading-relaxed">

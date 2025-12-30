@@ -11,6 +11,7 @@ interface ProcessTimelineProps {
   stepColor?: string;
   backgroundColor?: string;
   titleColor?: string;
+  titleSize?: string;
 }
 
 export default function ProcessTimeline({
@@ -21,6 +22,7 @@ export default function ProcessTimeline({
   stepColor = "from-primary to-primary/80",
   backgroundColor = "bg-background",
   titleColor = "text-primary",
+  titleSize = "text-xl",
 }: ProcessTimelineProps) {
   return (
     <section className={`py-16 md:py-20 ${backgroundColor}`}>
@@ -69,7 +71,7 @@ export default function ProcessTimeline({
                       {/* Content (Mobile) */}
                       <div className="flex-1">
                         <div className="bg-card dark:bg-gray-800/80 rounded-xl p-5 shadow-sm border border-border dark:border-gray-700">
-                          <h3 className="text-lg font-semibold text-foreground dark:text-white leading-relaxed">
+                          <h3 className={`${titleSize} font-semibold text-foreground dark:text-white leading-relaxed`}>
                             {process.title}
                           </h3>
                         </div>
@@ -81,7 +83,7 @@ export default function ProcessTimeline({
                       {isEven && (
                         <div className="w-full max-w-md">
                           <div className="bg-card dark:bg-gray-800/80 rounded-xl p-6 shadow-sm border border-border dark:border-gray-700">
-                            <h3 className="text-lg font-semibold text-foreground dark:text-white leading-relaxed">
+                            <h3 className={`${titleSize} font-semibold text-foreground dark:text-white leading-relaxed`}>
                               {process.title}
                             </h3>
                           </div>
@@ -100,7 +102,7 @@ export default function ProcessTimeline({
                       {!isEven && (
                         <div className="w-full max-w-md">
                           <div className="bg-card dark:bg-gray-800/80 rounded-xl p-6 shadow-sm border border-border dark:border-gray-700">
-                            <h3 className="text-lg font-semibold text-foreground dark:text-white leading-relaxed">
+                            <h3 className={`${titleSize} font-semibold text-foreground dark:text-white leading-relaxed`}>
                               {process.title}
                             </h3>
                           </div>
@@ -128,7 +130,7 @@ export default function ProcessTimeline({
                       
                       {/* Content */}
                       <div className="bg-card dark:bg-gray-800/80 rounded-xl p-5 shadow-sm border border-border dark:border-gray-700">
-                        <h3 className="text-base font-semibold text-foreground dark:text-white leading-relaxed">
+                        <h3 className={`${titleSize} font-semibold text-foreground dark:text-white leading-relaxed`}>
                           {process.title}
                         </h3>
                       </div>

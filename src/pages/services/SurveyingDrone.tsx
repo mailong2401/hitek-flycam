@@ -20,7 +20,7 @@ export default function SurveyingDrone() {
     backgroundImage: fix,
     height: "400px",
     titleSize: "text-6xl",
-    subtitleSize: "text-2xl",
+    subtitleSize: "text-[25px] leading-[32px]",
   };
 
   const featuresData = {
@@ -46,8 +46,7 @@ export default function SurveyingDrone() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]",
-    imageClassName: "mt-8"
+    imageHeight: "h-[400px] md:h-[500px]"
   };
 
   const faqData = {
