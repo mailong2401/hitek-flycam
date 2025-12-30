@@ -223,7 +223,15 @@ export default function Blog() {
   const handleViewDetails = (postId: string, e?: React.MouseEvent) => {
     if (e) e.preventDefault();
     const post = blogPosts.find(p => p.id === postId);
-    navigate(`/blog/${postId}`);
+    if (post) {
+      // Sử dụng slug theo ngôn ngữ hiện tại
+      const slug = displayLanguage === 'vi'
+        ? (post.slug_vi || post.slug_en || post.slug || post.id)
+        : (post.slug_en || post.slug_vi || post.slug || post.id);
+      navigate(`/blog/${slug}`);
+    } else {
+      navigate(`/blog/${postId}`);
+    }
   };
 
   // Lấy các bài viết cho thumbnail

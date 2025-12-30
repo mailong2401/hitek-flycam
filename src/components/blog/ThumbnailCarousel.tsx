@@ -50,11 +50,14 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
   const handleThumbnailClick = (post: any, originalIndex: number, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     if (isAnimating) return;
-    
+
     // Sử dụng slug theo ngôn ngữ hiện tại
-    navigate(`/blog/${post.id}`);
+    const slug = displayLanguage === 'vi'
+      ? (post.slug_vi || post.slug_en || post.slug || post.id)
+      : (post.slug_en || post.slug_vi || post.slug || post.id);
+    navigate(`/blog/${slug}`);
   };
 
   // Kiểm tra xem bài viết có bản tiếng Anh không

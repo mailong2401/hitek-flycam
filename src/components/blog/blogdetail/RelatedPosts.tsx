@@ -41,12 +41,18 @@ export const RelatedPosts = ({ relatedPosts }: RelatedPostsProps) => {
         {displayLanguage === 'vi' ? 'Bài viết liên quan' : 'Related Posts'}
       </h2>
       <div className="grid md:grid-cols-3 gap-6">
-        {relatedPosts.map((related) => (
-          <div
-            key={related.id}
-            className="bg-card rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer border border-border"
-            onClick={() => navigate(`/blog/${related.id}`)}
-          >
+        {relatedPosts.map((related) => {
+          // Lấy slug theo ngôn ngữ
+          const slug = displayLanguage === 'vi'
+            ? (related.slug_vi || related.slug_en || related.currentSlug || related.id)
+            : (related.slug_en || related.slug_vi || related.currentSlug || related.id);
+
+          return (
+            <div
+              key={related.id}
+              className="bg-card rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer border border-border"
+              onClick={() => navigate(`/blog/${slug}`)}
+            >
             {related.image && (
               <img src={related.image} alt={related.title} className="w-full h-48 object-cover" />
             )}
@@ -57,7 +63,8 @@ export const RelatedPosts = ({ relatedPosts }: RelatedPostsProps) => {
               <h3 className="font-bold line-clamp-2 text-foreground">{related.title}</h3>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

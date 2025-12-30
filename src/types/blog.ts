@@ -29,6 +29,16 @@ export interface EnhancedBlogPost extends BlogPost {
   excerpt: string;
   updated_at: string;
   comments: number;
+  slug_vi?: string;
+  slug_en?: string;
+  title_vi?: string;
+  title_en?: string;
+  excerpt_vi?: string;
+  excerpt_en?: string;
+  content_vi?: string;
+  content_en?: string;
+  hasEnglish?: boolean;
+  hasVietnamese?: boolean;
 }
 
 export interface BlogFilters {

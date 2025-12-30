@@ -24,7 +24,7 @@ import { TableOfContents } from "@/components/blog/blogdetail/TableOfContents";
 
 export default function BlogDetail() {
   const { t, language } = useLanguage(); // Sử dụng useLanguage
-  const { id, slug } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -112,7 +112,7 @@ export default function BlogDetail() {
 
   useEffect(() => {
     loadPost();
-  }, [id, slug, displayLanguage]);
+  }, [slug, displayLanguage]);
 
   useEffect(() => {
     if (post) {
@@ -123,7 +123,7 @@ export default function BlogDetail() {
   const loadPost = async () => {
     try {
       let query = supabase.from("blog_posts").select("*");
-      
+
       // Tìm bài viết theo slug phù hợp với ngôn ngữ hiện tại
       if (slug) {
         if (displayLanguage === 'vi') {
@@ -131,8 +131,6 @@ export default function BlogDetail() {
         } else {
           query = query.or(`slug_en.eq.${slug},slug_vi.eq.${slug}`);
         }
-      } else if (id) {
-        query = query.eq("id", id);
       } else {
         setPost(null);
         setLoading(false);

@@ -159,7 +159,11 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
   };
 
   const handleViewDetails = (post: EnhancedBlogPost) => {
-    navigate(`/blog/${post.id}`);
+    // Sử dụng slug theo ngôn ngữ hiện tại
+    const slug = displayLanguage === 'vi'
+      ? (post.slug_vi || post.slug_en || post.slug || post.id)
+      : (post.slug_en || post.slug_vi || post.slug || post.id);
+    navigate(`/blog/${slug}`);
   };
 
   // Tính toán dữ liệu phân trang
