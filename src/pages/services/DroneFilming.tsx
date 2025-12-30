@@ -11,7 +11,7 @@ import icon1 from "@/assets/services/video/icon1.png";
 import icon2 from "@/assets/services/video/icon2.png";
 import icon3 from "@/assets/services/video/icon3.png";
 import icon4 from "@/assets/services/video/icon4.png";
-
+import dronefilming from "@/assets/services/dronefilming/dronefilming.avif";
 export default function DroneFilming() {
   const { t } = useLanguage();
 
@@ -40,13 +40,15 @@ export default function DroneFilming() {
   };
 
   const benefitsData = {
-    imageUrl: "https://victory.com.vn/wp-content/uploads/2022/12/mavic-3m-nong-nghiep-5.png",
+    imageUrl: dronefilming,
     title: t<string>("services.droneFilming.benefits.title"),
     highlightedText: t<string>("services.droneFilming.benefits.highlightedText"),
     benefits: t<any[]>("services.droneFilming.benefits.items").map(item => ({
       icon: CheckCircle,
       parts: item.parts
-    }))
+    })),
+    imageHeight: "h-[400px] md:h-[500px]",
+    imageClassName: "mt-8"
   };
 
   const faqData = {

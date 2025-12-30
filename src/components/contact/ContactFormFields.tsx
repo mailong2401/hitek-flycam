@@ -133,13 +133,13 @@ const ContactFormFields = ({
         <label className="block text-sm font-medium text-foreground mb-2">
           {t<string>("contact.form.fields.name.label")}
         </label>
-        <Input 
+        <Input
           name="name"
-          placeholder={t<string>("contact.form.fields.name.placeholder")} 
+          placeholder={t<string>("contact.form.fields.name.placeholder")}
           value={formData.name}
           onChange={handleChangeWithValidation}
           required
-          className={errors.name ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
+          className={`placeholder:text-gray-400 ${errors.name ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
           maxLength={50}
         />
         <div className="flex justify-between items-center">
@@ -157,12 +157,12 @@ const ContactFormFields = ({
         <label className="block text-sm font-medium text-foreground mb-2">
           {t<string>("contact.form.fields.company.label")}
         </label>
-        <Input 
+        <Input
           name="company"
-          placeholder={t<string>("contact.form.fields.company.placeholder")} 
+          placeholder={t<string>("contact.form.fields.company.placeholder")}
           value={formData.company}
           onChange={handleChangeWithValidation}
-          className={errors.company ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
+          className={`placeholder:text-gray-400 ${errors.company ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
           maxLength={100}
         />
         <div className="flex justify-between items-center">
@@ -181,14 +181,14 @@ const ContactFormFields = ({
           <label className="block text-sm font-medium text-foreground mb-2">
             {t<string>("contact.form.fields.email.label")}
           </label>
-          <Input 
+          <Input
             name="email"
-            type="email" 
-            placeholder={t<string>("contact.form.fields.email.placeholder")} 
+            type="email"
+            placeholder={t<string>("contact.form.fields.email.placeholder")}
             value={formData.email}
             onChange={handleChangeWithValidation}
             required
-            className={errors.email ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
+            className={`placeholder:text-gray-400 ${errors.email ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email}</p>
@@ -199,14 +199,14 @@ const ContactFormFields = ({
           <label className="block text-sm font-medium text-foreground mb-2">
             {t<string>("contact.form.fields.phone.label")}
           </label>
-          <Input 
+          <Input
             name="phone"
-            type="tel" 
-            placeholder={t<string>("contact.form.fields.phone.placeholder")} 
+            type="tel"
+            placeholder={t<string>("contact.form.fields.phone.placeholder")}
             value={formData.phone}
             onChange={handleChangeWithValidation}
             required
-            className={errors.phone ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
+            className={`placeholder:text-gray-400 ${errors.phone ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
           />
           {errors.phone && (
             <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
@@ -241,12 +241,12 @@ const ContactFormFields = ({
           <label className="block text-sm font-medium text-foreground mb-2">
             {t<string>("contact.form.fields.location.label")}
           </label>
-          <Input 
+          <Input
             name="location"
-            placeholder={t<string>("contact.form.fields.location.placeholder")} 
+            placeholder={t<string>("contact.form.fields.location.placeholder")}
             value={formData.location}
             onChange={handleChangeWithValidation}
-            className={errors.location ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
+            className={`placeholder:text-gray-400 ${errors.location ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
             maxLength={100}
           />
           <div className="flex justify-between items-center">
@@ -272,7 +272,7 @@ const ContactFormFields = ({
           value={formData.message}
           onChange={handleChangeWithValidation}
           required
-          className={errors.message ? 'border-red-500 focus-visible:ring-red-500' : 'placeholder:text-gray-400'}
+          className={`placeholder:text-gray-400 ${errors.message ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
           maxLength={1000}
         />
         <div className="flex justify-between items-center">

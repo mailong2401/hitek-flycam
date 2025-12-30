@@ -22,6 +22,8 @@ interface BenefitsSectionProps {
   highlightColor?: string;
   iconColor?: string;
   subtitle?: string;
+  imageHeight?: string;
+  imageClassName?: string;
 }
 
 export default function BenefitsSection({
@@ -35,6 +37,8 @@ export default function BenefitsSection({
   highlightColor = "text-primary",
   iconColor = "bg-primary",
   subtitle,
+  imageHeight,
+  imageClassName,
 }: BenefitsSectionProps) {
   const isImageLeft = imagePosition === 'left';
 
@@ -58,11 +62,11 @@ export default function BenefitsSection({
         <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${isImageLeft ? '' : 'lg:flex-row-reverse'}`}>
           {/* Left Column - Image */}
           <div className="lg:w-1/2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border dark:border-gray-700">
+            <div className={`relative rounded-2xl overflow-hidden shadow-2xl border border-border dark:border-gray-700 ${imageClassName || ''}`}>
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="w-full h-auto object-cover rounded-2xl"
+                className={`w-full object-cover rounded-2xl ${imageHeight || 'h-auto'}`}
               />
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />

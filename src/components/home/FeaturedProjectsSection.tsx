@@ -23,6 +23,9 @@ export default function FeaturedProjectsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
+  // Xác định ngôn ngữ hiển thị
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
+
   // Get projects data from translation
   const projectsData = t<Project[]>("home.featuredProjects.projects");
   
@@ -192,11 +195,11 @@ export default function FeaturedProjectsSection() {
                   </motion.div>
                   
                   {/* View Button on Hover */}
-                  <motion.div 
+                  <motion.div
                     className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <Button className="bg-white text-primary hover:bg-white/90 font-semibold px-6 py-3 rounded-full shadow-lg">
-                      Xem chi tiết
+                      {displayLanguage === 'vi' ? 'Xem chi tiết' : 'View Details'}
                     </Button>
                   </motion.div>
                 </motion.div>
@@ -217,19 +220,19 @@ export default function FeaturedProjectsSection() {
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       className="p-0 h-auto text-primary dark:text-red-400 hover:text-primary/80 dark:hover:text-red-300 hover:bg-transparent group/btn"
                     >
                       <span className="flex items-center gap-2">
-                        Xem chi tiết
+                        {displayLanguage === 'vi' ? 'Xem chi tiết' : 'View Details'}
                         <motion.span
                           className="inline-block"
                           animate={{ x: [0, 5, 0] }}
-                          transition={{ 
-                            repeat: Infinity, 
+                          transition={{
+                            repeat: Infinity,
                             duration: 1.5,
-                            repeatDelay: 0.5 
+                            repeatDelay: 0.5
                           }}
                         >
                           →
@@ -274,7 +277,7 @@ export default function FeaturedProjectsSection() {
           >
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white font-bold py-6 px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <span className="flex items-center gap-3">
                 {t<string>("home.featuredProjects.cta.submitProject")}

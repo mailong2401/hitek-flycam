@@ -6,11 +6,11 @@ import FAQSection from "@/components/subService/FAQSection";
 import { CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-import fix from "@/assets/services/importing_drone/bg.jpg";
+import fix from "@/assets/services/importing_drone/bg.png";
 import icon1 from "@/assets/services/delivery_drone/icon1.png";
 import icon2 from "@/assets/services/delivery_drone/icon2.png";
 import icon3 from "@/assets/services/delivery_drone/icon3.png";
-
+import droneimport from "@/assets/services/importing_drone/droneimport.png";
 export default function DroneImport() {
   const { t } = useLanguage();
 
@@ -39,13 +39,15 @@ export default function DroneImport() {
   };
 
   const benefitsData = {
-    imageUrl: "https://victory.com.vn/wp-content/uploads/2022/12/mavic-3m-nong-nghiep-5.png",
+    imageUrl: droneimport,
     title: t<string>("services.droneImport.benefits.title"),
     highlightedText: t<string>("services.droneImport.benefits.highlightedText"),
     benefits: t<any[]>("services.droneImport.benefits.items").map(item => ({
       icon: CheckCircle,
       parts: item.parts
-    }))
+    })),
+    imageHeight: "h-[400px] md:h-[500px]",
+    imageClassName: "mt-8"
   };
 
   const faqData = {

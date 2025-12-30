@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Share2, Bookmark, Clock, User, Tag, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ArticleHeaderProps {
   post: any;
@@ -14,6 +15,49 @@ interface ArticleHeaderProps {
 
 export const ArticleHeader = ({ post, readTime, viewCount, hasImage }: ArticleHeaderProps) => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  // Xác định ngôn ngữ hiển thị
+  const displayLanguage = t("lang") === 'vi' ? 'vi' : 'en';
+
+  // Dịch category
+  const translateCategory = (category: string) => {
+    const translations: Record<string, { vi: string, en: string }> = {
+      'Tin tức': { vi: 'Tin tức', en: 'News' },
+      'Hướng dẫn': { vi: 'Hướng dẫn', en: 'Tutorial' },
+      'Review': { vi: 'Review', en: 'Review' },
+      'Công nghệ': { vi: 'Công nghệ', en: 'Technology' },
+      'Sản phẩm': { vi: 'Sản phẩm', en: 'Products' },
+      'Pháp lý': { vi: 'Pháp lý', en: 'Legal' },
+      'Nhiếp ảnh': { vi: 'Nhiếp ảnh', en: 'Photography' },
+      'Bảo trì': { vi: 'Bảo trì', en: 'Maintenance' },
+    };
+
+    if (category && translations[category]) {
+      return displayLanguage === 'vi' ? translations[category].vi : translations[category].en;
+    }
+    return category || (displayLanguage === 'vi' ? 'Tin tức' : 'News');
+  };
+
+  // Format ngày theo ngôn ngữ
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+
+    if (displayLanguage === 'vi') {
+      return date.toLocaleDateString('vi-VN', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    } else {
+      return date.toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    }
+  };
 
   return (
     <>
@@ -21,7 +65,7 @@ export const ArticleHeader = ({ post, readTime, viewCount, hasImage }: ArticleHe
         <div className="mb-8">
           <Button variant="ghost" onClick={() => navigate("/blog")} className="mb-6">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Quay lại
+            {displayLanguage === 'vi' ? 'Quay lại' : 'Back'}
           </Button>
         </div>
       )}
@@ -29,19 +73,19 @@ export const ArticleHeader = ({ post, readTime, viewCount, hasImage }: ArticleHe
       <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-muted-foreground">
         <Badge variant="outline" className="flex items-center gap-1">
           <Tag className="w-3 h-3" />
-          {post.category}
+          {translateCategory(post.category)}
         </Badge>
         <div className="flex items-center gap-1">
           <User className="w-4 h-4" />
-          <span className="font-medium">{post.author}</span>
+          <span className="font-medium">{post.author || (displayLanguage === 'vi' ? 'Admin' : 'Admin')}</span>
         </div>
         <div className="flex items-center gap-1">
           <Clock className="w-4 h-4" />
-          <span>{readTime} phút đọc</span>
+          <span>{readTime} {displayLanguage === 'vi' ? 'phút đọc' : 'min read'}</span>
         </div>
         <div className="flex items-center gap-1">
           <Eye className="w-4 h-4" />
-          <span>{viewCount} lượt xem</span>
+          <span>{viewCount} {displayLanguage === 'vi' ? 'lượt xem' : 'views'}</span>
         </div>
       </div>
 
@@ -59,19 +103,16 @@ export const ArticleHeader = ({ post, readTime, viewCount, hasImage }: ArticleHe
         <div className="flex items-center gap-3">
           <Button variant="outline" size="sm">
             <Share2 className="w-4 h-4 mr-2" />
-            Chia sẻ
+            {displayLanguage === 'vi' ? 'Chia sẻ' : 'Share'}
           </Button>
           <Button variant="outline" size="sm">
             <Bookmark className="w-4 h-4 mr-2" />
-            Lưu lại
+            {displayLanguage === 'vi' ? 'Lưu lại' : 'Save'}
           </Button>
         </div>
         <div className="text-sm text-muted-foreground">
-          Đăng ngày: {new Date(post.date || post.created_at).toLocaleDateString("vi-VN", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
+          {displayLanguage === 'vi' ? 'Đăng ngày: ' : 'Published: '}
+          {formatDate(post.date || post.created_at)}
         </div>
       </div>
 

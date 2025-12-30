@@ -1,5 +1,5 @@
 // components/contact/ContactInfo.tsx
-import { Phone, Mail, MapPin, Facebook, Linkedin, Youtube, Send, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Linkedin, Youtube, Instagram, PhoneCall } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ContactInfoProps {
@@ -48,8 +48,8 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
       color: "bg-red-500 hover:bg-red-600"
     },
     {
-      icon: Send,
-      name: t<string>("contact.info.social.telegram"),
+      icon: PhoneCall,
+      name: t<string>("contact.info.social.viber"),
       url: "https://t.me/hitekflycam",
       color: "bg-blue-400 hover:bg-blue-500"
     },

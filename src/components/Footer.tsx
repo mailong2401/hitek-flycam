@@ -1,95 +1,89 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Youtube, Linkedin } from "lucide-react";
+import facebook from '@/assets/footer/facebook-app-symbol.png'
+import linkedin from '@/assets/footer/linkedin-big-logo.png'
+import telegram from '@/assets/footer/telegram.png'
+import whatsapp from '@/assets/footer/whatsapp.png'
+import youtube from '@/assets/footer/youtube.png'
+import logo from '@/assets/logo/Hitek-Flycam-Logo-5.png'
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-warm-gray text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-lg">
-                DS
-              </div>
-              <span className="font-bold text-lg">Drone Services</span>
-            </div>
-            <p className="text-white/70 text-sm mb-4">
-              Chuyên cung cấp dịch vụ drone chuyên nghiệp, sửa chữa và nhập khẩu thiết bị bay không người lái.
-            </p>
-            <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Linkedin className="w-4 h-4" />
-              </a>
+            <div className="mb-6">
+              <img 
+                src={logo} 
+                alt="Hitek Flycam Logo" 
+                className="w-32 h-auto object-contain" // Đặt kích thước cố định cho logo
+              />
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Thông tin liên hệ</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/gioi-thieu" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Hitek Flycam
-                  <div>Hotline: (+84) 28 99 95 95 88</div>
-                  <div>Email: contact@hitek.com.vn</div>
-                </Link>
+            <h3 className="font-bold text-lg mb-4">{t("footer.contact.title" as any)}</h3>
+            <ul className="space-y-3">
+              <li className="leading-tight">
+                <div className="text-white/70 text-sm">
+                  <div className="font-medium mb-1">{t("footer.contact.company.name" as any)}</div>
+                  <div className="text-white/60">{t("footer.contact.company.hotline" as any)}</div>
+                  <div className="text-white/60">{t("footer.contact.company.email" as any)}</div>
+                </div>
               </li>
-              <li>
-                <Link to="/gioi-thieu" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Chief Executive Officer (Mr. Khôi)
-                  <div>Hotline: (+84) 777 50 50 30</div>
-                  <div>Email: khoitran@hitek.com.vn</div>
-                </Link>
+              <li className="leading-tight">
+                <div className="text-white/70 text-sm">
+                  <div className="font-medium mb-1">{t("footer.contact.ceo.title" as any)}</div>
+                  <div className="text-white/60">{t("footer.contact.ceo.hotline" as any)}</div>
+                  <div className="text-white/60">{t("footer.contact.ceo.email" as any)}</div>
+                </div>
               </li>
-              <li>
-                <Link to="/gioi-thieu" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  General Manager (Ms. Trang)
-                  <div>Hotline: (+84) 346 124 230</div>
-                  <div>Email: trangvo@hitek.com.vn</div>
-                </Link>
+              <li className="leading-tight">
+                <div className="text-white/70 text-sm">
+                  <div className="font-medium mb-1">{t("footer.contact.manager.title" as any)}</div>
+                  <div className="text-white/60">{t("footer.contact.manager.hotline" as any)}</div>
+                  <div className="text-white/60">{t("footer.contact.manager.email" as any)}</div>
+                </div>
               </li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Dịch vụ</h3>
+            <h3 className="font-bold text-lg mb-4">{t("footer.services.title" as any)}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/dich-vu/sua-chua-drone" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Sửa chữa Drone
+                <Link to="/services/drone-repair" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.services.items.droneRepair" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/drone-trac-dia" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Drone Trắc địa
+                <Link to="/services/surveying-drone" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.services.items.surveyingDrone" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/drone-van-chuyen" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Drone Vận chuyển
+                <Link to="/services/delivery-drone" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.services.items.deliveryDrone" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/phep-bay" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Dịch vụ Phép bay
+                <Link to="/services/flight-permit-service" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.services.items.flightPermit" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Nhập khẩu Drone
+                <Link to="/services/drone-import" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.services.items.droneImport" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Quay flycam
+                <Link to="/services/drone-filming" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.services.items.droneFilming" as any)}
                 </Link>
               </li>
             </ul>
@@ -97,36 +91,26 @@ export default function Footer() {
 
           {/* Policy */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Điều khoản</h3>
+            <h3 className="font-bold text-lg mb-4">{t("footer.policy.title" as any)}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/dich-vu/sua-chua-drone" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Điều khoản chung
+                <Link to="/dieu-khoan-chung" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.policy.items.general" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/drone-trac-dia" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Chính sách bảo mật
+                <Link to="/chinh-sach-bao-mat" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.policy.items.privacy" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/drone-van-chuyen" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Chính sách an toàn bay
+                <Link to="/chinh-sach-an-toan-bay" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.policy.items.flightSafety" as any)}
                 </Link>
               </li>
               <li>
-                <Link to="/dich-vu/phep-bay" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Điều khoản xin phép bay
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Nhập khẩu Drone
-                </Link>
-              </li>
-              <li>
-                <Link to="/dich-vu/nhap-khau" className="text-white/70 hover:text-primary transition-colors text-sm">
-                  Quay flycam
+                <Link to="/dieu-khoan-xin-phep-bay" className="text-white/70 hover:text-primary transition-colors text-sm block py-1">
+                  {t("footer.policy.items.flightPermit" as any)}
                 </Link>
               </li>
             </ul>
@@ -134,18 +118,42 @@ export default function Footer() {
           
           {/* Connect with us */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="font-bold text-lg">Kết nối với chúng tôi</span>
-            </div>
-            <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Facebook className="w-4 h-4" />
+            <h3 className="font-bold text-lg mb-4">{t("footer.connect.title" as any)}</h3>
+            <div className="flex gap-3 mb-6">
+              <a href="#" className=" flex items-center justify-center">
+                <img 
+                  src={facebook} 
+                  alt="Facebook" 
+                  className="w-full h-full object-contain"
+                />
               </a>
-              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Youtube className="w-4 h-4" />
+              <a href="#" className=" flex items-center justify-center">
+                <img 
+                  src={whatsapp} 
+                  alt="WhatsApp" 
+                  className="w-full h-full object-contain"
+                />
               </a>
-              <a href="#" className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-                <Linkedin className="w-4 h-4" />
+              <a href="#" className=" flex items-center justify-center">
+                <img 
+                  src={youtube} 
+                  alt="YouTube" 
+                  className="w-full h-full object-contain"
+                />
+              </a>
+              <a href="#" className=" flex items-center justify-center">
+                <img 
+                  src={linkedin} 
+                  alt="LinkedIn" 
+                  className="w-full h-full object-contain"
+                />
+              </a>
+              <a href="#" className=" flex items-center justify-center">
+                <img 
+                  src={telegram} 
+                  alt="Telegram" 
+                  className="w-full h-full object-contain"
+                />
               </a>
             </div>
           </div>
@@ -153,7 +161,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/50">
-          <p>© 2024 Drone Services. All rights reserved.</p>
+          <p>{t("footer.copyright" as any)}</p>
         </div>
       </div>
     </footer>

@@ -9,6 +9,7 @@ interface HeroBannerProps {
   height?: string;
   titleSize?: string;
   subtitleSize?: string;
+  imageClassName?: string;
 }
 
 export default function HeroBanner({
@@ -20,6 +21,7 @@ export default function HeroBanner({
   height = "400px",
   titleSize = "text-6xl",
   subtitleSize = "text-2xl",
+  imageClassName,
 }: HeroBannerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [imageStyle, setImageStyle] = useState({});
@@ -29,25 +31,31 @@ export default function HeroBanner({
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
         const containerHeight = parseInt(height);
-        
+
         // Tính toán để ảnh có chiều cao chính xác bằng container
         // và chiều rộng đủ để cover, crop phần thừa
-        setImageStyle({
+        // Nếu có imageClassName thì không set objectPosition để className có thể override
+        const style: any = {
           width: "100%",
           height: `${containerHeight}px`,
-          objectFit: "cover",
-          objectPosition: "center center"
-        });
+        };
+
+        if (!imageClassName) {
+          style.objectFit = "cover";
+          style.objectPosition = "center center";
+        }
+
+        setImageStyle(style);
       }
     };
 
     updateImageStyle();
     window.addEventListener("resize", updateImageStyle);
-    
+
     return () => {
       window.removeEventListener("resize", updateImageStyle);
     };
-  }, [height]);
+  }, [height, imageClassName]);
 
   return (
     <div className="pt-20">
@@ -71,7 +79,7 @@ export default function HeroBanner({
             src={backgroundImage}
             alt={title}
             style={imageStyle}
-            className="w-full"
+            className={imageClassName || "w-full"}
             loading="eager"
           />
         </div>

@@ -13,8 +13,7 @@ import {
   getFallbackImage,
   getDefaultPosts,
   calculateReadTime,
-  generateSlug,
-  createThumbnailClone
+  generateSlug
 } from "@/components/blog";
 
 export default function Blog() {
@@ -23,8 +22,6 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextPostId, setNextPostId] = useState<string | null>(null);
-  const [prevPostId, setPrevPostId] = useState<string | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
   
   const navigate = useNavigate();
@@ -56,15 +53,6 @@ export default function Blog() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Cập nhật next/prev post ID
-  useEffect(() => {
-    if (blogPosts.length > 0) {
-      const nextIndex = (currentIndex + 1) % blogPosts.length;
-      const prevIndex = currentIndex === 0 ? blogPosts.length - 1 : currentIndex - 1;
-      setNextPostId(blogPosts[nextIndex]?.id || null);
-      setPrevPostId(blogPosts[prevIndex]?.id || null);
-    }
-  }, [currentIndex, blogPosts]);
 
   const fetchBlogPosts = async () => {
     try {
@@ -159,101 +147,69 @@ export default function Blog() {
   // Hàm chuyển slide với hiệu ứng
   const showSlider = (type: 'next' | 'prev') => {
     if (isAnimating || blogPosts.length <= 1) return;
-    
-    setIsAnimating(true);
 
-    const targetPostId = type === 'next' ? nextPostId : prevPostId;
-    if (!targetPostId) return;
+    setIsAnimating(true);
 
     // Vô hiệu hóa nút khi đang animate
     if (nextBtnRef.current) nextBtnRef.current.disabled = true;
     if (prevBtnRef.current) prevBtnRef.current.disabled = true;
 
-    if (type === 'next') {
-      const thumbnailClone = createThumbnailClone(thumbnailContainerRef, targetPostId, false);
-      
-      if (thumbnailClone && backgroundImageRef.current) {
-        const bgRect = backgroundImageRef.current.getBoundingClientRect();
-        
-        requestAnimationFrame(() => {
-          thumbnailClone.style.left = `${bgRect.left}px`;
-          thumbnailClone.style.top = `${bgRect.top}px`;
-          thumbnailClone.style.width = `${bgRect.width}px`;
-          thumbnailClone.style.height = `${bgRect.height}px`;
-          thumbnailClone.style.borderRadius = '0';
-        });
-        
-        setTimeout(() => {
-          setCurrentIndex(prev => (prev + 1) % blogPosts.length);
-        }, 300);
-        
-        setTimeout(() => {
-          thumbnailClone.remove();
-          setIsAnimating(false);
-          if (nextBtnRef.current) nextBtnRef.current.disabled = false;
-          if (prevBtnRef.current) prevBtnRef.current.disabled = false;
-        }, 600);
-      } else {
-        setCurrentIndex(prev => (prev + 1) % blogPosts.length);
-        setTimeout(() => setIsAnimating(false), 300);
-      }
-    } else {
-      if (!backgroundImageRef.current) return;
-      
-      const bgRect = backgroundImageRef.current.getBoundingClientRect();
-      const currentPost = blogPosts[currentIndex];
-      
-      const bgClone = document.createElement('div');
-      bgClone.style.position = 'fixed';
-      bgClone.style.left = `${bgRect.left}px`;
-      bgClone.style.top = `${bgRect.top}px`;
-      bgClone.style.width = `${bgRect.width}px`;
-      bgClone.style.height = `${bgRect.height}px`;
-      bgClone.style.backgroundImage = `url(${currentPost.image || getFallbackImage(currentIndex)})`;
-      bgClone.style.backgroundSize = 'cover';
-      bgClone.style.backgroundPosition = 'center';
-      bgClone.style.zIndex = '1000';
-      bgClone.style.pointerEvents = 'none';
-      bgClone.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      bgClone.style.borderRadius = '0';
-      document.body.appendChild(bgClone);
-      
-      const thumbnailClone = createThumbnailClone(thumbnailContainerRef, '', true);
-      
-      if (thumbnailClone) {
-        const thumbnailRect = thumbnailClone.getBoundingClientRect();
-        const newIndex = currentIndex === 0 ? blogPosts.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-        
-        requestAnimationFrame(() => {
-          bgClone.style.left = `${thumbnailRect.left}px`;
-          bgClone.style.top = `${thumbnailRect.top}px`;
-          bgClone.style.width = `${thumbnailRect.width}px`;
-          bgClone.style.height = `${thumbnailRect.height}px`;
-          bgClone.style.borderRadius = '12px';
-          
-          if (backgroundImageRef.current) {
-            backgroundImageRef.current.style.opacity = '0';
-          }
-        });
-        
-        setTimeout(() => {
-          bgClone.remove();
-          thumbnailClone.remove();
-          
-          if (backgroundImageRef.current) {
-            backgroundImageRef.current.style.opacity = '1';
-          }
-          
-          setIsAnimating(false);
-          if (nextBtnRef.current) nextBtnRef.current.disabled = false;
-          if (prevBtnRef.current) prevBtnRef.current.disabled = false;
-        }, 600);
-      } else {
-        setCurrentIndex(prev => prev === 0 ? blogPosts.length - 1 : prev - 1);
-        setTimeout(() => setIsAnimating(false), 300);
-      }
+    // Xác định index mới
+    const newIndex = type === 'next'
+      ? (currentIndex + 1) % blogPosts.length
+      : currentIndex === 0 ? blogPosts.length - 1 : currentIndex - 1;
+
+    // Lấy các phần tử cần làm mờ - CHỈ ẢNH VÀ BLOG CONTENT, KHÔNG LÀM MỜ CONTROLS
+    const carouselImage = backgroundImageRef.current;
+    const blogContentWrapper = carouselRef.current?.querySelector('.blog-content-wrapper');
+
+    // Bắt đầu làm mờ nội dung - KHÔNG CẦN OVERLAY
+    if (carouselImage) {
+      carouselImage.style.opacity = '0';
+      carouselImage.style.transition = 'opacity 0.3s ease-in-out';
     }
+
+    if (blogContentWrapper) {
+      (blogContentWrapper as HTMLElement).style.opacity = '0';
+      (blogContentWrapper as HTMLElement).style.transform = 'scale(0.98)';
+      (blogContentWrapper as HTMLElement).style.transition = 'all 0.3s ease-in-out';
+    }
+
+    // Sau khi fade out hoàn tất, thay đổi nội dung
+    setTimeout(() => {
+      // Thay đổi currentIndex
+      setCurrentIndex(newIndex);
+
+      // Chờ một chút để nội dung mới được render, sau đó fade in
+      requestAnimationFrame(() => {
+        // Phục hồi ảnh background
+        if (carouselImage) {
+          carouselImage.style.opacity = '1';
+        }
+
+        // Phục hồi nội dung blog
+        if (blogContentWrapper) {
+          (blogContentWrapper as HTMLElement).style.opacity = '1';
+          (blogContentWrapper as HTMLElement).style.transform = 'scale(1)';
+        }
+      });
+
+      // Kết thúc animation và reset styles
+      setTimeout(() => {
+        // Reset styles
+        if (carouselImage) {
+          carouselImage.style.transition = '';
+        }
+
+        if (blogContentWrapper) {
+          (blogContentWrapper as HTMLElement).style.transition = '';
+        }
+
+        setIsAnimating(false);
+        if (nextBtnRef.current) nextBtnRef.current.disabled = false;
+        if (prevBtnRef.current) prevBtnRef.current.disabled = false;
+      }, 400);
+    }, 300);
   };
 
   // Xử lý click thumbnail

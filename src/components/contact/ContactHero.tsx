@@ -46,12 +46,13 @@ const ContactHero = () => {
         </span>
       </motion.h1>
       
-      <motion.p 
+      <motion.div
         variants={itemVariants}
         className="text-lg md:text-xl text-muted-foreground"
       >
-        {t<string>("contact.hero.description")}
-      </motion.p>
+        <p>{t<string>("contact.hero.description.line1")}</p>
+        <p>{t<string>("contact.hero.description.line2")}</p>
+      </motion.div>
 
       {/* Decorative elements */}
       <motion.div

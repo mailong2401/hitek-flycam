@@ -54,7 +54,7 @@ export default function DocumentsPage() {
     <div className="min-h-screen bg-gradient-to-b from-background via-gray-50/50 to-background dark:from-gray-900 dark:via-gray-900/50 dark:to-gray-900">
       <HeroSection />
       
-      <section className="min-h-screen py-20">
+      <section className="min-h-screen py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="pb-20">
             <DocumentGrid

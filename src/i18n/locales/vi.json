@@ -5,7 +5,7 @@
     "about": "Giới thiệu",
     "services": {
       "title": "Dịch vụ",
-      "droneRepair": "Sửa chửa drone",
+      "droneRepair": "Sửa chữa drone",
       "surveyingDrone": "Drone trắc địa",
       "deliveryDrone": "Drone vận chuyển",
       "flightPermit": "Dịch vụ phép bay",
@@ -17,6 +17,13 @@
     "blog": "Blog"
   },
   "linkText": "Tìm hiểu thêm",
+  "servicesPage": {
+    "title": {
+      "part1": "Giải pháp của",
+      "highlight": "Hitek Flycam"
+    },
+    "description": "Chúng tôi cung cấp toàn diện về các dịch vụ về Drone, mỗi giải pháp đều được triển khai dựa trên nền tảng công nghệ hiện đại, quy trình an toàn và đội ngũ kĩ thuật chuyên nghiệp"
+  },
   "home": {
     "hero": {
       "title": {
@@ -73,7 +80,7 @@
       "viewAllProjects": "Xem tất cả dự án",
       "cta": {
         "projectInquiry": "Bạn có dự án cần tư vấn? Liên hệ ngay với chúng tôi",
-        "submitProject": "Để lại thông tin dự án"
+        "submitProject": "Liên hệ ngay"
       },
       "projects": [
         {
@@ -276,19 +283,19 @@
       "title1": "Tại sao",
       "title2": "là đơn vị đáng tin cậy?",
       "highlightedTitle": "Hitek Flycam",
-      "subtitle": "Khám phá những lý do khiến chúng tôi trở thành đối tác hàng đầu trong lĩnh vực giải pháp Drone tại Việt Nam",
+      "subtitle": "Khám phá những lý do khiến chúng tôi trở thành đối tác hàng đầu trong lĩnh vực Drone tại Việt Nam",
       "points": [
         {
-          "title": "Năng lực",
-          "description": "Kế thừa nền tảng Hitek Drone với đội ngũ chuyên nghiệp – thiết bị hiện đại và quy trình chuẩn quốc tế"
+          "title": "Năng lực vượt trội",
+          "description": "Kế thừa nền tảng Hitek Drone với đội ngũ chuyên nghiệp, thiết bị hiện đại và quy trình chuẩn quốc tế"
         },
         {
-          "title": "An toàn",
+          "title": "An toàn tuyệt đối",
           "description": "Tất cả chuyến bay đều được cấp phép, bảo hiểm và giám sát chặt chẽ theo quy chuẩn quốc gia"
         },
         {
-          "title": "Chất lượng",
-          "description": "Cam kết hiệu quả, ổn định và chính xác trong mọi dự án – từ giai đoạn ý tưởng đến triển khai thực tế"
+          "title": "Chất lượng đảm bảo",
+          "description": "Cam kết hiệu quả, ổn định và chính xác trong mọi dự án từ giai đoạn ý tưởng đến triển khai"
         }
       ]
     },
@@ -318,11 +325,7 @@
         "– nơi công nghệ bay được tôn vinh bằng nghệ thuật,",
         "Hitek Flycam",
         "tiếp tục hành trình đó bằng công nghệ, dữ liệu và hiệu quả thực tế."
-      ],
-      "author": {
-        "name": "— Đội ngũ Hitek Flycam —",
-        "subtitle": "Sứ mệnh & Tầm nhìn"
-      }
+      ]
     },
     "teamSection": {
       "title": "Đội ngũ lãnh đạo",
@@ -434,20 +437,20 @@
         "title": "Câu hỏi thường gặp",
         "items": [
           {
-            "question": "Ứng dụng phổ biến của drone vận chuyển là gì?",
-            "answer": "chưa có"
+            "question": "Ứng dụng phổ biến của drone logistics là gì?",
+            "answer": "Vận chuyển nội khu, giao hàng mẫu, linh kiện, hoặc cấp cứu nhanh trong vùng khó tiếp cận."
           },
           {
             "question": "Drone vận chuyển có thể mang tải trọng bao nhiêu?",
-            "answer": "chưa có"
+            "answer": "Tùy thiết bị - từ khoảng 5kg đến 30kg hoặc hơn, phù hợp với nhu cầu nội khu kho, công nghiệp và nông nghiệp."
           },
           {
             "question": "Hệ thống điều hướng có an toàn không?",
-            "answer": "chưa có"
+            "answer": "Tất cả drone đều dùng GPS kết hợp AI tránh vật cản, đảm bảo an toàn và chính xác cao."
           },
           {
             "question": "Điều kiện vận hành trong thời tiết xấu như thế nào?",
-            "answer": "chưa có"
+            "answer": "Thiết bị đạt tiêu chuẩn IP54 trở lên – hoạt động trong gió cấp 4-5 hoặc mưa nhẹ, cần kiểm tra cụ thể mỗi dự án."
           }
         ]
       }
@@ -543,19 +546,19 @@
         "items": [
           {
             "question": "Có cần xin phép bay trước khi quay phim không?",
-            "answer": "chưa có"
+            "answer": "Có - mọi hoạt động quay thương mại đều được chúng tôi hỗ trợ xin phép để đảm bảo hợp pháp và an toàn."
+          },
+          {
+            "question": "Drone có thể quay được trong điều kiện gió mạnh hoặc ban đêm không?",
+            "answer": "Chúng tôi sử dụng drone chuyên dụng chống gió cấp 5–6, và có thiết bị quay đêm/low-light chuyên biệt, tuân thủ quy định an toàn."
           },
           {
             "question": "Bao gồm hậu kỳ hoặc phối cảnh chuyên nghiệp không?",
-            "answer": "chưa có"
+            "answer": "Có - dịch vụ bao gồm quay phim trên không, dựng hậu kỳ, chỉnh màu và định dạng file theo yêu cầu thương hiệu."
           },
           {
             "question": "Kích thước video và ảnh hỗ trợ là gì?",
-            "answer": "chưa có"
-          },
-          {
-            "question": "Có thể quay được trong điều kiện gió mạnh/ban đêm không?",
-            "answer": "chưa có"
+            "answer": "Hỗ trợ định dạng từ 4K đến 8K, ảnh độ phân giải cao, mã hóa chuẩn cho quảng cáo, truyền hình và mạng xã hội."
           }
         ]
       }
@@ -632,19 +635,19 @@
         "items": [
           {
             "question": "Hitek Flycam nhập khẩu những thương hiệu nào?",
-            "answer": "chưa có"
+            "answer": "Chúng tôi là đối tác của DJI, Autel, Yuneec, và các hãng công nghiệp chuyên dụng khác."
           },
           {
             "question": "Thủ tục nhập khẩu gồm những gì?",
-            "answer": "chưa có"
+            "answer": "Hỗ trợ CO, CQ, hồ sơ hải quan, đăng ký thiết bị và bảo hành tại Việt Nam – toàn bộ minh bạch và hợp pháp."
           },
           {
             "question": "Drone có được bảo hành chính hãng không?",
-            "answer": "chưa có"
+            "answer": "Tất cả thiết bị đều có tem bảo hành quốc tế và bảo hành kỹ thuật trong nước."
           },
           {
             "question": "Có hỗ trợ nào sau khi bàn giao thiết bị không?",
-            "answer": "chưa có"
+            "answer": "Chúng tôi hỗ trợ lắp đặt, hiệu chuẩn ban đầu và kiểm định thiết bị."
           }
         ]
       }
@@ -736,19 +739,19 @@
         "items": [
           {
             "question": "Bao lâu nên thực hiện bảo trì drone một lần?",
-            "answer": "chưa có"
+            "answer": "Khuyến nghị: tối thiểu mỗi 3 tháng hoặc sau khoảng 30-50 giờ bay, tùy theo mức độ sử dụng."
           },
           {
             "question": "Drone bị lệch hướng hoặc GPS kém có sửa được không?",
-            "answer": "chưa có"
+            "answer": "Có, chúng tôi hiệu chuẩn cảm biến IMU, compass và hệ thống GPS để khắc phục lỗi định vị và bay sai."
           },
           {
             "question": "Có nhận kiểm tra online hoặc gửi thiết bị từ xa được không?",
-            "answer": "chưa có"
+            "answer": "Có, khách hàng có thể gửi thiết bị hoặc đến trụ sở của chúng tôi để kiểm tra, chẩn đoán và sửa chữa."
           },
           {
             "question": "Có bảo hành sau khi sửa chữa không?",
-            "answer": "chưa có"
+            "answer": "Có, mọi dịch vụ sửa chữa đều đi kèm biên bản nghiệm thu và bảo hành kỹ thuật từ 30-90 ngày."
           }
         ]
       }
@@ -825,19 +828,19 @@
         "items": [
           {
             "question": "Khi nào cần xin phép bay drone?",
-            "answer": "chưa có"
+            "answer": "Mọi chuyến bay thương mại, bay tại khu vực đặc biệt hoặc bay ngoài tầm nhìn trực tiếp ở Việt Nam đều bắt buộc phải xin phép trước khi thực hiện."
           },
           {
-            "question": "Hitek Flycam hỗ trợ xin phép bay ở những khu vực nào?",
-            "answer": "chưa có"
+            "question": "Hitek Flycam hỗ trợ xin phép ở những khu vực nào?",
+            "answer": "Hitek Flycam hỗ trợ xin phép bay trên toàn quốc."
           },
           {
             "question": "Thời gian xử lý hồ sơ xin phép là bao lâu?",
-            "answer": "chưa có"
+            "answer": "Tùy theo khu vực và mục đích bay - thông thường từ 3-7 ngày làm việc."
           },
           {
             "question": "Tôi có thể tự xin phép bay được không?",
-            "answer": "chưa có"
+            "answer": "Có thể, nhưng rất phức tạp và dễ bị từ chối. Hitek Flycam cung cấp trọn gói hồ sơ, bản đồ, và pháp lý giúp tỉ lệ phê duyệt đạt gần 100%."
           }
         ]
       }
@@ -917,24 +920,24 @@
         "title": "Câu hỏi thường gặp",
         "items": [
           {
-            "question": "Ưu điểm của Drone Trắc địa so với phương pháp truyền thống?",
-            "answer": "chưa có"
+            "question": "Ưu điểm của Drone Trắc địa so với phương pháp truyền thống là gì?",
+            "answer": "Drone trắc địa có thể thay thế hoặc bổ sung cho đo thủ công trong nhiều dự án, đặc biệt ở khu vực khó tiếp cận. Dữ liệu thu được có độ chính xác cao, tiết kiệm thời gian và nhân lực."
           },
           {
             "question": "Quy trình khảo sát mất thời gian bao lâu?",
-            "answer": "chưa có"
+            "answer": "Tùy diện tích và độ phức tạp, thông thường chỉ 1-3 ngày cho bay thu dữ liệu và 1-2 ngày xử lý."
           },
           {
-            "question": "Drone của Hitek Flycam đạt độ chính xác như thế nào?",
-            "answer": "chưa có"
+            "question": "Drone khảo sát của Hitek Flycam đạt độ chính xác như thế nào?",
+            "answer": "Chúng tôi sử dụng thiết bị RTK-GPS, LiDAR và ảnh đa phổ để thu thập dữ liệu, sai số thường đạt chỉ ±1–3 cm tùy điều kiện thực địa."
           },
           {
             "question": "Dữ liệu đầu ra gồm những loại nào?",
-            "answer": "chưa có"
+            "answer": "Bản đồ 2D/3D, mô hình DSM/DTM, orthophoto, point-cloud, mesh 3D - dữ liệu có thể tích hợp vào phần mềm CAD/GIS."
           },
           {
             "question": "Dữ liệu đầu ra có thể tích hợp vào phần mềm thiết kế không?",
-            "answer": "chưa có"
+            "answer": "Có. Chúng tôi bàn giao dữ liệu tương thích với AutoCAD, Revit, Pix4D, Agisoft hoặc các hệ GIS khác."
           }
         ]
       }
@@ -944,19 +947,22 @@
     "hero": {
       "title": "Liên hệ với",
       "highlight": "Hitek Flycam",
-      "description": "Chúng tôi luôn sẵn sàng trao đổi về mọi dự án của bạn. Liên hệ ngay với Hitek Flycam để được tư vấn chi tiết."
+      "description": {
+        "line1": "Chúng tôi luôn sẵn sàng trao đổi về mọi dự án của bạn.",
+        "line2": "Liên hệ ngay với Hitek Flycam để được tư vấn chi tiết."
+      }
     },
     "form": {
       "title": "Gửi tin nhắn",
       "fields": {
         "name": {
           "label": "Họ và tên *",
-          "placeholder": "Nhập họ và tên của bạn (chỉ chữ cái)",
+          "placeholder": "Nhập họ và tên của bạn",
           "counter": "/50"
         },
         "company": {
           "label": "Tên công ty",
-          "placeholder": "Hitek",
+          "placeholder": "Nhập tên công ty (nếu có)",
           "counter": "/100"
         },
         "email": {
@@ -1034,13 +1040,69 @@
         "facebook": "Facebook",
         "linkedin": "LinkedIn",
         "youtube": "YouTube",
-        "telegram": "Telegram",
+        "viber": "Viber",
         "instagram": "Instagram"
       },
       "map": {
         "location": "TP. Hồ Chí Minh",
         "directions": "Chỉ đường"
       }
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Thông tin liên hệ",
+      "company": {
+        "name": "Hitek Flycam",
+        "hotline": "Hotline: (+84) 28 99 95 95 88",
+        "email": "Email: contact@hitek.com.vn"
+      },
+      "ceo": {
+        "title": "Chief Executive Officer (Mr. Khôi)",
+        "hotline": "Hotline: (+84) 777 50 50 30",
+        "email": "Email: khoitran@hitek.com.vn"
+      },
+      "manager": {
+        "title": "General Manager (Ms. Trang)",
+        "hotline": "Hotline: (+84) 346 124 230",
+        "email": "Email: trangvo@hitek.com.vn"
+      }
+    },
+    "services": {
+      "title": "Dịch vụ",
+      "items": {
+        "droneRepair": "Sửa chữa Drone",
+        "surveyingDrone": "Drone Trắc địa",
+        "deliveryDrone": "Drone Vận chuyển",
+        "flightPermit": "Dịch vụ Phép bay",
+        "droneImport": "Nhập khẩu Drone",
+        "droneFilming": "Quay flycam"
+      }
+    },
+    "policy": {
+      "title": "Điều khoản",
+      "items": {
+        "general": "Điều khoản chung",
+        "privacy": "Chính sách bảo mật",
+        "flightSafety": "Chính sách an toàn bay",
+        "flightPermit": "Điều khoản xin phép bay"
+      }
+    },
+    "connect": {
+      "title": "Kết nối với chúng tôi"
+    },
+    "copyright": "© 2025 Drone Services. All rights reserved."
+  },
+  "faqSection": {
+    "ctaTitle": "Cần hỗ trợ thêm thông tin?",
+    "ctaDescription": {
+      "part1": "Liên hệ ngay với",
+      "highlight": "Hitek Flycam",
+      "part2": "để được giải đáp!"
+    },
+    "buttons": {
+      "contact": "Liên hệ tư vấn",
+      "viewMore": "Xem thêm câu hỏi"
     }
   }
 }

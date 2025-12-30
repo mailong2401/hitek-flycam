@@ -17,6 +17,13 @@
     "blog": "Blog"
   },
   "linkText": "Learn More",
+  "servicesPage": {
+    "title": {
+      "part1": "Solutions from",
+      "highlight": "Hitek Flycam"
+    },
+    "description": "We provide comprehensive Drone services, each solution is deployed based on modern technology platform, safe processes and professional technical team"
+  },
   "home": {
     "hero": {
       "title": {
@@ -73,7 +80,7 @@
       "viewAllProjects": "View All Projects",
       "cta": {
         "projectInquiry": "Have a project to consult? Contact us now",
-        "submitProject": "Submit Project Information"
+        "submitProject": "Contact Now"
       },
       "projects": [
         {
@@ -279,16 +286,16 @@
       "subtitle": "Discover the reasons why we become the leading partner in Drone solutions in Vietnam",
       "points": [
         {
-          "title": "Capability",
-          "description": "Inheriting Hitek Drone platform with professional team - modern equipment and international standard procedures"
+          "title": "Outstanding Capability",
+          "description": "Inheriting Hitek Drone platform with professional team, modern equipment and international procedures"
         },
         {
-          "title": "Safety",
+          "title": "Absolute Safety",
           "description": "All flights are licensed, insured and strictly monitored according to national standards"
         },
         {
-          "title": "Quality",
-          "description": "Commitment to efficiency, stability and accuracy in every project - from idea stage to practical implementation"
+          "title": "Guaranteed Quality",
+          "description": "Commitment to efficiency, stability and accuracy in every project from idea to implementation"
         }
       ]
     },
@@ -318,11 +325,7 @@
         "- where flying technology is honored through art,",
         "Hitek Flycam",
         "continues that journey with technology, data and practical efficiency."
-      ],
-      "author": {
-        "name": "— Hitek Flycam Team —",
-        "subtitle": "Mission & Vision"
-      }
+      ]
     },
     "teamSection": {
       "title": "Leadership Team",
@@ -434,20 +437,20 @@
         "title": "Frequently Asked Questions",
         "items": [
           {
-            "question": "What are common applications of delivery drones?",
-            "answer": "Not yet available"
+            "question": "What are common applications of drone logistics?",
+            "answer": "Internal transportation, sample delivery, components, or emergency supplies in hard-to-reach areas."
           },
           {
             "question": "How much payload can delivery drones carry?",
-            "answer": "Not yet available"
+            "answer": "Depending on the equipment - from approximately 5kg to 30kg or more, suitable for warehouse, industrial, and agricultural internal needs."
           },
           {
             "question": "Is the navigation system safe?",
-            "answer": "Not yet available"
+            "answer": "All drones use GPS combined with AI obstacle avoidance, ensuring high safety and accuracy."
           },
           {
             "question": "What are operating conditions in bad weather?",
-            "answer": "Not yet available"
+            "answer": "Equipment meets IP54 standards or higher – operates in wind levels 4-5 or light rain, specific checks needed for each project."
           }
         ]
       }
@@ -542,19 +545,19 @@
         "items": [
           {
             "question": "Is a flight permit required before filming?",
-            "answer": "Not yet available"
+            "answer": "Yes - all commercial filming activities are supported by us for permit applications to ensure legality and safety."
+          },
+          {
+            "question": "Can drones film in strong wind or night conditions?",
+            "answer": "We use specialized drones resistant to wind levels 5-6, and have specialized night/low-light filming equipment, complying with safety regulations."
           },
           {
             "question": "Does it include professional post-production or perspectives?",
-            "answer": "Not yet available"
+            "answer": "Yes - the service includes aerial filming, post-production editing, color grading, and file formatting according to brand requirements."
           },
           {
             "question": "What video and image sizes are supported?",
-            "answer": "Not yet available"
-          },
-          {
-            "question": "Can filming be done in strong wind/night conditions?",
-            "answer": "Not yet available"
+            "answer": "Support formats from 4K to 8K, high-resolution images, standard encoding for advertising, television, and social media."
           }
         ]
       }
@@ -630,19 +633,19 @@
         "items": [
           {
             "question": "Which brands does Hitek Flycam import?",
-            "answer": "Not yet available"
+            "answer": "We are partners with DJI, Autel, Yuneec, and other specialized industrial manufacturers."
           },
           {
             "question": "What are the import procedures?",
-            "answer": "Not yet available"
+            "answer": "Support for CO, CQ, customs documentation, equipment registration and warranty in Vietnam – all transparent and legal."
           },
           {
             "question": "Do drones come with genuine warranty?",
-            "answer": "Not yet available"
+            "answer": "All equipment comes with international warranty stamps and domestic technical warranty."
           },
           {
             "question": "Is there support after equipment handover?",
-            "answer": "Not yet available"
+            "answer": "We provide installation support, initial calibration, and equipment inspection."
           }
         ]
       }
@@ -734,19 +737,19 @@
         "items": [
           {
             "question": "How often should drone maintenance be performed?",
-            "answer": "Not yet available"
+            "answer": "Recommendation: at least every 3 months or after approximately 30-50 flight hours, depending on usage intensity."
           },
           {
             "question": "Can drones with directional drift or poor GPS be repaired?",
-            "answer": "Not yet available"
+            "answer": "Yes, we calibrate IMU sensors, compass, and GPS systems to fix positioning errors and incorrect flight paths."
           },
           {
             "question": "Do you offer online inspection or remote device sending?",
-            "answer": "Not yet available"
+            "answer": "Yes, customers can send their devices or visit our headquarters for inspection, diagnosis, and repair."
           },
           {
             "question": "Is there warranty after repair?",
-            "answer": "Not yet available"
+            "answer": "Yes, all repair services come with an acceptance report and technical warranty from 30-90 days."
           }
         ]
       }
@@ -823,19 +826,19 @@
         "items": [
           {
             "question": "When is a drone flight permit required?",
-            "answer": "Not yet available"
+            "answer": "All commercial flights, flights in special areas, or beyond visual line of sight in Vietnam require permits before operation."
           },
           {
             "question": "Which areas does Hitek Flycam support for permit applications?",
-            "answer": "Not yet available"
+            "answer": "Hitek Flycam supports flight permit applications nationwide."
           },
           {
             "question": "How long does permit application processing take?",
-            "answer": "Not yet available"
+            "answer": "Depending on the area and flight purpose - typically 3-7 working days."
           },
           {
             "question": "Can I apply for flight permits myself?",
-            "answer": "Not yet available"
+            "answer": "Yes, but it's very complex and easily rejected. Hitek Flycam provides complete packages including documentation, maps, and legal support, achieving nearly 100% approval rate."
           }
         ]
       }
@@ -915,24 +918,24 @@
         "title": "Frequently Asked Questions",
         "items": [
           {
-            "question": "Advantages of Surveying Drones vs traditional methods?",
-            "answer": "Not yet available"
+            "question": "What are the advantages of Surveying Drones compared to traditional methods?",
+            "answer": "Surveying drones can replace or complement manual surveying in many projects, especially in hard-to-reach areas. The data collected has high accuracy, saving time and labor."
           },
           {
             "question": "How long does the surveying process take?",
-            "answer": "Not yet available"
+            "answer": "Depending on the area and complexity, typically only 1-3 days for data collection flights and 1-2 days for processing."
           },
           {
-            "question": "What accuracy level do Hitek Flycam drones achieve?",
-            "answer": "Not yet available"
+            "question": "What accuracy level do Hitek Flycam surveying drones achieve?",
+            "answer": "We use RTK-GPS equipment, LiDAR, and multispectral imagery to collect data, with errors typically achieving only ±1–3 cm depending on field conditions."
           },
           {
             "question": "What types of output data are provided?",
-            "answer": "Not yet available"
+            "answer": "2D/3D maps, DSM/DTM models, orthophotos, point-cloud, 3D mesh - data can be integrated into CAD/GIS software."
           },
           {
-            "question": "Can output data integrate with design software?",
-            "answer": "Not yet available"
+            "question": "Can output data be integrated into design software?",
+            "answer": "Yes. We deliver data compatible with AutoCAD, Revit, Pix4D, Agisoft, or other GIS systems."
           }
         ]
       }
@@ -942,19 +945,22 @@
     "hero": {
       "title": "Contact",
       "highlight": "Hitek Flycam",
-      "description": "We are always ready to discuss your projects. Contact Hitek Flycam now for detailed consultation."
+      "description": {
+        "line1": "We are always ready to discuss your projects.",
+        "line2": "Contact Hitek Flycam now for detailed consultation."
+      }
     },
     "form": {
       "title": "Send Message",
       "fields": {
         "name": {
           "label": "Full Name *",
-          "placeholder": "Enter your full name (letters only)",
+          "placeholder": "Enter your full name",
           "counter": "/50"
         },
         "company": {
           "label": "Company Name",
-          "placeholder": "Hitek",
+          "placeholder": "Enter company name (if any)",
           "counter": "/100"
         },
         "email": {
@@ -1032,13 +1038,69 @@
         "facebook": "Facebook",
         "linkedin": "LinkedIn",
         "youtube": "YouTube",
-        "telegram": "Telegram",
+        "viber": "Viber",
         "instagram": "Instagram"
       },
       "map": {
         "location": "Ho Chi Minh City",
         "directions": "Get Directions"
       }
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Contact Information",
+      "company": {
+        "name": "Hitek Flycam",
+        "hotline": "Hotline: (+84) 28 99 95 95 88",
+        "email": "Email: contact@hitek.com.vn"
+      },
+      "ceo": {
+        "title": "Chief Executive Officer (Mr. Khôi)",
+        "hotline": "Hotline: (+84) 777 50 50 30",
+        "email": "Email: khoitran@hitek.com.vn"
+      },
+      "manager": {
+        "title": "General Manager (Ms. Trang)",
+        "hotline": "Hotline: (+84) 346 124 230",
+        "email": "Email: trangvo@hitek.com.vn"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "items": {
+        "droneRepair": "Drone Repair",
+        "surveyingDrone": "Surveying Drone",
+        "deliveryDrone": "Delivery Drone",
+        "flightPermit": "Flight Permit Service",
+        "droneImport": "Drone Import",
+        "droneFilming": "Drone Filming"
+      }
+    },
+    "policy": {
+      "title": "Terms",
+      "items": {
+        "general": "General Terms",
+        "privacy": "Privacy Policy",
+        "flightSafety": "Flight Safety Policy",
+        "flightPermit": "Flight Permit Terms"
+      }
+    },
+    "connect": {
+      "title": "Connect with us"
+    },
+    "copyright": "© 2025 Drone Services. All rights reserved."
+  },
+  "faqSection": {
+    "ctaTitle": "Need more information?",
+    "ctaDescription": {
+      "part1": "Contact",
+      "highlight": "Hitek Flycam",
+      "part2": "now for answers!"
+    },
+    "buttons": {
+      "contact": "Contact for Consultation",
+      "viewMore": "View More Questions"
     }
   }
 }

@@ -55,17 +55,23 @@ const serviceCards = [
   },
 ] as const;
 
-export default function InteractiveCardsSection() {
+interface InteractiveCardsSectionProps {
+  showTitle?: boolean;
+}
+
+export default function InteractiveCardsSection({ showTitle = true }: InteractiveCardsSectionProps) {
   const { t } = useLanguage();
 
   return (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="pb-3 text-3xl md:text-3xl lg:text-7xl font-bold text-center mb-12
-          text-vibrant-red drop-shadow-lg leading-[1.2]"
-        >
-          {t<string>("home.servicesCards.sectionTitle")}
-        </h2>
+        {showTitle && (
+          <h2 className="pb-3 text-3xl md:text-3xl lg:text-7xl font-bold text-center mb-12
+            text-vibrant-red drop-shadow-lg leading-[1.2]"
+          >
+            {t<string>("home.servicesCards.sectionTitle")}
+          </h2>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-1">
           {serviceCards.map((card) => (

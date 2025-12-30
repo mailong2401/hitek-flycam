@@ -40,7 +40,14 @@ const itemVariants: Variants = {
 
 const imageVariants: Variants = {
   hidden: { scale: 1 },
-  hover: { scale: 1.05 },
+  hover: {
+    scale: 1.05,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20
+    }
+  },
   tap: { scale: 0.98 }
 };
 
@@ -158,8 +165,8 @@ const TeamSection = () => {
               whileTap="tap"
               custom={index}
             >
-              <motion.div 
-                className="w-60 h-60 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20"
+              <motion.div
+                className="w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/20"
                 variants={imageVariants}
                 whileHover="hover"
                 whileTap="tap"
@@ -171,7 +178,7 @@ const TeamSection = () => {
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.20 }}
+                  whileHover={{ scale: 1.15 }}
                 />
               </motion.div>
               
