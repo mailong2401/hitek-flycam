@@ -48,7 +48,7 @@ export default function DroneRepair() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[500px] md:h-[600px]"
+    imageHeight: "h-[380px] md:h-[450px]"
   };
 
   const faqData = {

@@ -130,7 +130,6 @@ export default function RichTextEditorQuill({ value, onChange }: Props) {
       setYoutubeUrl("");
       setOpenVideoDialog(false);
     } catch (err) {
-      console.error(err);
       alert("Thêm video thất bại. Vui lòng thử lại.");
     } finally {
       setLoadingVideo(false);
@@ -209,7 +208,6 @@ export default function RichTextEditorQuill({ value, onChange }: Props) {
         editor.insertEmbed(range.index, "image", data.publicUrl);
       }
     } catch (err) {
-      console.error(err);
       alert("Upload ảnh thất bại");
     } finally {
       setUploading(false);

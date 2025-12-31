@@ -167,7 +167,7 @@ const WhyTrustSection = () => {
   return (
     <section 
       ref={ref}
-      className="py-20 bg-gradient-to-b from-background to-red-50/20 dark:from-gray-900 dark:to-red-900/10"
+      className="py-20 bg-gradient-to-b from-background to-red-50/20"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -181,14 +181,14 @@ const WhyTrustSection = () => {
             variants={itemVariants}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               {t("about.whyTrust.title1")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">
                 {t("about.whyTrust.highlightedTitle")}
               </span>{" "}
               {t("about.whyTrust.title2")}
             </h2>
-            <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-4xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
               {t("about.whyTrust.subtitle")}
             </p>
           </motion.div>
@@ -225,7 +225,7 @@ const WhyTrustSection = () => {
                 <motion.div
                   key={point.number}
                   variants={itemVariants}
-                  className="bg-card dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border dark:border-gray-700 group"
+                  className="bg-card backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border group"
                 >
                   <div className="flex items-start gap-4 md:gap-6">
                     {/* Number */}
@@ -240,10 +240,10 @@ const WhyTrustSection = () => {
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-4">
-                        <h3 className="text-xl font-bold text-foreground dark:text-white">{point.title}</h3>
+                        <h3 className="text-xl font-bold text-foreground">{point.title}</h3>
                       </div>
                       <motion.p
-                        className="text-base text-muted-foreground dark:text-gray-300 leading-relaxed"
+                        className="text-base text-muted-foreground leading-relaxed"
                         initial={{ opacity: 0.8 }}
                       >
                         {point.description}

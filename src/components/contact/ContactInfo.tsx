@@ -75,7 +75,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {contactItems.map((item, index) => (
-            <div key={index} className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
+            <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-5 border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-primary" />
@@ -104,7 +104,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
       </div>
 
       {/* Social Media Section - More Compact */}
-      <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-xl p-5 border border-gray-200 dark:border-gray-700">
+      <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-5 border border-gray-200">
         <div className="mb-4">
           <h3 className="text-lg font-bold text-primary">
             {t<string>("contact.info.social.title")}
@@ -115,7 +115,7 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
           {socialLinks.map((social, index) => (
             <button
               key={index}
-              className="flex flex-col items-center justify-center h-20 rounded-lg hover:scale-105 transition-all duration-300 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-primary/30 hover:shadow-sm"
+              className="flex flex-col items-center justify-center h-20 rounded-lg hover:scale-105 transition-all duration-300 bg-white border border-gray-200 hover:border-primary/30 hover:shadow-sm"
               onClick={() => handleSocialClick(social.url)}
               aria-label={`Follow us on ${social.name}`}
             >
@@ -144,14 +144,14 @@ const ContactInfo = ({ className = "" }: ContactInfoProps) => {
           />
           
           {/* Map Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white/80 dark:from-gray-900/80 to-transparent pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white/80 to-transparent pointer-events-none"></div>
           
           {/* Location Info */}
           <div className="absolute top-3 left-80 right-4">
-            <div className="flex items-center justify-between bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl px-3 py-2 text-xs">
+            <div className="flex items-center justify-between bg-white/90 backdrop-blur-sm rounded-2xl px-3 py-2 text-xs">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3 h-3 text-primary" />
-                <span className="text-gray-700 dark:text-gray-300">{t<string>("contact.info.map.location")}</span>
+                <span className="text-gray-700">{t<string>("contact.info.map.location")}</span>
               </div>
               <a 
                 href="https://maps.google.com/?q=HAI+AU+BUILDING,+39B+Trường+Sơn,+Phường+2,+Tân+Bình,+Hồ+Chí+Minh"

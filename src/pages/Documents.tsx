@@ -47,11 +47,10 @@ const allDocuments: DocumentItem[] = [
 
 export default function DocumentsPage() {
   const handleDownload = (doc: DocumentItem) => {
-    console.log(`Download triggered: ${doc.title}`);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-gray-50/50 to-background dark:from-gray-900 dark:via-gray-900/50 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-b from-background via-gray-50/50 to-background">
       <HeroSection />
       
       <section className="min-h-screen py-20 bg-background">

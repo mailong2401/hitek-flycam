@@ -48,7 +48,7 @@ export default function DroneImport() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]"
+    imageHeight: "h-[300px] md:h-[350px]"
   };
 
   const faqData = {

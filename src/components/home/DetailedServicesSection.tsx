@@ -57,7 +57,7 @@ export default function DetailedServicesSection() {
   };
 
    return (
-    <section ref={ref} className="py-16 bg-background dark:bg-background">
+    <section ref={ref} className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -65,14 +65,14 @@ export default function DetailedServicesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             {t<string>("home.servicesPage.detailedServices.title")} {/* FIXED */}
-            <span className="text-primary dark:text-red-400 ml-2">
+            <span className="text-primary ml-2">
               {t<string>("home.servicesPage.detailedServices.highlight")} {/* FIXED */}
             </span>
             {t<string>("home.servicesPage.detailedServices.question")} {/* FIXED */}
           </h2>
-          <p className="text-lg text-muted-foreground dark:text-gray-300 mx-auto whitespace-nowrap">
+          <p className="text-lg text-muted-foreground mx-auto whitespace-nowrap">
             {t<string>("home.servicesPage.detailedServices.subtitle")} {/* FIXED */}
           </p>
         </motion.div>
@@ -89,10 +89,10 @@ export default function DetailedServicesSection() {
               variants={itemVariants}
               className="relative group"
             >
-              <div className="bg-card dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-border dark:border-gray-700 h-full">
+              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-border h-full">
                 {/* Icon với hiệu ứng */}
                 <motion.div 
-                  className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-blue-900/20 dark:to-blue-800/10"
+                  className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br from-primary/10 to-primary/5"
                 >
                   <motion.img 
                     src={serviceIcons[index]} 
@@ -104,14 +104,14 @@ export default function DetailedServicesSection() {
                 
                 {/* Title */}
                 <motion.h3 
-                  className="text-2xl font-bold mb-4 text-foreground dark:text-white"
+                  className="text-2xl font-bold mb-4 text-foreground"
                 >
                   {service.title}
                 </motion.h3>
                 
                 {/* Description */}
                 <motion.p 
-                  className="text-muted-foreground dark:text-gray-300 mb-6 leading-relaxed"
+                  className="text-muted-foreground mb-6 leading-relaxed"
                 >
                   {service.description}
                 </motion.p>

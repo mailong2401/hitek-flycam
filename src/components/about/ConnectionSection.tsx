@@ -78,7 +78,7 @@ const ConnectionSection = () => {
   return (
     <section 
       ref={ref}
-      className="py-20 bg-secondary dark:from-gray-900 dark:to-red-900/5"
+      className="py-20 bg-secondary"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -92,11 +92,11 @@ const ConnectionSection = () => {
             {/* Header */}
             <div className="mb-8">
               <motion.h2 
-                className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6"
+                className="text-4xl md:text-5xl font-bold text-foreground mb-6"
               >
                 {t("about.connection.title")}{" "} <br />
                 <motion.span 
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300"
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400"
                   animate={{
                     textShadow: [
                       "0 0 0px rgba(239, 68, 68, 0)",
@@ -114,7 +114,7 @@ const ConnectionSection = () => {
                 </motion.span>{" "}
                 &{" "}
                 <motion.span 
-                  className="text-foreground dark:text-white"
+                  className="text-foreground"
                 >
                   {t("about.connection.hitekDroneText")}
                 </motion.span>
@@ -127,10 +127,10 @@ const ConnectionSection = () => {
               className="space-y-6 mb-8"
             >
               <motion.p 
-                className="text-lg text-muted-foreground dark:text-gray-300 leading-relaxed"
+                className="text-lg text-muted-foreground leading-relaxed"
                 initial={{ opacity: 0.8 }}
               >
-                {t("about.connection.description.0" as any)} <span className="font-semibold text-foreground dark:text-white">{t("about.connection.description.1" as any)}</span> {t("about.connection.description.2" as any)} <span className="font-semibold text-primary">{t("about.connection.description.3" as any)}</span> {t("about.connection.description.4" as any)}
+                {t("about.connection.description.0" as any)} <span className="font-semibold text-foreground">{t("about.connection.description.1" as any)}</span> {t("about.connection.description.2" as any)} <span className="font-semibold text-primary">{t("about.connection.description.3" as any)}</span> {t("about.connection.description.4" as any)}
               </motion.p>
             </motion.div>
 
@@ -147,7 +147,7 @@ const ConnectionSection = () => {
                 />
                 <div>
                   <motion.p 
-                    className="text-xl font-bold text-foreground dark:text-white leading-relaxed"
+                    className="text-xl font-bold text-foreground leading-relaxed"
                   >
                     {t("about.connection.vision")}
                   </motion.p>
@@ -194,7 +194,7 @@ const ConnectionSection = () => {
                 >
                   <Button
                     variant="outline"
-                    className="border-red-600 text-red-600 dark:border-red-400 dark:text-red-400 font-semibold px-6 py-3 rounded-full shadow-lg w-full sm:w-auto bg-white dark:bg-white hover:bg-white hover:text-red-600 dark:hover:bg-white dark:hover:text-red-400"
+                    className="border-red-600 text-red-600 font-semibold px-6 py-3 rounded-full shadow-lg w-full sm:w-auto bg-white dark:bg-white hover:bg-white hover:text-red-600 dark:hover:bg-white dark:hover:text-red-400"
                   >
                     <span className="flex items-center gap-2">
                       <Target className="w-4 h-4" />
@@ -232,7 +232,7 @@ const ConnectionSection = () => {
               <motion.div
                 whileHover={{ scale: 1.02, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-red-200 dark:border-red-800/50"
+                className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-red-200"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >

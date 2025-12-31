@@ -30,13 +30,13 @@ const DocumentGrid = ({ documents, onDownload }: DocumentGridProps) => {
     return (
       <Card className="py-16">
         <CardContent className="text-center">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
             <Search className="w-10 h-10 text-gray-400" />
           </div>
-          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">
             Không tìm thấy tài liệu
           </h3>
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-gray-500">
             Sẽ sớm có tài liệu mới
           </p>
         </CardContent>

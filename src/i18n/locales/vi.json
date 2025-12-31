@@ -124,18 +124,33 @@
         {
           "title": "Xu hướng ứng dụng Drone trong nông nghiệp thông minh 2024",
           "excerpt": "Khám phá cách drone đang cách mạng hóa ngành nông nghiệp với công nghệ phun thuốc tự động và giám sát cây trồng.",
-          "category": "Công nghệ",
+          "category": "Sửa chữa Drone",
           "readMore": "Đọc bài viết"
         },
         {
           "title": "Hitek Flycam ra mắt dịch vụ Drone Show chuyên nghiệp",
           "excerpt": "Trình diễn light show bằng drone với quy mô 500 drone, mang đến trải nghiệm visual ấn tượng cho sự kiện.",
-          "category": "Sự kiện"
+          "category": "Drone Trắc địa"
         },
         {
           "title": "Hướng dẫn xin giấy phép bay drone tại Việt Nam 2024",
           "excerpt": "Cập nhật quy trình và thủ tục xin giấy phép bay drone mới nhất theo quy định của Bộ Quốc phòng.",
-          "category": "Pháp lý"
+          "category": "Drone Vận chuyển"
+        },
+        {
+          "title": "Hướng dẫn xin giấy phép bay drone tại Việt Nam 2024",
+          "excerpt": "Cập nhật quy trình và thủ tục xin giấy phép bay drone mới nhất theo quy định của Bộ Quốc phòng.",
+          "category": "Dịch vụ Phép bay"
+        },
+        {
+          "title": "Hướng dẫn xin giấy phép bay drone tại Việt Nam 2024",
+          "excerpt": "Cập nhật quy trình và thủ tục xin giấy phép bay drone mới nhất theo quy định của Bộ Quốc phòng.",
+          "category": "Nhập khẩu Drone"
+        },
+        {
+          "title": "Hướng dẫn xin giấy phép bay drone tại Việt Nam 2024",
+          "excerpt": "Cập nhật quy trình và thủ tục xin giấy phép bay drone mới nhất theo quy định của Bộ Quốc phòng.",
+          "category": "Quay Flycam"
         }
       ]
     },
@@ -222,27 +237,27 @@
       "cards": {
         "repair": {
           "name": "Sửa chữa Drone",
-          "detail": "Sửa chữa, bảo dưỡng và nâng cấp drone chuyên nghiệp với linh kiện chính hãng và bảo hành dài hạn."
+          "detail": "Bảo trì định kỳ, thay linh kiện hiệu chuẩn cảm biến /IMU - compass, cập nhật firmware."
         },
         "surveying": {
           "name": "Drone Trắc Địa",
-          "detail": "Khảo sát địa hình, đo đạc bản đồ với drone tích hợp RTK, Lidar cho độ chính xác centimet."
+          "detail": "Đo đạc, lập bản đồ, hình 2D/3D bằng công nghệ Lidar, RTK và GPS độ chính xác cao."
         },
         "delivery": {
           "name": "Drone Vận Chuyển",
-          "detail": "Giải pháp vận chuyển hàng hóa, y tế khẩn cấp bằng drone cho các khu vực khó tiếp cận."
+          "detail": "Giải pháp vận chuyển hàng hóa tự động bằng drone, tối ưu quãng đường, thời gian và chi phí."
         },
         "flightPermit": {
           "name": "Dịch Vụ Phép Bay",
-          "detail": "Hỗ trợ xin giấy phép bay, đăng ký thiết bị và tư vấn pháp lý đầy đủ theo quy định Việt Nam."
+          "detail": "Tư vấn và thực hiện hồ sơ xin phép bay toàn quốc - hợp pháp, nhanh chóng."
         },
         "droneImport": {
           "name": "Nhập Khẩu Drone",
-          "detail": "Dịch vụ nhập khẩu drone chính hãng, thủ tục hải quan, kiểm định và đăng ký thiết bị trọn gói."
+          "detail": "Phân phối và nhập khẩu chính hãng các dòng drone chuyên dụng - hỗ trợ thủ tục hải quan và CO/CQ."
         },
         "droneFilming": {
           "name": "Quay Flycam",
-          "detail": "Dịch vụ quay phim, chụp ảnh trên không chuyên nghiệp bằng flycam, phục vụ quảng cáo, truyền thông và sự kiện."
+          "detail": "Quay phim – chụp ảnh trên không bằng flycam, ghi lại hình ảnh góc cao ấn tượng cho sự kiện, công trình, bất động sản và truyền thông thương hiệu."
         }
       }
     },
@@ -348,30 +363,21 @@
           "name": "Lâm Thứ Tiên",
           "position": "Chủ tịch",
           "info": [
-            "Sáng lập và là Chủ tịch HĐQT Công ty cổ phần Đầu tư công nghệ số Rồng Việt (Rovi Group).",
-            "Cổ đông sáng lập và Thành viên HĐQT Công ty cổ phần Công nghệ Mọi Người Cùng Vui.",
-            "Từng đảm nhận vị trí Tổng giám đốc Công ty cổ phần đầu tư Thengroup.",
-            "Từng đảm nhận vị trí Giám đốc thương mại Công ty TNHH Dịch vụ Mọi Người Cùng Vui.",
-            "Từng là nhà sáng lập và điều hành chuỗi hệ thống Điện thoại bình dân (2012)."
+            "Hơn 10 năm kinh nghiệm lãnh đạo và điều hành doanh nghiệp, với nền tảng vững chắc trong lĩnh vực kinh doanh và phát triển công nghệ."
           ]
         },
         "khoi": {
           "name": "Trần Anh Khôi",
           "position": "Tổng giám đốc",
           "info": [
-            "Hơn 10 năm kinh nghiệm trong lĩnh vực công nghệ.",
-            "Nhà sáng lập của nhiều doanh nghiệp tiên phong, những giải pháp 'lần đầu tiên có mặt tại Việt Nam'."
+            "Hơn 10 năm kinh nghiệm trong lĩnh vực công nghệ, nhà sáng lập của nhiều doanh nghiệp tiên phong, những giải pháp “lần đầu tiên có mặt tại Việt Nam."
           ]
         },
         "sean": {
           "name": "Oh Sean Beom",
           "position": "Giám đốc Kinh doanh",
           "info": [
-            "Hơn 10 năm kinh nghiệm phát triển mobile app/web.",
-            "Hơn 5 năm kinh nghiệm quản lý team, leadership.",
-            "Đảm nhận trách nhiệm chính trong quản lý tiến độ, lên kế hoạch về timeline, budget, nhân sự.",
-            "Quản lý team nước ngoài từ xa, lên kế hoạch phát triển bản thân cho nhân viên, quản lý khối lượng công việc, tổ chức các tài liệu kĩ thuật, phát triển dự án.",
-            "Kinh nghiệm làm việc trong môi trường quốc tế: Nhật Bản, Việt Nam, Hàn Quốc, Châu Âu."
+            "Hơn 10 năm kinh nghiệm phát triển công nghệ, với năng lực lãnh đạo mạnh mẽ. Quản lý các dự án xuyên biên giới: Nhật Bản, Hàn Quốc, Việt Nam và châu Âu."
           ]
         }
       }
@@ -1066,6 +1072,12 @@
         "location": "TP. Hồ Chí Minh",
         "directions": "Chỉ đường"
       }
+    },
+    "thankYou": {
+      "title": "Cảm ơn bạn!",
+      "message": "Chúng tôi đã nhận được thông tin của bạn và sẽ liên hệ lại trong thời gian sớm nhất.",
+      "info": "Đội ngũ Hitek Flycam sẽ phản hồi trong vòng 24 giờ làm việc. Mọi thắc mắc khẩn cấp vui lòng gọi hotline: 028 99 95 95 88",
+      "button": "Đóng"
     }
   },
   "footer": {

@@ -110,18 +110,18 @@ export default function FeaturedProjectsSection() {
           <div className="flex-1">
             <motion.h2 
               variants={titleVariants}
-              className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-4"
+              className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             >
               {t<string>("home.featuredProjects.title")}{" "}
               <motion.span 
-                className="text-primary dark:text-red-400"
+                className="text-primary"
               >
                 {t<string>("home.featuredProjects.highlight")}
               </motion.span>
             </motion.h2>
             <motion.p 
               variants={titleVariants}
-              className="text-muted-foreground dark:text-gray-300 text-lg max-w-2xl"
+              className="text-muted-foreground text-lg max-w-2xl"
             >
               {t<string>("home.featuredProjects.subtitle")}
             </motion.p>
@@ -134,7 +134,7 @@ export default function FeaturedProjectsSection() {
           >
             <Button 
               variant="outline" 
-              className="flex items-center gap-2 border-2 border-primary dark:border-red-400 text-primary dark:text-red-400 hover:bg-primary/10 dark:hover:bg-blue-400/10 transition-all duration-300"
+              className="flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300"
             >
               {t<string>("home.featuredProjects.viewAllProjects")}
               <motion.div
@@ -169,7 +169,7 @@ export default function FeaturedProjectsSection() {
               className="group relative overflow-hidden"
             >
               {/* Project Card */}
-              <div className="bg-card dark:bg-gray-800 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full border border-border dark:border-gray-700">
+              <div className="bg-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full border border-border">
                 {/* Image Container */}
                 <motion.div 
                   className="relative overflow-hidden h-56"
@@ -208,12 +208,12 @@ export default function FeaturedProjectsSection() {
                 {/* Content */}
                 <div className="p-6">
                   <motion.h3
-                    className="text-lg font-bold text-foreground dark:text-white mb-3 line-clamp-2 min-h-[3.5rem] group-hover:text-primary dark:group-hover:text-red-400 transition-colors duration-300"
+                    className="text-lg font-bold text-foreground mb-3 line-clamp-2 min-h-[3.5rem] group-hover:text-primary transition-colors duration-300"
                   >
                     {project.title}
                   </motion.h3>
                   <motion.p
-                    className="text-sm text-muted-foreground dark:text-gray-300 mb-4 line-clamp-2 min-h-[2.5rem]"
+                    className="text-sm text-muted-foreground mb-4 line-clamp-2 min-h-[2.5rem]"
                   >
                     {project.description}
                   </motion.p>
@@ -223,7 +223,7 @@ export default function FeaturedProjectsSection() {
                   >
                     <Button
                       variant="ghost"
-                      className="p-0 h-auto text-primary dark:text-red-400 hover:text-primary/80 dark:hover:text-red-300 hover:bg-transparent group/btn"
+                      className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent group/btn"
                     >
                       <span className="flex items-center gap-2">
                         {displayLanguage === 'vi' ? 'Xem chi tiết' : 'View Details'}
@@ -268,7 +268,7 @@ export default function FeaturedProjectsSection() {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-muted-foreground dark:text-gray-300 mb-6 text-lg">
+          <p className="text-muted-foreground mb-6 text-lg">
             {t<string>("home.featuredProjects.cta.projectInquiry")}
           </p>
           <motion.div

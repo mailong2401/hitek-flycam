@@ -119,7 +119,6 @@ export default function Blog() {
         setBlogPosts(getDefaultPosts());
       }
     } catch (error) {
-      console.error('Error fetching blog posts:', error);
       setBlogPosts(getDefaultPosts());
     } finally {
       setLoading(false);

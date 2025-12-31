@@ -158,7 +158,7 @@ export default function TrustedClientsSection() {
   return (
     <section 
       ref={ref}
-      className="py-16 bg-gradient-to-b from-background to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden"
+      className="py-16 bg-gradient-to-b from-background to-gray-50 overflow-hidden"
     >
       <div className="container mx-auto px-4">
         {/* Header Section */}
@@ -169,17 +169,17 @@ export default function TrustedClientsSection() {
         >
           <motion.h2 
             variants={titleVariants}
-            className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-3"
+            className="text-3xl md:text-4xl font-bold text-foreground mb-3"
           >
             {t<string>("home.trustedClients.title")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 dark:from-red-400 dark:to-red-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600">
               {t<string>("home.trustedClients.highlight")}
             </span>
           </motion.h2>
           
           <motion.p 
             variants={titleVariants}
-            className="text-muted-foreground dark:text-gray-300 text-base md:text-lg max-w-2xl mx-auto"
+            className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto"
           >
             {t<string>("home.trustedClients.subtitle")}
           </motion.p>
@@ -219,10 +219,10 @@ export default function TrustedClientsSection() {
                     }}
                   >
                     {/* Client Card */}
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 h-full border border-gray-200 dark:border-gray-700 transition-all duration-300 overflow-hidden shadow-lg ">
+                    <div className="bg-white rounded-2xl p-4 md:p-6 h-full border border-gray-200 transition-all duration-300 overflow-hidden shadow-lg ">
                       {/* Logo Container */}
                       <div className="relative mb-4 md:mb-6">
-                        <div className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg transition-colors duration-300">
+                        <div className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg transition-colors duration-300">
                           <img
                             src={client.logo}
                             alt={client.name}
@@ -234,7 +234,7 @@ export default function TrustedClientsSection() {
                       </div>
                       
                       {/* Client Info */}
-                      <h3 className="text-base md:text-lg font-bold text-center text-gray-800 dark:text-white mb-2 transition-colors duration-300 line-clamp-1">
+                      <h3 className="text-base md:text-lg font-bold text-center text-gray-800 mb-2 transition-colors duration-300 line-clamp-1">
                         {client.name}
                       </h3>
                     </div>

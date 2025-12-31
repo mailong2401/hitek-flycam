@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSelector from "@/components/LanguageSelector";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -83,7 +82,7 @@ export default function Navbar() {
   // ----- RENDER SERVICES DROPDOWN -----
   const renderServicesDropdown = () => (
     <motion.div 
-      className="absolute top-full left-0 mt-2 w-64 bg-pure-white dark:bg-pure-black rounded-lg shadow-lg border border-border overflow-hidden z-50"
+      className="absolute top-full left-0 mt-2 w-64 bg-pure-white rounded-lg shadow-lg border border-border overflow-hidden z-50"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: -10 }}
@@ -94,7 +93,7 @@ export default function Navbar() {
         <Link
           key={service.path}
           to={service.path}
-          className="block px-4 py-3 text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors"
+          className="block px-4 py-3 text-pure-black hover:text-vibrant-red hover:bg-light-gray transition-colors"
           onClick={scrollToTop}
         >
           {t(service.name as any)}
@@ -104,21 +103,16 @@ export default function Navbar() {
   );
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-pure-white/95 dark:bg-pure-black/95 backdrop-blur-md ${isScrolled ? "shadow-lg" : ""}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-pure-white/95 backdrop-blur-md ${isScrolled ? "shadow-lg" : ""}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo - Mobile & Desktop */}
           <div className="flex items-center gap-3">
             <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
               {/* Logo hiển thị trên cả mobile và desktop */}
-              <img 
-                className="w-16 h-16 lg:w-18 lg:h-18 object-contain dark:hidden"
+              <img
+                className="w-16 h-16 lg:w-18 lg:h-18 object-contain"
                 src={logo_light}
-                alt="Hitek Flycam Logo"
-              />
-              <img 
-                className="w-16 h-16 lg:w-18 lg:h-18 object-contain hidden dark:block"
-                src={logo_dark}
                 alt="Hitek Flycam Logo"
               />
               
@@ -139,7 +133,7 @@ export default function Navbar() {
                   <div className="flex items-center cursor-pointer">
                     <Link
                       to={link.href}
-                      className="text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red transition-colors font-medium"
+                      className="text-pure-black hover:text-vibrant-red transition-colors font-medium"
                       onClick={link.onClick}
                     >
                       {link.name}
@@ -152,7 +146,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     to={link.href}
-                    className="text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red transition-colors font-medium"
+                    className="text-pure-black hover:text-vibrant-red transition-colors font-medium"
                     onClick={link.onClick}
                   >
                     {link.name}
@@ -167,18 +161,16 @@ export default function Navbar() {
             {/* Desktop Controls */}
             <div className="hidden lg:flex items-center gap-4">
               <LanguageSelector />
-              <ThemeToggle />
             </div>
 
             {/* Mobile Controls */}
             <div className="flex lg:hidden items-center gap-3">
               <LanguageSelector />
-              <ThemeToggle />
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-pure-black dark:text-pure-white h-9 w-9"
+                className="text-pure-black h-9 w-9"
               >
                 {isMobileMenuOpen ? (
                   <X className="w-5 h-5" />
@@ -208,7 +200,7 @@ export default function Navbar() {
                       <div className="space-y-1">
                         <button
                           onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                          className="flex items-center justify-between w-full px-4 py-3 text-left text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors"
+                          className="flex items-center justify-between w-full px-4 py-3 text-left text-pure-black hover:text-vibrant-red hover:bg-light-gray transition-colors"
                         >
                           <span className="font-medium">{link.name}</span>
                           <ChevronDown className={`h-4 w-4 transition-transform ${isMobileServicesOpen ? "rotate-180" : ""}`} />
@@ -224,7 +216,7 @@ export default function Navbar() {
                               <Link
                                 key={service.path}
                                 to={service.path}
-                                className="block px-8 py-2 text-sm text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors"
+                                className="block px-8 py-2 text-sm text-pure-black hover:text-vibrant-red hover:bg-light-gray transition-colors"
                                 onClick={() => {
                                   scrollToTop();
                                   setIsMobileServicesOpen(false);
@@ -239,7 +231,7 @@ export default function Navbar() {
                     ) : (
                       <Link
                         to={link.href}
-                        className="block px-4 py-3 text-pure-black dark:text-pure-white hover:text-vibrant-red dark:hover:text-vibrant-red hover:bg-light-gray dark:hover:bg-warm-gray transition-colors font-medium"
+                        className="block px-4 py-3 text-pure-black hover:text-vibrant-red hover:bg-light-gray transition-colors font-medium"
                         onClick={scrollToTop}
                       >
                         {link.name}

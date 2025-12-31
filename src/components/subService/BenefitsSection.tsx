@@ -47,12 +47,12 @@ export default function BenefitsSection({
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {title}
             {highlightedText && <span className={highlightColor}> {highlightedText}</span>}
           </h2>
           {subtitle && (
-            <p className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {subtitle}
             </p>
           )}
@@ -62,7 +62,7 @@ export default function BenefitsSection({
         <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-12 ${isImageLeft ? '' : 'lg:flex-row-reverse'}`}>
           {/* Left Column - Image */}
           <div className="lg:w-1/2">
-            <div className={`relative rounded-2xl overflow-hidden shadow-2xl border border-border dark:border-gray-700 ${imageClassName || ''}`}>
+            <div className={`relative rounded-2xl overflow-hidden shadow-2xl border border-border ${imageClassName || ''}`}>
               <img
                 src={imageUrl}
                 alt={imageAlt}
@@ -81,42 +81,42 @@ export default function BenefitsSection({
 
           {/* Right Column - Benefits List */}
           <div className="lg:w-1/2">
-            <div className="space-y-6 md:space-y-8">
+            <div className="space-y-3 md:space-y-4">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-4 md:gap-6 group"
+                  className="flex items-start gap-3 md:gap-4 group"
                 >
                   {/* Icon Container */}
                   <div className="flex-shrink-0">
-                    <div className={`relative w-12 h-12 md:w-14 md:h-14 ${iconColor} rounded-xl flex items-center justify-center shadow-lg`}>
-                      <benefit.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
-                      
+                    <div className={`relative w-10 h-10 md:w-12 md:h-12 ${iconColor} rounded-xl flex items-center justify-center shadow-lg`}>
+                      <benefit.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+
                       {/* Step Number (Optional) */}
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-background dark:bg-gray-800 rounded-full border-2 border-primary flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">{index + 1}</span>
+                      <div className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-background rounded-full border-2 border-primary flex items-center justify-center">
+                        <span className="text-[10px] font-bold text-primary">{index + 1}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Text Content */}
                   <div className="flex-1">
-                    <div className="bg-card dark:bg-gray-800/50 rounded-xl p-4 md:p-5 border border-border dark:border-gray-700 shadow-sm">
-                      <p className="text-foreground dark:text-white leading-relaxed">
-                        {benefit.parts.map((part, i) => 
+                    <div className="bg-card/50 rounded-xl p-3 md:p-4 border border-border shadow-sm">
+                      <p className="text-foreground leading-relaxed text-sm md:text-base">
+                        {benefit.parts.map((part, i) =>
                           typeof part === 'string' ? part : (
-                            <span key={i} className="font-bold text-primary dark:text-primary-light">
+                            <span key={i} className="font-bold text-primary">
                               {part.text}
                             </span>
                           )
                         )}
                       </p>
                     </div>
-                    
+
                     {/* Connecting Line (except last item) */}
                     {index < benefits.length - 1 && (
-                      <div className="ml-6 md:ml-7 mt-2 md:mt-3">
-                        <div className="w-0.5 h-4 md:h-6 bg-gradient-to-b from-primary/30 to-transparent"></div>
+                      <div className="ml-5 md:ml-6 mt-1.5 md:mt-2">
+                        <div className="w-0.5 h-3 md:h-4 bg-gradient-to-b from-primary/30 to-transparent"></div>
                       </div>
                     )}
                   </div>

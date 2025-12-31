@@ -124,18 +124,33 @@
         {
           "title": "Trends in Drone Applications for Smart Agriculture 2024",
           "excerpt": "Explore how drones are revolutionizing agriculture with automatic spraying technology and crop monitoring.",
-          "category": "Technology",
+          "category": "Drone Repair",
           "readMore": "Read Article"
         },
         {
           "title": "Hitek Flycam Launches Professional Drone Show Service",
           "excerpt": "Light show performance with 500 drones, delivering impressive visual experiences for events.",
-          "category": "Events"
+          "category": "Surveying Drone"
         },
         {
           "title": "Guide to Drone Flight Permits in Vietnam 2024",
           "excerpt": "Updated procedures and documentation for drone flight permits according to Ministry of Defense regulations.",
-          "category": "Legal"
+          "category": "Delivery Drone"
+        },
+        {
+          "title": "Guide to Drone Flight Permits in Vietnam 2024",
+          "excerpt": "Updated procedures and documentation for drone flight permits according to Ministry of Defense regulations.",
+          "category": "Flight Permit Service"
+        },
+        {
+          "title": "Guide to Drone Flight Permits in Vietnam 2024",
+          "excerpt": "Updated procedures and documentation for drone flight permits according to Ministry of Defense regulations.",
+          "category": "Drone Import"
+        },
+        {
+          "title": "Guide to Drone Flight Permits in Vietnam 2024",
+          "excerpt": "Updated procedures and documentation for drone flight permits according to Ministry of Defense regulations.",
+          "category": "Flycam Filming"
         }
       ]
     },
@@ -242,7 +257,7 @@
         },
         "droneFilming": {
           "name": "Flycam Filming",
-          "detail": "Professional aerial filming and photography services using flycam for advertising, media and events."
+          "detail": "Aerial filming and photography using flycam, capturing impressive high-angle images for events, construction, real estate and brand communications."
         }
       }
     },
@@ -348,30 +363,21 @@
           "name": "Lam Thu Tien",
           "position": "Chairman",
           "info": [
-            "Founder and Chairman of the Board of Directors at Rong Viet Digital Technology Investment JSC (Rovi Group).",
-            "Founding shareholder and Member of the Board of Directors at Everyone Happy Technology JSC.",
-            "Former General Director at Thengroup Investment JSC.",
-            "Former Commercial Director at Everyone Happy Service LLC.",
-            "Former founder and operator of the Popular Phone chain system (2012)."
+            "Over 10 years of experience in leadership and business management, with a solid foundation in business and technology development."
           ]
         },
         "khoi": {
           "name": "Tran Anh Khoi",
           "position": "General Director",
           "info": [
-            "Over 10 years of experience in technology field.",
-            "Founder of many pioneering enterprises, solutions 'first introduced in Vietnam'."
+            "Over 10 years of experience in technology field, founder of many pioneering enterprises, solutions 'first introduced in Vietnam'."
           ]
         },
         "sean": {
           "name": "Oh Sean Beom",
           "position": "Business Director",
           "info": [
-            "Over 10 years of experience in mobile app/web development.",
-            "Over 5 years of team management and leadership experience.",
-            "Primary responsibility for managing progress, planning timelines, budgets, and personnel.",
-            "Remotely managing international teams, planning employee development, managing workload, organizing technical documentation, and developing projects.",
-            "International work experience: Japan, Vietnam, Korea, and Europe."
+            "Over 10 years of experience in technology development, with strong leadership capabilities. Managing cross-border projects: Japan, Korea, Vietnam, and Europe."
           ]
         }
       }
@@ -1064,6 +1070,12 @@
         "location": "Ho Chi Minh City",
         "directions": "Get Directions"
       }
+    },
+    "thankYou": {
+      "title": "Thank You!",
+      "message": "We have received your information and will contact you as soon as possible.",
+      "info": "Hitek Flycam team will respond within 24 business hours. For urgent inquiries, please call hotline: 028 99 95 95 88",
+      "button": "Close"
     }
   },
   "footer": {

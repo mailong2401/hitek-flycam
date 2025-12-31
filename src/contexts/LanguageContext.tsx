@@ -55,10 +55,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     
     // If still not found, return the key itself as fallback
     if (value === undefined) {
-      console.warn(`Translation key not found: "${key}" in language "${language}"`);
       return key as unknown as T;
     }
-    
+
     return value as T;
   };
 

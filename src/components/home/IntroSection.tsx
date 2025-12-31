@@ -122,7 +122,7 @@ export default function IntroSection() {
 
   return (
     <motion.section 
-      className="py-16 bg-background dark:bg-background"
+      className="py-16 bg-background"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -137,20 +137,20 @@ export default function IntroSection() {
           >
             {/* Animated vertical line */}
             <motion.div 
-              className="w-1 h-30 bg-primary dark:bg-primary mr-6 rounded-full"
+              className="w-1 h-30 bg-primary mr-6 rounded-full"
               variants={lineVariants}
             />
             
             <div>
               <motion.h2 
-                className="text-[40px] leading-[40px] font-bold text-foreground dark:text-foreground mb-4"
+                className="text-[40px] leading-[40px] font-bold text-foreground mb-4"
                 variants={textVariants}
               >
                 {t<string>("home.servicesPage.servicesIntro.left.title")}
               </motion.h2>
               
               <motion.p 
-                className="text-lg text-foreground dark:text-foreground mb-4"
+                className="text-lg text-foreground mb-4"
                 variants={textVariants}
                 transition={{ delay: 0.1 }}
               >
@@ -160,7 +160,7 @@ export default function IntroSection() {
               
               <Link to="/gioi-thieu">
                 <motion.div 
-                  className="flex items-center text-primary dark:text-primary font-semibold cursor-pointer"
+                  className="flex items-center text-primary font-semibold cursor-pointer"
                   variants={linkVariants}
                   whileHover="hover"
                 >
@@ -182,7 +182,7 @@ export default function IntroSection() {
 
           {/* Right Column */}
           <motion.div 
-            className="space-y-4 text-foreground dark:text-foreground"
+            className="space-y-4 text-foreground"
             variants={paragraphVariants}
           >
             <motion.p 
@@ -190,7 +190,7 @@ export default function IntroSection() {
               className="leading-relaxed"
             >
               <motion.span 
-                className="font-bold text-primary dark:text-primary"
+                className="font-bold text-primary"
                 variants={highlightVariants}
                 animate="visible"
               >
@@ -198,7 +198,7 @@ export default function IntroSection() {
               </motion.span>
               {t<string>("home.servicesPage.servicesIntro.right.part1.text1")}{" "}
               <motion.span 
-                className="font-bold text-primary dark:text-primary"
+                className="font-bold text-primary"
                 variants={highlightVariants}
                 animate="visible"
                 style={{ animationDelay: "0.2s" }}
@@ -207,7 +207,7 @@ export default function IntroSection() {
               </motion.span>
               {t<string>("home.servicesPage.servicesIntro.right.part1.text2")}{" "}
               <motion.span 
-                className="font-bold text-primary dark:text-primary"
+                className="font-bold text-primary"
                 variants={highlightVariants}
                 animate="visible"
                 style={{ animationDelay: "0.4s" }}
@@ -230,7 +230,7 @@ export default function IntroSection() {
               {[...Array(2)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-1 h-1 bg-primary/20 dark:bg-primary/30 rounded-full"
+                  className="absolute w-1 h-1 bg-primary/20/30 rounded-full"
                   style={{
                     left: `${i * 60}%`,
                     top: "50%",

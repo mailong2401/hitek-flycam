@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Plus, Minus, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 interface FAQ {
   question: string;
@@ -92,17 +93,14 @@ export default function FAQSection({
               {t("faqSection.ctaDescription.part1" as any)} <span className="font-bold">{t("faqSection.ctaDescription.highlight" as any)}</span> {t("faqSection.ctaDescription.part2" as any)}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md text-lg px-8 py-6"
-              >
-                {t("faqSection.buttons.contact" as any)}
-                <ChevronRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button
-                className="bg-background text-foreground border-2 border-gray-300 hover:bg-background hover:text-foreground hover:scale-105 transition-transform text-lg px-8 py-6"
-              >
-                {t("faqSection.buttons.viewMore" as any)}
-              </Button>
+              <Link to="/lien-he">
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md text-lg px-8 py-6"
+                >
+                  {t("faqSection.buttons.contact" as any)}
+                  <ChevronRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

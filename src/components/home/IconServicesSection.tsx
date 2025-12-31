@@ -112,7 +112,7 @@ export default function IconServicesSection() {
                     <img 
                       src={service.icon} 
                       alt={service.label}
-                      className="w-10 h-10 object-contain dark:invert dark:brightness-0 dark:contrast-100"
+                      className="w-10 h-10 object-contain"
                     />
                     
                     {/* Floating particles - smaller and fewer */}

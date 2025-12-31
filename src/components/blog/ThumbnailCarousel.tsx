@@ -73,7 +73,7 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
   return (
     <div className="thumbnail-section absolute bottom-8 right-8 z-20">
       {/* Tiêu đề với ngôn ngữ động */}
-      <div className="text-white dark:text-foreground mb-4">
+      <div className="text-white mb-4">
         <h3 className="text-xl font-bold">
           {displayLanguage === 'vi' ? 'CÁC BÀI VIẾT NỔI BẬT' : 'FEATURED POSTS'}
         </h3>
@@ -114,17 +114,17 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
               
               
               {/* Gradient overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent dark:from-background/95 dark:via-background/80 dark:to-transparent p-3">
-                <h2 className="title text-white dark:text-foreground font-bold text-sm line-clamp-2">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3">
+                <h2 className="title text-white font-bold text-sm line-clamp-2">
                   {title.length > 30 ? title.substring(0, 30) + '...' : title}
                 </h2>
                 <div className="flex items-center justify-between mt-1">
-                  <div className="des text-white/80 dark:text-foreground/80 text-xs">
+                  <div className="des text-white/80/80 text-xs">
                     {category}
                   </div>
                   {/* Read time (if available) */}
                   {post.readTime && (
-                    <div className="text-white/60 dark:text-foreground/60 text-[10px]">
+                    <div className="text-white/60/60 text-[10px]">
                       {post.readTime}{displayLanguage === 'vi' ? 'p' : 'm'}
                     </div>
                   )}
@@ -132,8 +132,8 @@ const ThumbnailCarousel: React.FC<ThumbnailCarouselProps> = ({
               </div>
 
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/60 dark:bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white dark:text-foreground text-sm font-medium">
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="text-white text-sm font-medium">
                   {displayLanguage === 'vi' ? 'Đọc ngay' : 'Read now'} →
                 </span>
               </div>

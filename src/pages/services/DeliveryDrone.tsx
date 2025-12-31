@@ -47,7 +47,7 @@ export default function DeliveryDrone() {
       icon: CheckCircle,
       parts: item.parts
     })),
-    imageHeight: "h-[400px] md:h-[500px]"
+    imageHeight: "h-[380px] md:h-[450px]"
   };
 
   const faqData = {

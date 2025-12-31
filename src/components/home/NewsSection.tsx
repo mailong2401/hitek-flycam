@@ -15,13 +15,16 @@ interface NewsItem {
 }
 
 // Static images
-const newsImages = [photo1, photo2, photo3];
+const newsImages = [photo1, photo2, photo3, photo3, photo2, photo1];
 
 // Static metadata (date is static, readTime will be translated in component)
 const newsMetadata = [
   { id: 1, date: "15/12/2024", readTime: "5" },
   { id: 2, date: "10/12/2024", readTime: "4" },
-  { id: 3, date: "05/12/2024", readTime: "7" }
+  { id: 3, date: "05/12/2024", readTime: "7" },
+  { id: 4, date: "05/12/2024", readTime: "8" },
+  { id: 5, date: "05/12/2024", readTime: "10" },
+  { id: 6, date: "05/12/2024", readTime: "9" }
 ];
 
 export default function NewsSection() {
@@ -103,7 +106,7 @@ export default function NewsSection() {
   return (
     <section 
       ref={ref}
-      className="py-20 bg-secondary dark:from-gray-900 dark:to-red-900/10"
+      className="py-20 bg-secondary"
     >
       <div className="container mx-auto px-4">
         {/* Header */}
@@ -115,17 +118,17 @@ export default function NewsSection() {
           <div className="flex-1">
             <motion.h2 
               variants={headerVariants}
-              className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-4"
+              className="text-4xl md:text-5xl font-bold text-foreground mb-4"
             >
               {t<string>("home.newsSection.title")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-400 dark:to-red-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">
                 {t<string>("home.newsSection.highlight")}
               </span>
             </motion.h2>
             
             <motion.p 
               variants={headerVariants}
-              className="text-muted-foreground dark:text-gray-300 text-lg max-w-2xl whitespace-nowrap"
+              className="text-muted-foreground text-lg max-w-2xl whitespace-nowrap"
             >
               {t<string>("home.newsSection.subtitle")}
             </motion.p>
@@ -138,7 +141,7 @@ export default function NewsSection() {
           >
             <Button 
               variant="outline" 
-              className="flex items-center gap-2 border-2 border-red-600 dark:border-red-400 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 group/btn"
+              className="flex items-center gap-2 border-2 border-red-600 text-red-600 hover:bg-red-50 transition-all duration-300 group/btn"
             >
               {t<string>("home.newsSection.viewAllNews")}
               <motion.div
@@ -173,7 +176,7 @@ export default function NewsSection() {
               className="group relative"
             >
               {/* News Card */}
-              <div className="bg-card dark:bg-gray-800 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full border border-border dark:border-gray-700 group-hover:border-red-300 dark:group-hover:border-red-400/30">
+              <div className="bg-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full border border-border group-hover:border-red-300">
                 {/* Image Container */}
                 <motion.div 
                   className="relative overflow-hidden h-56"
@@ -212,7 +215,7 @@ export default function NewsSection() {
                 {/* Content */}
                 <div className="p-6">
                   {/* Meta Info */}
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground dark:text-gray-400 mb-4">
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
                     <motion.div 
                       className="flex items-center gap-2"
                       whileHover={{ scale: 1.05 }}
@@ -233,14 +236,14 @@ export default function NewsSection() {
                   
                   {/* Title */}
                   <motion.h3 
-                    className="text-xl font-bold text-foreground dark:text-white mb-3 line-clamp-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300"
+                    className="text-xl font-bold text-foreground mb-3 line-clamp-2 group-hover:text-red-600 transition-colors duration-300"
                   >
                     {item.title}
                   </motion.h3>
                   
                   {/* Excerpt */}
                   <motion.p 
-                    className="text-muted-foreground dark:text-gray-300 mb-6 line-clamp-3 leading-relaxed"
+                    className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed"
                   >
                     {item.excerpt}
                   </motion.p>
@@ -252,7 +255,7 @@ export default function NewsSection() {
                   >
                     <Button
                       variant="ghost"
-                      className="p-0 h-auto text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-300 hover:bg-transparent group/btn"
+                      className="p-0 h-auto text-red-600 hover:text-red-500 hover:bg-transparent group/btn"
                     >
                       <span className="flex items-center gap-2 font-semibold">
                         {displayLanguage === 'vi' ? 'Đọc tiếp' : 'Read More'}

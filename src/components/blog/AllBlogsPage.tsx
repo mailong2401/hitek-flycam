@@ -152,7 +152,6 @@ const AllBlogsPage: React.FC<AllBlogsPageProps> = ({ getFallbackImage, onBack })
         setAllBlogs(postsWithDefaults);
       }
     } catch (error) {
-      console.error('Error fetching all blogs:', error);
     } finally {
       setLoading(false);
     }

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import ContactFormFields from './ContactFormFields';
 import ContactInfo from './ContactInfo';
 import SubmitButton from './SubmitButton';
+import ThankYouModal from './ThankYouModal';
 import { ContactFormData } from '@/types/contact';
 import { sendContactEmail } from '@/utils/emailService';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -35,6 +36,8 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [successMessage, setSuccessMessage] = useState('');
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
   const timeoutsRef = useRef<Record<string, NodeJS.Timeout>>({});
 
   // Reset success message sau 10 giây
@@ -249,7 +252,6 @@ const ContactForm = () => {
 
     // Validate form ngay lập tức khi submit
     if (!validateForm()) {
-      console.log('❌ Form có lỗi validation');
       return;
     }
 
@@ -258,41 +260,38 @@ const ContactForm = () => {
     setSuccessMessage('');
 
     try {
-      console.log('🔄 Submitting form...');
-      
-      // Gửi email qua Supabase Edge Function
-      const result = await sendContactEmail(formData);
-      
-      if (result.success) {
-        setSubmitStatus('success');
-        setSuccessMessage(t<string>("contact.form.submit.success.message"));
-        
-        // Reset form
-        setFormData({ 
-          name: '', 
-          company: '', 
-          email: '', 
-          phone: '', 
-          service: '', 
-          location: '', 
-          message: '' 
-        });
-        // Reset errors
-        setErrors({
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
-          service: '',
-          location: '',
-          message: ''
-        });
-      } else {
-        setSubmitStatus('error');
-        setSuccessMessage(t<string>("contact.form.submit.error.message"));
-      }
+      // OPTIMISTIC UI: Hiển thị modal ngay lập tức
+      setSubmittedName(formData.name);
+      setShowThankYou(true);
+      setSubmitStatus('success');
+
+      // Reset form ngay
+      const submittedData = { ...formData };
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        service: '',
+        location: '',
+        message: ''
+      });
+      setErrors({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        service: '',
+        location: '',
+        message: ''
+      });
+
+      // Gửi email ở background (không chờ)
+      sendContactEmail(submittedData).catch(() => {
+        // Không hiển thị lỗi cho user vì đã thấy modal success
+      });
+
     } catch (error) {
-      console.error('❌ Form submit error:', error);
       setSubmitStatus('error');
       setSuccessMessage(t<string>("contact.form.submit.error.message"));
     } finally {
@@ -301,9 +300,19 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="grid lg:grid-cols-2 gap-12">
-      {/* Contact Form */}
-      <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
+    <>
+      <ThankYouModal
+        isOpen={showThankYou}
+        onClose={() => {
+          setShowThankYou(false);
+          setSubmitStatus('idle');
+        }}
+        customerName={submittedName}
+      />
+
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Contact Form */}
+        <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
         <h2 className="text-2xl font-bold text-foreground mb-6">
           {t<string>("contact.form.title")}
         </h2>
@@ -392,9 +401,10 @@ const ContactForm = () => {
         </form>
       </div>
 
-      {/* Contact Information */}
-      <ContactInfo />
-    </div>
+        {/* Contact Information */}
+        <ContactInfo />
+      </div>
+    </>
   );
 };
 

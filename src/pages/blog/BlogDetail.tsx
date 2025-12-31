@@ -147,7 +147,6 @@ export default function BlogDetail() {
       const { data, error } = await query.single();
 
       if (error) {
-        console.error("Error loading post:", error);
         setPost(null);
         setLoading(false);
         return;
@@ -156,7 +155,6 @@ export default function BlogDetail() {
       setPost(data);
       setLoading(false);
     } catch (error) {
-      console.error("Error loading post:", error);
       setPost(null);
       setLoading(false);
     }
@@ -174,7 +172,6 @@ export default function BlogDetail() {
       if (error) throw error;
       setViewCount((prev) => prev + 1);
     } catch (error) {
-      console.error('Error incrementing view count:', error);
     }
   };
 
@@ -211,7 +208,6 @@ export default function BlogDetail() {
         .limit(3);
 
       if (error) {
-        console.error("Error loading related posts:", error);
         return;
       }
 
@@ -219,7 +215,6 @@ export default function BlogDetail() {
       const localizedRelatedPosts = (data || []).map(relatedPost => getLocalizedData(relatedPost));
       setRelatedPosts(localizedRelatedPosts);
     } catch (error) {
-      console.error("Error loading related posts:", error);
       setRelatedPosts([]);
     }
   };

@@ -90,37 +90,164 @@ ${html}
       conn.close();
     }
 
+    // -------------------- SERVICE NAME MAPPING --------------------
+    const serviceNames: Record<string, string> = {
+      'repairService': 'Sửa chữa Drone',
+      'surveyingDrone': 'Drone Trắc địa',
+      'deliveryDrone': 'Drone Vận chuyển',
+      'flightPermit': 'Dịch vụ Phép bay',
+      'droneImport': 'Nhập khẩu Drone',
+      'droneFilming': 'Quay phim Flycam'
+    };
+
+    const displayService = serviceNames[data.service] || data.service || "Không có";
+
     // -------------------- ADMIN EMAIL --------------------
     const adminHtml = `
-    <div style="font-family: Arial; padding:20px; border:1px solid #eee; border-radius:8px;">
-      <h2 style="color:#333;">📩 New Contact Submission</h2>
-      <p><b>Name:</b> ${data.name}</p>
-      <p><b>Email:</b> ${data.email}</p>
-      <p><b>Phone:</b> ${data.phone}</p>
-      <p><b>Company:</b> ${data.company || "N/A"}</p>
-      <p><b>Service:</b> ${data.service || "N/A"}</p>
-      <p><b>Message:</b><br>${data.message}</p>
-      <br>
-      <small style="color:#777;">Sent from website contact form</small>
-    </div>
-    `;
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 40px 20px;">
+        <tr>
+          <td align="center">
+            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
 
-    // -------------------- USER EMAIL --------------------
-    const userHtml = `
-    <div style="font-family: Arial; padding:20px; border:1px solid #eee; border-radius:8px;">
-      <h2 style="color:#4CAF50;">🎉 Cảm ơn bạn đã liên hệ!</h2>
-      <p>Chào <b>${data.name}</b>,</p>
-      <p>Chúng tôi đã nhận được thông tin của bạn và sẽ liên hệ lại sớm nhất.</p>
+              <!-- Header -->
+              <tr>
+                <td style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); padding: 30px; text-align: center;">
+                  <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">📩 Liên Hệ Mới</h1>
+                  <p style="margin: 10px 0 0 0; color: #ffffff; font-size: 14px;">Từ Website Hitek Flycam</p>
+                </td>
+              </tr>
 
-      <h3>📄 Thông tin bạn đã gửi:</h3>
-      <p><b>Email:</b> ${data.email}</p>
-      <p><b>Phone:</b> ${data.phone}</p>
-      <p><b>Service:</b> ${data.service || "N/A"}</p>
-      <p><b>Message:</b><br>${data.message}</p>
+              <!-- Content -->
+              <tr>
+                <td style="padding: 40px 30px;">
 
-      <br><br>
-      <p>Trân trọng,<br><b>Hitek Team</b></p>
-    </div>
+                  <!-- Customer Info Section -->
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td style="padding-bottom: 25px;">
+                        <h2 style="margin: 0 0 20px 0; color: #1f2937; font-size: 20px; border-bottom: 2px solid #dc2626; padding-bottom: 10px;">
+                          👤 Thông Tin Khách Hàng
+                        </h2>
+                      </td>
+                    </tr>
+
+                    <!-- Name -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="140" style="color: #6b7280; font-size: 14px; font-weight: 600;">Họ và tên:</td>
+                            <td style="color: #1f2937; font-size: 14px; font-weight: bold;">${data.name}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <!-- Email -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="140" style="color: #6b7280; font-size: 14px; font-weight: 600;">Email:</td>
+                            <td style="color: #1f2937; font-size: 14px;">
+                              <a href="mailto:${data.email}" style="color: #dc2626; text-decoration: none;">${data.email}</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <!-- Phone -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="140" style="color: #6b7280; font-size: 14px; font-weight: 600;">Số điện thoại:</td>
+                            <td style="color: #1f2937; font-size: 14px;">
+                              <a href="tel:${data.phone}" style="color: #dc2626; text-decoration: none;">${data.phone}</a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <!-- Company -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="140" style="color: #6b7280; font-size: 14px; font-weight: 600;">Công ty:</td>
+                            <td style="color: #1f2937; font-size: 14px;">${data.company || "Không có"}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <!-- Location -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="140" style="color: #6b7280; font-size: 14px; font-weight: 600;">Địa điểm:</td>
+                            <td style="color: #1f2937; font-size: 14px;">${data.location || "Không có"}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <!-- Service -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="140" style="color: #6b7280; font-size: 14px; font-weight: 600;">Dịch vụ quan tâm:</td>
+                            <td style="color: #1f2937; font-size: 14px;">${displayService}</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <!-- Message -->
+                    <tr>
+                      <td style="padding-top: 25px;">
+                        <h3 style="margin: 0 0 15px 0; color: #1f2937; font-size: 18px; border-bottom: 2px solid #dc2626; padding-bottom: 10px;">
+                          💬 Nội Dung Tin Nhắn
+                        </h3>
+                        <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; border-left: 4px solid #dc2626;">
+                          <p style="margin: 0; color: #374151; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${data.message}</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+                  <p style="margin: 0; color: #6b7280; font-size: 12px;">
+                    🕐 Nhận lúc: ${new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })}
+                  </p>
+                  <p style="margin: 10px 0 0 0; color: #9ca3af; font-size: 11px;">
+                    Email tự động từ website <strong>Hitek Flycam</strong>
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>
     `;
 
     // -------------------- SAVE TO DATABASE --------------------
@@ -131,26 +258,21 @@ ${html}
         email: data.email,
         phone: data.phone,
         company: data.company,
+        location: data.location,
         service: data.service,
         message: data.message,
         status: "pending",
       })
       .select();
 
-    // 🔥 GHI LẠI LỖI THẬT
-    console.log("DB INSERT RESULT:", saved);
-    console.log("DB INSERT ERROR:", error);
-
-    // -------------------- SEND EMAILS --------------------
+    // -------------------- SEND EMAIL TO ADMIN ONLY --------------------
     await sendSMTP(adminEmail, adminHtml, "📩 New Contact Submission");
-    await sendSMTP(data.email, userHtml, "🎉 Cảm ơn bạn đã liên hệ!");
 
     return cors(
       new Response(JSON.stringify({ success: true }), { status: 200 })
     );
 
   } catch (err) {
-    console.error("❌ ERROR:", err);
     return cors(
       new Response(JSON.stringify({ error: err.message }), {
         status: 500,
