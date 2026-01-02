@@ -21,6 +21,7 @@ import { AuthorBio } from "@/components/blog/blogdetail/AuthorBio";
 import { RelatedPosts } from "@/components/blog/blogdetail/RelatedPosts";
 import { CommentsSection } from "@/components/blog/blogdetail/CommentsSection";
 import { TableOfContents } from "@/components/blog/blogdetail/TableOfContents";
+import { BlogDetailSEO } from "@/components/blog/BlogDetailSEO";
 
 export default function BlogDetail() {
   const { t, language } = useLanguage(); // Sử dụng useLanguage
@@ -514,9 +515,11 @@ export default function BlogDetail() {
 
   return (
     <div className="min-h-screen bg-background">
-      <HeroSection 
-        image={post.image} 
-        title={localizedPost.title} 
+      <BlogDetailSEO post={post} language={displayLanguage} />
+
+      <HeroSection
+        image={post.image}
+        title={localizedPost.title}
         language={displayLanguage}
       />
 
